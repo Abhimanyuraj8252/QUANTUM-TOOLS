@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Word & Character Counter - QUANTUM TOOLS</title>
+    <meta name="description"
+        content="Professional text analysis tool with real-time statistics, readability analysis, keyword density, and comprehensive text insights">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0E17RL1H32');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../Home page/preloader.css">
+    <link rel="stylesheet" href="../../Home page/animations.css">
+    <link rel="stylesheet" href="../../Home page/enhancements.css">
+    <link rel="stylesheet" href="../../Home page/universal-nav.css">
+    <link rel="stylesheet" href="../../dropdown-styles.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="word-counter-styles.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="nav-right">
+                    <a href="../../index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Tool Header -->
+            <div class="tool-header">
+                <h2 class="tool-title">
+                    <i class="fas fa-calculator"></i>
+                    Advanced Word & Character Counter
+                </h2>
+                <p class="tool-description">
+                    Professional text analysis tool with real-time statistics, reading time estimation, readability
+                    analysis, keyword density, and comprehensive text insights for writers, editors, and content
+                    creators.
+                </p>
+            </div>
+
+            <!-- Advanced Controls -->
+            <div class="advanced-controls">
+                <div class="control-group">
+                    <button id="import-btn" class="control-btn">
+                        <i class="fas fa-upload"></i>
+                        Import File
+                    </button>
+                    <input type="file" id="file-input" accept=".txt,.doc,.docx" style="display: none;">
+
+                    <button id="export-btn" class="control-btn">
+                        <i class="fas fa-download"></i>
+                        Export Report
+                    </button>
+
+                    <button id="copy-stats-btn" class="control-btn">
+                        <i class="fas fa-copy"></i>
+                        Copy Stats
+                    </button>
+
+                    <button id="fullscreen-btn" class="control-btn">
+                        <i class="fas fa-expand"></i>
+                        Fullscreen
+                    </button>
+                </div>
+
+                <div class="settings-group">
+                    <div class="setting-item">
+                        <label for="reading-speed">Reading Speed (WPM):</label>
+                        <input type="range" id="reading-speed" min="100" max="400" value="200" step="25">
+                        <span id="reading-speed-value">200</span>
+                    </div>
+
+                    <div class="setting-item">
+                        <label for="analysis-mode">Analysis Mode:</label>
+                        <select id="analysis-mode">
+                            <option value="standard">Standard</option>
+                            <option value="academic">Academic</option>
+                            <option value="seo">SEO Focused</option>
+                            <option value="creative">Creative Writing</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool Content Grid -->
+            <div class="tool-content">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="input-header">
+                        <h3><i class="fas fa-edit"></i> Text Input</h3>
+                        <div class="input-controls">
+                            <button id="clear-btn" class="clear-btn">
+                                <i class="fas fa-trash"></i>
+                                Clear Text
+                            </button>
+                            <button id="sample-text-btn" class="sample-btn">
+                                <i class="fas fa-file-text"></i>
+                                Sample Text
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="textarea-container">
+                        <textarea id="text-input"
+                            placeholder="Paste or type your text here to analyze words, characters, sentences, paragraphs, reading time, readability, keyword density, and much more..."
+                            spellcheck="true"></textarea>
+
+                        <div class="textarea-overlay">
+                            <div class="character-limit">
+                                <span id="char-current">0</span> characters
+                            </div>
+                        </div>
+
+                        <div class="text-tools">
+                            <button id="text-to-speech-btn" class="text-tool-btn" title="Text to Speech">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button id="find-replace-btn" class="text-tool-btn" title="Find & Replace">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <button id="word-cloud-btn" class="text-tool-btn" title="Word Cloud">
+                                <i class="fas fa-cloud"></i>
+                            </button>
+                            <!-- Enhanced Search Feature -->
+                            <button id="enhanced-search-btn" class="text-tool-btn" title="Enhanced Search & Highlight">
+                                <i class="fas fa-highlighter"></i>
+                            </button>
+                            <!-- Text Analysis Features -->
+                            <button id="sentiment-analysis-btn" class="text-tool-btn" title="Sentiment Analysis">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button id="plagiarism-checker-btn" class="text-tool-btn" title="Plagiarism Checker">
+                                <i class="fas fa-shield-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Section -->
+                <div class="output-section">
+                    <div class="output-tabs">
+                        <button class="tab-btn active" data-tab="basic">Basic Stats</button>
+                        <button class="tab-btn" data-tab="advanced">Advanced</button>
+                        <button class="tab-btn" data-tab="readability">Readability</button>
+                        <button class="tab-btn" data-tab="keywords">Keywords</button>
+                        <button class="tab-btn" data-tab="structure">Structure</button>
+                        <button class="tab-btn" data-tab="enhanced">Enhanced Features</button>
+                    </div>
+
+                    <!-- Basic Statistics Tab -->
+                    <div id="basic-tab" class="tab-content active">
+                        <h3><i class="fas fa-chart-bar"></i> Basic Analysis</h3>
+
+                        <div class="stats-grid">
+                            <div class="stat-card words">
+                                <div class="stat-icon">
+                                    <i class="fas fa-font"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Words</div>
+                                    <div class="stat-value" id="word-count">0</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card characters-with">
+                                <div class="stat-icon">
+                                    <i class="fas fa-keyboard"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Characters (with spaces)</div>
+                                    <div class="stat-value" id="char-count-with">0</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card characters-without">
+                                <div class="stat-icon">
+                                    <i class="fas fa-align-left"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Characters (no spaces)</div>
+                                    <div class="stat-value" id="char-count-without">0</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card paragraphs">
+                                <div class="stat-icon">
+                                    <i class="fas fa-paragraph"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Paragraphs</div>
+                                    <div class="stat-value" id="paragraph-count">0</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card sentences">
+                                <div class="stat-icon">
+                                    <i class="fas fa-quote-right"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Sentences</div>
+                                    <div class="stat-value" id="sentence-count">0</div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card reading-time">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-label">Reading Time</div>
+                                    <div class="stat-value" id="reading-time">0 min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Statistics Tab -->
+                    <div id="advanced-tab" class="tab-content">
+                        <h3><i class="fas fa-microscope"></i> Advanced Analysis</h3>
+
+                        <div class="advanced-stats">
+                            <div class="stat-row">
+                                <span class="stat-label">Average Words per Sentence</span>
+                                <span class="stat-value" id="avg-words-per-sentence">0</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Average Characters per Word</span>
+                                <span class="stat-value" id="avg-chars-per-word">0</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Longest Word</span>
+                                <span class="stat-value" id="longest-word">-</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Shortest Word</span>
+                                <span class="stat-value" id="shortest-word">-</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Unique Words</span>
+                                <span class="stat-value" id="unique-words">0</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Vocabulary Diversity</span>
+                                <span class="stat-value" id="vocabulary-diversity">0%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Speaking Time</span>
+                                <span class="stat-value" id="speaking-time">0 min</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Text Complexity</span>
+                                <span class="stat-value" id="text-complexity">Simple</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Readability Tab -->
+                    <div id="readability-tab" class="tab-content">
+                        <h3><i class="fas fa-graduation-cap"></i> Readability Analysis</h3>
+
+                        <div class="readability-scores">
+                            <div class="score-card">
+                                <div class="score-label">Flesch Reading Ease</div>
+                                <div class="score-value" id="flesch-ease">0</div>
+                                <div class="score-grade" id="flesch-grade">-</div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-label">Flesch-Kincaid Grade</div>
+                                <div class="score-value" id="flesch-kincaid">0</div>
+                                <div class="score-grade">Grade Level</div>
+                            </div>
+                            <div class="score-card">
+                                <div class="score-label">Gunning Fog Index</div>
+                                <div class="score-value" id="gunning-fog">0</div>
+                                <div class="score-grade">Years of Education</div>
+                            </div>
+                        </div>
+
+                        <div class="readability-insights">
+                            <div class="insight-item">
+                                <span class="insight-label">Recommended Audience:</span>
+                                <span class="insight-value" id="target-audience">-</span>
+                            </div>
+                            <div class="insight-item">
+                                <span class="insight-label">Reading Difficulty:</span>
+                                <span class="insight-value" id="reading-difficulty">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Keywords Tab -->
+                    <div id="keywords-tab" class="tab-content">
+                        <h3><i class="fas fa-tags"></i> Keyword Analysis</h3>
+
+                        <div class="keyword-section">
+                            <h4>Most Frequent Words</h4>
+                            <div id="frequent-words" class="word-list"></div>
+                        </div>
+
+                        <div class="keyword-section">
+                            <h4>Keyword Density</h4>
+                            <div id="keyword-density" class="density-list"></div>
+                        </div>
+
+                        <div class="keyword-section">
+                            <h4>Long-tail Keywords</h4>
+                            <div id="longtail-keywords" class="keyword-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Structure Tab -->
+                    <div id="structure-tab" class="tab-content">
+                        <h3><i class="fas fa-sitemap"></i> Text Structure</h3>
+
+                        <div class="structure-analysis">
+                            <div class="structure-item">
+                                <span class="structure-label">Average Paragraph Length:</span>
+                                <span class="structure-value" id="avg-paragraph-length">0 words</span>
+                            </div>
+                            <div class="structure-item">
+                                <span class="structure-label">Longest Paragraph:</span>
+                                <span class="structure-value" id="longest-paragraph">0 words</span>
+                            </div>
+                            <div class="structure-item">
+                                <span class="structure-label">Shortest Paragraph:</span>
+                                <span class="structure-value" id="shortest-paragraph">0 words</span>
+                            </div>
+                            <div class="structure-item">
+                                <span class="structure-label">Sentence Variety:</span>
+                                <span class="structure-value" id="sentence-variety">-</span>
+                            </div>
+                        </div>
+
+                        <div class="structure-visualization">
+                            <h4>Text Structure Map</h4>
+                            <div id="structure-map" class="structure-visual"></div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Features Tab -->
+                    <div id="enhanced-tab" class="tab-content">
+                        <h3><i class="fas fa-magic"></i> Advanced Features</h3>
+
+                        <div class="enhanced-features">
+                            <div class="feature-section">
+                                <h4><i class="fas fa-heart"></i> Sentiment Analysis</h4>
+                                <div class="sentiment-result">
+                                    <div class="sentiment-score">
+                                        <span class="sentiment-label">Overall Sentiment:</span>
+                                        <span id="sentiment-value" class="sentiment-value">Neutral</span>
+                                    </div>
+                                    <div class="sentiment-breakdown">
+                                        <div class="sentiment-bar">
+                                            <span>Positive</span>
+                                            <div class="bar">
+                                                <div id="positive-bar" class="bar-fill positive"></div>
+                                            </div>
+                                            <span id="positive-percent">0%</span>
+                                        </div>
+                                        <div class="sentiment-bar">
+                                            <span>Neutral</span>
+                                            <div class="bar">
+                                                <div id="neutral-bar" class="bar-fill neutral"></div>
+                                            </div>
+                                            <span id="neutral-percent">0%</span>
+                                        </div>
+                                        <div class="sentiment-bar">
+                                            <span>Negative</span>
+                                            <div class="bar">
+                                                <div id="negative-bar" class="bar-fill negative"></div>
+                                            </div>
+                                            <span id="negative-percent">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature-section">
+                                <h4><i class="fas fa-language"></i> Language Detection</h4>
+                                <div class="language-result">
+                                    <span class="language-label">Detected Language:</span>
+                                    <span id="detected-language" class="language-value">Not detected</span>
+                                    <span id="language-confidence" class="confidence-value">(0% confidence)</span>
+                                </div>
+                            </div>
+
+                            <div class="feature-section">
+                                <h4><i class="fas fa-clock"></i> Writing Statistics</h4>
+                                <div class="writing-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Writing Pace:</span>
+                                        <span id="writing-pace" class="stat-value">- WPM</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Estimated Writing Time:</span>
+                                        <span id="estimated-writing-time" class="stat-value">- minutes</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Text Density:</span>
+                                        <span id="text-density" class="stat-value">- words/sentence</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="feature-section">
+                                <h4><i class="fas fa-chart-line"></i> Writing Quality</h4>
+                                <div class="quality-metrics">
+                                    <div class="quality-item">
+                                        <span class="quality-label">Repetition Score:</span>
+                                        <div class="quality-bar">
+                                            <div id="repetition-bar" class="quality-fill"></div>
+                                        </div>
+                                        <span id="repetition-score" class="quality-value">0%</span>
+                                    </div>
+                                    <div class="quality-item">
+                                        <span class="quality-label">Clarity Score:</span>
+                                        <div class="quality-bar">
+                                            <div id="clarity-bar" class="quality-fill"></div>
+                                        </div>
+                                        <span id="clarity-score" class="quality-value">0%</span>
+                                    </div>
+                                    <div class="quality-item">
+                                        <span class="quality-label">Engagement Score:</span>
+                                        <div class="quality-bar">
+                                            <div id="engagement-bar" class="quality-fill"></div>
+                                        </div>
+                                        <span id="engagement-score" class="quality-value">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Find & Replace Modal -->
+            <div id="find-replace-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Find & Replace</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="find-text">Find:</label>
+                            <input type="text" id="find-text" placeholder="Enter text to find">
+                        </div>
+                        <div class="form-group">
+                            <label for="replace-text">Replace with:</label>
+                            <input type="text" id="replace-text" placeholder="Enter replacement text">
+                        </div>
+                        <div class="form-options">
+                            <label><input type="checkbox" id="case-sensitive"> Case sensitive</label>
+                            <label><input type="checkbox" id="whole-words"> Whole words only</label>
+                        </div>
+                        <div class="modal-actions">
+                            <button id="find-next-btn" class="btn-primary">Find Next</button>
+                            <button id="replace-btn" class="btn-secondary">Replace</button>
+                            <button id="replace-all-btn" class="btn-secondary">Replace All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Word Cloud Modal -->
+            <div id="word-cloud-modal" class="modal">
+                <div class="modal-content large">
+                    <div class="modal-header">
+                        <h3>Word Cloud Visualization</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="word-cloud-container" class="word-cloud"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Search Panel -->
+            <div id="enhanced-search-panel" class="search-panel" style="display: none;">
+                <div class="search-controls">
+                    <div class="search-input-group">
+                        <input type="text" id="search-input" placeholder="Search for words or phrases..." />
+                        <button id="search-btn" class="search-action-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button id="clear-search-btn" class="search-action-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <div class="search-options">
+                        <label class="search-option">
+                            <input type="checkbox" id="case-sensitive-search">
+                            <span>Case Sensitive</span>
+                        </label>
+                        <label class="search-option">
+                            <input type="checkbox" id="whole-word-search">
+                            <span>Whole Words</span>
+                        </label>
+                        <label class="search-option">
+                            <input type="checkbox" id="regex-search">
+                            <span>Regex</span>
+                        </label>
+                    </div>
+
+                    <div class="search-navigation">
+                        <span class="search-counter">
+                            <span id="current-match">0</span> of <span id="total-matches">0</span>
+                        </span>
+                        <button id="prev-match-btn" class="nav-btn" disabled>
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                        <button id="next-match-btn" class="nav-btn" disabled>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="search-results">
+                    <div class="result-summary">
+                        <span id="results-summary">Start typing to search...</span>
+                    </div>
+                    <div id="search-highlights-list" class="highlights-list"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 QUANTUM TOOLS. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="word-counter-script.js"></script>
+</body>
+
+</html>

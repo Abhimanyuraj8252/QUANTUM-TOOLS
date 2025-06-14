@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Page Manager - Reorder, Delete, Rotate Pages</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="pdf-page-manager-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <header style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 1rem 0; border-bottom: 2px solid #00d4ff; margin-bottom: 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <div>
+                <a href="../../../index.html" style="color: #00d4ff; text-decoration: none; font-family: 'Orbitron', monospace; font-size: 1.5rem; font-weight: 700;">QUANTUM TOOLS</a>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <a href="../../pdf-toolkit.html" style="background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; border: 1px solid #00d4ff; transition: all 0.3s ease; font-family: 'Orbitron', monospace;">
+                    <i class="fas fa-arrow-left"></i> PDF Toolkit
+                </a>
+                <a href="../../../index.html" style="background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 0.5rem 1rem; border-radius: 25px; text-decoration: none; border: 1px solid #00d4ff; transition: all 0.3s ease; font-family: 'Orbitron', monospace;">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <h1>PDF Page Manager</h1>
+            <p>Reorder, delete, rotate, and manage PDF pages with ease</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h2>Select PDF File</h2>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <div class="upload-text">
+                    <h3>Drag & Drop PDF file here</h3>
+                    <p>or click to browse</p>
+                </div>
+                <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                <button type="button" id="browseButton" class="browse-button">Browse File</button>
+            </div>
+            <div class="file-info">
+                <small>Support for PDF files up to 100MB</small>
+            </div>
+        </div>
+
+        <!-- Toolbar Section -->
+        <div class="toolbar-section" id="toolbarSection" style="display: none;">
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <h3>File Info</h3>
+                    <div class="file-details">
+                        <span class="file-name" id="fileName">document.pdf</span>
+                        <span class="page-count" id="pageCount">0 pages</span>
+                    </div>
+                </div>
+                
+                <div class="toolbar-group">
+                    <h3>View Options</h3>
+                    <div class="view-controls">
+                        <label for="thumbnailSize">Thumbnail Size:</label>
+                        <select id="thumbnailSize">
+                            <option value="small">Small</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                        
+                        <label for="viewMode">View Mode:</label>
+                        <select id="viewMode">
+                            <option value="grid" selected>Grid</option>
+                            <option value="list">List</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="toolbar-group">
+                    <h3>Bulk Actions</h3>
+                    <div class="bulk-actions">
+                        <button type="button" id="selectAllButton" class="btn btn-secondary">Select All</button>
+                        <button type="button" id="deselectAllButton" class="btn btn-secondary">Deselect All</button>
+                        <button type="button" id="deleteSelectedButton" class="btn btn-danger">Delete Selected</button>
+                        <button type="button" id="rotateSelectedButton" class="btn btn-secondary">Rotate Selected</button>
+                    </div>
+                </div>
+
+                <div class="toolbar-group">
+                    <h3>Document Actions</h3>
+                    <div class="document-actions">
+                        <button type="button" id="addPagesButton" class="btn btn-secondary">Add Pages</button>
+                        <button type="button" id="duplicatePageButton" class="btn btn-secondary">Duplicate</button>
+                        <button type="button" id="undoButton" class="btn btn-secondary" disabled>Undo</button>
+                        <button type="button" id="redoButton" class="btn btn-secondary" disabled>Redo</button>
+                    </div>
+                </div>
+
+                <div class="toolbar-group">
+                    <h3>Export</h3>
+                    <div class="export-actions">
+                        <button type="button" id="previewButton" class="btn btn-secondary">Preview</button>
+                        <button type="button" id="saveButton" class="btn btn-primary">Save PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- Page Manager Section -->
+        <div class="page-manager-section" id="pageManagerSection" style="display: none;">
+            <div class="manager-header">
+                <h2>Manage Pages</h2>
+                <div class="header-controls">
+                    <div class="selection-info">
+                        <span id="selectionInfo">0 pages selected</span>
+                        <span id="totalPagesInfo">Total: 0 pages</span>
+                    </div>
+                    <div class="selection-controls">
+                        <button type="button" id="selectAllPagesButton" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-check-square"></i> Select All
+                        </button>
+                        <button type="button" id="deselectAllPagesButton" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-square"></i> Deselect All
+                        </button>
+                        <button type="button" id="invertSelectionButton" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-exchange-alt"></i> Invert Selection
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-grid" id="pageGrid">
+                <!-- Page thumbnails will be dynamically generated here -->
+            </div>
+
+            <div class="manager-footer">
+                <div class="footer-info">
+                    <span>Drag to reorder • Click to select • Double-click for full preview • Right-click for options</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div class="context-menu" id="contextMenu" style="display: none;">
+            <div class="context-item" data-action="select">Select Page</div>
+            <div class="context-item" data-action="deselect">Deselect Page</div>
+            <div class="context-divider"></div>
+            <div class="context-item" data-action="rotate-left">Rotate Left</div>
+            <div class="context-item" data-action="rotate-right">Rotate Right</div>
+            <div class="context-divider"></div>
+            <div class="context-item" data-action="duplicate">Duplicate Page</div>
+            <div class="context-item" data-action="delete">Delete Page</div>
+            <div class="context-divider"></div>
+            <div class="context-item" data-action="move-to-start">Move to Start</div>
+            <div class="context-item" data-action="move-to-end">Move to End</div>
+        </div>        <!-- Page Preview Modal -->
+        <div class="preview-modal" id="previewModal" style="display: none;">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title-section">
+                        <h3 id="previewTitle">Page Preview</h3>
+                        <div class="preview-page-selection">
+                            <label class="page-select-label">
+                                <input type="checkbox" id="previewPageCheckbox" class="page-select-checkbox">
+                                <span class="checkmark"></span>
+                                Select this page
+                            </label>
+                        </div>
+                    </div>
+                    <button type="button" id="closeModalButton" class="close-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="preview-controls">
+                        <button type="button" id="prevPreviewButton" class="nav-btn">‹ Previous</button>
+                        <span class="preview-info" id="previewInfo">Page 1 of 1</span>
+                        <button type="button" id="nextPreviewButton" class="nav-btn">Next ›</button>
+                        <div class="zoom-controls">
+                            <button type="button" id="zoomOutButton" class="zoom-btn">-</button>
+                            <span id="zoomLevel">100%</span>
+                            <button type="button" id="zoomInButton" class="zoom-btn">+</button>
+                            <button type="button" id="fitToScreenButton" class="zoom-btn">Fit</button>
+                        </div>
+                    </div>
+                    <div class="preview-container" id="previewContainer">
+                        <canvas id="previewCanvas"></canvas>
+                    </div>
+                    <div class="preview-actions">
+                        <button type="button" id="rotatePreviewLeftButton" class="btn btn-secondary">
+                            <i class="fas fa-undo"></i> Rotate Left
+                        </button>
+                        <button type="button" id="rotatePreviewRightButton" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Rotate Right
+                        </button>
+                        <button type="button" id="deletePreviewPageButton" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Delete Page
+                        </button>
+                        <button type="button" id="duplicatePreviewPageButton" class="btn btn-secondary">
+                            <i class="fas fa-copy"></i> Duplicate Page
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Section -->
+        <div class="processing-section" id="processingSection" style="display: none;">
+            <div class="processing-content">
+                <div class="spinner"></div>
+                <h3 id="processingTitle">Processing PDF...</h3>
+                <p id="processingDescription">Please wait while we process your document</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-content">
+                <div class="success-icon">✅</div>
+                <h3>PDF Saved Successfully!</h3>
+                <div class="result-summary">
+                    <div class="summary-item">
+                        <span class="label">Final Pages:</span>
+                        <span class="value" id="finalPageCount">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Pages Modified:</span>
+                        <span class="value" id="pagesModified">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">File Size:</span>
+                        <span class="value" id="finalFileSize">0 KB</span>
+                    </div>
+                </div>
+                <div class="result-actions">
+                    <button type="button" id="downloadButton" class="btn btn-primary">
+                        <span class="download-icon">⬇</span>
+                        Download PDF
+                    </button>
+                    <button type="button" id="previewFinalButton" class="btn btn-secondary">Preview</button>
+                </div>
+                <div class="additional-actions">
+                    <button type="button" id="editAnotherButton" class="btn btn-secondary">Edit Another PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Section -->
+        <div class="error-section" id="errorSection" style="display: none;">
+            <div class="error-content">
+                <div class="error-icon">❌</div>
+                <h3>Operation Failed</h3>
+                <p id="errorMessage">An error occurred while processing the PDF.</p>
+                <div class="error-actions">
+                    <button type="button" id="retryButton" class="btn btn-primary">Try Again</button>
+                    <button type="button" id="backToStartButton" class="btn btn-secondary">Start Over</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="pdf-page-manager-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0E17RL1H32');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <title>Multi-Format Image Converter - Quantum Tools</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="image-converter-styles.css">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Initializing Image Converter...</div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Quantum Tools</h1>
+            </div>
+            <span class="logo-subtitle">Image Converter</span>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-exchange-alt"></i>
+                    Multi-Format Image Converter
+                </h1>
+                <p class="page-description"> Convert images between different formats with high quality preservation.
+                    Supports JPG, PNG, WebP, BMP, TIFF, ICO, AVIF, and GIF formats.
+                </p>
+            </div>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Drag & Drop or Click to Upload Image</h3>
+                        <p>Supports: JPG, PNG, WebP, BMP, TIFF, ICO, AVIF, GIF*</p>
+                        <p class="gif-note">*GIF conversion will only process the first frame</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <button class="upload-btn" id="uploadBtn">
+                            <i class="fas fa-folder-open"></i>
+                            Choose File
+                        </button>
+                    </div>
+                </div>
+
+                <!-- File Info -->
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-details">
+                        <div class="file-name">
+                            <i class="fas fa-file-image"></i>
+                            <span id="fileName"></span>
+                        </div>
+                        <div class="file-size">
+                            <i class="fas fa-weight"></i>
+                            <span id="fileSize"></span>
+                        </div>
+                        <div class="file-dimensions">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span id="fileDimensions"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conversion Settings -->
+            <section class="settings-section" id="settingsSection" style="display: none;">
+                <div class="settings-card">
+                    <h3 class="settings-title">
+                        <i class="fas fa-cogs"></i>
+                        Conversion Settings
+                    </h3>
+
+                    <div class="settings-grid">
+                        <div class="setting-group">
+                            <label for="formatSelect" class="setting-label">Convert To:</label> <select
+                                id="formatSelect" class="format-select">
+                                <option value="jpeg">JPG</option>
+                                <option value="png">PNG</option>
+                                <option value="webp">WebP</option>
+                                <option value="bmp">BMP</option>
+                                <option value="tiff">TIFF</option>
+                                <option value="ico">ICO</option>
+                                <option value="avif">AVIF</option>
+                                <option value="gif">GIF</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group quality-group" id="qualityGroup">
+                            <label for="qualitySlider" class="setting-label">
+                                Quality: <span id="qualityValue">90</span>%
+                            </label>
+                            <div class="slider-container">
+                                <input type="range" id="qualitySlider" class="quality-slider" min="1" max="100"
+                                    value="90">
+                                <div class="slider-track"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="convert-btn" id="convertBtn">
+                        <i class="fas fa-magic"></i>
+                        <span>Convert Image</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <i class="fas fa-cog fa-spin"></i>
+                        <span id="progressText">Processing image...</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Output Section -->
+            <section class="output-section" id="outputSection" style="display: none;">
+                <div class="output-header">
+                    <h3>
+                        <i class="fas fa-check-circle"></i>
+                        Conversion Results
+                    </h3>
+                </div>
+
+                <div class="preview-container">
+                    <div class="preview-card">
+                        <h4 class="preview-title">Original Image</h4>
+                        <div class="image-preview">
+                            <img id="originalPreview" alt="Original Image">
+                            <div class="image-overlay">
+                                <div class="image-info">
+                                    <span id="originalFormat"></span>
+                                    <span id="originalSize"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conversion-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="preview-card">
+                        <h4 class="preview-title">Converted Image</h4>
+                        <div class="image-preview">
+                            <img id="convertedPreview" alt="Converted Image">
+                            <div class="image-overlay">
+                                <div class="image-info">
+                                    <span id="convertedFormat"></span>
+                                    <span id="convertedSize"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="download-section">
+                    <button class="download-btn" id="downloadBtn">
+                        <i class="fas fa-download"></i>
+                        <span>Download Converted Image</span>
+                        <div class="btn-glow"></div>
+                    </button>
+
+                    <div class="conversion-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            <span>Size Reduction: <span id="sizeReduction">--</span></span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Processing Time: <span id="processingTime">--</span></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Status Messages -->
+            <div class="status-container" id="statusContainer"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 Quantum Tools. Advanced image conversion technology.</p>
+        </div>
+    </footer> <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+    <!-- Tag Manager -->
+    <script src="../../tag-manager.js" defer></script>
+    <script src="../../tag-manager-ui.js" defer></script>
+    <link rel="stylesheet" href="../../tag-manager-styles.css">
+
+    <!-- Main Script -->
+    <script src="image-converter-script.js"></script>
+</body>
+
+</html>

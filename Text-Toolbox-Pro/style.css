@@ -1,0 +1,555 @@
+/* Text Toolbox Pro - Main Stylesheet */
+
+/* CSS Variables for Theming */
+:root {
+    /* Light Theme (Default) */
+    --bg-main: #f8f9fa;
+    --bg-sidebar: #f0f2f5;
+    --bg-control: #ffffff;
+    --bg-tool-header: #e9ecef;
+    --border-color: #dee2e6;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --accent-color: #0d6efd;
+    --accent-hover: #0b5ed7;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-main: #212529;
+    --bg-sidebar: #2a2d32;
+    --bg-control: #343a40;
+    --bg-tool-header: #343a40;
+    --border-color: #495057;
+    --text-primary: #f8f9fa;
+    --text-secondary: #adb5bd;
+    --accent-color: #3d8bfd;
+    --accent-hover: #4d97ff;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(0, 0, 0, 0.4);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Layout Structure */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}    /* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-right: auto;
+}
+
+.toggle-theme, .menu-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.toggle-theme:hover, .menu-toggle:hover {
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.tool-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tool-nav li {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    border-left: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.tool-nav li:hover {
+    background-color: rgba(var(--accent-color-rgb), 0.1);
+    color: var(--text-primary);
+}
+
+.tool-nav li.active {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    background-color: rgba(var(--accent-color-rgb), 0.05);
+    font-weight: 500;
+}
+
+.tool-nav li i {
+    min-width: 1.5rem;
+    text-align: center;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* Tool Sections */
+.tool-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tool-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tool-section header {
+    margin-bottom: 1.5rem;
+}
+
+.tool-section h2 {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.tool-section p {
+    color: var(--text-secondary);
+}
+
+.tool-container {
+    background-color: var(--bg-control);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Form Elements */
+textarea, input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+textarea {
+    min-height: 200px;
+}
+
+/* Controls & Buttons */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.top-controls {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: var(--bg-control);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--border-color);
+}
+
+button i {
+    font-size: 0.9rem;
+}
+
+button.copy-button, button.clear-button {
+    margin-left: auto;
+}
+
+/* Undo/Redo Buttons */
+.undo-button, .redo-button {
+    background-color: var(--bg-accent);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.undo-button:hover, .redo-button:hover {
+    background-color: var(--hover-color);
+}
+
+.undo-button i, .redo-button i {
+    margin-right: 0.25rem;
+}
+
+/* Dual Pane Layout */
+.dual-pane {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pane h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Tool specific styles */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-group.full-width {
+    width: 100%;
+}
+
+.input-group label {
+    min-width: 80px;
+    color: var(--text-secondary);
+}
+
+.checkbox-group, .radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.find-replace-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* No ASCII Art Output */
+
+/* Diff Output */
+.diff-output {
+    margin-top: 1.5rem;
+}
+
+.diff-result {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    min-height: 150px;
+    line-height: 1.5;
+}
+
+.diff-result .diff-added,
+.diff-result .diff-added,
+.diff-added {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    padding: 1px 0;
+    display: block;
+}
+
+.diff-result .diff-removed,
+.diff-result .diff-removed,
+.diff-removed {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    padding: 1px 0;
+    display: block;
+}
+
+.diff-result .diff-unchanged,
+.diff-unchanged {
+    color: var(--text-primary);
+    padding: 1px 0;
+    display: block;
+}
+
+.diff-result hr {
+    border: none;
+    border-top: 1px dashed var(--border-color);
+    margin: 10px 0;
+}
+
+/* Markdown Preview */
+.html-preview {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1.5rem;
+    overflow: auto;
+    min-height: 200px;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .dual-pane {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative; /* For proper z-index effect */
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .tool-nav {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .sidebar.menu-open .tool-nav {
+        display: block;
+        max-height: 100vh;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--bg-sidebar);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 99;
+        overflow-y: auto;
+        max-height: 80vh;
+        padding-bottom: 1rem;
+    }
+
+    .sidebar.menu-open .tool-nav ul {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .controls {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    button.copy-button, button.clear-button {
+        margin-left: 0;
+    }
+    
+    /* Better touchpoints for mobile */
+    .tool-nav li {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Additional CSS Enhancements */
+
+/* Focus Indicators for Accessibility */
+button:focus, textarea:focus, input:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Pre-filled Text Color */
+::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* Button States */
+button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.accent-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+}
+
+.accent-button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Extract RGB values for RGBA usage */
+:root {
+    --accent-color-rgb: 13, 110, 253; /* RGB for #0d6efd */
+}
+
+[data-theme="dark"] {
+    --accent-color-rgb: 61, 139, 253; /* RGB for #3d8bfd */
+}
+
+/* Add subtle animation for ui interaction */
+button, .tool-nav li {
+    transition: transform 0.1s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+button:active, .tool-nav li:active {
+    transform: scale(0.98);
+}
+
+/* Improve code readability in textareas for code-specific tools */
+#minifier textarea, #diff-checker textarea {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Copy Success Animation */
+.copy-success {
+    animation: flash-success 1s;
+}
+
+@keyframes flash-success {
+    0%, 100% { background-color: var(--bg-control); }
+    50% { background-color: rgba(40, 167, 69, 0.2); }
+}
+
+/* Improve input range spacing for consistent layout */
+input[type="number"] {
+    width: 80px;
+}
+
+/* Better scrollbars for textareas */
+textarea::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-secondary);
+}
+
+/* Print styles */
+@media print {
+    .sidebar, .controls, .app-footer {
+        display: none !important;
+    }
+    
+    .app-container {
+        display: block;
+    }
+    
+    .tool-section {
+        page-break-inside: avoid;
+        display: block !important;
+    }
+    
+    body {
+        background-color: white;
+        color: black;
+    }
+}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced QR Code Generator - QUANTUM TOOLS</title>
+    <meta name="description" content="Generate customizable QR codes with advanced options and styling">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0E17RL1H32');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">    <link rel="stylesheet" href="qr-generator-styles.css">
+      <!-- QR Code Styling Library - Advanced QR code generation with styling options -->
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+    <!-- JSZip for batch downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- FileSaver.js for improved downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="dark-theme">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header class="modern-header">
+        <div class="container">
+            <div class="header-content">                <div class="logo-section">
+                    <a href="../../index.html" class="logo-link">
+                        <div class="logo-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h1 class="logo-text">QUANTUM TOOLS</h1>
+                    </a>
+                </div>
+                  <nav class="nav-section">
+                    <div class="nav-controls">
+                        <a href="../../index.html" class="modern-btn nav-home-btn">
+                            <div class="btn-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="btn-text">
+                                <span class="btn-label">Home</span>
+                                <span class="btn-sublabel">Dashboard</span>
+                            </div>
+                        </a>
+                        
+                        <div class="nav-divider"></div>
+                        
+                        <button class="modern-btn nav-info-btn" id="info-btn">
+                            <div class="btn-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="btn-text">
+                                <span class="btn-label">Info</span>
+                                <span class="btn-sublabel">Guide</span>
+                            </div>
+                        </button>
+                        
+                        <div class="nav-divider"></div>
+                        
+                        <div class="theme-toggle modern-toggle" aria-label="Toggle light/dark theme" role="button" tabindex="0">
+                            <div class="toggle-track">
+                                <div class="toggle-thumb">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="qr-generator-main">
+        <div class="container">
+            <div class="tool-header">
+                <h1 class="glowing-text">Advanced QR Code Generator</h1>
+                <p class="tool-description">Create customizable QR codes with advanced styling options</p>
+            </div>
+
+            <div class="qr-generator-container">
+                <!-- Input & Options Section -->
+                <div class="input-section">                    <div class="input-group">
+                        <label for="qr-type">QR Code Type</label>
+                        <select id="qr-type" class="glass-input">
+                            <option value="text">Text</option>
+                            <option value="url">URL</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="sms">SMS</option>
+                            <option value="wifi">WiFi Network</option>
+                            <option value="vcard">Contact Card (vCard)</option>
+                            <option value="location">Location</option>
+                            <option value="event">Calendar Event</option>
+                            <option value="crypto">Cryptocurrency</option>
+                        </select>
+                    </div>
+
+                    <!-- Default Text Input -->
+                    <div class="input-group" id="text-input-group">
+                        <label for="qr-text">Enter your text, URL, or data here...</label>
+                        <textarea id="qr-text" class="glass-input" placeholder="Type your content here..." rows="4"></textarea>
+                    </div>
+
+                    <!-- Dynamic Input Fields -->
+                    <div class="dynamic-inputs">
+                        <!-- Email Fields -->
+                        <div class="input-group hidden" id="email-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="email-recipient">Recipient Email</label>
+                                    <input type="email" id="email-recipient" class="glass-input" placeholder="example@email.com">
+                                </div>
+                                <div class="field-col">
+                                    <label for="email-subject">Subject</label>
+                                    <input type="text" id="email-subject" class="glass-input" placeholder="Email subject">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="email-body">Message Body</label>
+                                <textarea id="email-body" class="glass-input" placeholder="Email message..." rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Phone Fields -->
+                        <div class="input-group hidden" id="phone-fields">
+                            <label for="phone-number">Phone Number</label>
+                            <input type="tel" id="phone-number" class="glass-input" placeholder="+1234567890">
+                        </div>                        <!-- SMS Fields -->
+                        <div class="input-group hidden" id="sms-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="sms-number">Phone Number</label>
+                                    <input type="tel" id="sms-number" class="glass-input" placeholder="+1234567890">
+                                </div>
+                                <div class="field-col">
+                                    <label for="sms-message">Message</label>
+                                    <input type="text" id="sms-message" class="glass-input" placeholder="SMS message">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WiFi Fields -->
+                        <div class="input-group hidden" id="wifi-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="wifi-ssid">Network Name (SSID)</label>
+                                    <input type="text" id="wifi-ssid" class="glass-input" placeholder="MyWiFiNetwork">
+                                </div>
+                                <div class="field-col">
+                                    <label for="wifi-security">Security Type</label>
+                                    <select id="wifi-security" class="glass-input">
+                                        <option value="WPA">WPA/WPA2</option>
+                                        <option value="WEP">WEP</option>
+                                        <option value="nopass">Open (No Password)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="wifi-password">Password</label>
+                                <input type="password" id="wifi-password" class="glass-input" placeholder="WiFi password">
+                            </div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="wifi-hidden">
+                                    <span class="checkmark"></span>
+                                    Hidden Network
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- vCard Fields -->
+                        <div class="input-group hidden" id="vcard-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="vcard-firstname">First Name</label>
+                                    <input type="text" id="vcard-firstname" class="glass-input" placeholder="John">
+                                </div>
+                                <div class="field-col">
+                                    <label for="vcard-lastname">Last Name</label>
+                                    <input type="text" id="vcard-lastname" class="glass-input" placeholder="Doe">
+                                </div>
+                            </div>
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="vcard-phone">Phone</label>
+                                    <input type="tel" id="vcard-phone" class="glass-input" placeholder="+1234567890">
+                                </div>
+                                <div class="field-col">
+                                    <label for="vcard-email">Email</label>
+                                    <input type="email" id="vcard-email" class="glass-input" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="vcard-organization">Organization</label>
+                                    <input type="text" id="vcard-organization" class="glass-input" placeholder="Company Name">
+                                </div>
+                                <div class="field-col">
+                                    <label for="vcard-title">Job Title</label>
+                                    <input type="text" id="vcard-title" class="glass-input" placeholder="Software Engineer">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="vcard-url">Website</label>
+                                <input type="url" id="vcard-url" class="glass-input" placeholder="https://example.com">
+                            </div>
+                        </div>
+
+                        <!-- Location Fields -->
+                        <div class="input-group hidden" id="location-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="location-latitude">Latitude</label>
+                                    <input type="number" id="location-latitude" class="glass-input" placeholder="40.7128" step="any">
+                                </div>
+                                <div class="field-col">
+                                    <label for="location-longitude">Longitude</label>
+                                    <input type="number" id="location-longitude" class="glass-input" placeholder="-74.0060" step="any">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="location-name">Location Name (Optional)</label>
+                                <input type="text" id="location-name" class="glass-input" placeholder="Central Park, NYC">
+                            </div>
+                        </div>
+
+                        <!-- Event Fields -->
+                        <div class="input-group hidden" id="event-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="event-title">Event Title</label>
+                                    <input type="text" id="event-title" class="glass-input" placeholder="Meeting Title">
+                                </div>
+                                <div class="field-col">
+                                    <label for="event-location">Location</label>
+                                    <input type="text" id="event-location" class="glass-input" placeholder="Conference Room A">
+                                </div>
+                            </div>
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="event-start">Start Date & Time</label>
+                                    <input type="datetime-local" id="event-start" class="glass-input">
+                                </div>
+                                <div class="field-col">
+                                    <label for="event-end">End Date & Time</label>
+                                    <input type="datetime-local" id="event-end" class="glass-input">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="event-description">Description</label>
+                                <textarea id="event-description" class="glass-input" placeholder="Event description..." rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Crypto Fields -->
+                        <div class="input-group hidden" id="crypto-fields">
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="crypto-type">Cryptocurrency</label>
+                                    <select id="crypto-type" class="glass-input">
+                                        <option value="bitcoin">Bitcoin (BTC)</option>
+                                        <option value="ethereum">Ethereum (ETH)</option>
+                                        <option value="litecoin">Litecoin (LTC)</option>
+                                        <option value="dogecoin">Dogecoin (DOGE)</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="field-col">
+                                    <label for="crypto-address">Wallet Address</label>
+                                    <input type="text" id="crypto-address" class="glass-input" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa">
+                                </div>
+                            </div>
+                            <div class="field-row">
+                                <div class="field-col">
+                                    <label for="crypto-amount">Amount (Optional)</label>
+                                    <input type="number" id="crypto-amount" class="glass-input" placeholder="0.001" step="any">
+                                </div>
+                                <div class="field-col">
+                                    <label for="crypto-label">Label (Optional)</label>
+                                    <input type="text" id="crypto-label" class="glass-input" placeholder="Payment for services">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customization Options -->
+                    <div class="customization-section">
+                        <h3>Customization Options</h3>
+                        <div class="options-grid">
+                            <div class="input-group">
+                                <label for="qr-size">Size (pixels)</label>
+                                <select id="qr-size" class="glass-input">
+                                    <option value="200">200px</option>
+                                    <option value="300" selected>300px</option>
+                                    <option value="400">400px</option>
+                                    <option value="500">500px</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="error-level">Error Correction Level</label>
+                                <select id="error-level" class="glass-input">
+                                    <option value="L">Low (L) - 7%</option>
+                                    <option value="M" selected>Medium (M) - 15%</option>
+                                    <option value="Q">Quartile (Q) - 25%</option>
+                                    <option value="H">High (H) - 30%</option>
+                                </select>
+                            </div>                            <div class="input-group">
+                                <label for="qr-style">QR Style</label>
+                                <select id="qr-style" class="glass-input">
+                                    <option value="square">Square</option>
+                                    <option value="dots" selected>Dots</option>
+                                    <option value="rounded">Rounded</option>
+                                    <option value="extra-rounded">Extra Rounded</option>
+                                    <option value="classy">Classy</option>
+                                    <option value="classy-rounded">Classy Rounded</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="corner-style">Corner Style</label>
+                                <select id="corner-style" class="glass-input">
+                                    <option value="square">Square</option>
+                                    <option value="extra-rounded" selected>Extra Rounded</option>
+                                    <option value="dot">Dot</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="corner-dot-style">Corner Dot Style</label>
+                                <select id="corner-dot-style" class="glass-input">
+                                    <option value="square">Square</option>
+                                    <option value="dot" selected>Dot</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="margin">Margin (pixels)</label>
+                                <input type="range" id="margin" class="range-input" min="0" max="50" value="10">
+                                <span class="range-value" id="margin-value">10px</span>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="gradient-type">Gradient Type</label>
+                                <select id="gradient-type" class="glass-input">
+                                    <option value="none">None</option>
+                                    <option value="linear">Linear Gradient</option>
+                                    <option value="radial">Radial Gradient</option>
+                                </select>
+                            </div><div class="input-group">
+                                <label for="fg-color">Foreground Color</label>
+                                <input type="color" id="fg-color" class="color-input" value="#000000">
+                            </div>
+
+                            <div class="input-group gradient-colors hidden" id="gradient-colors">
+                                <label for="gradient-color2">Gradient End Color</label>
+                                <input type="color" id="gradient-color2" class="color-input" value="#ff0080">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="bg-color">Background Color</label>
+                                <input type="color" id="bg-color" class="color-input" value="#ffffff">
+                            </div>
+
+                            <div class="input-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="transparent-bg">
+                                    <span class="checkmark"></span>
+                                    Transparent Background
+                                </label>
+                            </div>
+                        </div>
+                    </div>                    <button id="generate-btn" class="generate-btn modern-generate-btn">
+                        <div class="btn-content">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Generate QR Code</span>
+                        </div>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>                <!-- QR Code Display & Download Section -->
+                <div class="output-section modern-output">
+                    <div class="qr-display">
+                        <div id="qr-placeholder" class="qr-placeholder modern-placeholder">
+                            <div class="placeholder-content">
+                                <div class="placeholder-icon">
+                                    <i class="fas fa-qrcode"></i>
+                                </div>
+                                <h3>QR Code Preview</h3>
+                                <p>Your customized QR code will appear here</p>
+                                <div class="placeholder-decoration">
+                                    <div class="decoration-dot"></div>
+                                    <div class="decoration-dot"></div>
+                                    <div class="decoration-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="qrcode" class="qr-canvas modern-qr-canvas"></div>
+                    </div>                    
+                    <div class="download-section modern-download hidden" id="download-section">
+                        <div class="download-header">
+                            <h3>Download Options</h3>
+                            <p>Choose your preferred format and quality</p>
+                        </div>
+                        
+                        <div class="download-grid">                            <!-- Standard Downloads -->
+                            <div class="download-category">
+                                <h4><i class="fas fa-images"></i> Standard Formats</h4>
+                                <div class="download-actions">
+                                    <button id="download-png-btn" class="download-btn modern-download-btn" data-format="png">
+                                        <div class="btn-content">
+                                            <i class="fas fa-image"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">PNG</span>
+                                                <span class="btn-subtitle">Lossless Quality</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    
+                                    <button id="download-jpg-btn" class="download-btn modern-download-btn" data-format="jpeg">
+                                        <div class="btn-content">
+                                            <i class="fas fa-file-image"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">JPEG</span>
+                                                <span class="btn-sublabel">Smaller Size</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    
+                                    <button id="download-svg-btn" class="download-btn modern-download-btn" data-format="svg">
+                                        <div class="btn-content">
+                                            <i class="fas fa-vector-square"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">SVG</span>
+                                                <span class="btn-sublabel">Vector Graphics</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Advanced Downloads -->
+                            <div class="download-category">
+                                <h4><i class="fas fa-cogs"></i> Advanced Formats</h4>
+                                <div class="download-actions">
+                                    <button id="download-pdf-btn" class="download-btn modern-download-btn secondary" data-format="pdf">
+                                        <div class="btn-content">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">PDF</span>
+                                                <span class="btn-sublabel">Printable</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    
+                                    <button id="download-webp-btn" class="download-btn modern-download-btn secondary" data-format="webp">
+                                        <div class="btn-content">
+                                            <i class="fas fa-file-code"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">WebP</span>
+                                                <span class="btn-sublabel">Modern Web</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                    
+                                    <button id="download-ico-btn" class="download-btn modern-download-btn secondary" data-format="ico">
+                                        <div class="btn-content">
+                                            <i class="fas fa-star"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">ICO</span>
+                                                <span class="btn-sublabel">Favicon</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Batch Download -->
+                            <div class="download-category">
+                                <h4><i class="fas fa-archive"></i> Bulk Download</h4>
+                                <div class="download-actions">
+                                    <button id="download-batch-btn" class="download-btn modern-download-btn tertiary" data-format="batch">
+                                        <div class="btn-content">
+                                            <i class="fas fa-download"></i>
+                                            <div class="btn-text-content">
+                                                <span class="btn-title">All Formats</span>
+                                                <span class="btn-sublabel">ZIP Archive</span>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quality Settings -->
+                        <div class="quality-settings">
+                            <h4>Quality Settings</h4>
+                            <div class="quality-options">
+                                <div class="quality-group">
+                                    <label for="download-size">Download Size</label>
+                                    <select id="download-size" class="glass-input">
+                                        <option value="300">Small (300px)</option>
+                                        <option value="500" selected>Medium (500px)</option>
+                                        <option value="1000">Large (1000px)</option>
+                                        <option value="2000">Extra Large (2000px)</option>
+                                        <option value="4000">Ultra HD (4000px)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="quality-group">
+                                    <label for="image-quality">JPEG Quality</label>
+                                    <input type="range" id="image-quality" class="range-input" min="10" max="100" value="90">
+                                    <span class="range-value" id="quality-value">90%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="qr-info modern-info">
+                            <div class="info-content">
+                                <i class="fas fa-check-circle"></i>
+                                <p id="qr-info-text">QR Code generated successfully!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    </main>
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>QR Code Generator Guide</h2>
+                <button class="modal-close" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="guide-section">
+                    <h3><i class="fas fa-qrcode"></i> Supported QR Types</h3>
+                    <div class="guide-grid">
+                        <div class="guide-item">
+                            <strong>Text:</strong> Plain text content
+                        </div>
+                        <div class="guide-item">
+                            <strong>URL:</strong> Website links
+                        </div>
+                        <div class="guide-item">
+                            <strong>Email:</strong> Pre-filled email composition
+                        </div>
+                        <div class="guide-item">
+                            <strong>Phone:</strong> Direct phone dialing
+                        </div>
+                        <div class="guide-item">
+                            <strong>SMS:</strong> Pre-filled text messages
+                        </div>
+                        <div class="guide-item">
+                            <strong>WiFi:</strong> Network connection details
+                        </div>
+                        <div class="guide-item">
+                            <strong>vCard:</strong> Contact information
+                        </div>
+                        <div class="guide-item">
+                            <strong>Location:</strong> GPS coordinates
+                        </div>
+                        <div class="guide-item">
+                            <strong>Event:</strong> Calendar events
+                        </div>
+                        <div class="guide-item">
+                            <strong>Crypto:</strong> Cryptocurrency payments
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="guide-section">
+                    <h3><i class="fas fa-download"></i> Download Formats</h3>
+                    <div class="guide-grid">
+                        <div class="guide-item">
+                            <strong>PNG:</strong> High-quality raster image
+                        </div>
+                        <div class="guide-item">
+                            <strong>JPEG:</strong> Compressed raster image
+                        </div>
+                        <div class="guide-item">
+                            <strong>SVG:</strong> Scalable vector graphics
+                        </div>
+                        <div class="guide-item">
+                            <strong>PDF:</strong> Print-ready document
+                        </div>
+                        <div class="guide-item">
+                            <strong>WebP:</strong> Modern compressed format
+                        </div>
+                        <div class="guide-item">
+                            <strong>ZIP:</strong> All formats in one archive
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="guide-section">
+                    <h3><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h3>
+                    <div class="guide-shortcuts">
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>Enter</kbd> <span>Generate QR Code</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>S</kbd> <span>Download PNG</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Esc</kbd> <span>Close Modal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Quantum Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="qr-generator-script.js"></script>
+</body>
+</html>

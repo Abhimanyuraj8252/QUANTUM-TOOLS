@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Toolkit: Free Client-Side Image & Media Tools</title>
+    <meta name="description" content="Advanced client-side media toolkit featuring image compression, cropping, filters, favicon generation, color picker, Base64 conversion, and custom audio/video player. No server required.">
+    <meta name="keywords" content="image compressor, image cropper, favicon generator, color picker, base64 converter, audio player, video player, media tools">
+    <meta name="author" content="OMNIFORMA">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0E17RL1H32');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <link rel="stylesheet" href="css/style.css">    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <span class="logo-icon">🎨</span>
+                Media Toolkit
+            </h1>
+            <p class="subtitle">Advanced Client-Side Image & Media Tools</p>
+        </div>
+    </header>
+
+    <nav class="nav-tabs">
+        <div class="container">
+            <div class="tab-container">
+                <button class="tab-btn active" data-tab="compressor">
+                    <span class="tab-icon">🗜️</span>
+                    Compressor
+                </button>
+                <button class="tab-btn" data-tab="cropper">
+                    <span class="tab-icon">✂️</span>
+                    Cropper
+                </button>
+                <button class="tab-btn" data-tab="base64">
+                    <span class="tab-icon">🔢</span>
+                    Base64
+                </button>
+                <button class="tab-btn" data-tab="favicon">
+                    <span class="tab-icon">⭐</span>
+                    Favicon
+                </button>
+                <button class="tab-btn" data-tab="filters">
+                    <span class="tab-icon">🎨</span>
+                    Filters
+                </button>
+                <button class="tab-btn" data-tab="colorpicker">
+                    <span class="tab-icon">🎯</span>
+                    Color Picker
+                </button>
+                <button class="tab-btn" data-tab="mediaplayer">
+                    <span class="tab-icon">🎵</span>
+                    Media Player
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Image Compressor Tool -->
+            <section id="compressor" class="tool-section active">                <div class="tool-header">
+                    <h2>Image Compressor</h2>
+                    <p>Compress images of all formats with adjustable quality settings and target size optimization</p>
+                </div>
+
+                <div class="upload-area" id="compressor-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your image here or click to upload</h3>
+                        <p>Supports all image formats (warnings shown for unusual formats)</p>
+                        <input type="file" id="compressor-file" accept="image/*" class="file-input">
+                    </div>
+                </div>
+
+                <div class="tool-controls" id="compressor-controls" style="display: none;">
+                    <div class="preview-section">
+                        <div class="image-preview">
+                            <h4>Original Image</h4>
+                            <img id="compressor-original" alt="Original image">
+                            <div class="image-info">
+                                <span id="original-size">Size: 0 KB</span>
+                            </div>
+                        </div>
+                        <div class="image-preview">
+                            <h4>Compressed Image</h4>
+                            <img id="compressor-compressed" alt="Compressed image">
+                            <div class="image-info">
+                                <span id="compressed-size">Size: 0 KB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label for="quality-slider">Quality: <span id="quality-value">80</span>%</label>
+                            <input type="range" id="quality-slider" min="1" max="100" value="80" class="slider">
+                        </div>
+                          <div class="control-group">
+                            <label for="target-size">Target Size (optional)</label>
+                            <p class="help-text">Enter desired file size to automatically find optimal quality</p>
+                            <div class="size-input-group">
+                                <input type="number" id="target-size" placeholder="Enter size" min="1">
+                                <select id="size-unit">
+                                    <option value="bytes">Bytes</option>
+                                    <option value="kb" selected>KB</option>
+                                    <option value="mb">MB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button id="download-compressed" class="btn btn-primary">
+                            📥 Download Compressed Image
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Cropper Tool -->
+            <section id="cropper" class="tool-section">
+                <div class="tool-header">
+                    <h2>Image Cropper</h2>
+                    <p>Advanced rectangular cropping with interactive selection</p>
+                </div>
+
+                <div class="upload-area" id="cropper-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your image here or click to upload</h3>
+                        <p>Supports JPG, PNG, WebP, GIF formats</p>
+                        <input type="file" id="cropper-file" accept="image/*" class="file-input">
+                    </div>
+                </div>                <div class="tool-controls" id="cropper-controls" style="display: none;">
+                    <div class="crop-instructions">
+                        <div class="instruction-card">
+                            <h4>How to Crop:</h4>
+                            <ul>
+                                <li>📍 <strong>Click anywhere</strong> on the image to start a new crop selection</li>
+                                <li>🔄 <strong>Drag the selection</strong> to move it around</li>
+                                <li>📏 <strong>Drag the corner handles</strong> to resize the selection</li>
+                                <li>🎯 Crop from <strong>any position</strong> - top-left, center, or anywhere!</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cropper-container">
+                        <div class="crop-area" id="crop-area">
+                            <img id="cropper-image" alt="Image to crop">
+                            <div class="crop-overlay" id="crop-overlay">
+                                <div class="crop-selection" id="crop-selection">
+                                    <div class="crop-handle tl"></div>
+                                    <div class="crop-handle tr"></div>
+                                    <div class="crop-handle bl"></div>
+                                    <div class="crop-handle br"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-panel">
+                        <div class="crop-info">
+                            <span>Selection: <span id="crop-dimensions">0 × 0</span></span>
+                        </div>
+                        <div class="button-group">
+                            <button id="crop-preview" class="btn btn-secondary">🔍 Preview Crop</button>
+                            <button id="download-cropped" class="btn btn-primary">📥 Download Cropped</button>
+                        </div>
+                    </div>
+
+                    <div class="preview-result" id="crop-result" style="display: none;">
+                        <h4>Cropped Preview</h4>
+                        <canvas id="cropped-canvas"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Base64 Converter Tool -->
+            <section id="base64" class="tool-section">
+                <div class="tool-header">
+                    <h2>Image to Base64 Converter</h2>
+                    <p>Convert images to Base64 data URI strings for web development</p>
+                </div>
+
+                <div class="upload-area" id="base64-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your image here or click to upload</h3>
+                        <p>Supports all image formats</p>
+                        <input type="file" id="base64-file" accept="image/*" class="file-input">
+                    </div>
+                </div>
+
+                <div class="tool-controls" id="base64-controls" style="display: none;">
+                    <div class="preview-section">
+                        <div class="image-preview">
+                            <h4>Original Image</h4>
+                            <img id="base64-preview" alt="Image preview">
+                        </div>
+                    </div>
+
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label for="base64-output">Base64 Data URI:</label>
+                            <textarea id="base64-output" readonly placeholder="Base64 string will appear here..."></textarea>
+                            <button id="copy-base64" class="btn btn-secondary">📋 Copy to Clipboard</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Favicon Generator Tool -->
+            <section id="favicon" class="tool-section">
+                <div class="tool-header">
+                    <h2>Favicon Generator</h2>
+                    <p>Generate multiple favicon sizes from a single image</p>
+                </div>
+
+                <div class="upload-area" id="favicon-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your square image here</h3>
+                        <p>Recommended: 512×512px PNG or JPG</p>
+                        <input type="file" id="favicon-file" accept="image/*" class="file-input">
+                    </div>
+                </div>
+
+                <div class="tool-controls" id="favicon-controls" style="display: none;">
+                    <div class="preview-section">
+                        <div class="image-preview">
+                            <h4>Source Image</h4>
+                            <img id="favicon-preview" alt="Source image">
+                        </div>
+                    </div>                    <div class="favicon-grid" id="favicon-grid">
+                        <!-- Generated favicons will be inserted here -->
+                    </div>
+
+                    <div class="download-options">
+                        <button id="download-all-favicons" class="btn btn-secondary">📥 Download All (Individual)</button>
+                        <button id="download-zip-favicons" class="btn btn-primary">📦 Download ZIP Archive</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Filters Tool -->
+            <section id="filters" class="tool-section">
+                <div class="tool-header">
+                    <h2>Image Filters</h2>
+                    <p>Apply advanced filters and adjustments to your images</p>
+                </div>
+
+                <div class="upload-area" id="filters-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your image here or click to upload</h3>
+                        <p>Supports all image formats</p>
+                        <input type="file" id="filters-file" accept="image/*" class="file-input">
+                    </div>
+                </div>
+
+                <div class="tool-controls" id="filters-controls" style="display: none;">
+                    <div class="preview-section">
+                        <div class="image-preview large">
+                            <h4>Filtered Image</h4>
+                            <img id="filters-preview" alt="Filtered image">
+                        </div>
+                    </div>
+
+                    <div class="filters-panel">
+                        <div class="filter-group">
+                            <h5>Basic Filters</h5>
+                            <div class="filter-buttons">
+                                <button class="filter-btn" data-filter="none">Original</button>
+                                <button class="filter-btn" data-filter="grayscale">Grayscale</button>
+                                <button class="filter-btn" data-filter="sepia">Sepia</button>
+                                <button class="filter-btn" data-filter="invert">Invert</button>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h5>Adjustments</h5>
+                            <div class="slider-controls">
+                                <div class="control-group">
+                                    <label>Brightness: <span id="brightness-value">100</span>%</label>
+                                    <input type="range" id="brightness-slider" min="0" max="200" value="100" class="slider">
+                                </div>
+                                <div class="control-group">
+                                    <label>Contrast: <span id="contrast-value">100</span>%</label>
+                                    <input type="range" id="contrast-slider" min="0" max="200" value="100" class="slider">
+                                </div>
+                                <div class="control-group">
+                                    <label>Saturation: <span id="saturation-value">100</span>%</label>
+                                    <input type="range" id="saturation-slider" min="0" max="200" value="100" class="slider">
+                                </div>
+                                <div class="control-group">
+                                    <label>Blur: <span id="blur-value">0</span>px</label>
+                                    <input type="range" id="blur-slider" min="0" max="10" value="0" class="slider">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button id="reset-filters" class="btn btn-secondary">↺ Reset All</button>
+                            <button id="download-filtered" class="btn btn-primary">📥 Download Filtered</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Color Picker Tool -->
+            <section id="colorpicker" class="tool-section">
+                <div class="tool-header">
+                    <h2>Color Picker from Image</h2>
+                    <p>Pick colors from any point in your image</p>
+                </div>
+
+                <div class="upload-area" id="colorpicker-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your image here or click to upload</h3>
+                        <p>Click anywhere on the image to pick colors</p>
+                        <input type="file" id="colorpicker-file" accept="image/*" class="file-input">
+                    </div>
+                </div>
+
+                <div class="tool-controls" id="colorpicker-controls" style="display: none;">
+                    <div class="colorpicker-container">
+                        <div class="image-container">
+                            <canvas id="colorpicker-canvas"></canvas>
+                            <div class="color-magnifier" id="color-magnifier">
+                                <canvas id="magnifier-canvas"></canvas>
+                                <div class="crosshair"></div>
+                            </div>
+                        </div>
+
+                        <div class="color-info-panel">
+                            <h4>Picked Color</h4>
+                            <div class="color-preview" id="color-preview"></div>
+                            
+                            <div class="color-values">
+                                <div class="color-value">
+                                    <label>HEX:</label>
+                                    <div class="value-group">
+                                        <input type="text" id="hex-value" readonly>
+                                        <button class="copy-btn" data-target="hex-value">📋</button>
+                                    </div>
+                                </div>
+                                <div class="color-value">
+                                    <label>RGB:</label>
+                                    <div class="value-group">
+                                        <input type="text" id="rgb-value" readonly>
+                                        <button class="copy-btn" data-target="rgb-value">📋</button>
+                                    </div>
+                                </div>
+                                <div class="color-value">
+                                    <label>HSL:</label>
+                                    <div class="value-group">
+                                        <input type="text" id="hsl-value" readonly>
+                                        <button class="copy-btn" data-target="hsl-value">📋</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="color-history" id="color-history">
+                                <h5>Color History</h5>
+                                <div class="history-colors"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Media Player Tool -->
+            <section id="mediaplayer" class="tool-section">
+                <div class="tool-header">
+                    <h2>Custom Media Player</h2>
+                    <p>Advanced audio and video player with custom controls</p>
+                </div>
+
+                <div class="upload-area" id="mediaplayer-upload">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your media file here or click to upload</h3>
+                        <p>Supports audio (MP3, WAV, OGG) and video (MP4, WebM, OGV) formats</p>
+                        <input type="file" id="mediaplayer-file" accept="audio/*,video/*" class="file-input">
+                    </div>
+                </div>
+
+                <div class="tool-controls" id="mediaplayer-controls" style="display: none;">
+                    <div class="media-container">
+                        <div class="media-element" id="media-element">
+                            <!-- Audio or video element will be inserted here -->
+                        </div>
+                        
+                        <div class="custom-controls">
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progress-bar">
+                                    <div class="progress-fill" id="progress-fill"></div>
+                                    <div class="progress-handle" id="progress-handle"></div>
+                                </div>
+                            </div>
+
+                            <div class="controls-row">
+                                <div class="control-group">
+                                    <button id="play-pause-btn" class="control-btn">
+                                        <span class="play-icon">▶️</span>
+                                        <span class="pause-icon" style="display: none;">⏸️</span>
+                                    </button>
+                                    <div class="time-display">
+                                        <span id="current-time">00:00</span>
+                                        <span>/</span>
+                                        <span id="total-time">00:00</span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <button id="mute-btn" class="control-btn">
+                                        <span class="volume-icon">🔊</span>
+                                        <span class="mute-icon" style="display: none;">🔇</span>
+                                    </button>
+                                    <div class="volume-control">
+                                        <input type="range" id="volume-slider" min="0" max="100" value="50" class="volume-slider">
+                                    </div>
+                                    <button id="fullscreen-btn" class="control-btn" style="display: none;">
+                                        🔳
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 OMNIFORMA Media Toolkit. All tools run client-side for your privacy.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loading-spinner">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

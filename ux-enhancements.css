@@ -1,0 +1,471 @@
+/* Enhanced UX Styles for QUANTUM TOOLS Dashboard and Features */
+
+/* Dashboard Modal */
+.dashboard-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.dashboard-content {
+    background: var(--glass-bg, rgba(15, 20, 35, 0.95));
+    border: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+}
+
+.dashboard-header h2 {
+    color: var(--text-primary, #ffffff);
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-dashboard {
+    background: none;
+    border: none;
+    color: var(--text-secondary, #888);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-dashboard:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color-1, #00f0ff);
+}
+
+/* Dashboard Tabs */
+.dashboard-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+    padding: 0 30px;
+}
+
+.dashboard-tabs .tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary, #888);
+    padding: 15px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.dashboard-tabs .tab-btn.active {
+    color: var(--accent-color-1, #00f0ff);
+    border-bottom-color: var(--accent-color-1, #00f0ff);
+}
+
+.dashboard-tabs .tab-btn:hover {
+    color: var(--text-primary, #ffffff);
+}
+
+/* Dashboard Tab Content */
+.dashboard-tab {
+    display: none;
+    padding: 30px;
+}
+
+.dashboard-tab.active {
+    display: block;
+}
+
+.dashboard-tab h3 {
+    color: var(--text-primary, #ffffff);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Tools Grid in Dashboard */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.recent-tool-card,
+.favorite-tool-card {
+    background: var(--card-bg, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+    border-radius: 12px;
+    padding: 15px;
+    text-decoration: none;
+    color: var(--text-primary, #ffffff);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.recent-tool-card:hover,
+.favorite-tool-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color-1, #00f0ff);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+}
+
+.recent-tool-card .tool-icon,
+.favorite-tool-card .tool-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, var(--accent-color-1, #00f0ff), var(--accent-color-2, #ff00ff));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--primary-bg, #0a0d14);
+}
+
+.recent-tool-card h3,
+.favorite-tool-card h3 {
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.last-used {
+    font-size: 0.8rem;
+    color: var(--text-secondary, #888);
+    font-style: italic;
+}
+
+/* Dashboard Button */
+.dashboard-btn {
+    background: linear-gradient(45deg, var(--accent-color-1, #00f0ff), var(--accent-color-2, #ff00ff));
+    border: none;
+    color: var(--primary-bg, #0a0d14);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.dashboard-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+}
+
+/* Preferences */
+.preference-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.preference-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--text-primary, #ffffff);
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.preference-group label:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.preference-group input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-color-1, #00f0ff);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.preference-group input[type="checkbox"]:checked {
+    background: var(--accent-color-1, #00f0ff);
+}
+
+.preference-group input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-bg, #0a0d14);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Usage Stats */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-item {
+    background: var(--card-bg, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-item h4 {
+    color: var(--text-secondary, #888);
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.stat-value {
+    color: var(--accent-color-1, #00f0ff);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Favorite Button */
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: #ccc;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.tool-card:hover .favorite-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.favorite-btn.favorited {
+    color: #ff4757;
+    background: rgba(255, 71, 87, 0.2);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 71, 87, 0.3);
+    color: #ff4757;
+}
+
+/* Remove Favorite Button */
+.remove-favorite {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 0, 0, 0.2);
+    border: none;
+    color: #ff4757;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.favorite-tool-card:hover .remove-favorite {
+    opacity: 1;
+}
+
+.remove-favorite:hover {
+    background: rgba(255, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+/* Recently Used Section */
+.recently-used-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(255, 0, 255, 0.05) 100%);
+    margin-bottom: 40px;
+}
+
+.recent-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Tool Rating */
+.tool-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.rating-stars {
+    color: #ffd700;
+}
+
+.rating-value {
+    color: var(--text-secondary, #888);
+    font-weight: 500;
+}
+
+/* Notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--glass-bg, rgba(15, 20, 35, 0.95));
+    border: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: var(--text-primary, #ffffff);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.success {
+    border-color: #2ecc71;
+}
+
+.notification.success i {
+    color: #2ecc71;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    color: var(--text-secondary, #888);
+    font-style: italic;
+    padding: 40px 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .dashboard-header {
+        padding: 15px 20px;
+    }
+    
+    .dashboard-tabs {
+        padding: 0 20px;
+        overflow-x: auto;
+    }
+    
+    .dashboard-tabs .tab-btn {
+        padding: 12px 15px;
+        white-space: nowrap;
+    }
+    
+    .dashboard-tab {
+        padding: 20px;
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .recent-tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+/* Light Theme Adjustments */
+.light-theme .dashboard-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.light-theme .dashboard-header h2,
+.light-theme .dashboard-tab h3,
+.light-theme .recent-tool-card,
+.light-theme .favorite-tool-card {
+    color: var(--text-primary-light, #333);
+}
+
+.light-theme .dashboard-tabs .tab-btn {
+    color: var(--text-secondary-light, #666);
+}
+
+.light-theme .dashboard-tabs .tab-btn.active {
+    color: var(--accent-color-1, #0066cc);
+    border-bottom-color: var(--accent-color-1, #0066cc);
+}
+
+.light-theme .recent-tool-card,
+.light-theme .favorite-tool-card {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.light-theme .stat-item {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 102, 204, 0.2);
+}
+
+.light-theme .notification {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 102, 204, 0.2);
+    color: var(--text-primary-light, #333);
+}

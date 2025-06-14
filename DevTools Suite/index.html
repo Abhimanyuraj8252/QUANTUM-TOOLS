@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevTools Suite - Essential Developer Tools</title>
+    <meta name="description" content="A comprehensive collection of essential web development tools including CSS generators, Flexbox playground, RegEx tester, and accessibility checkers.">
+    <meta name="keywords" content="developer tools, CSS generator, flexbox, regex tester, web development, accessibility">
+    <meta name="author" content="DevTools Suite">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0E17RL1H32');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="DevTools Suite - Essential Developer Tools">
+    <meta property="og:description" content="A comprehensive collection of essential web development tools for modern developers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DevTools Suite - Essential Developer Tools">
+    <meta name="twitter:description" content="A comprehensive collection of essential web development tools for modern developers.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+        <i class="fas fa-moon" id="moonIcon"></i>
+        <i class="fas fa-sun" id="sunIcon"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-tools"></i>
+                    DevTools Suite
+                </h1>
+                <p class="tagline">Essential tools for modern developers</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navigation" id="navigation">
+        <div class="container">
+            <div class="nav-header">
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <button class="nav-link active" data-tool="box-shadow-tool">
+                        <i class="fas fa-cube"></i>
+                        <span>Box Shadow</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-tool="gradient-tool">
+                        <i class="fas fa-palette"></i>
+                        <span>Gradient</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-tool="flexbox-tool">
+                        <i class="fas fa-th-large"></i>
+                        <span>Flexbox</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-tool="clip-path-tool">
+                        <i class="fas fa-cut"></i>
+                        <span>Clip Path</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-tool="regex-tool">
+                        <i class="fas fa-search"></i>
+                        <span>RegEx Tester</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-tool="contrast-tool">
+                        <i class="fas fa-eye"></i>
+                        <span>Contrast</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main" id="mainContent">
+        <div class="container">
+            <!-- Tool 1: CSS Box Shadow Generator -->
+            <section class="tool active" id="box-shadow-tool">
+                <div class="tool-header">
+                    <h2>CSS Box Shadow Generator</h2>
+                    <p>Create beautiful box shadows with real-time preview</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="controls-panel">                        <div class="control-group">
+                            <label for="shadowX">Horizontal Offset</label>
+                            <div class="range-container">
+                                <input type="range" id="shadowX" min="-100" max="100" value="10" class="range-slider">
+                                <div class="manual-input-group">
+                                    <input type="number" id="shadowXManual" value="10" class="manual-input" step="0.1">
+                                    <select id="shadowXUnit" class="unit-select">
+                                        <option value="px">px</option>
+                                        <option value="em">em</option>
+                                        <option value="rem">rem</option>
+                                        <option value="%">%</option>
+                                        <option value="vw">vw</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="shadowY">Vertical Offset</label>
+                            <div class="range-container">
+                                <input type="range" id="shadowY" min="-100" max="100" value="10" class="range-slider">
+                                <div class="manual-input-group">
+                                    <input type="number" id="shadowYManual" value="10" class="manual-input" step="0.1">
+                                    <select id="shadowYUnit" class="unit-select">
+                                        <option value="px">px</option>
+                                        <option value="em">em</option>
+                                        <option value="rem">rem</option>
+                                        <option value="%">%</option>
+                                        <option value="vw">vw</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="shadowBlur">Blur Radius</label>
+                            <div class="range-container">
+                                <input type="range" id="shadowBlur" min="0" max="100" value="5" class="range-slider">
+                                <div class="manual-input-group">
+                                    <input type="number" id="shadowBlurManual" value="5" class="manual-input" step="0.1" min="0">
+                                    <select id="shadowBlurUnit" class="unit-select">
+                                        <option value="px">px</option>
+                                        <option value="em">em</option>
+                                        <option value="rem">rem</option>
+                                        <option value="%">%</option>
+                                        <option value="vw">vw</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="shadowSpread">Spread Radius</label>
+                            <div class="range-container">
+                                <input type="range" id="shadowSpread" min="-50" max="50" value="0" class="range-slider">
+                                <div class="manual-input-group">
+                                    <input type="number" id="shadowSpreadManual" value="0" class="manual-input" step="0.1">
+                                    <select id="shadowSpreadUnit" class="unit-select">
+                                        <option value="px">px</option>
+                                        <option value="em">em</option>
+                                        <option value="rem">rem</option>
+                                        <option value="%">%</option>
+                                        <option value="vw">vw</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="shadowColor">Shadow Color</label>
+                            <div class="color-container">
+                                <input type="color" id="shadowColor" value="#000000" class="color-picker">
+                                <input type="range" id="shadowOpacity" min="0" max="1" step="0.01" value="1" class="range-slider">
+                                <span class="range-value" id="shadowOpacityValue">100%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="shadowInset">
+                                <span class="checkbox-custom"></span>
+                                Inset Shadow
+                            </label>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="previewBg">Preview Background</label>
+                            <input type="color" id="previewBg" value="#f0f0f0" class="color-picker">
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="elementBg">Element Background</label>
+                            <input type="color" id="elementBg" value="#ffffff" class="color-picker">
+                        </div>
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <div class="preview-container" id="shadowPreviewContainer">
+                            <div class="preview-element" id="shadowPreviewElement"></div>
+                        </div>
+                        
+                        <div class="code-output">
+                            <div class="code-header">
+                                <span>Generated CSS</span>
+                                <button class="copy-btn" id="shadowCopyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    Copy CSS
+                                </button>
+                            </div>
+                            <pre class="code-block"><code id="shadowCode">box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 1);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 2: CSS Gradient Generator -->
+            <section class="tool" id="gradient-tool">
+                <div class="tool-header">
+                    <h2>CSS Gradient Generator</h2>
+                    <p>Create stunning linear and radial gradients</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="controls-panel">
+                        <div class="control-group">
+                            <label>Gradient Type</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gradientType" value="linear" checked>
+                                    <span class="radio-custom"></span>
+                                    Linear
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gradientType" value="radial">
+                                    <span class="radio-custom"></span>
+                                    Radial
+                                </label>
+                            </div>
+                        </div>
+                          <div class="control-group" id="linearControls">
+                            <label for="gradientAngle">Angle</label>
+                            <div class="range-container">
+                                <input type="range" id="gradientAngle" min="0" max="360" value="45" class="range-slider">
+                                <div class="manual-input-group">
+                                    <input type="number" id="gradientAngleManual" value="45" class="manual-input" step="1" min="0" max="360">
+                                    <span class="unit-label">deg</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group hidden" id="radialControls">
+                            <label for="radialShape">Shape</label>
+                            <select id="radialShape" class="select-input">
+                                <option value="circle">Circle</option>
+                                <option value="ellipse">Ellipse</option>
+                            </select>
+                            
+                            <label for="radialSize">Size</label>
+                            <select id="radialSize" class="select-input">
+                                <option value="farthest-corner">farthest-corner</option>
+                                <option value="closest-corner">closest-corner</option>
+                                <option value="farthest-side">farthest-side</option>
+                                <option value="closest-side">closest-side</option>
+                            </select>
+                            
+                            <label for="radialPosition">Position</label>
+                            <div class="position-controls">
+                                <div class="manual-input-group">
+                                    <input type="number" id="radialPosX" value="50" class="manual-input" step="1" min="0" max="100">
+                                    <select id="radialPosXUnit" class="unit-select">
+                                        <option value="%">%</option>
+                                        <option value="px">px</option>
+                                        <option value="em">em</option>
+                                        <option value="rem">rem</option>
+                                    </select>
+                                </div>
+                                <div class="manual-input-group">
+                                    <input type="number" id="radialPosY" value="50" class="manual-input" step="1" min="0" max="100">
+                                    <select id="radialPosYUnit" class="unit-select">
+                                        <option value="%">%</option>
+                                        <option value="px">px</option>
+                                        <option value="em">em</option>
+                                        <option value="rem">rem</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <div class="color-stops-header">
+                                <label>Color Stops</label>
+                                <button class="add-stop-btn" id="addColorStop">
+                                    <i class="fas fa-plus"></i>
+                                    Add Stop
+                                </button>
+                            </div>                            <div class="color-stops" id="colorStops">
+                                <div class="color-stop">
+                                    <input type="color" value="#ff0000" class="color-picker">
+                                    <input type="range" min="0" max="100" value="0" class="range-slider">
+                                    <div class="manual-input-group">
+                                        <input type="number" value="0" class="manual-input" step="0.1" min="0">
+                                        <select class="unit-select">
+                                            <option value="%">%</option>
+                                            <option value="px">px</option>
+                                            <option value="em">em</option>
+                                            <option value="rem">rem</option>
+                                            <option value="vw">vw</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                    <button class="remove-stop-btn" disabled>
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="color-stop">
+                                    <input type="color" value="#0000ff" class="color-picker">
+                                    <input type="range" min="0" max="100" value="100" class="range-slider">
+                                    <div class="manual-input-group">
+                                        <input type="number" value="100" class="manual-input" step="0.1" min="0">
+                                        <select class="unit-select">
+                                            <option value="%">%</option>
+                                            <option value="px">px</option>
+                                            <option value="em">em</option>
+                                            <option value="rem">rem</option>
+                                            <option value="vw">vw</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                    <button class="remove-stop-btn" disabled>
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <div class="preview-container">
+                            <div class="gradient-preview" id="gradientPreview"></div>
+                        </div>
+                        
+                        <div class="code-output">
+                            <div class="code-header">
+                                <span>Generated CSS</span>
+                                <button class="copy-btn" id="gradientCopyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    Copy CSS
+                                </button>
+                            </div>
+                            <pre class="code-block"><code id="gradientCode">background: linear-gradient(45deg, #ff0000 0%, #0000ff 100%);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 3: Flexbox Playground -->
+            <section class="tool" id="flexbox-tool">
+                <div class="tool-header">
+                    <h2>Flexbox Playground</h2>
+                    <p>Learn and experiment with CSS Flexbox properties</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="controls-panel">
+                        <div class="control-section">
+                            <h3>Container Properties</h3>
+                            
+                            <div class="control-group">
+                                <label for="flexDirection">flex-direction</label>
+                                <select id="flexDirection" class="select-input">
+                                    <option value="row">row</option>
+                                    <option value="row-reverse">row-reverse</option>
+                                    <option value="column">column</option>
+                                    <option value="column-reverse">column-reverse</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="justifyContent">justify-content</label>
+                                <select id="justifyContent" class="select-input">
+                                    <option value="flex-start">flex-start</option>
+                                    <option value="flex-end">flex-end</option>
+                                    <option value="center">center</option>
+                                    <option value="space-between">space-between</option>
+                                    <option value="space-around">space-around</option>
+                                    <option value="space-evenly">space-evenly</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="alignItems">align-items</label>
+                                <select id="alignItems" class="select-input">
+                                    <option value="stretch">stretch</option>
+                                    <option value="flex-start">flex-start</option>
+                                    <option value="flex-end">flex-end</option>
+                                    <option value="center">center</option>
+                                    <option value="baseline">baseline</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="flexWrap">flex-wrap</label>
+                                <select id="flexWrap" class="select-input">
+                                    <option value="nowrap">nowrap</option>
+                                    <option value="wrap">wrap</option>
+                                    <option value="wrap-reverse">wrap-reverse</option>
+                                </select>
+                            </div>
+                              <div class="control-group">
+                                <label for="alignContent">align-content</label>
+                                <select id="alignContent" class="select-input">
+                                    <option value="stretch">stretch</option>
+                                    <option value="flex-start">flex-start</option>
+                                    <option value="flex-end">flex-end</option>
+                                    <option value="center">center</option>
+                                    <option value="space-between">space-between</option>
+                                    <option value="space-around">space-around</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="containerGap">Gap</label>
+                                <div class="range-container">
+                                    <input type="range" id="containerGap" min="0" max="50" value="10" class="range-slider">
+                                    <div class="manual-input-group">
+                                        <input type="number" id="containerGapManual" value="10" class="manual-input" step="0.1" min="0">
+                                        <select id="containerGapUnit" class="unit-select">
+                                            <option value="px">px</option>
+                                            <option value="em">em</option>
+                                            <option value="rem">rem</option>
+                                            <option value="%">%</option>
+                                            <option value="vw">vw</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <button class="add-item-btn" id="addFlexItem">
+                                    <i class="fas fa-plus"></i>
+                                    Add Item
+                                </button>
+                                <button class="remove-item-btn" id="removeFlexItem">
+                                    <i class="fas fa-minus"></i>
+                                    Remove Item
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-section">
+                            <h3>Selected Item Properties</h3>
+                            <p class="item-info" id="selectedItemInfo">Click an item to edit its properties</p>
+                              <div class="control-group">
+                                <label for="flexGrow">flex-grow</label>
+                                <div class="range-container">
+                                    <input type="range" id="flexGrow" min="0" max="5" value="0" class="range-slider" disabled>
+                                    <div class="manual-input-group">
+                                        <input type="number" id="flexGrowManual" value="0" class="manual-input" step="0.1" min="0" disabled>
+                                        <span class="unit-label">ratio</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="flexShrink">flex-shrink</label>
+                                <div class="range-container">
+                                    <input type="range" id="flexShrink" min="0" max="5" value="1" class="range-slider" disabled>
+                                    <div class="manual-input-group">
+                                        <input type="number" id="flexShrinkManual" value="1" class="manual-input" step="0.1" min="0" disabled>
+                                        <span class="unit-label">ratio</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="flexBasis">flex-basis</label>
+                                <div class="range-container">
+                                    <input type="range" id="flexBasis" min="0" max="500" value="0" class="range-slider" disabled>
+                                    <div class="manual-input-group">
+                                        <input type="number" id="flexBasisManual" value="0" class="manual-input" step="0.1" min="0" disabled>
+                                        <select id="flexBasisUnit" class="unit-select" disabled>
+                                            <option value="auto">auto</option>
+                                            <option value="px">px</option>
+                                            <option value="em">em</option>
+                                            <option value="rem">rem</option>
+                                            <option value="%">%</option>
+                                            <option value="vw">vw</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="alignSelf">align-self</label>
+                                <select id="alignSelf" class="select-input" disabled>
+                                    <option value="auto">auto</option>
+                                    <option value="flex-start">flex-start</option>
+                                    <option value="flex-end">flex-end</option>
+                                    <option value="center">center</option>
+                                    <option value="baseline">baseline</option>
+                                    <option value="stretch">stretch</option>
+                                </select>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="itemWidth">Width</label>
+                                <div class="range-container">
+                                    <input type="range" id="itemWidth" min="0" max="500" value="0" class="range-slider" disabled>
+                                    <div class="manual-input-group">
+                                        <input type="number" id="itemWidthManual" value="0" class="manual-input" step="0.1" min="0" disabled>
+                                        <select id="itemWidthUnit" class="unit-select" disabled>
+                                            <option value="auto">auto</option>
+                                            <option value="px">px</option>
+                                            <option value="em">em</option>
+                                            <option value="rem">rem</option>
+                                            <option value="%">%</option>
+                                            <option value="vw">vw</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="itemHeight">Height</label>
+                                <div class="range-container">
+                                    <input type="range" id="itemHeight" min="0" max="500" value="0" class="range-slider" disabled>
+                                    <div class="manual-input-group">
+                                        <input type="number" id="itemHeightManual" value="0" class="manual-input" step="0.1" min="0" disabled>
+                                        <select id="itemHeightUnit" class="unit-select" disabled>
+                                            <option value="auto">auto</option>
+                                            <option value="px">px</option>
+                                            <option value="em">em</option>
+                                            <option value="rem">rem</option>
+                                            <option value="%">%</option>
+                                            <option value="vw">vw</option>
+                                            <option value="vh">vh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <div class="preview-container">
+                            <div class="flexbox-container" id="flexboxContainer">
+                                <div class="flex-item" data-item="1">1</div>
+                                <div class="flex-item" data-item="2">2</div>
+                                <div class="flex-item" data-item="3">3</div>
+                            </div>
+                        </div>
+                        
+                        <div class="code-output">
+                            <div class="code-header">
+                                <span>Generated CSS</span>
+                                <button class="copy-btn" id="flexboxCopyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    Copy CSS
+                                </button>
+                            </div>
+                            <div class="code-tabs">
+                                <button class="code-tab active" data-tab="container">Container</button>
+                                <button class="code-tab" data-tab="item">Selected Item</button>
+                            </div>
+                            <pre class="code-block"><code id="flexboxCode">.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  align-content: stretch;
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 4: CSS Clip Path Generator -->
+            <section class="tool" id="clip-path-tool">
+                <div class="tool-header">
+                    <h2>CSS Clip Path Generator</h2>
+                    <p>Create complex shapes with CSS clip-path</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="controls-panel">                        <div class="control-group">
+                            <label>Shape Presets</label>
+                            <div class="preset-shapes">
+                                <button class="shape-preset active" data-shape="circle">
+                                    <i class="fas fa-circle"></i>
+                                    Circle
+                                </button>
+                                <button class="shape-preset" data-shape="ellipse">
+                                    <i class="fas fa-circle" style="transform: scaleX(0.6);"></i>
+                                    Ellipse
+                                </button>
+                                <button class="shape-preset" data-shape="triangle">
+                                    <i class="fas fa-play" style="transform: rotate(-90deg);"></i>
+                                    Triangle
+                                </button>
+                                <button class="shape-preset" data-shape="polygon">
+                                    <i class="fas fa-star"></i>
+                                    Polygon
+                                </button>
+                                <button class="shape-preset" data-shape="hexagon">
+                                    <i class="fas fa-stop"></i>
+                                    Hexagon
+                                </button>
+                                <button class="shape-preset" data-shape="star">
+                                    <i class="fas fa-star"></i>
+                                    Star
+                                </button>
+                                <button class="shape-preset" data-shape="diamond">
+                                    <i class="fas fa-gem"></i>
+                                    Diamond
+                                </button>
+                                <button class="shape-preset" data-shape="arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Arrow
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group" id="circleControls">
+                            <label for="circleRadius">Radius</label>
+                            <div class="range-container">
+                                <input type="range" id="circleRadius" min="10" max="50" value="50" class="range-slider">
+                                <span class="range-value" id="circleRadiusValue">50%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group hidden" id="ellipseControls">
+                            <label for="ellipseRx">Horizontal Radius</label>
+                            <div class="range-container">
+                                <input type="range" id="ellipseRx" min="10" max="50" value="50" class="range-slider">
+                                <span class="range-value" id="ellipseRxValue">50%</span>
+                            </div>
+                            <label for="ellipseRy">Vertical Radius</label>
+                            <div class="range-container">
+                                <input type="range" id="ellipseRy" min="10" max="30" value="30" class="range-slider">
+                                <span class="range-value" id="ellipseRyValue">30%</span>
+                            </div>
+                        </div>
+                          <div class="control-group">
+                            <label>Background Options</label>
+                            <div class="background-options">
+                                <div class="background-type-selector">
+                                    <label class="radio-custom">
+                                        <input type="radio" name="backgroundType" value="color" checked>
+                                        <span class="radio-indicator"></span>
+                                        Solid Color
+                                    </label>
+                                    <label class="radio-custom">
+                                        <input type="radio" name="backgroundType" value="gradient">
+                                        <span class="radio-indicator"></span>
+                                        Gradient
+                                    </label>
+                                    <label class="radio-custom">
+                                        <input type="radio" name="backgroundType" value="image">
+                                        <span class="radio-indicator"></span>
+                                        Image
+                                    </label>
+                                </div>
+                                  <div class="background-control" id="colorBackground">
+                                    <label for="clipPathBgColor">Background Color</label>
+                                    <div class="color-input-group">
+                                        <input type="color" id="clipPathBgColor" value="#6366f1" class="color-picker">
+                                        <input type="text" id="clipPathBgColorHex" value="#6366f1" class="color-hex-input">
+                                    </div>
+                                    <div class="color-presets">
+                                        <button class="color-preset-btn" data-color="#6366f1" style="background: #6366f1;" title="Indigo"></button>
+                                        <button class="color-preset-btn" data-color="#8b5cf6" style="background: #8b5cf6;" title="Purple"></button>
+                                        <button class="color-preset-btn" data-color="#06b6d4" style="background: #06b6d4;" title="Cyan"></button>
+                                        <button class="color-preset-btn" data-color="#10b981" style="background: #10b981;" title="Emerald"></button>
+                                        <button class="color-preset-btn" data-color="#f59e0b" style="background: #f59e0b;" title="Amber"></button>
+                                        <button class="color-preset-btn" data-color="#ef4444" style="background: #ef4444;" title="Red"></button>
+                                        <button class="color-preset-btn" data-color="#8b5a87" style="background: #8b5a87;" title="Mauve"></button>
+                                        <button class="color-preset-btn" data-color="#1f2937" style="background: #1f2937;" title="Dark"></button>
+                                    </div>
+                                </div>
+                                
+                                <div class="background-control hidden" id="gradientBackground">
+                                    <label>Gradient Colors</label>
+                                    <div class="gradient-colors">
+                                        <div class="color-input-group">
+                                            <input type="color" id="clipPathGradColor1" value="#6366f1" class="color-picker">
+                                            <input type="text" id="clipPathGradColor1Hex" value="#6366f1" class="color-hex-input">
+                                        </div>
+                                        <div class="color-input-group">
+                                            <input type="color" id="clipPathGradColor2" value="#8b5cf6" class="color-picker">
+                                            <input type="text" id="clipPathGradColor2Hex" value="#8b5cf6" class="color-hex-input">
+                                        </div>
+                                    </div>
+                                    <label for="gradientAngle">Gradient Angle</label>
+                                    <div class="range-container">
+                                        <input type="range" id="gradientAngle" min="0" max="360" value="45" class="range-slider">
+                                        <span class="range-value" id="gradientAngleValue">45°</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="background-control hidden" id="imageBackground">
+                                    <label for="clipPathBgImage">Upload Image</label>
+                                    <input type="file" id="clipPathBgImage" accept="image/*" class="file-input">
+                                    <div class="image-options">
+                                        <label for="imageSize">Image Size</label>
+                                        <select id="imageSize" class="select-dropdown">
+                                            <option value="cover">Cover</option>
+                                            <option value="contain">Contain</option>
+                                            <option value="100% 100%">Stretch</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        <div class="control-group">
+                            <div class="polygon-info">
+                                <p><strong>Polygon Mode:</strong> Click on the preview to add points, drag existing points to modify the shape.</p>
+                                <p><strong>Tips:</strong> Right-click any point to remove it (minimum 3 points required).</p>
+                                <div class="polygon-controls">
+                                    <div class="polygon-stats">
+                                        <span id="pointCount">Points: 0</span>
+                                    </div>
+                                    <div class="polygon-actions">
+                                        <button class="reset-polygon-btn" id="resetPolygon">
+                                            <i class="fas fa-undo"></i>
+                                            Reset Polygon
+                                        </button>
+                                        <button class="clear-polygon-btn" id="clearPolygon">
+                                            <i class="fas fa-trash"></i>
+                                            Clear All
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <div class="preview-container">
+                            <div class="clip-path-preview" id="clipPathPreview">
+                                <div class="clip-path-element" id="clipPathElement">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY2NkZGO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRjY2RkY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgLz4KPC9zdmc+" alt="Preview" />
+                                </div>
+                                <div class="polygon-points" id="polygonPoints"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="code-output">
+                            <div class="code-header">
+                                <span>Generated CSS</span>
+                                <button class="copy-btn" id="clipPathCopyBtn">
+                                    <i class="fas fa-copy"></i>
+                                    Copy CSS
+                                </button>
+                            </div>
+                            <pre class="code-block"><code id="clipPathCode">clip-path: circle(50% at 50% 50%);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 5: RegEx Tester -->
+            <section class="tool" id="regex-tool">
+                <div class="tool-header">
+                    <h2>Regular Expression Tester</h2>
+                    <p>Test and debug regular expressions with real-time feedback</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="controls-panel">
+                        <div class="control-group">
+                            <label for="regexPattern">Regular Expression</label>
+                            <div class="regex-input-container">
+                                <input type="text" id="regexPattern" class="text-input" placeholder="Enter your regex pattern..." value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+                                <div class="regex-flags">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="flagGlobal" checked>
+                                        <span class="checkbox-custom"></span>
+                                        g
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="flagIgnoreCase">
+                                        <span class="checkbox-custom"></span>
+                                        i
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="flagMultiline">
+                                        <span class="checkbox-custom"></span>
+                                        m
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="regex-error" id="regexError"></div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="testString">Test String</label>
+                            <textarea id="testString" class="textarea-input" placeholder="Enter your test string here..." rows="8">Please contact us at support@example.com or admin@test.org
+You can also reach us at info@company.co.uk
+Invalid emails: test@, @example.com, test.email</textarea>
+                        </div>
+                        
+                        <div class="control-group">
+                            <div class="regex-actions">
+                                <button class="test-btn" id="testRegex">
+                                    <i class="fas fa-play"></i>
+                                    Test Regex
+                                </button>
+                                <button class="clear-btn" id="clearRegex">
+                                    <i class="fas fa-trash"></i>
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <div class="results-container">
+                            <div class="results-header">
+                                <h3>Results</h3>
+                                <div class="match-count" id="matchCount">0 matches found</div>
+                            </div>
+                            
+                            <div class="highlighted-text" id="highlightedText">
+                                <p>Enter a regex pattern and test string to see matches highlighted here.</p>
+                            </div>
+                            
+                            <div class="matches-list" id="matchesList">
+                                <h4>Matches & Capture Groups</h4>
+                                <div class="matches-content" id="matchesContent">
+                                    <p>No matches found</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 6: Color Contrast Checker -->
+            <section class="tool" id="contrast-tool">
+                <div class="tool-header">
+                    <h2>Color Contrast Checker</h2>
+                    <p>Ensure your color combinations meet WCAG accessibility standards</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div class="controls-panel">
+                        <div class="control-group">
+                            <label for="textColor">Text Color</label>
+                            <div class="color-input-container">
+                                <input type="color" id="textColor" value="#000000" class="color-picker">
+                                <input type="text" id="textColorHex" value="#000000" class="hex-input">
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="backgroundColor">Background Color</label>
+                            <div class="color-input-container">
+                                <input type="color" id="backgroundColor" value="#ffffff" class="color-picker">
+                                <input type="text" id="backgroundColorHex" value="#ffffff" class="hex-input">
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <button class="swap-colors-btn" id="swapColors">
+                                <i class="fas fa-exchange-alt"></i>
+                                Swap Colors
+                            </button>
+                        </div>
+                        
+                        <div class="control-group">
+                            <div class="color-suggestions">
+                                <h4>Quick Presets</h4>
+                                <div class="preset-colors">
+                                    <button class="color-preset" data-text="#000000" data-bg="#ffffff" title="Black on White">
+                                        <span style="background: #ffffff; color: #000000;">Aa</span>
+                                    </button>
+                                    <button class="color-preset" data-text="#ffffff" data-bg="#000000" title="White on Black">
+                                        <span style="background: #000000; color: #ffffff;">Aa</span>
+                                    </button>
+                                    <button class="color-preset" data-text="#0066cc" data-bg="#ffffff" title="Blue on White">
+                                        <span style="background: #ffffff; color: #0066cc;">Aa</span>
+                                    </button>
+                                    <button class="color-preset" data-text="#ffffff" data-bg="#0066cc" title="White on Blue">
+                                        <span style="background: #0066cc; color: #ffffff;">Aa</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-panel">
+                        <div class="contrast-preview" id="contrastPreview">
+                            <div class="preview-text normal-text" id="normalText">
+                                Normal text (16px) - The quick brown fox jumps over the lazy dog.
+                            </div>
+                            <div class="preview-text large-text" id="largeText">
+                                Large text (24px) - The quick brown fox jumps over the lazy dog.
+                            </div>
+                        </div>
+                        
+                        <div class="contrast-results">
+                            <div class="contrast-ratio">
+                                <h3>Contrast Ratio</h3>
+                                <div class="ratio-value" id="contrastRatio">21:1</div>
+                            </div>
+                            
+                            <div class="wcag-results">
+                                <h3>WCAG Compliance</h3>
+                                <div class="compliance-grid">
+                                    <div class="compliance-item">
+                                        <div class="compliance-label">AA Normal</div>
+                                        <div class="compliance-status" id="aaNormal">
+                                            <i class="fas fa-check"></i>
+                                            <span>PASS</span>
+                                        </div>
+                                        <div class="compliance-requirement">≥ 4.5:1</div>
+                                    </div>
+                                    <div class="compliance-item">
+                                        <div class="compliance-label">AA Large</div>
+                                        <div class="compliance-status" id="aaLarge">
+                                            <i class="fas fa-check"></i>
+                                            <span>PASS</span>
+                                        </div>
+                                        <div class="compliance-requirement">≥ 3:1</div>
+                                    </div>
+                                    <div class="compliance-item">
+                                        <div class="compliance-label">AAA Normal</div>
+                                        <div class="compliance-status" id="aaaNormal">
+                                            <i class="fas fa-check"></i>
+                                            <span>PASS</span>
+                                        </div>
+                                        <div class="compliance-requirement">≥ 7:1</div>
+                                    </div>
+                                    <div class="compliance-item">
+                                        <div class="compliance-label">AAA Large</div>
+                                        <div class="compliance-status" id="aaaLarge">
+                                            <i class="fas fa-check"></i>
+                                            <span>PASS</span>
+                                        </div>
+                                        <div class="compliance-requirement">≥ 4.5:1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check"></i>
+        <span>Copied to clipboard!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 DevTools Suite. Built with ❤️ for developers.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Power Suite - Professional PDF Tools</title>
+    <meta name="description" content="Professional-grade PDF tools for watermarking, password protection, and metadata editing - 100% client-side processing">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <!-- PDF-LIB Core Library -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    
+    <!-- Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">
+                    <i data-feather="file-text"></i>
+                    PDF Power Suite
+                </h1>
+                <p class="header-subtitle">Professional PDF tools with complete privacy - all processing happens in your browser. Note: Password protection uses metadata-based security.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application -->
+    <main class="main">
+        <div class="container">
+            <!-- Tool Navigation -->
+            <nav class="tool-nav" role="tablist">
+                <button class="tool-tab active" data-tool="watermark" role="tab" aria-selected="true" aria-controls="watermark-panel">
+                    <i data-feather="image"></i>
+                    <span>Watermark</span>
+                </button>                <button class="tool-tab" data-tool="protect" role="tab" aria-selected="false" aria-controls="protect-panel">
+                    <i data-feather="lock"></i>
+                    <span>Metadata Protect</span>
+                </button>
+                <button class="tool-tab" data-tool="remove" role="tab" aria-selected="false" aria-controls="remove-panel">
+                    <i data-feather="unlock"></i>
+                    <span>Remove Protection</span>
+                </button>
+                <button class="tool-tab" data-tool="metadata" role="tab" aria-selected="false" aria-controls="metadata-panel">
+                    <i data-feather="info"></i>
+                    <span>Metadata</span>
+                </button>
+            </nav>
+
+            <!-- Application Layout -->
+            <div class="app-layout">
+                <!-- File Upload Area -->
+                <section class="file-section">
+                    <div class="file-dropzone" id="fileDropzone">                        <div class="dropzone-content">
+                            <i data-feather="upload-cloud" class="dropzone-icon"></i>
+                            <h3 class="dropzone-title">Drop your PDF here</h3>
+                            <p class="dropzone-subtitle">or click to browse files</p>
+                            
+                            <!-- Test PDF Button -->
+                            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+                                <button id="createTestPDF" style="background: #10b981; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.2s;">
+                                    🧪 Create Test PDF
+                                </button>
+                                <p style="margin-top: 8px; font-size: 12px; color: #6b7280;">
+                                    Click to create a sample PDF for testing
+                                </p>
+                            </div>
+                            
+                            <input type="file" id="fileInput" accept=".pdf" class="file-input" aria-label="Select PDF file">
+                        </div>
+                        <div class="dropzone-overlay">
+                            <div class="dropzone-overlay-content">
+                                <i data-feather="file-plus" class="overlay-icon"></i>
+                                <span>Drop to upload</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- File Info Card -->
+                    <div class="file-info-card" id="fileInfoCard" style="display: none;">
+                        <div class="file-info-header">
+                            <i data-feather="file-text" class="file-icon"></i>
+                            <div class="file-details">
+                                <h4 class="file-name" id="fileName"></h4>
+                                <p class="file-meta" id="fileMeta"></p>
+                            </div>
+                            <button class="file-remove" id="fileRemove" aria-label="Remove file">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <div class="file-info-stats" id="fileStats"></div>
+                    </div>
+                </section>
+
+                <!-- Configuration Panels -->
+                <section class="config-section">
+                    <!-- Watermark Tool -->
+                    <div class="tool-panel active" id="watermark-panel" role="tabpanel" aria-labelledby="watermark-tab">
+                        <div class="panel-header">
+                            <h2 class="panel-title">PDF Watermarker</h2>
+                            <p class="panel-description">Add text or image watermarks to your PDF documents</p>
+                        </div>
+
+                        <div class="config-grid">
+                            <!-- Watermark Type -->
+                            <div class="config-group">
+                                <label class="config-label">Watermark Type</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="watermarkType" value="text" checked>
+                                        <span class="radio-indicator"></span>
+                                        <span>Text</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="watermarkType" value="image">
+                                        <span class="radio-indicator"></span>
+                                        <span>Image</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Text Configuration -->
+                            <div class="config-group text-config">
+                                <label class="config-label" for="watermarkText">Watermark Text</label>
+                                <input type="text" id="watermarkText" class="config-input" placeholder="Enter watermark text" value="CONFIDENTIAL">
+                            </div>
+
+                            <!-- Image Configuration -->
+                            <div class="config-group image-config" style="display: none;">
+                                <label class="config-label" for="watermarkImage">Watermark Image</label>
+                                <div class="file-input-wrapper">
+                                    <input type="file" id="watermarkImage" accept="image/*" class="file-input">
+                                    <label for="watermarkImage" class="file-input-label">
+                                        <i data-feather="image"></i>
+                                        Choose Image
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Font Settings (Text only) -->
+                            <div class="config-group text-config">
+                                <label class="config-label" for="fontFamily">Font Family</label>
+                                <select id="fontFamily" class="config-select">
+                                    <option value="Helvetica">Helvetica</option>
+                                    <option value="Times-Roman">Times Roman</option>
+                                    <option value="Courier">Courier</option>
+                                </select>
+                            </div>
+
+                            <!-- Font Size -->
+                            <div class="config-group text-config">
+                                <label class="config-label" for="fontSize">Font Size: <span id="fontSizeValue">36</span>px</label>
+                                <input type="range" id="fontSize" class="config-range" min="12" max="72" value="36">
+                            </div>
+
+                            <!-- Color -->
+                            <div class="config-group text-config">
+                                <label class="config-label" for="textColor">Text Color</label>
+                                <input type="color" id="textColor" class="config-color" value="#000000">
+                            </div>
+
+                            <!-- Opacity -->
+                            <div class="config-group">
+                                <label class="config-label" for="opacity">Opacity: <span id="opacityValue">0.5</span></label>
+                                <input type="range" id="opacity" class="config-range" min="0.1" max="1" step="0.1" value="0.5">
+                            </div>
+
+                            <!-- Position -->
+                            <div class="config-group">
+                                <label class="config-label">Position</label>
+                                <select id="watermarkPosition" class="config-select">
+                                    <option value="center">Center</option>
+                                    <option value="top-left">Top Left</option>
+                                    <option value="top-right">Top Right</option>
+                                    <option value="bottom-left">Bottom Left</option>
+                                    <option value="bottom-right">Bottom Right</option>
+                                    <option value="tiled">Tiled</option>
+                                </select>
+                            </div>
+
+                            <!-- Layer -->
+                            <div class="config-group">
+                                <label class="config-label">Layer</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="watermarkLayer" value="over" checked>
+                                        <span class="radio-indicator"></span>
+                                        <span>Over content</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="watermarkLayer" value="under">
+                                        <span class="radio-indicator"></span>
+                                        <span>Under content</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="process-btn" id="processWatermark" disabled>
+                            <i data-feather="image"></i>
+                            <span>Add Watermark</span>
+                        </button>
+                    </div>                    <!-- Password Protection Tool -->
+                    <div class="tool-panel" id="protect-panel" role="tabpanel" aria-labelledby="protect-tab">
+                        <div class="panel-header">
+                            <h2 class="panel-title">Password Protection</h2>
+                            <p class="panel-description">Apply metadata-based protection to your PDF documents</p>
+                            
+                            <!-- Important Disclaimer -->
+                            <div style="background: #fef3cd; border: 1px solid #f6d55c; border-radius: 8px; padding: 16px; margin: 16px 0; color: #856404;">
+                                <h4 style="margin: 0 0 8px 0; color: #856404;">⚠️ Important Limitation</h4>
+                                <p style="margin: 0; font-size: 14px; line-height: 1.4;">
+                                    Due to web browser security restrictions, this tool cannot create true password-encrypted PDFs. 
+                                    It applies <strong>metadata-based protection</strong> with visual indicators. 
+                                    For real encryption, use desktop software like Adobe Acrobat.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="config-grid">
+                            <!-- User Password -->
+                            <div class="config-group">
+                                <label class="config-label" for="userPassword">User Password</label>
+                                <input type="password" id="userPassword" class="config-input" placeholder="Password to open the document">
+                            </div>
+
+                            <!-- Owner Password -->
+                            <div class="config-group">
+                                <label class="config-label" for="ownerPassword">Owner Password</label>
+                                <input type="password" id="ownerPassword" class="config-input" placeholder="Password for document permissions">
+                            </div>
+
+                            <!-- Permissions -->
+                            <div class="config-group full-width">
+                                <label class="config-label">Permissions</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" id="allowPrinting" checked>
+                                        <span class="checkbox-indicator"></span>
+                                        <span>Allow Printing</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" id="allowCopying" checked>
+                                        <span class="checkbox-indicator"></span>
+                                        <span>Allow Copying</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" id="allowModifying" checked>
+                                        <span class="checkbox-indicator"></span>
+                                        <span>Allow Modifying</span>
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" id="allowAnnotating" checked>
+                                        <span class="checkbox-indicator"></span>
+                                        <span>Allow Annotating</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Encryption Level -->
+                            <div class="config-group">
+                                <label class="config-label" for="encryptionLevel">Encryption Level</label>
+                                <select id="encryptionLevel" class="config-select">
+                                    <option value="128">128-bit AES</option>
+                                    <option value="256" selected>256-bit AES</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="process-btn" id="processProtect" disabled>
+                            <i data-feather="lock"></i>
+                            <span>Protect PDF</span>
+                        </button>
+                    </div>                    <!-- Password Removal Tool -->
+                    <div class="tool-panel" id="remove-panel" role="tabpanel" aria-labelledby="remove-tab">
+                        <div class="panel-header">
+                            <h2 class="panel-title">Remove Password</h2>
+                            <p class="panel-description">Remove protection from PDF documents</p>
+                            
+                            <!-- Information Box -->
+                            <div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 8px; padding: 16px; margin: 16px 0; color: #1565c0;">
+                                <h4 style="margin: 0 0 8px 0; color: #1565c0;">ℹ️ How it works</h4>
+                                <p style="margin: 0; font-size: 14px; line-height: 1.4;">
+                                    This tool can remove both <strong>real PDF encryption</strong> (if you have the password) 
+                                    and <strong>metadata-based protection</strong> applied by this suite.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="config-grid">
+                            <div class="config-group">
+                                <label class="config-label" for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" class="config-input" placeholder="Enter the current PDF password">
+                            </div>
+                        </div>
+
+                        <button class="process-btn" id="processRemove" disabled>
+                            <i data-feather="unlock"></i>
+                            <span>Remove Password</span>
+                        </button>
+                    </div>
+
+                    <!-- Metadata Tool -->
+                    <div class="tool-panel" id="metadata-panel" role="tabpanel" aria-labelledby="metadata-tab">
+                        <div class="panel-header">
+                            <h2 class="panel-title">Metadata Editor</h2>
+                            <p class="panel-description">View and edit PDF document metadata information</p>
+                        </div>
+
+                        <div class="config-grid">
+                            <div class="config-group">
+                                <label class="config-label" for="metaTitle">Title</label>
+                                <input type="text" id="metaTitle" class="config-input" placeholder="Document title">
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label" for="metaAuthor">Author</label>
+                                <input type="text" id="metaAuthor" class="config-input" placeholder="Document author">
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label" for="metaSubject">Subject</label>
+                                <input type="text" id="metaSubject" class="config-input" placeholder="Document subject">
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label" for="metaKeywords">Keywords</label>
+                                <input type="text" id="metaKeywords" class="config-input" placeholder="Comma-separated keywords">
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label" for="metaCreator">Creator</label>
+                                <input type="text" id="metaCreator" class="config-input" placeholder="Document creator application">
+                            </div>
+
+                            <div class="config-group">
+                                <label class="config-label" for="metaProducer">Producer</label>
+                                <input type="text" id="metaProducer" class="config-input" placeholder="PDF producer">
+                            </div>
+                        </div>
+
+                        <button class="process-btn" id="processMetadata" disabled>
+                            <i data-feather="save"></i>
+                            <span>Update Metadata</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3 class="loading-title">Processing PDF...</h3>
+            <p class="loading-message" id="loadingMessage">Please wait while we process your document</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+    </script>
+</body>
+</html>

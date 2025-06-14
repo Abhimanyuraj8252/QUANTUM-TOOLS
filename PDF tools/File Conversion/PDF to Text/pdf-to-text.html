@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Text Converter - QUANTUM TOOLS</title>
+    <meta name="description" content="Extract text from PDF files with advanced text recognition and formatting options">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <!-- PDF.js for PDF text extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+   
+    <link rel="stylesheet" href="pdf-to-text-styles.css">
+</head>
+<body class="dark-theme">
+    <header>
+        <div class="container">            <div class="logo">
+                <a href="../../../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="nav-right">
+                    <a href="../../pdf-toolkit.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to PDF Tools</span>
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Tool Header -->
+            <section class="tool-header">
+                <div class="tool-info">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="tool-details">
+                        <h1 class="tool-title">PDF to Text Converter</h1>
+                        <p class="tool-description">
+                            Extract text content from PDF files with advanced text recognition and formatting preservation options.
+                        </p>
+                        <div class="tool-features">
+                            <span class="feature-tag">
+                                <i class="fas fa-search"></i>
+                                Text Recognition
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-align-left"></i>
+                                Format Preservation
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-file-download"></i>
+                                Multiple Formats
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Tool Interface -->
+            <div class="tool-interface">
+                <!-- Upload Section -->
+                <section class="upload-section">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Drop PDF here or click to browse</h3>
+                            <p>Supports PDF files up to 50MB</p>
+                            <input type="file" id="file-input" accept=".pdf,application/pdf" hidden>
+                            <button class="upload-btn" id="browse-btn">
+                                <i class="fas fa-folder-open"></i>
+                                Browse PDF File
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="file-info" id="file-info" style="display: none;">
+                        <div class="file-preview">
+                            <div class="file-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="file-details">
+                                <h3 id="file-name">-</h3>
+                                <div class="file-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Size:</span>
+                                        <span class="stat-value" id="file-size">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Pages:</span>
+                                        <span class="stat-value" id="file-pages">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Type:</span>
+                                        <span class="stat-value">PDF Document</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="remove-file" id="remove-file">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Extraction Options -->
+                <section class="options-section" id="options-section" style="display: none;">
+                    <h2>Extraction Options</h2>
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <h3>Text Format</h3>
+                            <div class="format-options">
+                                <label class="option-item">
+                                    <input type="radio" name="format" value="plain" checked>
+                                    <span class="option-content">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Plain Text</span>
+                                    </span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="format" value="formatted">
+                                    <span class="option-content">
+                                        <i class="fas fa-align-left"></i>
+                                        <span>Formatted Text</span>
+                                    </span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="format" value="markdown">
+                                    <span class="option-content">
+                                        <i class="fab fa-markdown"></i>
+                                        <span>Markdown</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Page Range</h3>
+                            <div class="page-range-options">
+                                <label class="option-item">
+                                    <input type="radio" name="pages" value="all" checked>
+                                    <span>All Pages</span>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="pages" value="range">
+                                    <span>Page Range</span>
+                                </label>
+                                <div class="range-inputs" id="range-inputs" style="display: none;">
+                                    <input type="number" id="start-page" placeholder="From" min="1">
+                                    <span>to</span>
+                                    <input type="number" id="end-page" placeholder="To" min="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Advanced Options</h3>
+                            <div class="advanced-options">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="preserve-layout" checked>
+                                    <span>Preserve Layout</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="include-headers">
+                                    <span>Include Headers/Footers</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="extract-metadata">
+                                    <span>Extract Metadata</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn primary" id="extract-text">
+                            <i class="fas fa-extract"></i>
+                            Extract Text
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Processing Section -->
+                <section class="processing-section" id="processing-section" style="display: none;">
+                    <div class="processing-content">
+                        <div class="processing-animation">
+                            <div class="extraction-visual">
+                                <div class="pdf-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="extraction-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="text-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 id="processing-status">Analyzing PDF structure...</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p class="progress-text" id="progress-text">0% complete</p>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section" id="results-section" style="display: none;">
+                    <h2>Extracted Text</h2>
+                    <div class="results-content">
+                        <div class="text-preview">
+                            <div class="preview-header">
+                                <h3>Preview</h3>
+                                <div class="preview-stats">
+                                    <span class="stat">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span id="char-count">0 characters</span>
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-align-left"></i>
+                                        <span id="word-count">0 words</span>
+                                    </span>
+                                    <span class="stat">
+                                        <i class="fas fa-list-ol"></i>
+                                        <span id="line-count">0 lines</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="text-content" id="text-content">
+                                <!-- Extracted text will appear here -->
+                            </div>
+                        </div>
+
+                        <div class="download-options">
+                            <h3>Download Options</h3>
+                            <div class="download-buttons">
+                                <button class="btn primary" id="download-txt">
+                                    <i class="fas fa-download"></i>
+                                    Download as TXT
+                                </button>
+                                <button class="btn secondary" id="download-docx" style="display: none;">
+                                    <i class="fas fa-file-word"></i>
+                                    Download as DOCX
+                                </button>
+                                <button class="btn secondary" id="copy-text">
+                                    <i class="fas fa-copy"></i>
+                                    Copy to Clipboard
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn secondary" id="convert-another">
+                                <i class="fas fa-redo"></i>
+                                Convert Another PDF
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QUANTUM TOOLS. All rights reserved. | Built with ❤️ for productivity</p>
+        </div>
+    </footer>    
+    <script src="pdf-to-text-script.js"></script>
+</body>
+</html>

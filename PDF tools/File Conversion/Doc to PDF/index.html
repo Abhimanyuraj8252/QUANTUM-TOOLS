@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Doc to PDF Converter - OMNIFORMA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Doc to PDF</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-secondary" id="helpBtn">
+                        <i class="fas fa-question-circle"></i>
+                        Help
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Convert Documents to PDF
+                        <span class="gradient-text">Instantly</span>
+                    </h1>
+                    <p class="hero-description">
+                        Transform your Word documents, text files, and other formats into high-quality PDFs
+                        with our advanced conversion engine. Fast, secure, and completely client-side.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-container" id="uploadContainer">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>                        <h3>Drop your documents here</h3>
+                        <p>or click to browse files</p>
+                        <input type="file" id="fileInput" accept=".doc,.docx,.txt,.rtf,.odt,.ppt,.pptx,.xls,.xlsx,.csv,.md,.html,.xml,.json,.pages,.numbers,.key" multiple hidden>
+                        <div class="supported-formats">
+                            <span class="format-tag">.DOC</span>
+                            <span class="format-tag">.DOCX</span>
+                            <span class="format-tag">.TXT</span>
+                            <span class="format-tag">.RTF</span>
+                            <span class="format-tag">.ODT</span>
+                            <span class="format-tag">.PPT</span>
+                            <span class="format-tag">.PPTX</span>
+                            <span class="format-tag">.XLS</span>
+                            <span class="format-tag">.XLSX</span>
+                            <span class="format-tag">.CSV</span>
+                            <span class="format-tag">.MD</span>
+                            <span class="format-tag">.HTML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section" id="progressSection" style="display: none;">
+                    <div class="progress-container">
+                        <div class="progress-info">
+                            <span class="progress-text">Converting...</span>
+                            <span class="progress-percentage">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File List -->
+                <div class="file-list" id="fileList" style="display: none;">
+                    <h3>Selected Files</h3>
+                    <div class="files-container" id="filesContainer"></div>
+                </div>
+            </section>
+
+            <!-- Conversion Options -->
+            <section class="options-section" id="optionsSection" style="display: none;">
+                <div class="options-container">
+                    <h3>Conversion Settings</h3>
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <label for="pageSize">Page Size</label>
+                            <select id="pageSize" class="select-input">
+                                <option value="A4">A4</option>
+                                <option value="Letter">Letter</option>
+                                <option value="Legal">Legal</option>
+                                <option value="A3">A3</option>
+                                <option value="A5">A5</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="orientation">Orientation</label>
+                            <select id="orientation" class="select-input">
+                                <option value="portrait">Portrait</option>
+                                <option value="landscape">Landscape</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="margin">Margins</label>
+                            <select id="margin" class="select-input">
+                                <option value="normal">Normal</option>
+                                <option value="narrow">Narrow</option>
+                                <option value="wide">Wide</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label for="quality">Quality</label>                            <select id="quality" class="select-input">
+                                <option value="high">High (Best quality, larger file)</option>
+                                <option value="medium">Medium (Balanced quality)</option>
+                                <option value="low">Low (Smallest file size)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Advanced Options -->
+                    <div class="advanced-options">
+                        <button class="toggle-advanced" id="toggleAdvanced">
+                            <i class="fas fa-cog"></i>
+                            Advanced Options
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="advanced-content" id="advancedContent" style="display: none;">
+                            <div class="options-grid">
+                                <div class="option-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="preserveFormatting">
+                                        <span class="checkbox-custom"></span>
+                                        Preserve Formatting
+                                    </label>
+                                </div>
+                                <div class="option-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="embedFonts" checked>
+                                        <span class="checkbox-custom"></span>
+                                        Embed Fonts
+                                    </label>
+                                </div>
+                                <div class="option-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="addMetadata">
+                                        <span class="checkbox-custom"></span>
+                                        Add Metadata
+                                    </label>
+                                </div>
+                                <div class="option-group">                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="optimizeSize" checked>
+                                        <span class="checkbox-custom"></span>
+                                        Maximum Size Optimization
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="actions-section" id="actionsSection" style="display: none;">
+                <div class="actions-container">
+                    <button class="btn-primary" id="convertBtn">
+                        <i class="fas fa-magic"></i>
+                        Convert to PDF
+                    </button>
+                    <button class="btn-secondary" id="clearBtn">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-container">
+                    <h3>Conversion Results</h3>
+                    <div class="results-list" id="resultsList"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 OMNIFORMA. Advanced document conversion tools.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Support</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>How to Use Doc to PDF Converter</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">                <div class="help-section">
+                    <h4><i class="fas fa-upload"></i> Uploading Files</h4>
+                    <p>Drag and drop your documents or click to browse. Supported formats include DOC, DOCX, TXT, RTF, ODT, PPT, PPTX, XLS, XLSX, CSV, MD, HTML, and more.</p>
+                </div>
+                <div class="help-section">
+                    <h4><i class="fas fa-cog"></i> Conversion Settings</h4>
+                    <p>Customize your PDF output with options for page size, orientation, margins, and quality settings.</p>
+                </div>
+                <div class="help-section">
+                    <h4><i class="fas fa-shield-alt"></i> Privacy</h4>
+                    <p>All conversions happen in your browser. Your files are never uploaded to our servers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

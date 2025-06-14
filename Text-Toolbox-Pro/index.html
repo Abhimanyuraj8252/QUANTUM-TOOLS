@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Text Toolbox Pro - A comprehensive suite of text and code manipulation utilities for developers and content creators">
+    <meta name="keywords"
+        content="text tools, code formatter, base64 encoder, diff checker, markdown converter, text manipulation">
+    <title>Text Toolbox Pro</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- External libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/diff/5.1.0/diff.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/figlet/lib/figlet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">Text Toolbox Pro</h1>
+                <button class="toggle-theme" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="tool-nav">
+                <ul>
+                    <li data-tool="sorter" class="active"><i class="fas fa-sort-alpha-down"></i> Line Sorter</li>
+                    <li data-tool="find-replace"><i class="fas fa-search-replace"></i> Find & Replace</li>
+                    <li data-tool="duplicate-remover"><i class="fas fa-clone"></i> Duplicate Remover</li>
+                    <li data-tool="whitespace-remover"><i class="fas fa-eraser"></i> Whitespace Remover</li>
+                    <li data-tool="text-reverser"><i class="fas fa-exchange-alt fa-rotate-90"></i> Text Reverser</li>
+                    <li data-tool="lorem-ipsum"><i class="fas fa-align-left"></i> Lorem Ipsum Generator</li>
+                    <li data-tool="uuid-generator"><i class="fas fa-fingerprint"></i> UUID Generator</li>
+                    <li data-tool="base64"><i class="fas fa-exchange-alt"></i> Base64 Encoder/Decoder</li>
+                    <li data-tool="url-encoder"><i class="fas fa-link"></i> URL Encoder/Decoder</li>
+                    <li data-tool="minifier"><i class="fas fa-compress-alt"></i> Code Minifier</li>
+                    <li data-tool="diff-checker"><i class="fas fa-code-compare"></i> Diff Checker</li>
+                    <li data-tool="markdown"><i class="fab fa-markdown"></i> Markdown Converter</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Tool 1: Advanced Line/Paragraph Sorter -->
+            <section id="sorter" class="tool-section active">
+                <header>
+                    <h2>Advanced Line/Paragraph Sorter</h2>
+                    <p>Sort your text content by lines or paragraphs in various ways.</p>
+                </header>
+                <div class="tool-container">
+                    <textarea class="input-text"
+                        placeholder="Enter your text here. Each line will be treated as a separate item for sorting..."></textarea>
+
+                    <div class="controls">
+                        <button class="sort-az"><i class="fas fa-sort-alpha-down"></i> Sort A-Z</button>
+                        <button class="sort-za"><i class="fas fa-sort-alpha-up"></i> Sort Z-A</button>
+                        <button class="sort-19"><i class="fas fa-sort-numeric-down"></i> Sort 1-9</button>
+                        <button class="sort-91"><i class="fas fa-sort-numeric-up"></i> Sort 9-1</button>
+                        <button class="sort-reverse"><i class="fas fa-exchange-alt"></i> Reverse Order</button>
+                        <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 2: Find & Replace Tool -->
+            <section id="find-replace" class="tool-section">
+                <header>
+                    <h2>Find & Replace Tool</h2>
+                    <p>Search and replace text with various options.</p>
+                </header>
+                <div class="tool-container">
+                    <textarea class="input-text" placeholder="Enter your text here..."></textarea>
+
+                    <div class="controls find-replace-controls">
+                        <div class="input-group">
+                            <label for="find-text">Find:</label>
+                            <input type="text" id="find-text" placeholder="Text to find...">
+                        </div>
+                        <div class="input-group">
+                            <label for="replace-text">Replace:</label>
+                            <input type="text" id="replace-text" placeholder="Text to replace with...">
+                        </div>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="case-sensitive"> Case-sensitive
+                            </label>
+                            <label>
+                                <input type="checkbox" id="whole-words"> Whole words only
+                            </label>
+                        </div>
+                        <div class="button-group">
+                            <button class="replace-first"><i class="fas fa-exchange-alt"></i> Replace First</button>
+                            <button class="replace-all"><i class="fas fa-sync"></i> Replace All</button>
+                            <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 3: Duplicate Line Remover -->
+            <section id="duplicate-remover" class="tool-section">
+                <header>
+                    <h2>Duplicate Line Remover</h2>
+                    <p>Remove duplicate lines from your text.</p>
+                </header>
+                <div class="tool-container">
+                    <textarea class="input-text"
+                        placeholder="Enter text with possible duplicate lines here..."></textarea>
+
+                    <div class="controls">
+                        <button class="remove-duplicates"><i class="fas fa-filter"></i> Remove Duplicate Lines</button>
+                        <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 4: Whitespace Remover -->
+            <section id="whitespace-remover" class="tool-section">
+                <header>
+                    <h2>Whitespace Remover</h2>
+                    <p>Clean up excess whitespace in your text.</p>
+                </header>
+                <div class="tool-container">
+                    <textarea class="input-text" placeholder="Enter text with whitespace issues here..."></textarea>
+
+                    <div class="controls">
+                        <button class="remove-trim"><i class="fas fa-align-justify"></i> Remove Leading & Trailing
+                            Spaces</button>
+                        <button class="remove-empty-lines"><i class="fas fa-file-alt"></i> Remove All Empty
+                            Lines</button>
+                        <button class="condense-whitespace"><i class="fas fa-compress"></i> Condense All
+                            Whitespace</button>
+                        <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 5: Text Reverser -->
+            <section id="text-reverser" class="tool-section">
+                <header>
+                    <h2>Text Reverser</h2>
+                    <p>Reverse text in different ways.</p>
+                </header>
+                <div class="tool-container">
+                    <textarea class="input-text" placeholder="Enter text to reverse here..."></textarea>
+
+                    <div class="controls">
+                        <button class="reverse-all"><i class="fas fa-exchange-alt fa-rotate-90"></i> Reverse Entire
+                            Text</button>
+                        <button class="reverse-words"><i class="fas fa-random"></i> Reverse Words</button>
+                        <button class="reverse-chars"><i class="fas fa-font"></i> Reverse Characters in Each
+                            Word</button>
+                        <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section> <!-- Tool 6: Lorem Ipsum Generator -->
+            <section id="lorem-ipsum" class="tool-section">
+                <header>
+                    <h2>Lorem Ipsum Generator</h2>
+                    <p>Generate placeholder text for your designs.</p>
+                </header>
+                <div class="tool-container">
+                    <div class="controls top-controls">
+                        <div class="input-group">
+                            <label for="lorem-quantity">Quantity:</label>
+                            <input type="number" id="lorem-quantity" min="1" value="5">
+                        </div>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="lorem-type" value="paragraphs" checked> Paragraphs
+                            </label>
+                            <label>
+                                <input type="radio" name="lorem-type" value="sentences"> Sentences
+                            </label>
+                            <label>
+                                <input type="radio" name="lorem-type" value="words"> Words
+                            </label>
+                        </div>
+                        <button class="generate-lorem"><i class="fas fa-sync"></i> Generate</button>
+                    </div>
+
+                    <textarea class="output-text" readonly
+                        placeholder="Generated Lorem Ipsum will appear here..."></textarea>
+
+                    <div class="controls">
+                        <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 8: UUID/GUID Generator -->
+            <section id="uuid-generator" class="tool-section">
+                <header>
+                    <h2>UUID/GUID Generator</h2>
+                    <p>Generate random UUIDs for development use.</p>
+                </header>
+                <div class="tool-container">
+                    <div class="controls top-controls">
+                        <div class="input-group">
+                            <label for="uuid-quantity">How many to generate?</label>
+                            <input type="number" id="uuid-quantity" min="1" max="1000" value="5">
+                        </div>
+                        <button class="generate-uuid"><i class="fas fa-sync"></i> Generate UUIDs</button>
+                    </div>
+
+                    <textarea class="output-text" readonly placeholder="Generated UUIDs will appear here..."></textarea>
+
+                    <div class="controls">
+                        <button class="copy-button"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 9: Base64 Encoder/Decoder -->
+            <section id="base64" class="tool-section">
+                <header>
+                    <h2>Base64 Encoder/Decoder</h2>
+                    <p>Convert between plain text and Base64 encoding.</p>
+                </header>
+                <div class="tool-container dual-pane">
+                    <div class="pane">
+                        <h3>Plain Text</h3>
+                        <textarea class="plain-text" placeholder="Enter plain text here to encode it..."></textarea>
+                    </div>
+                    <div class="pane">
+                        <h3>Base64</h3>
+                        <textarea class="base64-text" placeholder="Enter Base64 text here to decode it..."></textarea>
+                    </div>
+
+                    <div class="controls">
+                        <button class="copy-plain"><i class="fas fa-copy"></i> Copy Plain Text</button>
+                        <button class="copy-base64"><i class="fas fa-copy"></i> Copy Base64</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear Both</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 10: URL Encoder/Decoder -->
+            <section id="url-encoder" class="tool-section">
+                <header>
+                    <h2>URL Encoder/Decoder</h2>
+                    <p>Convert between raw and URL-encoded text.</p>
+                </header>
+                <div class="tool-container dual-pane">
+                    <div class="pane">
+                        <h3>Raw Text</h3>
+                        <textarea class="raw-url" placeholder="Enter raw URL or text here to encode it..."></textarea>
+                    </div>
+                    <div class="pane">
+                        <h3>URL Encoded</h3>
+                        <textarea class="encoded-url"
+                            placeholder="Enter URL-encoded text here to decode it..."></textarea>
+                    </div>
+
+                    <div class="controls">
+                        <button class="copy-raw"><i class="fas fa-copy"></i> Copy Raw</button>
+                        <button class="copy-encoded"><i class="fas fa-copy"></i> Copy Encoded</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear Both</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 11: Basic HTML/CSS/JS Minifier -->
+            <section id="minifier" class="tool-section">
+                <header>
+                    <h2>Basic HTML/CSS/JS Minifier</h2>
+                    <p>Remove comments and reduce whitespace in your code.</p>
+                </header>
+                <div class="tool-container dual-pane">
+                    <div class="pane">
+                        <h3>Original Code</h3>
+                        <textarea class="original-code"
+                            placeholder="Paste your HTML, CSS or JavaScript code here..."></textarea>
+                    </div>
+                    <div class="pane">
+                        <h3>Minified Code</h3>
+                        <textarea class="minified-code" readonly
+                            placeholder="Minified code will appear here..."></textarea>
+                    </div>
+
+                    <div class="controls">
+                        <button class="minify-button"><i class="fas fa-compress-alt"></i> Minify</button>
+                        <button class="copy-minified"><i class="fas fa-copy"></i> Copy Minified</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear Both</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 12: Diff Checker -->
+            <section id="diff-checker" class="tool-section">
+                <header>
+                    <h2>Diff Checker</h2>
+                    <p>Compare two texts and highlight the differences.</p>
+                </header>
+                <div class="tool-container">
+                    <div class="dual-pane">
+                        <div class="pane">
+                            <h3>Original Text</h3>
+                            <textarea class="original-text"
+                                placeholder="Paste your original text or code here..."></textarea>
+                        </div>
+                        <div class="pane">
+                            <h3>Changed Text</h3>
+                            <textarea class="changed-text"
+                                placeholder="Paste your modified text or code here..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button class="compare-button"><i class="fas fa-code-compare"></i> Compare</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear Both</button>
+                    </div>
+
+                    <div class="diff-output">
+                        <h3>Differences</h3>
+                        <div class="diff-result"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tool 13: Markdown to HTML Converter -->
+            <section id="markdown" class="tool-section">
+                <header>
+                    <h2>Markdown to HTML Converter</h2>
+                    <p>Write in Markdown and see the HTML preview in real-time.</p>
+                </header>
+                <div class="tool-container dual-pane">
+                    <div class="pane">
+                        <h3>Markdown</h3>
+                        <textarea class="markdown-input" placeholder="Write your Markdown here...
+# Heading 1
+## Heading 2
+**Bold text** and *italic text*
+
+- List item 1
+- List item 2
+
+[Link example](https://example.com)
+
+> Blockquote example
+
+```
+Code block example
+```"></textarea>
+                    </div>
+                    <div class="pane">
+                        <h3>HTML Preview</h3>
+                        <div class="html-preview"></div>
+                    </div>
+
+                    <div class="controls">
+                        <button class="copy-markdown"><i class="fas fa-copy"></i> Copy Markdown</button>
+                        <button class="copy-html"><i class="fas fa-copy"></i> Copy HTML</button>
+                        <button class="clear-button"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="app-footer">
+        <p>© 2025 Text Toolbox Pro | Built with HTML, CSS & Vanilla JavaScript</p>
+    </footer>
+
+    <!-- Custom script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

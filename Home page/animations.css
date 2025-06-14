@@ -1,0 +1,154 @@
+/* ANIMATIONS CSS - Quantum Tools */
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Reveal for Multiple Items */
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-stagger.active > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.active > *:nth-child(2) { transition-delay: 0.2s; }
+.reveal-stagger.active > *:nth-child(3) { transition-delay: 0.4s; }
+.reveal-stagger.active > *:nth-child(4) { transition-delay: 0.6s; }
+.reveal-stagger.active > *:nth-child(5) { transition-delay: 0.8s; }
+.reveal-stagger.active > *:nth-child(6) { transition-delay: 1s; }
+
+.reveal-stagger.active > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scale Reveal Animation */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Text Shimmer Animation */
+.text-shimmer {
+    position: relative;
+    background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2), var(--accent-color-1));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 6s linear infinite;
+}
+
+@keyframes textShimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Glow Pulse for Buttons and Interactive Elements */
+.pulse-glow {
+    position: relative;
+}
+
+.pulse-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 15px 5px var(--accent-color-1);
+    opacity: 0;
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 0; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1.2); }
+}
+
+/* Typing Animation */
+.typing {
+    border-right: 4px solid var(--accent-color-1);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(30) 0.5s 1 normal both,
+               blink 1s steps(1) infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Float Animation for Cards */
+.float-animation {
+    transition: transform 0.3s ease;
+}
+
+.float-animation:hover {
+    transform: translateY(-10px);
+}
+
+/* Background Shift Animation */
+.bg-shift {
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: bg-animation 15s ease infinite;
+}
+
+@keyframes bg-animation {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Gradient Border Animation */
+.gradient-border {
+    position: relative;
+    border-radius: 10px;
+    padding: 4px;
+    background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2), var(--accent-color-3), var(--accent-color-2), var(--accent-color-1));
+    background-size: 300% 100%;
+    animation: gradient-animation 8s linear infinite;
+}
+
+.gradient-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-bg);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

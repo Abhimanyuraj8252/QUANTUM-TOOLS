@@ -1,0 +1,64 @@
+# Robots.txt for OMNIFORMA
+# Updated on June 14, 2025
+
+User-agent: *
+Allow: /
+
+# Allow all major search engine bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sitemap references
+Sitemap: https://omniforma.com/sitemap.xml
+Sitemap: https://omniforma.com/sitemap-images.xml
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Disallow low-value pages or admin areas (if any)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /temp/
+
+# Allow CSS and JS files for proper rendering
+User-agent: *
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+Allow: *.ico
+
+# Crawl delay (optional, adjust as needed)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://quantumtools.example.com/sitemap.xml
+Sitemap: https://quantumtools.example.com/sitemap-images.xml
+
+# Additional instructions
+# Cache: public, max-age=86400
+# Last-Modified: June 12, 2025

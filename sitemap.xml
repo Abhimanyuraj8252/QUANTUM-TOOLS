@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+          <!-- Main Homepage -->
+    <url>
+        <loc>https://omniforma.com/</loc>
+        <lastmod>2025-06-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Developer Tools -->
+    <url>
+        <loc>https://omniforma.com/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html</loc>
+        <lastmod>2025-06-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/Developer%20tools/JSON%20formatter%20validator/json-tool.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/DevTools%20Suite/index.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/DevKit%20Utilities/index.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Image Tools -->
+    <url>
+        <loc>https://quantumtools.example.com/Image%20tools/bg%20remover/bg-remover.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/Image%20tools/image%20converter/image-converter.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/Image%20tools/Image%20resizer/image-optimizer.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/Media%20Toolkit/index.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- PDF Tools -->
+    <url>
+        <loc>https://quantumtools.example.com/PDF%20tools/pdf-toolkit.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/PDF%20tools/PDF%20Power%20Suite/index.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Text Tools -->
+    <url>
+        <loc>https://quantumtools.example.com/text%20based%20tools/case%20converter/case-converter.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/text%20based%20tools/Random%20Data%20Generator/data-generator.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/text%20based%20tools/word-counter/word-counter.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/Text-Toolbox-Pro/index.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Utility Tools -->
+    <url>
+        <loc>https://quantumtools.example.com/utility%20tools/age%20calculator/age-calculator.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/utility%20tools/barcode%20generator/barcode-generator.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/utility%20tools/QR%20code%20generator/qr-generator.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://quantumtools.example.com/utility%20tools/unit%20converter/unit-converter.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Search Results Page -->
+    <url>
+        <loc>https://quantumtools.example.com/Home%20page/search-results.html</loc>
+        <lastmod>2025-06-12</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset>

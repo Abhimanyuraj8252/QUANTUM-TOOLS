@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Compressor - QUANTUM TOOLS</title>
+    <meta name="description" content="Reduce PDF file size while maintaining quality with advanced compression options">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0E17RL1H32');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <!-- PDF-lib for PDF manipulation -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <!-- PDF.js for rendering PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="pdf-compressor-styles.css">
+</head>
+<body class="dark-theme">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <header>
+        <div class="container">            <div class="logo">
+                <a href="../../../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="nav-right">
+                    <a href="../../pdf-toolkit.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to PDF Tools</span>
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">        <div class="container">
+            <!-- Tool Header -->
+            <section class="tool-header">
+                <div class="tool-info">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress"></i>
+                    </div>
+                    <div class="tool-details">
+                        <h1 class="tool-title">PDF Compressor</h1>
+                        <p class="tool-description">
+                            Reduce PDF file size with intelligent compression while maintaining document quality and readability.
+                        </p>
+                        <div class="tool-features">
+                            <span class="feature-tag">
+                                <i class="fas fa-magic"></i>
+                                Smart Compression
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-sliders-h"></i>
+                                Quality Control
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Fast Processing
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Tool Interface -->
+            <div class="tool-interface">
+                <!-- Step 1: Upload PDF -->
+                <section class="step-section active" id="upload-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h2>Upload PDF File</h2>
+                            <p>Select the PDF file you want to compress</p>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Drop PDF here or click to browse</h3>
+                            <p>Supports PDF files up to 50MB</p>
+                            <input type="file" id="file-input" accept=".pdf,application/pdf" hidden>
+                            <button class="upload-btn" id="browse-btn">
+                                <i class="fas fa-folder-open"></i>
+                                Browse PDF File
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="file-info" id="file-info" style="display: none;">
+                        <div class="file-preview">
+                            <div class="file-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="file-details">
+                                <h3 id="file-name">-</h3>
+                                <div class="file-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">Size:</span>
+                                        <span class="stat-value" id="file-size">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Pages:</span>
+                                        <span class="stat-value" id="file-pages">-</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-label">Type:</span>
+                                        <span class="stat-value">PDF Document</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="remove-file" id="remove-file">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn primary" id="proceed-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Configure Compression
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 2: Compression Settings -->
+                <section class="step-section" id="settings-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h2>Compression Settings</h2>
+                            <p>Choose your compression level and options</p>
+                        </div>
+                    </div>
+                    
+                    <div class="compression-options">
+                        <div class="preset-options">
+                            <h3>Compression Presets</h3>
+                            <div class="preset-grid">
+                                <div class="preset-card active" data-preset="balanced">
+                                    <div class="preset-icon">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                    <h4>Balanced</h4>
+                                    <p>Good compression with maintained quality</p>
+                                    <div class="preset-stats">
+                                        <span>~30-50% reduction</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="preset-card" data-preset="maximum">
+                                    <div class="preset-icon">
+                                        <i class="fas fa-compress-arrows-alt"></i>
+                                    </div>
+                                    <h4>Maximum</h4>
+                                    <p>Highest compression, some quality loss</p>
+                                    <div class="preset-stats">
+                                        <span>~50-70% reduction</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="preset-card" data-preset="minimal">
+                                    <div class="preset-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <h4>Minimal</h4>
+                                    <p>Light compression, best quality</p>
+                                    <div class="preset-stats">
+                                        <span>~15-30% reduction</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="preset-card" data-preset="custom">
+                                    <div class="preset-icon">
+                                        <i class="fas fa-cog"></i>
+                                    </div>
+                                    <h4>Custom</h4>
+                                    <p>Fine-tune compression settings</p>
+                                    <div class="preset-stats">
+                                        <span>Variable reduction</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-settings" id="custom-settings" style="display: none;">
+                            <h3>Custom Settings</h3>
+                            <div class="settings-grid">
+                                <div class="setting-group">
+                                    <label for="image-quality">Image Quality</label>
+                                    <input type="range" id="image-quality" class="setting-range" min="10" max="100" value="80">
+                                    <span class="range-value" id="image-quality-value">80%</span>
+                                </div>
+                                
+                                <div class="setting-group">
+                                    <label for="image-resolution">Image Resolution (DPI)</label>
+                                    <select id="image-resolution" class="setting-input">
+                                        <option value="72">72 (Web)</option>
+                                        <option value="150" selected>150 (Standard)</option>
+                                        <option value="300">300 (High)</option>
+                                        <option value="600">600 (Print)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="setting-group">
+                                    <label>
+                                        <input type="checkbox" id="remove-metadata" checked>
+                                        Remove metadata
+                                    </label>
+                                </div>
+                                
+                                <div class="setting-group">
+                                    <label>
+                                        <input type="checkbox" id="optimize-fonts" checked>
+                                        Optimize fonts
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="compression-preview">
+                            <div class="preview-stats">
+                                <div class="stat-comparison">
+                                    <div class="original-stat">
+                                        <h4>Original Size</h4>
+                                        <span id="original-size">-</span>
+                                    </div>
+                                    <div class="arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    <div class="compressed-stat">
+                                        <h4>Estimated Size</h4>
+                                        <span id="estimated-size">-</span>
+                                    </div>
+                                </div>
+                                <div class="reduction-info">
+                                    <span id="reduction-percentage">-</span> reduction
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-actions">
+                        <button class="btn secondary" id="back-to-upload">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Upload
+                        </button>
+                        <button class="btn primary" id="compress-pdf">
+                            <i class="fas fa-compress"></i>
+                            Compress PDF
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Step 3: Processing -->
+                <section class="step-section" id="processing-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h2>Compressing PDF</h2>
+                            <p>Please wait while we optimize your PDF file</p>
+                        </div>
+                    </div>
+                    
+                    <div class="processing-content">
+                        <div class="processing-animation">
+                            <div class="compression-visual">
+                                <div class="file-before">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Original</span>
+                                </div>
+                                <div class="compression-arrow">
+                                    <i class="fas fa-compress-arrows-alt"></i>
+                                </div>
+                                <div class="file-after">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <span>Compressed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 id="processing-status">Analyzing PDF structure...</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p class="progress-text" id="progress-text">0% complete</p>
+                    </div>
+                </section>
+
+                <!-- Step 4: Complete -->
+                <section class="step-section" id="complete-step">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h2>Compression Complete!</h2>
+                            <p>Your PDF has been successfully compressed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="complete-content">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>PDF Compressed Successfully!</h3>
+                        
+                        <div class="compression-results">
+                            <div class="result-comparison">
+                                <div class="before-after">
+                                    <div class="size-info">
+                                        <div class="before">
+                                            <h4>Before</h4>
+                                            <span class="size" id="before-size">-</span>
+                                        </div>
+                                        <div class="after">
+                                            <h4>After</h4>
+                                            <span class="size" id="after-size">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="savings">
+                                        <div class="savings-amount">
+                                            <span id="savings-size">-</span> saved
+                                        </div>
+                                        <div class="savings-percentage">
+                                            <span id="savings-percentage">-</span> reduction
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="complete-actions">
+                            <button class="btn primary" id="download-compressed">
+                                <i class="fas fa-download"></i>
+                                Download Compressed PDF
+                            </button>
+                            <button class="btn secondary" id="compress-another">
+                                <i class="fas fa-redo"></i>
+                                Compress Another PDF
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QUANTUM TOOLS. All rights reserved. | Built with ❤️ for productivity</p>
+        </div>
+    </footer> 
+    <script src="pdf-compressor-script.js"></script>
+</body>
+</html>

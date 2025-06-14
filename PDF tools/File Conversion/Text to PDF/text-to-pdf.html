@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to PDF - QUANTUM TOOLS</title>
+    <meta name="description" content="Convert text files and direct text input to PDF with formatting options">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">      <!-- jsPDF for PDF generation - using latest stable version -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Ensure jsPDF is properly loaded and accessible
+        window.addEventListener('load', function() {
+            if (typeof window.jspdf === 'undefined') {
+                console.error('jsPDF failed to load, trying fallback...');
+                // Fallback CDN
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js';
+                script.onload = () => console.log('jsPDF loaded from fallback CDN');
+                script.onerror = () => console.error('Failed to load jsPDF from fallback CDN');
+                document.head.appendChild(script);
+            } else {
+                console.log('jsPDF loaded successfully:', typeof window.jspdf.jsPDF);
+            }
+        });
+    </script>
+    
+   
+    <link rel="stylesheet" href="text-to-pdf-styles.css">
+</head>
+<body class="dark-theme">
+    <header>
+        <div class="container">            <div class="logo">
+                <a href="../../../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="nav-right">
+                    <a href="../../pdf-toolkit.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to PDF Tools</span>
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Tool Header -->
+            <section class="tool-header">
+                <div class="tool-info">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="tool-details">
+                        <h1 class="tool-title">Text to PDF</h1>
+                        <p class="tool-description">
+                            Convert text files or direct text input to professional PDF documents with customizable formatting options.
+                        </p>
+                    </div>
+                </div>
+                <div class="tool-stats">
+                    <div class="stat">
+                        <span class="stat-number">TXT</span>
+                        <span class="stat-label">Files Supported</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Client-Side</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Text Length</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-tabs">
+                    <button class="tab-btn active" data-tab="text-input">
+                        <i class="fas fa-keyboard"></i>
+                        Direct Text Input
+                    </button>
+                    <button class="tab-btn" data-tab="file-upload">
+                        <i class="fas fa-upload"></i>
+                        Upload Text File
+                    </button>
+                </div>
+
+                <!-- Direct Text Input Tab -->
+                <div class="tab-content active" id="text-input">
+                    <div class="text-input-container">
+                        <div class="input-header">
+                            <h3>Enter your text</h3>
+                            <div class="text-stats">
+                                <span id="char-count">0 characters</span>
+                                <span id="word-count">0 words</span>
+                                <span id="line-count">0 lines</span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="text-content" 
+                            placeholder="Type or paste your text here..."
+                            rows="15"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <!-- File Upload Tab -->
+                <div class="tab-content" id="file-upload">
+                    <div class="file-upload-container">
+                        <div class="drop-zone" id="drop-zone">
+                            <div class="drop-zone-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Drag & Drop Text File</h3>
+                                <p>or click to browse</p>
+                                <div class="supported-formats">
+                                    <span class="format-tag">.txt</span>
+                                    <span class="format-tag">.md</span>
+                                    <span class="format-tag">.csv</span>
+                                </div>
+                            </div>
+                            <input type="file" id="text-file-input" accept=".txt,.md,.csv,text/*" hidden>
+                        </div>
+                        
+                        <div class="file-info" id="file-info" style="display: none;">
+                            <div class="file-details">
+                                <i class="fas fa-file-alt"></i>
+                                <div class="file-data">
+                                    <h4 id="file-name">document.txt</h4>
+                                    <p id="file-size">0 KB</p>
+                                </div>
+                                <button class="remove-file-btn" id="remove-file">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formatting Options -->
+            <section class="formatting-section">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Formatting Options
+                </h2>
+                
+                <div class="formatting-grid">
+                    <!-- Document Settings -->
+                    <div class="format-group">
+                        <h3>Document Settings</h3>
+                        <div class="format-controls">
+                            <div class="control-group">
+                                <label for="page-size">Page Size</label>
+                                <select id="page-size">
+                                    <option value="a4" selected>A4 (210 × 297 mm)</option>
+                                    <option value="letter">Letter (8.5 × 11 in)</option>
+                                    <option value="legal">Legal (8.5 × 14 in)</option>
+                                    <option value="a3">A3 (297 × 420 mm)</option>
+                                    <option value="a5">A5 (148 × 210 mm)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="orientation">Orientation</label>
+                                <select id="orientation">
+                                    <option value="portrait" selected>Portrait</option>
+                                    <option value="landscape">Landscape</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Formatting -->
+                    <div class="format-group">
+                        <h3>Text Formatting</h3>
+                        <div class="format-controls">
+                            <div class="control-group">
+                                <label for="font-family">Font Family</label>
+                                <select id="font-family">
+                                    <option value="helvetica" selected>Helvetica</option>
+                                    <option value="times">Times Roman</option>
+                                    <option value="courier">Courier (Monospace)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="font-size">Font Size</label>
+                                <input type="range" id="font-size" min="8" max="24" value="12" step="1">
+                                <span id="font-size-value">12pt</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="line-height">Line Height</label>
+                                <input type="range" id="line-height" min="1" max="3" value="1.5" step="0.1">
+                                <span id="line-height-value">1.5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Margins & Layout -->
+                    <div class="format-group">
+                        <h3>Margins & Layout</h3>
+                        <div class="format-controls">
+                            <div class="control-group">
+                                <label for="margin-top">Top Margin</label>
+                                <input type="range" id="margin-top" min="10" max="50" value="20" step="5">
+                                <span id="margin-top-value">20mm</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="margin-sides">Side Margins</label>
+                                <input type="range" id="margin-sides" min="10" max="50" value="20" step="5">
+                                <span id="margin-sides-value">20mm</span>
+                            </div>
+                            
+                            <div class="control-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="add-page-numbers">
+                                    <span class="checkmark"></span>
+                                    Add Page Numbers
+                                </label>
+                            </div>
+                            
+                            <div class="control-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="preserve-formatting">
+                                    <span class="checkmark"></span>
+                                    Preserve Line Breaks
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Document Info -->
+                    <div class="format-group">
+                        <h3>Document Information</h3>
+                        <div class="format-controls">
+                            <div class="control-group">
+                                <label for="doc-title">Title</label>
+                                <input type="text" id="doc-title" placeholder="Document Title">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="doc-author">Author</label>
+                                <input type="text" id="doc-author" placeholder="Author Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section" id="preview-section" style="display: none;">
+                <h2 class="section-title">
+                    <i class="fas fa-eye"></i>
+                    Live Preview
+                </h2>
+                <div class="preview-container">
+                    <div class="preview-page" id="preview-page">
+                        <div class="preview-content" id="preview-content">
+                            <!-- Preview content will be generated here -->
+                        </div>
+                    </div>
+                    <div class="preview-info">
+                        <div class="preview-stats">
+                            <span id="preview-pages">1 page(s)</span>
+                            <span id="preview-size">A4 Portrait</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-section">
+                <div class="action-buttons">
+                    <button class="btn secondary" id="preview-btn">
+                        <i class="fas fa-eye"></i>
+                        Preview PDF
+                    </button>
+                    <button class="btn primary" id="generate-btn" disabled>
+                        <i class="fas fa-file-pdf"></i>
+                        Generate PDF
+                    </button>
+                    <button class="btn secondary" id="reset-btn">
+                        <i class="fas fa-undo"></i>
+                        Reset
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loading-message">Processing...</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QUANTUM TOOLS. All rights reserved. | Built with ❤️ for productivity</p>
+        </div>
+    </footer>  
+    <script src="text-to-pdf-script.js"></script>
+</body>
+</html>

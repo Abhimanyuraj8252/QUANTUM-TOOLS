@@ -1,0 +1,3 @@
+@echo off
+echo Starting OMNIFORMA development server with clean URLs...
+npx serve --listen 3000 --single
