@@ -11,6 +11,7 @@ class SEOAnalyticsManager {
         this.setupSEOOptimizations();
         this.trackUserEngagement();
         this.setupPageSpeedTracking();
+        this.enhanceKeywordRelevance();
     }
     
     // Google Tag Manager Setup
@@ -337,6 +338,46 @@ class SEOAnalyticsManager {
                 });
             }
         });
+    }
+
+    // Enhanced keyword optimization to improve search visibility
+    enhanceKeywordRelevance() {
+        // Add structured data specifically for the quantum tools brand
+        const brandStructuredData = {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "QUANTUM TOOLS",
+            "alternateName": "QuantumTools",
+            "url": "https://quantumtools.me/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://quantumtools.me/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            },
+            "keywords": [
+                "quantum tools",
+                "online tools",
+                "web utilities",
+                "free tools",
+                "developer tools",
+                "PDF tools",
+                "image tools"
+            ]
+        };
+        
+        // Inject the JSON-LD structured data
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify(brandStructuredData);
+        document.head.appendChild(script);
+        
+        // Add additional meta tags if they don't exist
+        if (!document.querySelector('meta[name="brand"]')) {
+            const brandMeta = document.createElement('meta');
+            brandMeta.name = 'brand';
+            brandMeta.content = 'QUANTUM TOOLS';
+            document.head.appendChild(brandMeta);
+        }
     }
 
     // Helper methods
