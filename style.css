@@ -217,6 +217,25 @@ header .container {
     z-index: 102;
 }
 
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8));
+}
+
 .logo h1 {
     font-size: 1.5rem;
     font-weight: 700;

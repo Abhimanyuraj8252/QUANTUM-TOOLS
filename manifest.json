@@ -1,10 +1,10 @@
 {
-    "name": "OMNIFORMA - Advanced Web Utilities Suite",
-    "short_name": "OMNIFORMA",
+    "name": "QUANTUM TOOLS - Advanced Web Utilities Suite",
+    "short_name": "QUANTUM TOOLS",
     "description": "Comprehensive suite of 50+ advanced web utilities including PDF tools, image converters, developer tools, text processors, and more.",
     "start_url": "./",
     "display": "standalone",
-    "background_color": "#1a1a2e",
+    "background_color": "#0a0d14",
     "theme_color": "#00f0ff",
     "orientation": "any",
     "scope": "./",
@@ -12,19 +12,20 @@
     "categories": ["productivity", "utilities", "developer"],
     "icons": [
         {
-            "src": "./assets/icon-72x72.png",
-            "sizes": "72x72",
+            "src": "./assets/images/favicon-16x16.png",
+            "sizes": "16x16",
             "type": "image/png",
-            "purpose": "maskable any"
+            "purpose": "any"
         },
         {
-            "src": "./assets/icon-96x96.png",
-            "sizes": "96x96",
+            "src": "./assets/images/favicon-32x32.png",
+            "sizes": "32x32",
             "type": "image/png",
-            "purpose": "maskable any"
-        },        {
-            "src": "./assets/icon-128x128.png",
-            "sizes": "128x128",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/images/favicon-192x192.png",
+            "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable any"
         },
