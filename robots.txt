@@ -1,23 +1,54 @@
 # Robots.txt for QUANTUM TOOLS
-# Updated on June 14, 2025
+# Updated on June 17, 2025
 
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Allow all major search engine bots
+# Sitemaps
+Sitemap: https://quantumtools.me/sitemap.xml
+Sitemap: https://quantumtools.me/sitemap-images.xml
+
+# Allow all major search engine bots with specific directives
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 3
+
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 5
 Allow: /
 
 # Sitemap references
