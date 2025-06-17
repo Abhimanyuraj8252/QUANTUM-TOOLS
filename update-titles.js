@@ -10,7 +10,7 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 // Site name
-const SITE_NAME = 'OMNIFORMA';
+const SITE_NAME = 'QUANTUM TOOLS';
 
 // Title mapping for different pages
 const pageTitles = {
@@ -31,7 +31,7 @@ function generateTitle(filePath) {
   }
   
   // If it's in the root and not specifically mapped
-  if (folderName === 'OMNIFORMA') {
+  if (folderName === 'QUANTUM TOOLS') {
     return `${baseName.charAt(0).toUpperCase() + baseName.slice(1).replace(/-/g, ' ')} | ${SITE_NAME}`;
   }
   

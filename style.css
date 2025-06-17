@@ -1,4 +1,4 @@
-/* OMNIFORMA - Futuristic UI Design */
+/* QUANTUM TOOLS - Futuristic UI Design */
 
 /* === GLOBAL STYLES === */
 :root {
@@ -309,7 +309,6 @@ nav {
     height: 2px;
     background: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
     transition: width var(--transition-fast) ease;
-    border-radius: 2px;
 }
 
 .nav-link:hover {
@@ -1437,6 +1436,8 @@ footer::before {
     display: flex;
     gap: 15px;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .social-link {
@@ -1891,4 +1892,108 @@ footer::before {
 
 #update-cancel:hover {
     background: rgba(255, 255, 255, 0.3);
+}
+
+/* Special style for the Buy Me a Coffee button */
+.social-link.buy-coffee {
+    background: linear-gradient(135deg, #FFDD00, #FBB124);
+    color: #4B3818;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: auto;
+    height: auto;
+}
+
+.social-link.buy-coffee i {
+    color: #4B3818;
+    margin-right: 2px;
+}
+
+.social-link.buy-coffee:hover {
+    background: linear-gradient(135deg, #FFCB00, #FF9900);
+    color: #000;
+    box-shadow: 0 8px 25px rgba(255, 187, 36, 0.5);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Enhanced styles for the GitHub link */
+.social-link.github-link {
+    background: #24292e;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    width: auto;
+    height: auto;
+}
+
+.social-link.github-link i {
+    color: white;
+    margin-right: 2px;
+}
+
+.social-link.github-link:hover {
+    background: #444;
+    box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Support Links Section */
+.support-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0 15px;
+    flex-wrap: wrap;
+}
+
+.support-btn {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 180px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.github-btn {
+    background: #24292e;
+    color: white;
+    border: 1px solid #444;
+}
+
+.github-btn:hover {
+    background: #333;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.coffee-btn {
+    background: linear-gradient(135deg, #FFDD00, #FBB124);
+    color: #4B3818;
+    border: none;
+}
+
+.coffee-btn:hover {
+    background: linear-gradient(135deg, #FFCB00, #FF9900);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 187, 36, 0.4);
 }

@@ -1,5 +1,5 @@
 /**
- * OMNIFORMA - Simplified Mobile Navigation
+ * QUANTUM TOOLS - Simplified Mobile Navigation
  * Clean and minimal mobile menu implementation
  */
 

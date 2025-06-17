@@ -1,4 +1,4 @@
-// Tag Manager System for OMNIFORMA/QUANTUM TOOLS
+// Tag Manager System for QUANTUM TOOLS
 // This file implements a comprehensive tag management system that works with Google Tag Manager
 // and tracks page tags, meta information, and SEO status
 

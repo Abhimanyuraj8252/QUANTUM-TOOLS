@@ -1,9 +1,9 @@
-// Service Worker for OMNIFORMA - Mobile Optimized
+// Service Worker for QUANTUM TOOLS - Mobile Optimized
 // Enhanced for better mobile device compatibility and performance
 
-const CACHE_NAME = 'omniforma-v2.0';
-const STATIC_CACHE = 'omniforma-static-v2.0';
-const DYNAMIC_CACHE = 'omniforma-dynamic-v2.0';
+const CACHE_NAME = 'quantum-tools-v2.0';
+const STATIC_CACHE = 'quantum-tools-static-v2.0';
+const DYNAMIC_CACHE = 'quantum-tools-dynamic-v2.0';
 
 // Core files for offline functionality (optimized for mobile)
 const CORE_FILES = [

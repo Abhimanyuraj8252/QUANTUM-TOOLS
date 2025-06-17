@@ -1,0 +1,10 @@
+# Ads.txt file for QUANTUM-TOOLS
+# Created on June 17, 2025
+# Format: adtech_domain, Publisher ID, Relationship Type, Certification Authority ID
+
+# Google AdSense
+google.com, pub-4013378095829502, DIRECT, f08c47fec0942fa0
+
+# If you're using other ad networks, add them below in the same format
+# Example for other networks:
+# adnetwork.com, 12345, RESELLER, abcdef123456

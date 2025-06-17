@@ -2,50 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
           <url>
-        <loc>https://omniforma.com/</loc>
+        <loc>https://quantumtools.me/</loc>
         <image:image>
-            <image:loc>https://omniforma.com/assets/omniforma-logo.png</image:loc>
-            <image:title>OMNIFORMA Logo</image:title>
-            <image:caption>OMNIFORMA - Advanced Web Utilities Suite Logo</image:caption>
+            <image:loc>https://quantumtools.me/assets/images/quantum-tools-logo.svg</image:loc>
+            <image:title>QUANTUM TOOLS Logo</image:title>
+            <image:caption>QUANTUM TOOLS - Advanced Web Utilities Suite Logo</image:caption>
         </image:image>
         <image:image>
-            <image:loc>https://omniforma.com/assets/background-hero.jpg</image:loc>
-            <image:title>OMNIFORMA Hero Background</image:title>
-            <image:caption>Modern futuristic background for OMNIFORMA website</image:caption>
+            <image:loc>https://quantumtools.me/assets/images/quantum-tools-og-image.png</image:loc>
+            <image:title>QUANTUM TOOLS Hero Background</image:title>
+            <image:caption>Modern futuristic background for QUANTUM TOOLS website</image:caption>
         </image:image>
     </url>
     
     <url>
-        <loc>https://omniforma.com/Image%20tools/bg%20remover/bg-remover.html</loc>
+        <loc>https://quantumtools.me/Image%20tools/bg%20remover/bg-remover.html</loc>
         <image:image>
-            <image:loc>https://quantumtools.example.com/assets/bg-remover-preview.png</image:loc>
+            <image:loc>https://quantumtools.me/assets/bg-remover-preview.png</image:loc>
             <image:title>AI Background Remover Tool</image:title>
             <image:caption>Advanced AI-powered background removal tool interface</image:caption>
         </image:image>
     </url>
-    
-    <url>
-        <loc>https://quantumtools.example.com/Image%20tools/image%20converter/image-converter.html</loc>
+      <url>
+        <loc>https://quantumtools.me/Image%20tools/image%20converter/image-converter.html</loc>
         <image:image>
-            <image:loc>https://quantumtools.example.com/assets/image-converter-preview.png</image:loc>
+            <image:loc>https://quantumtools.me/assets/image-converter-preview.png</image:loc>
             <image:title>Image Format Converter</image:title>
             <image:caption>Multi-format image converter tool interface</image:caption>
         </image:image>
     </url>
-    
-    <url>
-        <loc>https://quantumtools.example.com/PDF%20tools/pdf-toolkit.html</loc>
+      <url>
+        <loc>https://quantumtools.me/PDF%20tools/pdf-toolkit.html</loc>
         <image:image>
-            <image:loc>https://quantumtools.example.com/assets/pdf-toolkit-preview.png</image:loc>
+            <image:loc>https://quantumtools.me/assets/pdf-toolkit-preview.png</image:loc>
             <image:title>PDF Toolkit Interface</image:title>
             <image:caption>Comprehensive PDF manipulation toolkit</image:caption>
         </image:image>
     </url>
-    
-    <url>
-        <loc>https://quantumtools.example.com/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html</loc>
+      <url>
+        <loc>https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html</loc>
         <image:image>
-            <image:loc>https://quantumtools.example.com/assets/code-editor-preview.png</image:loc>
+            <image:loc>https://quantumtools.me/assets/code-editor-preview.png</image:loc>
             <image:title>Live Code Editor</image:title>
             <image:caption>Real-time HTML, CSS, JavaScript code editor with live preview</image:caption>
         </image:image>

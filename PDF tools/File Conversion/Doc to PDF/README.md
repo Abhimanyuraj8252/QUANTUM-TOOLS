@@ -192,7 +192,7 @@ Doc to PDF/
 
 ## 📄 License
 
-This project is part of the OMNIFORMA tool suite. All rights reserved.
+This project is part of the QUANTUM TOOLS suite. All rights reserved.
 
 ---
 

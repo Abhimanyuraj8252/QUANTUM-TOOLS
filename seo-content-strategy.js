@@ -1,4 +1,4 @@
-// SEO Content Strategy for OMNIFORMA
+// SEO Content Strategy for QUANTUM TOOLS
 // This file implements advanced content strategies to capture long-tail keywords
 // and improve organic search visibility
 

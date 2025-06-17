@@ -1,5 +1,5 @@
 /**
- * OMNIFORMA Website - Enhanced Interactive Features
+ * QUANTUM TOOLS Website - Enhanced Interactive Features
  * Modular JavaScript for improved maintainability and performance
  */
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', removeHomeAndIndexLinks);
 });
 
-class OmniformaWebsite {
+class QuantumToolsWebsite {
     constructor() {
         // Centralized DOM element selectors for better performance and maintainability
         this.elements = {
@@ -513,25 +513,23 @@ class OmniformaWebsite {
 // Initialize the website when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     try {
-        window.omniformaWebsite = new OmniformaWebsite();
-        console.info('OMNIFORMA website initialized successfully');
+        window.quantumToolsWebsite = new QuantumToolsWebsite();        console.info('QUANTUM TOOLS website initialized successfully');
     } catch (error) {
-        console.error('Failed to initialize OMNIFORMA website:', error);
+        console.error('Failed to initialize QUANTUM TOOLS website:', error);
     }
 });
 
 // Expose utility functions globally if needed
-window.OmniformaUtils = {
+window.QuantumToolsUtils = {
     smoothScrollTo: (selector) => {
-        if (window.omniformaWebsite) {
+        if (window.quantumToolsWebsite) {
             const element = document.querySelector(selector);
-            window.omniformaWebsite.smoothScrollToElement(element);
+            window.quantumToolsWebsite.smoothScrollToElement(element);
         }
     },
-    
-    toggleMobileMenu: () => {
-        if (window.omniformaWebsite) {
-            window.omniformaWebsite.toggleMobileMenu();
+      toggleMobileMenu: () => {
+        if (window.quantumToolsWebsite) {
+            window.quantumToolsWebsite.toggleMobileMenu();
         }
     }
 };

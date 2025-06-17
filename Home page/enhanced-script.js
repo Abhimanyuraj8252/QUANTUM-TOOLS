@@ -16,17 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Functionality
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
-    
+
     // Check for saved theme preference or default to 'dark'
     const currentTheme = localStorage.getItem('theme') || 'dark';
     body.classList.add(currentTheme + '-theme');
-    
+
     if (themeToggle) {
         // Update toggle state based on current theme
         if (currentTheme === 'light') {
             themeToggle.classList.add('light');
         }
-        
+
         themeToggle.addEventListener('click', () => {
             if (body.classList.contains('dark-theme')) {
                 body.classList.remove('dark-theme');
@@ -43,15 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }    // Mobile Navigation - defer to mobile-navigation.js
     const hamburger = document.querySelector('.hamburger, .mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links, .main-nav');
-    
+
     if (hamburger && navLinks) {
         hamburger.setAttribute('aria-expanded', 'false');
         hamburger.setAttribute('aria-label', 'Menu');
-        
+
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
-            
+
             // Prevent background scroll when menu is open
             if (navLinks.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('active') && 
-                !navLinks.contains(e.target) && 
+            if (navLinks.classList.contains('active') &&
+                !navLinks.contains(e.target) &&
                 !hamburger.contains(e.target)) {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const yOffset = -80; // Account for header height
@@ -116,26 +116,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });    // Reveal animations on scroll
     const revealElements = document.querySelectorAll('.reveal');
     const revealStaggerElements = document.querySelectorAll('.reveal-stagger');
-    
+
     const revealOnScroll = () => {
         const windowHeight = window.innerHeight;
         const windowScrollTop = window.pageYOffset;
-        
+
         // Regular reveal elements
         revealElements.forEach(element => {
             const elementTop = element.offsetTop;
             const elementHeight = element.offsetHeight;
-            
+
             if (windowScrollTop + windowHeight > elementTop + elementHeight / 4) {
                 element.classList.add('active');
             }
         });
-        
+
         // Staggered reveal elements
         revealStaggerElements.forEach(container => {
             const containerTop = container.offsetTop;
             const containerHeight = container.offsetHeight;
-            
+
             if (windowScrollTop + windowHeight > containerTop + containerHeight / 4) {
                 container.classList.add('active');
             }
@@ -318,12 +318,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth;
             const mouseY = e.clientY / window.innerHeight;
-            
+
             heroShapes.forEach((shape, index) => {
                 const speed = (index + 1) * 0.5;
                 const x = (mouseX - 0.5) * speed * 20;
                 const y = (mouseY - 0.5) * speed * 20;
-                
+
                 shape.style.transform = `translate(${x}px, ${y}px)`;
             });
         });
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                
+
                 // Add stagger effect for tool cards
                 if (entry.target.classList.contains('tools-grid')) {
                     const cards = entry.target.querySelectorAll('.tool-card');
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }, index * 200);
                     });
                 }
-                
+
                 animationObserver.unobserve(entry.target);
             }
         });
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = heroTitle.textContent;
         heroTitle.textContent = '';
         heroTitle.style.borderRight = '2px solid var(--accent-color-1)';
-        
+
         let index = 0;
         const typeText = () => {
             if (index < text.length) {
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 1000);
             }
         };
-        
+
         setTimeout(typeText, 1500);
     }
 
@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => {
         const loadTime = performance.now();
         console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
-        
+
         // Performance-heavy features are initialized separately at the bottom of this file
     });
 });
@@ -400,7 +400,7 @@ window.QUANTUM_TOOLS = {
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
-        
+
         notification.style.cssText = `
             position: fixed;
             top: 20px;
@@ -415,14 +415,14 @@ window.QUANTUM_TOOLS = {
             transform: translateX(100%);
             transition: transform 0.3s ease;
         `;
-        
+
         document.body.appendChild(notification);
-        
+
         // Animate in
         requestAnimationFrame(() => {
             notification.style.transform = 'translateX(0)';
         });
-        
+
         // Auto remove
         setTimeout(() => {
             notification.style.transform = 'translateX(100%)';
@@ -433,7 +433,7 @@ window.QUANTUM_TOOLS = {
             }, 300);
         }, duration);
     },
-    
+
     // Format file size
     formatFileSize: (bytes) => {
         if (bytes === 0) return '0 Bytes';
@@ -442,7 +442,7 @@ window.QUANTUM_TOOLS = {
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     },
-    
+
     // Generate unique ID
     generateId: () => {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -499,7 +499,7 @@ function initAdvancedAnimations() {
                 `;
                 document.body.appendChild(particle);
             }
-            
+
             const opacity = (index / maxTrail) * 0.5;
             particle.style.left = point.x - 2 + 'px';
             particle.style.top = point.y - 2 + 'px';
@@ -516,7 +516,7 @@ function initAdvancedAnimations() {
     toolCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            
+
             // Create ripple effect
             const ripple = document.createElement('div');
             ripple.style.cssText = `
@@ -531,7 +531,7 @@ function initAdvancedAnimations() {
                 pointer-events: none;
                 animation: ripple-expand 0.6s ease-out;
             `;
-            
+
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes ripple-expand {
@@ -543,9 +543,9 @@ function initAdvancedAnimations() {
                 }
             `;
             document.head.appendChild(style);
-            
+
             card.appendChild(ripple);
-            
+
             setTimeout(() => {
                 card.removeChild(ripple);
                 document.head.removeChild(style);
@@ -571,21 +571,21 @@ function initAdvancedAnimations() {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-        
+
         // Observe featured tools for animations
         featuredAnimationObserver.observe(featuredToolsSection);
-        
+
         // Add parallax effect to preview gradients
         const previewGradients = document.querySelectorAll('.preview-gradient');
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const rate = scrolled * -0.5;
-            
+
             previewGradients.forEach(gradient => {
                 gradient.style.transform = `translateY(${rate}px)`;
             });
         });
-        
+
         // Enhanced hover effects for featured tool cards
         const featuredCards = document.querySelectorAll('.featured-tool-card');
         featuredCards.forEach(card => {
@@ -611,14 +611,14 @@ function initAdvancedAnimations() {
                 opacity: 0.8;
                 animation: cardParticleFloat 2s ease-out forwards;
             `;
-            
+
             const rect = card.getBoundingClientRect();
             particle.style.left = Math.random() * rect.width + 'px';
             particle.style.top = Math.random() * rect.height + 'px';
-            
+
             card.style.position = 'relative';
             card.appendChild(particle);
-            
+
             // Remove particle after animation
             setTimeout(() => {
                 if (particle.parentNode) {
@@ -626,7 +626,7 @@ function initAdvancedAnimations() {
                 }
             }, 2000);
         }
-        
+
         // Add keyframes for particle animation
         if (!document.querySelector('#cardParticleAnimation')) {
             const style = document.createElement('style');
@@ -662,9 +662,9 @@ function createFloatingElements() {
         z-index: -1;
         overflow: hidden;
     `;
-    
+
     document.body.appendChild(container);
-    
+
     // Create multiple floating elements with different sizes and speeds
     for (let i = 0; i < 15; i++) {
         const element = document.createElement('div');
@@ -674,7 +674,7 @@ function createFloatingElements() {
         const initialY = Math.random() * 100;
         const rotation = Math.random() * 360;
         const opacity = Math.random() * 0.3 + 0.1;
-        
+
         element.style.cssText = `
             position: absolute;
             width: ${size}px;
@@ -687,9 +687,9 @@ function createFloatingElements() {
             opacity: ${opacity};
             animation: float-${i} ${speed + 10}s infinite linear;
         `;
-        
+
         container.appendChild(element);
-        
+
         // Create unique animation for each element
         const style = document.createElement('style');
         style.textContent = `
@@ -727,7 +727,7 @@ function initNewsletterForm() {
                 QUANTUM_TOOLS.showNotification('Please enter a valid email address.', 'error');
                 return;
             }
-            
+
             // Simulate successful subscription
             QUANTUM_TOOLS.showNotification('Thank you for subscribing!', 'success');
         });
@@ -738,7 +738,7 @@ function initNewsletterForm() {
 document.addEventListener('DOMContentLoaded', initNewsletterForm);
 
 // Advanced Search Functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Search data for all tools
     const searchData = [
         // Developer Tools
@@ -755,7 +755,7 @@ document.addEventListener('DOMContentLoaded', function() {
             url: '../Developer tools/Encoder Decoder/universal-encoder-decoder.html',
             keywords: 'encode, decode, base64, url, html, unicode, hex, binary, conversion',
             icon: 'fas fa-lock'
-        },        {
+        }, {
             title: 'JSON Formatter',
             description: 'Format, validate and minify JSON data with syntax highlighting',
             url: '../Developer tools/JSON formatter validator/json-tool.html',
@@ -839,7 +839,8 @@ document.addEventListener('DOMContentLoaded', function() {
             keywords: 'random, number, generator, range, lottery, dice, probability',
             icon: 'fas fa-random'
         },
-        {            title: 'Hash Generator',
+        {
+            title: 'Hash Generator',
             description: 'Generate secure hashes from text or files',
             url: '../DevKit Utilities/index.html#hash-generator',
             keywords: 'hash, md5, sha1, sha256, checksum, security, encryption',
@@ -1166,19 +1167,21 @@ document.addEventListener('DOMContentLoaded', function() {
             keywords: 'home, tools, utilities, quantum, web tools',
             icon: 'fas fa-home'
         }
-    ];    // Fix relative URLs based on current page location
+    ];
+
+    // Fix relative URLs based on current page location    
     function fixRelativeUrls() {
         const currentPath = window.location.pathname;
-        const isHomePage = currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('OMNIFORMA/');
+        const isHomePage = currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('QUANTUM-TOOLS/');
         const isSearchResults = currentPath.includes('search-results.html');
-        
+
         if (isHomePage) {
             // Already in home directory, no need to change URLs
             return searchData;
         } else if (isSearchResults) {
             // In search-results page, adjust URLs to go up one level
             return searchData.map(item => {
-                const newItem = {...item};
+                const newItem = { ...item };
                 if (item.url === 'index.html') {
                     newItem.url = '../index.html';
                 } else if (item.url.startsWith('../')) {
@@ -1190,7 +1193,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // We're in a tool page, need to fix URLs
             return searchData.map(item => {
-                const newItem = {...item};
+                const newItem = { ...item };
                 if (item.url === 'index.html') {
                     newItem.url = '../../index.html';
                 } else if (item.url.startsWith('../')) {
@@ -1255,33 +1258,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event listener for search input
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         performSearch(this.value);
     });
 
     // Event listener for search form submission
-    searchForm.addEventListener('submit', function(e) {
+    searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const query = searchInput.value.trim();
-          if (query !== '') {
+        if (query !== '') {
             // Get the base URL for search results page
             let searchResultsUrl;
             const currentPath = window.location.pathname;
-            const isHomePage = currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('OMNIFORMA/');
-            
+            const isHomePage = currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('QUANTUM-TOOLS/');
+
             if (isHomePage) {
                 searchResultsUrl = 'Home page/search-results.html';
             } else {
                 searchResultsUrl = '../../Home page/search-results.html';
             }
-            
+
             // Redirect to search results page with query parameter
             window.location.href = `${searchResultsUrl}?q=${encodeURIComponent(query)}`;
         }
     });
 
     // Close search results when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!searchForm.contains(e.target)) {
             searchResults.style.display = 'none';
         }
@@ -1292,7 +1295,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isSearchResultsPage) {
         const urlParams = new URLSearchParams(window.location.search);
         const query = urlParams.get('q');
-        
+
         if (query) {
             // Display the query in the search input and the query display
             searchInput.value = query;
@@ -1300,11 +1303,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (searchQueryDisplay) {
                 searchQueryDisplay.textContent = query;
             }
-            
+
             // Perform the search for the results page
             const searchResultsContainer = document.getElementById('search-results-container');
             const noResultsMessage = document.getElementById('no-results-message');
-            
+
             if (searchResultsContainer) {
                 // Filter results based on the query
                 const results = fixedSearchData.filter(item => {
@@ -1314,7 +1317,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         item.keywords.toLowerCase().includes(query.toLowerCase())
                     );
                 });
-                
+
                 // Display results or no results message
                 if (results.length > 0) {
                     let html = '';
@@ -1334,7 +1337,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             </a>
                         `;
                     });
-                    
+
                     searchResultsContainer.innerHTML = html;
                     if (noResultsMessage) {
                         noResultsMessage.style.display = 'none';

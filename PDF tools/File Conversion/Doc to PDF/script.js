@@ -363,7 +363,7 @@ class DocToPDFConverter {
                     if (this.conversionSettings.addMetadata) {
                         pdf.setProperties({
                             title: fileData.name,
-                            creator: 'OMNIFORMA Doc to PDF Converter',
+                            creator: 'QUANTUM TOOLS Doc to PDF Converter',
                             creationDate: new Date()
                         });
                     }
@@ -522,10 +522,10 @@ class DocToPDFConverter {
                     if (this.conversionSettings.addMetadata) {
                         pdf.setProperties({
                             title: fileData.name,
-                            creator: 'OMNIFORMA Doc to PDF Converter',
+                            creator: 'QUANTUM TOOLS Doc to PDF Converter',
                             creationDate: new Date(),
                             subject: 'Converted Document',
-                            author: 'OMNIFORMA Tools'
+                            author: 'QUANTUM TOOLS Tools'
                         });
                     }
                     
@@ -655,7 +655,7 @@ class DocToPDFConverter {
         if (this.conversionSettings.addMetadata) {
             pdf.setProperties({
                 title: filename,
-                creator: 'OMNIFORMA Doc to PDF Converter',
+                creator: 'QUANTUM TOOLS Doc to PDF Converter',
                 producer: 'Advanced PDF Conversion Engine',
                 creationDate: new Date(),
                 keywords: 'document conversion, PDF'
@@ -871,7 +871,7 @@ class DocToPDFConverter {
                         if (this.conversionSettings.addMetadata) {
                             pdf.setProperties({
                                 title: fileData.name,
-                                creator: 'OMNIFORMA Doc to PDF Converter',
+                                creator: 'QUANTUM TOOLS Doc to PDF Converter',
                                 creationDate: new Date()
                             });
                         }
@@ -1262,10 +1262,10 @@ class DocToPDFConverter {
                     if (this.conversionSettings.addMetadata) {
                         pdf.setProperties({
                             title: fileData.name,
-                            creator: 'OMNIFORMA Doc to PDF Converter',
+                            creator: 'QUANTUM TOOLS Doc to PDF Converter',
                             creationDate: new Date(),
                             subject: 'Converted Presentation',
-                            author: 'OMNIFORMA Tools'
+                            author: 'QUANTUM TOOLS Tools'
                         });
                     }
                     
@@ -1773,7 +1773,7 @@ class DocToPDFConverter {
                     if (this.conversionSettings.addMetadata) {
                         pdf.setProperties({
                             title: fileData.name,
-                            creator: 'OMNIFORMA Doc to PDF Converter',
+                            creator: 'QUANTUM TOOLS Doc to PDF Converter',
                             creationDate: new Date()
                         });
                     }
@@ -1859,7 +1859,7 @@ class DocToPDFConverter {
                     if (this.conversionSettings.addMetadata) {
                         pdf.setProperties({
                             title: fileData.name,
-                            creator: 'OMNIFORMA Doc to PDF Converter',
+                            creator: 'QUANTUM TOOLS Doc to PDF Converter',
                             creationDate: new Date()
                         });
                     }
@@ -1918,7 +1918,7 @@ class DocToPDFConverter {
                 if (this.conversionSettings.addMetadata) {
                     pdf.setProperties({
                         title: fileData.name,
-                        creator: 'OMNIFORMA Doc to PDF Converter',
+                        creator: 'QUANTUM TOOLS Doc to PDF Converter',
                         creationDate: new Date()
                     });
                 }

@@ -1,7 +1,7 @@
 # Tag Manager System Documentation
 
 ## Overview
-The Tag Manager system for QUANTUM TOOLS/OMNIFORMA ensures that all pages are properly tagged for analytics tracking and SEO purposes. It integrates with Google Tag Manager and provides a visual interface to monitor tag status.
+The Tag Manager system for QUANTUM TOOLS ensures that all pages are properly tagged for analytics tracking and SEO purposes. It integrates with Google Tag Manager and provides a visual interface to monitor tag status.
 
 ## Features
 - Automatic page tagging

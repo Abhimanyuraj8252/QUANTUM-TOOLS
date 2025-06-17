@@ -582,7 +582,7 @@ class TextToPDF {
                 if (this.settings.author) doc.setAuthor(this.settings.author);
                 // Try setCreator if available
                 if (typeof doc.setCreator === 'function') {
-                    doc.setCreator('OMNIFORMA PDF Tools - Text to PDF');
+                    doc.setCreator('QUANTUM TOOLS PDF Tools - Text to PDF');
                 }
             } catch (error) {
                 console.warn('Some PDF metadata features not supported:', error.message);

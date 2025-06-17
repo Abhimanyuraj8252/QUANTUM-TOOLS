@@ -1,4 +1,4 @@
-// Tag Manager UI for OMNIFORMA/QUANTUM TOOLS
+// Tag Manager UI for QUANTUM TOOLS
 // This file provides a user interface for managing and monitoring tags
 
 class TagManagerUI {
