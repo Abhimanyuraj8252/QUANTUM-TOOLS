@@ -64,7 +64,7 @@
 /* Dashboard Tabs */
 .dashboard-tabs {
     display: flex;
-    border-bottom: 1px solid var(--card-border, rgba(0, 240, 255, 0.2));
+    border-bottom: 1px solid var(--card-border, rgba(137, 214, 85, 0.2));
     padding: 0 30px;
 }
 

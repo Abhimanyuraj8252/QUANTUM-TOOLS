@@ -328,6 +328,9 @@ main {
     min-height: 300px;
     transition: all var(--transition-fast);
     outline: none;
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: normal;
 }
 
 #text-input:focus {
@@ -1362,6 +1365,66 @@ footer {
     align-items: center;
     gap: var(--spacing-sm);
     font-size: var(--font-size-lg);
+}
+
+/* Responsive fix for Enhanced Features tab */
+/* Apply these styles regardless of screen size to ensure scrollability */
+#enhanced-tab.tab-content {
+  overflow-y: auto; 
+  max-height: calc(100vh - 350px);
+  position: relative;
+}
+
+.enhanced-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  padding-right: 5px; /* Allow room for scrollbar */
+}
+
+/* Medium screens */
+@media (max-width: 900px) {
+  #enhanced-tab.tab-content {
+    max-height: 65vh;
+    padding-bottom: var(--spacing-lg);
+  }
+  
+  .feature-section {
+    min-width: 260px;
+    margin-bottom: var(--spacing-md);
+    overflow: visible;
+  }
+  
+  .sentiment-breakdown, .quality-metrics, .writing-stats {
+    overflow-x: auto;
+    padding-bottom: var(--spacing-sm);
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  #enhanced-tab.tab-content {
+    max-height: 75vh;
+    padding-bottom: var(--spacing-lg);
+  }
+  
+  .feature-section {
+    padding: var(--spacing-sm);
+  }
+  
+  .sentiment-bar, .quality-item {
+    flex-direction: column;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .bar {
+    width: 100%;
+  }
+  
+  .sentiment-score, .language-result, .stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .sentiment-result {

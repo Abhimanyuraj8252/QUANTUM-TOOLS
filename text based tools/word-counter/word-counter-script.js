@@ -1807,5 +1807,21 @@ class AdvancedWordCounter {
 
 // Initialize the Advanced Word Counter when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Fix for text direction issues
+    const textInput = document.getElementById('text-input');
+    if (textInput) {
+        textInput.style.direction = 'ltr';
+        textInput.style.textAlign = 'left';
+        textInput.style.unicodeBidi = 'normal';
+        textInput.setAttribute('dir', 'ltr');
+        textInput.setAttribute('lang', 'en');
+        
+        // Force LTR input mode
+        textInput.addEventListener('input', function() {
+            this.style.direction = 'ltr';
+            this.style.textAlign = 'left';
+        });
+    }
+    
     new AdvancedWordCounter();
 });

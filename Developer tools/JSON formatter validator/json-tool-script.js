@@ -450,7 +450,6 @@ class AdvancedNavigation {
         this.initNavigation();
         this.initThemeToggle();
         this.initFullscreen();
-        this.initMobileMenu();
         this.initScrollEffects();
     }    initNavigation() {
         // Dropdown menu functionality
@@ -570,78 +569,7 @@ class AdvancedNavigation {
                 '<i class="fas fa-compress"></i>' : 
                 '<i class="fas fa-expand"></i>';
         });
-    }    initMobileMenu() {
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        const body = document.body;
-        
-        // Create mobile overlay
-        let mobileOverlay = document.querySelector('.mobile-overlay');
-        if (!mobileOverlay) {
-            mobileOverlay = document.createElement('div');
-            mobileOverlay.className = 'mobile-overlay';
-            body.appendChild(mobileOverlay);
-        }
-        
-        if (mobileToggle && navMenu) {
-            const toggleMobileMenu = () => {
-                const isOpen = navMenu.classList.contains('mobile-open');
-                
-                if (isOpen) {
-                    // Close menu
-                    navMenu.classList.remove('mobile-open');
-                    mobileToggle.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    body.style.overflow = '';
-                } else {
-                    // Open menu
-                    navMenu.classList.add('mobile-open');
-                    mobileToggle.classList.add('active');
-                    mobileOverlay.classList.add('active');
-                    body.style.overflow = 'hidden'; // Prevent background scrolling
-                }
-            };
-            
-            // Toggle button click
-            mobileToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleMobileMenu();
-            });
-            
-            // Overlay click to close
-            mobileOverlay.addEventListener('click', () => {
-                if (navMenu.classList.contains('mobile-open')) {
-                    toggleMobileMenu();
-                }
-            });
-            
-            // Close menu when clicking nav links
-            const navLinks = navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle)');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('mobile-open')) {
-                        setTimeout(() => toggleMobileMenu(), 150);
-                    }
-                });
-            });
-            
-            // Close menu on window resize if desktop
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 992 && navMenu.classList.contains('mobile-open')) {
-                    toggleMobileMenu();
-                }
-            });
-            
-            // Handle escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && navMenu.classList.contains('mobile-open')) {
-                    toggleMobileMenu();
-                }
-            });
-        }
-    }
-
-    initScrollEffects() {
+    }    initScrollEffects() {
         const header = document.querySelector('.advanced-header');
         let lastScrollY = window.scrollY;
         

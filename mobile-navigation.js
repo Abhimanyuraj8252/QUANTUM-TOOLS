@@ -5,9 +5,13 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Basic elements
-    const menuButton = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-links');
-    const body = document.body;    
+    const body = document.body;
+    
+    // Initialize two-line navigation structure
+    const header = document.querySelector('header');
+    const container = header ? header.querySelector('.container') : null;
+    
     // Set up the current menu title
     const menuTitle = document.querySelector('.current-menu-title');
     if (menuTitle) {
@@ -18,42 +22,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const dropdowns = document.querySelectorAll('.dropdown');
     
     // 1. MAIN MENU TOGGLE
-    if (menuButton && navMenu) {
-        menuButton.addEventListener('click', function() {
-            // Toggle classes
-            menuButton.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            
-            // Control body scrolling
-            if (navMenu.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = '';
-            }
-            
-            // Reset all dropdowns when opening main menu
-            if (navMenu.classList.contains('active')) {
-                resetAllDropdowns();
-                if (menuTitle) menuTitle.textContent = 'Main Menu';
-            }
-        });
-    }
-      // 4. CLOSE WHEN CLICKING OUTSIDE
+    // Menu button toggle code removed
+    // ...existing code...
+    // Handle window resize for responsive behavior
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            // In desktop view, ensure proper display
+            if (navMenu) navMenu.classList.remove('active');
+            body.style.overflow = '';
+            resetAllDropdowns();
+        }
+    });
+
+    // 4. CLOSE WHEN CLICKING OUTSIDE
+    // Menu button reference removed from click outside logic
     document.addEventListener('click', function(e) {
         if (navMenu && navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
-            menuButton && !menuButton.contains(e.target)) {
-            
+            !navMenu.contains(e.target)) {
             // Close the menu
             navMenu.classList.remove('active');
-            menuButton.classList.remove('active');
-              // Reset body
             body.style.overflow = '';
-            
-            // Reset all dropdowns
             resetAllDropdowns();
-            
-            // Reset menu title
             if (menuTitle) {
                 menuTitle.textContent = 'Main Menu';
             }
@@ -65,125 +54,75 @@ document.addEventListener('DOMContentLoaded', function() {
         const link = item.querySelector('a');
         const subMenu = item.querySelector('.dropdown-menu');
         
-        // Convert links to dropdown toggles
-        if (link && !link.classList.contains('dropdown-toggle')) {
-            link.classList.add('dropdown-toggle');
-            
-            // Add down arrow icon
-            const arrow = document.createElement('span');
-            arrow.innerHTML = '▼';
-            arrow.classList.add('dropdown-arrow');
-            arrow.style.fontSize = '12px';
-            arrow.style.marginLeft = '5px';
-            link.appendChild(arrow);
-        }
-        
-        // Add click event to toggle dropdown
+        // Add click event to toggle dropdown only on mobile
         if (link) {
             link.addEventListener('click', function(e) {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('Dropdown toggle clicked');
                     
-                    // If this dropdown is already active, return to parent level
-                    if (link.classList.contains('active') && subMenu && subMenu.classList.contains('active')) {
-                        link.classList.remove('active');
-                        subMenu.classList.remove('active');
-                        
-                        // If this is a nested dropdown, show parent
-                        const parentDropdown = item.closest('.dropdown-menu');
-                        if (parentDropdown) {
-                            parentDropdown.classList.add('active');
+                    // Toggle dropdown active state
+                    item.classList.toggle('active');
+                    
+                    // Update menu title with current dropdown name
+                    if (menuTitle) {
+                        // If dropdown is being activated (opened)
+                        if (item.classList.contains('active')) {
+                            menuTitle.textContent = link.textContent.trim().replace(/[▼▶]/g, '');
+                        } else {
+                            menuTitle.textContent = 'Main Menu';
                         }
-                        return;
                     }
                     
-                    // Close other dropdowns
-                    dropdownItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherSubMenu = otherItem.querySelector('.dropdown-menu');
-                            const otherLink = otherItem.querySelector('a');
-                            if (otherSubMenu) otherSubMenu.classList.remove('active');
-                            if (otherLink) otherLink.classList.remove('active');
-                        }
+                    // Close other dropdowns at the same level
+                    const siblings = Array.from(item.parentNode.children).filter(child => 
+                        child.classList.contains('dropdown') && child !== item
+                    );
+                    
+                    siblings.forEach(sibling => {
+                        sibling.classList.remove('active');
                     });
-                    
-                    // Toggle current dropdown
-                    if (subMenu) {
-                        subMenu.classList.toggle('active');
-                        link.classList.toggle('active');
-                        
-                        // Add breadcrumb navigation
-                        const menuTitle = document.querySelector('.current-menu-title');
-                        if (menuTitle) {
-                            menuTitle.textContent = link.innerText.replace('▼', '').trim();
-                        }
-                        
-                        // Add back button if not already present
-                        addBackButtons();
-                    }
                 }
             });
         }
     });
+      // Function to handle submenu dropdowns
+    const submenus = document.querySelectorAll('.dropdown-submenu');
     
-    // 2. DROPDOWN HANDLING
-    dropdowns.forEach(function(dropdown) {
-        // Find the link that triggers the dropdown
-        const link = dropdown.querySelector('.dropdown-link');
-        // Find the dropdown menu
-        const menu = dropdown.querySelector('.dropdown-menu');
-        // Get menu name for the title
-        const menuName = link.textContent.trim();
+    submenus.forEach(submenu => {
+        const submenuLink = submenu.querySelector('a');
+        const submenuContent = submenu.querySelector('.dropdown-submenu-content');
         
-        if (link && menu) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Activate this dropdown
-                menu.classList.add('active');
-                
-                // Update menu title
-                if (menuTitle) {
-                    menuTitle.textContent = menuName;
-                }
-            });
-        }
-    });
-    
-    // 3. BACK BUTTON HANDLING
-    const backButtons = document.querySelectorAll('.back-button');
-    
-    backButtons.forEach(function(button) {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Find the parent dropdown menu
-            const parentMenu = button.closest('.dropdown-menu');
-            if (parentMenu) {
-                // Hide this menu
-                parentMenu.classList.remove('active');
-                
-                // Update title to Main Menu or parent menu name
-                if (menuTitle) {
-                    // If this is a submenu, find the parent menu name
-                    const parentLi = parentMenu.closest('li.dropdown');
-                    if (parentLi && parentLi.closest('.dropdown-menu')) {
-                        const parentDropdownLink = parentLi.querySelector('.dropdown-link');
-                        if (parentDropdownLink) {
-                            menuTitle.textContent = parentDropdownLink.textContent.trim();
-                        }
-                    } else {
-                        // Back to main menu
-                        menuTitle.textContent = 'Main Menu';
+        if (submenuLink && submenuContent) {
+            submenuLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle submenu
+                    submenu.classList.toggle('active');
+                    
+                    // Update menu title with current submenu name
+                    if (menuTitle && submenu.classList.contains('active')) {
+                        menuTitle.textContent = submenuLink.textContent.trim().replace(/[▼▶]/g, '');
                     }
                 }
-            }
+            });
+        }    });
+    
+    // Reset all dropdowns function
+    function resetAllDropdowns() {
+        const allDropdowns = document.querySelectorAll('.dropdown');
+        const allSubmenus = document.querySelectorAll('.dropdown-submenu');
+        
+        allDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
         });
-    });
+        
+        allSubmenus.forEach(submenu => {
+            submenu.classList.remove('active');
+        });
+    }
     
     // 3. UTILITY FUNCTIONS
     function addBackButton(submenu) {
@@ -421,31 +360,15 @@ function navigateToParentMenu(currentMenu) {
 }
 
 // Handle orientation changes
-window.addEventListener('orientationchange', function() {
-    // Wait for orientation change to complete
-    setTimeout(function() {
-        // Reset UI if needed based on new screen size
-        if (window.innerWidth > 768) {
-            // Reset mobile UI elements for desktop view
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navMenu = document.querySelector('.nav-links');
-            
-            if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
-            if (navMenu) navMenu.classList.remove('active');
-            
-            // Reset all dropdown menus
-            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
-            dropdownMenus.forEach(menu => menu.classList.remove('active'));
-            
-            // Reset body classes
-            document.body.classList.remove('menu-open');
-            document.body.classList.remove('submenu-open');
-            document.body.style.overflow = '';
-        }
+window.addEventListener('orientationchange', function() {    // Reset UI for orientation changes
+    if (window.innerWidth > 768) {
+        // Reset mobile UI elements for desktop view
+        const navMenu = document.querySelector('.nav-links');
         
-        // Update menu state
-        updateSubmenuState();
-        updateMobileNavigationState();
-    }, 300);
+        if (navMenu) navMenu.classList.remove('active');
+        
+        // Reset body scrolling
+        document.body.style.overflow = '';
+    }
 });
 });

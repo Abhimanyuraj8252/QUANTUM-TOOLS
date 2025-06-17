@@ -40,47 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('theme', 'dark');
             }
         });
-    }    // Mobile Navigation - defer to mobile-navigation.js
-    const hamburger = document.querySelector('.hamburger, .mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links, .main-nav');
-
-    if (hamburger && navLinks) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', 'Menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-
-            // Prevent background scroll when menu is open
-            if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('active') &&
-                !navLinks.contains(e.target) &&
-                !hamburger.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close mobile menu when clicking a link
-        const navLinksArray = document.querySelectorAll('.nav-link');
-        navLinksArray.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    }
+    }    
+    
+    // Mobile Navigation - defer to mobile-navigation.js
+    // We don't need mobile menu toggle on home page as per the requirement
+    // The functionality is now handled in mobile-navigation.js
+    
+    // ...existing code...
 
     // Header scroll effects
     const header = document.querySelector('header');
