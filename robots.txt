@@ -1,13 +1,21 @@
 # Robots.txt for QUANTUM TOOLS
 # Updated on June 17, 2025
 
+# Default rules for all bots
 User-agent: *
 Allow: /
 Crawl-delay: 1
 
-# Sitemaps
-Sitemap: https://quantumtools.me/sitemap.xml
-Sitemap: https://quantumtools.me/sitemap-images.xml
+# Allow CSS and JS files for proper rendering
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+Allow: *.ico
 
 # Allow all major search engine bots with specific directives
 User-agent: Googlebot
@@ -42,6 +50,9 @@ User-agent: Yandexbot
 Allow: /
 Crawl-delay: 2
 
+User-agent: YandexBot
+Allow: /
+
 User-agent: SemrushBot
 Allow: /
 Crawl-delay: 3
@@ -49,15 +60,6 @@ Crawl-delay: 3
 User-agent: AhrefsBot
 Allow: /
 Crawl-delay: 5
-Allow: /
-
-# Sitemap references
-Sitemap: https://quantumtools.me/sitemap.xml
-Sitemap: https://quantumtools.me/sitemap-images.xml
-Allow: /
-
-User-agent: YandexBot
-Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
@@ -71,25 +73,10 @@ Allow: /
 # Disallow: /private/
 # Disallow: /temp/
 
-# Allow CSS and JS files for proper rendering
-User-agent: *
-Allow: *.css
-Allow: *.js
-Allow: *.png
-Allow: *.jpg
-Allow: *.jpeg
-Allow: *.gif
-Allow: *.webp
-Allow: *.svg
-Allow: *.ico
-
-# Crawl delay (optional, adjust as needed)
-Crawl-delay: 1
-
 # Sitemap location
-Sitemap: https://quantumtools.example.com/sitemap.xml
-Sitemap: https://quantumtools.example.com/sitemap-images.xml
+Sitemap: https://quantumtools.me/sitemap.xml
+Sitemap: https://quantumtools.me/sitemap-images.xml
 
 # Additional instructions
 # Cache: public, max-age=86400
-# Last-Modified: June 12, 2025
+# Last-Modified: June 17, 2025
