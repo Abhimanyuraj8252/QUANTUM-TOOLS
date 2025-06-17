@@ -1505,6 +1505,23 @@ footer::before {
     margin: 0;
 }
 
+.footer-legal-links {
+    margin-top: 10px;
+}
+
+.footer-legal-links a {
+    color: var(--accent-color-1);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    padding: 0 10px;
+}
+
+.footer-legal-links a:hover {
+    color: var(--accent-color-2);
+    text-decoration: underline;
+}
+
 .copyright {
     color: var(--text-secondary);
     font-size: 0.9rem;
