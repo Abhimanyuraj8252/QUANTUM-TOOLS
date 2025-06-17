@@ -810,6 +810,33 @@ nav {
         padding: 20px;
         margin: 0 15px;
     }
+    
+    .featured-tools-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .featured-tool-card {
+        max-width: 100%;
+    }
+    
+    .tool-content {
+        padding: 20px;
+    }
+    
+    .tool-features {
+        flex-wrap: wrap;
+    }
+    
+    .tool-features .feature {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .tool-action-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Additional responsive footer improvements */
@@ -1734,17 +1761,6 @@ footer::before {
     .category-section .tools-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .category-section {
-        margin: 2rem 0;
-        padding: 1rem 0;
-    }
-    
-    .category-title {
-        font-size: 1.3rem;
     }
 }
 

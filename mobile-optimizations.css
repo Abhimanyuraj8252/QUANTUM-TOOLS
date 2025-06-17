@@ -208,6 +208,90 @@ header .container {
     .logo h1 {
         font-size: 1.2rem;
     }
+    
+    /* Fix for explore tools section */
+    .featured-tools-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .featured-tool-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .tools-section .tools-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    
+    .tool-card {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Ensure proper container padding */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Fix for overlapping elements */
+    .tool-content {
+        padding: 20px;
+        overflow: hidden;
+    }
+}
+
+/* Ensure proper section and container spacing for all screens */
+@media (max-width: 768px) {
+    /* Section padding adjustments */
+    section {
+        padding: 50px 0;
+    }
+    
+    /* Container width and padding */
+    .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+    
+    /* Fix for the hero section */
+    .hero .container {
+        padding: 0 15px;
+    }
+    
+    /* Adjust featured tool cards layout */
+    .featured-tool-card {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .tool-preview {
+        height: 120px;
+    }
+    
+    /* Fix for category sections */
+    .category-section {
+        margin-bottom: 40px;
+    }
+    
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    main {
+        overflow-x: hidden;
+        width: 100%;
+    }
 }
 
 /* Small mobile screens */
@@ -219,11 +303,46 @@ header .container {
     .logo h1 {
         font-size: 1rem;
     }
+    
+    /* Further adjustments for very small screens */
+    .featured-tools-grid,
+    .tools-grid {
+        gap: 20px;
+    }
+    
+    .tool-card,
+    .featured-tool-card {
+        padding: 15px;
+    }
+    
+    .tool-icon {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .tool-card h3 {
+        font-size: 1rem;
+    }
+    
+    .tool-card p {
+        font-size: 0.8rem;
+    }
+    
+    /* Fix for "Explore Tools" button */
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Medium size screens */
 @media (min-width: 769px) and (max-width: 1024px) {
     .logo h1 {
         font-size: 1.4rem;
+    }
+    
+    /* Medium screen adjustments for tools grid */
+    .featured-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
