@@ -34,7 +34,7 @@ const CRITICAL_TOOLS = [
     './PDF%20tools/pdf-toolkit.html',
     './Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html',
     './utility%20tools/QR%20code%20generator/qr-generator.html',
-    './text%20based%20tools/word-counter/word-counter.html'
+    './text%20based%20tools/word-counter/index.html'
 ];
 
 // Mobile device detection
@@ -47,7 +47,7 @@ function isMobileDevice() {
 // Install event - cache essential files
 self.addEventListener('install', event => {
     console.log('[ServiceWorker] Installing v2.0...');
-    
+
     event.waitUntil(
         Promise.all([
             // Cache core files
@@ -74,7 +74,7 @@ self.addEventListener('install', event => {
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
     console.log('[ServiceWorker] Activating v2.0...');
-    
+
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
@@ -95,49 +95,49 @@ self.addEventListener('activate', event => {
 // Fetch event - mobile-optimized request handling
 self.addEventListener('fetch', event => {
     const request = event.request;
-    
+
     // Skip non-GET requests
     if (request.method !== 'GET') {
         return;
     }
-    
+
     // Skip non-http requests
     if (!request.url.startsWith('http')) {
         return;
     }
-    
+
     // Mobile-specific handling
     const mobile = isMobileDevice();
-    
+
     event.respondWith(handleRequest(request, mobile));
 });
 
 // Smart request handling strategy
 async function handleRequest(request, isMobile) {
     const url = new URL(request.url);
-    
+
     try {
         // Check cache first for static resources
         if (isStaticResource(request.url)) {
             return await cacheFirstStrategy(request);
         }
-        
+
         // For HTML pages, use stale-while-revalidate
         if (request.headers.get('accept').includes('text/html')) {
             return await staleWhileRevalidateStrategy(request, isMobile);
         }
-        
+
         // For other resources, try network first
         return await networkFirstStrategy(request);
-        
+
     } catch (error) {
         console.error('[ServiceWorker] Request failed:', error);
-        
+
         // Return appropriate fallback
         if (request.headers.get('accept').includes('text/html')) {
             return await getFallbackPage(request);
         }
-        
+
         throw error;
     }
 }
@@ -145,7 +145,7 @@ async function handleRequest(request, isMobile) {
 // Cache-first strategy for static resources
 async function cacheFirstStrategy(request) {
     const cachedResponse = await caches.match(request);
-    
+
     if (cachedResponse) {
         // Update cache in background
         fetch(request).then(response => {
@@ -154,19 +154,19 @@ async function cacheFirstStrategy(request) {
                     cache.put(request, response.clone());
                 });
             }
-        }).catch(() => {}); // Silently fail background updates
-        
+        }).catch(() => { }); // Silently fail background updates
+
         return cachedResponse;
     }
-    
+
     // If not in cache, fetch and cache
     const networkResponse = await fetch(request);
-    
+
     if (networkResponse.ok) {
         const cache = await caches.open(STATIC_CACHE);
         cache.put(request, networkResponse.clone());
     }
-    
+
     return networkResponse;
 }
 
@@ -174,20 +174,20 @@ async function cacheFirstStrategy(request) {
 async function networkFirstStrategy(request) {
     try {
         const networkResponse = await fetch(request);
-        
+
         if (networkResponse.ok) {
             const cache = await caches.open(DYNAMIC_CACHE);
             cache.put(request, networkResponse.clone());
         }
-        
+
         return networkResponse;
     } catch (error) {
         const cachedResponse = await caches.match(request);
-        
+
         if (cachedResponse) {
             return cachedResponse;
         }
-        
+
         throw error;
     }
 }
@@ -196,7 +196,7 @@ async function networkFirstStrategy(request) {
 async function staleWhileRevalidateStrategy(request, isMobile) {
     const cache = await caches.open(DYNAMIC_CACHE);
     const cachedResponse = await caches.match(request);
-    
+
     // Start fetch in background
     const fetchPromise = fetch(request).then(networkResponse => {
         if (networkResponse.ok) {
@@ -207,12 +207,12 @@ async function staleWhileRevalidateStrategy(request, isMobile) {
         console.log('[ServiceWorker] Network failed for:', request.url);
         return null;
     });
-    
+
     // Return cached version immediately if available
     if (cachedResponse) {
         return cachedResponse;
     }
-    
+
     // Otherwise wait for network
     return fetchPromise || getFallbackPage(request);
 }
@@ -224,13 +224,13 @@ async function getFallbackPage(request) {
     if (offlinePage) {
         return offlinePage;
     }
-    
+
     // Fallback to 404 page
     const errorPage = await caches.match('./404.html');
     if (errorPage) {
         return errorPage;
     }
-    
+
     // Last resort - basic offline response
     return new Response(
         `<!DOCTYPE html>
@@ -266,7 +266,7 @@ function isStaticResource(url) {
 // Background sync for mobile data optimization
 self.addEventListener('sync', event => {
     console.log('[ServiceWorker] Background sync:', event.tag);
-    
+
     if (event.tag === 'mobile-analytics') {
         event.waitUntil(syncMobileAnalytics());
     }
@@ -304,9 +304,9 @@ self.addEventListener('push', event => {
             }
         ]
     };
-    
+
     let notificationData = defaultData;
-    
+
     if (event.data) {
         try {
             notificationData = { ...defaultData, ...event.data.json() };
@@ -314,7 +314,7 @@ self.addEventListener('push', event => {
             console.error('[ServiceWorker] Push data parsing failed:', error);
         }
     }
-    
+
     event.waitUntil(
         self.registration.showNotification(notificationData.title, notificationData)
     );
@@ -323,13 +323,13 @@ self.addEventListener('push', event => {
 // Notification click handling
 self.addEventListener('notificationclick', event => {
     event.notification.close();
-    
+
     if (event.action === 'dismiss') {
         return;
     }
-    
+
     const targetUrl = event.notification.data?.url || './';
-    
+
     event.waitUntil(
         clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
             // Focus existing window if available
@@ -338,7 +338,7 @@ self.addEventListener('notificationclick', event => {
                     return client.focus();
                 }
             }
-            
+
             // Open new window
             if (clients.openWindow) {
                 return clients.openWindow(targetUrl);
@@ -352,13 +352,13 @@ self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         self.skipWaiting();
     }
-    
+
     if (event.data && event.data.type === 'GET_CACHE_INFO') {
         getCacheInfo().then(info => {
             event.ports[0].postMessage(info);
         });
     }
-    
+
     if (event.data && event.data.type === 'CLEAR_CACHE') {
         clearOldCaches().then(() => {
             event.ports[0].postMessage({ success: true });
@@ -370,13 +370,13 @@ self.addEventListener('message', event => {
 async function getCacheInfo() {
     const cacheNames = await caches.keys();
     let totalSize = 0;
-    
+
     for (const cacheName of cacheNames) {
         const cache = await caches.open(cacheName);
         const keys = await cache.keys();
         totalSize += keys.length;
     }
-    
+
     return {
         cacheNames,
         totalItems: totalSize,

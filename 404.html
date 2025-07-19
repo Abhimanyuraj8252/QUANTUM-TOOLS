@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | QUANTUM TOOLS</title>    <meta name="description" content="The page you're looking for doesn't exist. Explore our comprehensive suite of web utilities and tools.">
+    <title>404 - Page Not Found | QUANTUM TOOLS</title>
+    <meta name="description"
+        content="The page you're looking for doesn't exist. Explore our comprehensive suite of web utilities and tools.">
     <meta name="robots" content="noindex, follow">
-    
+
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-4013378095829502">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
-     crossorigin="anonymous"></script>
-    
+        crossorigin="anonymous"></script>
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://quantumtools.example.com/404.html">
-    
+
     <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Orbitron', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -37,14 +41,14 @@
             justify-content: center;
             overflow-x: hidden;
         }
-        
+
         .container {
             text-align: center;
             padding: 2rem;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .error-code {
             font-size: 8rem;
             font-weight: 900;
@@ -56,30 +60,35 @@
             margin-bottom: 2rem;
             animation: glow 2s ease-in-out infinite alternate;
         }
-        
+
         @keyframes glow {
-            from { text-shadow: 0 0 50px rgba(0, 240, 255, 0.5); }
-            to { text-shadow: 0 0 80px rgba(0, 240, 255, 0.8); }
+            from {
+                text-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 80px rgba(0, 240, 255, 0.8);
+            }
         }
-        
+
         .error-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: #ffffff;
         }
-        
+
         .error-message {
             font-size: 1.2rem;
             margin-bottom: 3rem;
             color: #b8b8b8;
             line-height: 1.6;
         }
-        
+
         .search-container {
             margin-bottom: 3rem;
         }
-        
+
         .search-box {
             display: flex;
             max-width: 500px;
@@ -88,7 +97,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
         }
-        
+
         .search-input {
             flex: 1;
             padding: 1rem 2rem;
@@ -98,11 +107,11 @@
             font-size: 1rem;
             font-family: 'Orbitron', sans-serif;
         }
-        
+
         .search-input::placeholder {
             color: #b8b8b8;
         }
-        
+
         .search-btn {
             padding: 1rem 2rem;
             border: none;
@@ -113,19 +122,19 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .search-btn:hover {
             background: linear-gradient(135deg, #0066ff, #00f0ff);
             transform: translateY(-2px);
         }
-        
+
         .quick-links {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-        
+
         .quick-link {
             display: flex;
             align-items: center;
@@ -138,18 +147,18 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 240, 255, 0.3);
         }
-        
+
         .quick-link:hover {
             background: rgba(0, 240, 255, 0.1);
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
         }
-        
+
         .quick-link i {
             font-size: 1.5rem;
             color: #00f0ff;
         }
-        
+
         .home-btn {
             display: inline-flex;
             align-items: center;
@@ -164,36 +173,38 @@
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
         }
-        
+
         .home-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 240, 255, 0.5);
         }
-        
+
         @media (max-width: 768px) {
             .error-code {
                 font-size: 5rem;
             }
-            
+
             .error-title {
                 font-size: 2rem;
             }
-            
+
             .quick-links {
                 grid-template-columns: 1fr;
             }
-            
+
             .search-box {
                 flex-direction: column;
                 border-radius: 15px;
             }
-            
-            .search-input, .search-btn {
+
+            .search-input,
+            .search-btn {
                 border-radius: 0;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="error-code">404</div>
@@ -201,7 +212,7 @@
         <p class="error-message">
             The page you're looking for doesn't exist. But don't worry, we have plenty of amazing tools waiting for you!
         </p>
-        
+
         <div class="search-container">
             <div class="search-box">
                 <input type="text" class="search-input" placeholder="Search for tools..." id="searchInput">
@@ -210,7 +221,7 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="quick-links">
             <a href="/" class="quick-link">
                 <i class="fas fa-home"></i>
@@ -232,18 +243,18 @@
                 <i class="fas fa-qrcode"></i>
                 <span>QR Generator</span>
             </a>
-            <a href="/text%20based%20tools/word-counter/word-counter.html" class="quick-link">
+            <a href="/text%20based%20tools/word-counter/index.html" class="quick-link">
                 <i class="fas fa-font"></i>
                 <span>Word Counter</span>
             </a>
         </div>
-        
+
         <a href="/" class="home-btn">
             <i class="fas fa-arrow-left"></i>
             Back to Home
         </a>
     </div>
-    
+
     <script>
         function performSearch() {
             const query = document.getElementById('searchInput').value.trim();
@@ -251,13 +262,13 @@
                 window.location.href = `/?search=${encodeURIComponent(query)}`;
             }
         }
-        
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 performSearch();
             }
         });
-        
+
         // Analytics tracking for 404 page
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {
@@ -269,4 +280,5 @@
         }
     </script>
 </body>
+
 </html>

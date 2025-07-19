@@ -29,7 +29,7 @@ class AdvancedSEOOptimizer {
     optimizePageHeadings() {
         const pathname = window.location.pathname;
         const toolName = this.getToolNameFromPath(pathname);
-        
+
         if (toolName) {
             // Find main heading
             const mainHeading = document.querySelector('h1');
@@ -39,7 +39,7 @@ class AdvancedSEOOptimizer {
                     mainHeading.textContent = `${mainHeading.textContent} - Free Online Tool`;
                 }
             }
-            
+
             // Add semantic subheadings if missing
             this.ensureSubheadings([
                 'How to Use This Tool',
@@ -49,34 +49,34 @@ class AdvancedSEOOptimizer {
             ]);
         }
     }
-    
+
     // Get tool name from URL path
     getToolNameFromPath(pathname) {
         const pathParts = pathname.split('/');
         const fileName = pathParts[pathParts.length - 1];
         return fileName.replace('.html', '').replace(/-/g, ' ');
     }
-    
+
     // Add semantic subheadings if they don't exist
     ensureSubheadings(headings) {
         const mainContent = document.querySelector('main') || document.body;
         const existingH2s = Array.from(mainContent.querySelectorAll('h2')).map(h => h.textContent.trim());
-        
+
         headings.forEach(heading => {
             // Check if heading already exists
             if (!existingH2s.some(h => h.includes(heading))) {
                 // Find a good place to insert the heading
                 const div = document.createElement('div');
                 div.className = 'seo-section';
-                
+
                 const h2 = document.createElement('h2');
                 h2.textContent = heading;
                 div.appendChild(h2);
-                
+
                 const p = document.createElement('p');
                 p.textContent = `Explore our ${heading.toLowerCase()} section to learn more about how QUANTUM TOOLS can help you.`;
                 div.appendChild(p);
-                
+
                 // Append at the end of main content
                 mainContent.appendChild(div);
             }
@@ -88,7 +88,7 @@ class AdvancedSEOOptimizer {
         const images = document.querySelectorAll('img:not([loading])');
         images.forEach(img => {
             img.setAttribute('loading', 'lazy');
-            
+
             // Also add alt text if missing for better SEO
             if (!img.alt || img.alt === '') {
                 const imgSrc = img.src;
@@ -96,7 +96,7 @@ class AdvancedSEOOptimizer {
                 img.alt = `QUANTUM TOOLS - ${imgName}`;
             }
         });
-        
+
         // Add width and height to images without dimensions (reduces CLS)
         images.forEach(img => {
             if (!img.width && !img.height) {
@@ -121,7 +121,7 @@ class AdvancedSEOOptimizer {
             ],
             'text': [
                 { name: 'Case Converter', url: '/text based tools/case converter/case-converter.html' },
-                { name: 'Word Counter', url: '/text based tools/word-counter/word-counter.html' }
+                { name: 'Word Counter', url: '/text based tools/word-counter/index.html' }
             ],
             'dev': [
                 { name: 'JSON Formatter', url: '/Developer tools/JSON formatter validator/json-tool.html' },
@@ -129,22 +129,22 @@ class AdvancedSEOOptimizer {
                 { name: 'Encoder Decoder', url: '/Developer tools/Encoder Decoder/universal-encoder-decoder.html' }
             ]
         };
-        
+
         // Determine relevant category based on current page
         const path = window.location.pathname.toLowerCase();
         let relevantCategory = null;
-        
+
         if (path.includes('pdf')) relevantCategory = 'pdf';
         else if (path.includes('image')) relevantCategory = 'image';
         else if (path.includes('text')) relevantCategory = 'text';
         else if (path.includes('dev') || path.includes('json') || path.includes('editor')) relevantCategory = 'dev';
-        
+
         // Add related tools section if relevant category found
         if (relevantCategory) {
             this.addRelatedToolsSection(toolLinks[relevantCategory]);
         }
     }
-    
+
     // Add related tools section
     addRelatedToolsSection(links) {
         if (!document.querySelector('.related-tools')) {
@@ -152,11 +152,11 @@ class AdvancedSEOOptimizer {
             if (footer) {
                 const relatedSection = document.createElement('div');
                 relatedSection.className = 'related-tools';
-                
+
                 const heading = document.createElement('h3');
                 heading.textContent = 'Related Tools You Might Like';
                 relatedSection.appendChild(heading);
-                
+
                 const linkList = document.createElement('ul');
                 links.forEach(link => {
                     const li = document.createElement('li');
@@ -166,7 +166,7 @@ class AdvancedSEOOptimizer {
                     li.appendChild(a);
                     linkList.appendChild(li);
                 });
-                
+
                 relatedSection.appendChild(linkList);
                 document.body.insertBefore(relatedSection, footer);
             }
@@ -184,7 +184,7 @@ class AdvancedSEOOptimizer {
                 const prettyName = fileName.replace(/[-_]/g, ' ');
                 img.alt = `QUANTUM TOOLS - ${prettyName}`;
             }
-            
+
             // Add title attribute if missing
             if (!img.title) {
                 img.title = img.alt;
@@ -199,7 +199,7 @@ class AdvancedSEOOptimizer {
             this.addLocalBusinessSchema();
         }
     }
-    
+
     // Add local business schema
     addLocalBusinessSchema() {
         // Check if schema already exists
@@ -207,7 +207,7 @@ class AdvancedSEOOptimizer {
             const script = document.createElement('script');
             script.type = 'application/ld+json';
             script.dataset.localBusiness = true;
-            
+
             const schema = {
                 "@context": "https://schema.org",
                 "@type": "SoftwareApplication",
@@ -229,7 +229,7 @@ class AdvancedSEOOptimizer {
                     "worstRating": "1"
                 }
             };
-            
+
             script.textContent = JSON.stringify(schema);
             document.head.appendChild(script);
         }
@@ -244,22 +244,22 @@ class AdvancedSEOOptimizer {
             canonicalLink.rel = 'canonical';
             document.head.appendChild(canonicalLink);
         }
-        
+
         // Remove any query parameters and fragments
-        const cleanURL = window.location.origin + 
-                        window.location.pathname.replace(/index\.html$/, '');
+        const cleanURL = window.location.origin +
+            window.location.pathname.replace(/index\.html$/, '');
         canonicalLink.href = cleanURL;
     }
 
     // Implement hreflang tags for internationalization
     implementHreflangTags() {
         const languages = ['en', 'hi', 'es', 'fr', 'de', 'zh', 'ja', 'ru', 'ar', 'pt'];
-        
+
         // Remove any existing hreflang tags
         document.querySelectorAll('link[hreflang]').forEach(link => link.remove());
-        
+
         const url = window.location.origin + window.location.pathname;
-        
+
         // Create hreflang links
         languages.forEach(lang => {
             const link = document.createElement('link');
@@ -268,7 +268,7 @@ class AdvancedSEOOptimizer {
             link.href = url + (lang === 'en' ? '' : `?lang=${lang}`);
             document.head.appendChild(link);
         });
-        
+
         // Add x-default
         const defaultLink = document.createElement('link');
         defaultLink.rel = 'alternate';
@@ -287,7 +287,7 @@ class AdvancedSEOOptimizer {
             document.head.appendChild(viewportMeta);
         }
         viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';
-        
+
         // Set mobile web app capable
         let mobileMeta = document.querySelector('meta[name="mobile-web-app-capable"]');
         if (!mobileMeta) {
@@ -296,7 +296,7 @@ class AdvancedSEOOptimizer {
             document.head.appendChild(mobileMeta);
         }
         mobileMeta.content = 'yes';
-        
+
         // Ensure theme color is set
         let themeMeta = document.querySelector('meta[name="theme-color"]');
         if (!themeMeta) {
@@ -310,14 +310,14 @@ class AdvancedSEOOptimizer {
     // Optimize user experience for SEO
     optimizeUserExperience() {
         // Add accessibility attributes to improve user experience and SEO
-        
+
         // Add ARIA labels to improve accessibility
         document.querySelectorAll('button:not([aria-label])').forEach(button => {
             if (button.textContent) {
                 button.setAttribute('aria-label', button.textContent.trim());
             }
         });
-        
+
         // Add tooltips to links without titles
         document.querySelectorAll('a:not([title])').forEach(link => {
             if (link.textContent && !link.querySelector('img')) {

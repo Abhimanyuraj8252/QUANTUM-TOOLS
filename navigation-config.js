@@ -6,7 +6,7 @@ const navigationTemplates = {
     root: {
         cssLinks: [
             'Home page/preloader.css',
-            'Home page/animations.css', 
+            'Home page/animations.css',
             'Home page/enhancements.css',
             'Home page/universal-nav.css',
             'Home page/scroll-navigation.css',
@@ -22,12 +22,12 @@ const navigationTemplates = {
             utilityTools: 'utility tools/'
         }
     },
-      // For files one level deep (Developer tools/, Image tools/, etc.)
+    // For files one level deep (Developer tools/, Image tools/, etc.)
     level1: {
         cssLinks: [
             '../Home page/preloader.css',
             '../Home page/animations.css',
-            '../Home page/enhancements.css', 
+            '../Home page/enhancements.css',
             '../Home page/universal-nav.css',
             '../Home page/scroll-navigation.css',
             '../dropdown-styles.css',
@@ -42,7 +42,7 @@ const navigationTemplates = {
             utilityTools: '../utility tools/'
         }
     },
-      // For files two levels deep (most tool files)
+    // For files two levels deep (most tool files)
     level2: {
         cssLinks: [
             '../../Home page/preloader.css',
@@ -62,7 +62,7 @@ const navigationTemplates = {
             utilityTools: '../../utility tools/'
         }
     },
-      // For files three levels deep (PDF conversion tools, etc.)
+    // For files three levels deep (PDF conversion tools, etc.)
     level3: {
         cssLinks: [
             '../../../Home page/preloader.css',
@@ -70,7 +70,7 @@ const navigationTemplates = {
             '../../../Home page/enhancements.css',
             '../../../Home page/universal-nav.css',
             '../../../Home page/scroll-navigation.css',
-            '../../../dropdown-styles.css', 
+            '../../../dropdown-styles.css',
             '../../../style.css'
         ],
         logoLink: '../../../index.html',
@@ -166,7 +166,7 @@ const getNavigationHTML = (level) => {
                         <ul class="dropdown-menu">
                             <li><a href="${config.navLinks.textTools}case converter/case-converter.html">Case Converter</a></li>
                             <li><a href="${config.navLinks.textTools}Random Data Generator/data-generator.html">Data Generator</a></li>
-                            <li><a href="${config.navLinks.textTools}word-counter/word-counter.html">Word Counter</a></li>
+                            <li><a href="${config.navLinks.textTools}word-counter/index.html">Word Counter</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('theme', 'dark');
             }
         });
-    }    
-    
+    }
+
     // Mobile Navigation - defer to mobile-navigation.js
     // We don't need mobile menu toggle on home page as per the requirement
     // The functionality is now handled in mobile-navigation.js
-    
+
     // ...existing code...
 
     // Header scroll effects
@@ -1006,7 +1006,7 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             title: 'Word Counter',
             description: 'Count words, characters, and analyze text in real-time',
-            url: '../text based tools/word-counter/word-counter.html',
+            url: '../text based tools/word-counter/index.html',
             keywords: 'word, count, text, character, sentence, paragraph, reading time, keyword density, analysis',
             icon: 'fas fa-font'
         },        // Text-Toolbox-Pro
