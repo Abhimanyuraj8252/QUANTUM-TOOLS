@@ -1,0 +1,962 @@
+/* How-To Guide Specific Styles */
+.hero-guide {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(0, 128, 255, 0.1));
+    padding: 4rem 0 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.hero-guide h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #00f0ff, #0080ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-guide p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.guide-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Table of Contents */
+.toc-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0 3rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toc-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--heading-color);
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.toc-category {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toc-category h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.toc-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-category li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-category a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 0.3rem 0;
+    border-radius: 5px;
+    padding-left: 0.5rem;
+}
+
+.toc-category a:hover {
+    color: var(--accent-color);
+    background: rgba(0, 240, 255, 0.1);
+}
+
+/* Guide Sections */
+.guide-section {
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guide-section:last-child {
+    border-bottom: none;
+}
+
+.guide-section h2 {
+    font-size: 2.2rem;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.guide-section>p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* Key Benefits Grid */
+.key-benefits {
+    margin: 2rem 0;
+}
+
+.key-benefits h3 {
+    font-size: 1.6rem;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(0, 128, 255, 0.05));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.benefit-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Steps Tutorial */
+.steps-tutorial {
+    margin: 2rem 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-color), #0080ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.step-content h3 {
+    font-size: 1.4rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.step-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.pro-tip,
+.file-support,
+.settings-examples,
+.download-tips {
+    background: rgba(0, 128, 255, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.pro-tip strong,
+.file-support h4,
+.settings-examples strong,
+.download-tips strong {
+    color: var(--accent-color);
+}
+
+.file-support ul,
+.settings-examples ul,
+.download-tips ul {
+    margin-top: 0.5rem;
+    color: var(--text-light);
+}
+
+/* Tutorial Detailed */
+.tutorial-detailed {
+    margin: 2rem 0;
+}
+
+.tutorial-detailed h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.tutorial-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tutorial-step {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tutorial-step h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.tutorial-step p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.code-example,
+.feature-highlight {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.code-example strong,
+.feature-highlight strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.settings-guide {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.setting-option {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.setting-option strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Common Use Cases */
+.common-use-cases {
+    margin: 3rem 0;
+}
+
+.common-use-cases h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.use-case-card {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(0, 128, 255, 0.05));
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.use-case-card:hover {
+    transform: translateY(-3px);
+}
+
+.use-case-card h4 {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.use-case-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.recommended-settings {
+    background: rgba(0, 128, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.recommended-settings strong {
+    color: var(--accent-color);
+}
+
+/* AI Process Steps */
+.ai-explanation {
+    margin: 2rem 0;
+}
+
+.ai-explanation h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+}
+
+.ai-explanation p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.ai-process {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.process-step {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-3px);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.process-step h4 {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.process-step p {
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Background Removal Guide */
+.bg-removal-guide {
+    margin: 3rem 0;
+}
+
+.bg-removal-guide h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tip-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tip-card h4 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.tip-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tip-card li {
+    color: var(--text-light);
+    padding: 0.4rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.tip-card li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Industry Applications */
+.industry-applications {
+    margin: 3rem 0;
+}
+
+.industry-applications h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.application-card {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(0, 128, 255, 0.05));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-5px);
+}
+
+.application-card i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.application-card h4 {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.application-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.workflow-tip {
+    background: rgba(0, 128, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.workflow-tip strong {
+    color: var(--accent-color);
+}
+
+/* Text Tools Overview */
+.text-tools-overview {
+    margin: 2rem 0;
+}
+
+.text-tools-overview h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.features-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.feature-detail-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-detail-card:hover {
+    transform: translateY(-3px);
+}
+
+.feature-detail-card i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.feature-detail-card h4 {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.feature-detail-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.feature-specs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-specs li {
+    color: var(--text-light);
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.feature-specs li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Writing Improvement Guide */
+.writing-improvement-guide {
+    margin: 3rem 0;
+}
+
+.writing-improvement-guide h3 {
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.improvement-section {
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.improvement-section h4 {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.optimization-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.tip-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.tip-section h5 {
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.tip-section ul {
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.seo-guidelines {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.guideline-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+}
+
+.guideline-item h5 {
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.guideline-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Advanced Techniques */
+.advanced-techniques {
+    margin: 2rem 0;
+}
+
+.technique-category {
+    margin: 3rem 0;
+}
+
+.technique-category h3 {
+    font-size: 1.6rem;
+    color: var(--heading-color);
+    margin-bottom: 2rem;
+}
+
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.technique-card {
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(0, 128, 255, 0.05));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.technique-card h4 {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.technique-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.implementation,
+.shortcuts-list {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.implementation strong,
+.shortcuts-list strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.shortcuts-list kbd {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    font-family: monospace;
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+/* Quality Tips */
+.quality-tips {
+    margin: 2rem 0;
+}
+
+.quality-tip {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quality-tip h4 {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.quality-tip p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.algorithm-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.algorithm-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    padding: 1rem;
+    color: var(--text-light);
+    border-left: 3px solid var(--accent-color);
+}
+
+.algorithm-item strong {
+    color: var(--accent-color);
+}
+
+/* Troubleshooting */
+.troubleshooting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.issue-solution {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.issue-solution h3 {
+    font-size: 1.3rem;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
+}
+
+.problem {
+    background: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid #f44336;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.problem strong {
+    color: #f44336;
+}
+
+.solution {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4caf50;
+    padding: 1rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.solution strong {
+    color: #4caf50;
+}
+
+.solution ul {
+    margin-top: 0.5rem;
+    color: var(--text-light);
+}
+
+/* FAQ Comprehensive */
+.faq-comprehensive {
+    margin: 4rem 0;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+.faq-comprehensive h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: var(--heading-color);
+    margin-bottom: 3rem;
+}
+
+.faq-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.faq-category h3 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-item h4 {
+    font-size: 1.1rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Navigation for guide */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: linear-gradient(135deg, var(--accent-color), #0080ff);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-guide h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-guide p {
+        font-size: 1.1rem;
+    }
+
+    .guide-content {
+        padding: 1rem;
+    }
+
+    .toc-grid,
+    .benefits-grid,
+    .use-cases-grid,
+    .applications-grid,
+    .features-detailed-grid,
+    .techniques-grid,
+    .troubleshooting-grid,
+    .faq-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .optimization-tips {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-process {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-guide {
+        padding: 2rem 0 1rem 0;
+    }
+
+    .hero-guide h1 {
+        font-size: 1.8rem;
+    }
+
+    .guide-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}

@@ -1,5 +1,5 @@
 # .htaccess for QUANTUM TOOLS - Advanced SEO Configuration
-# Updated on June 14, 2025
+# Updated on July 19, 2025
 
 # Enable Compression
 <IfModule mod_deflate.c>
@@ -69,37 +69,58 @@
     <FilesMatch "\.(html|htm)$">
         Header set Cache-Control "public, max-age=604800"
     </FilesMatch>
+    
+    # Add Last-Modified headers for better caching
+    <FilesMatch "\.(html|htm|css|js)$">
+        Header set Last-Modified "Sat, 19 Jul 2025 16:00:00 GMT"
+    </FilesMatch>
 </IfModule>
 
 # URL Rewriting for SEO
 <IfModule mod_rewrite.c>
     RewriteEngine On
-      # Force HTTPS
+    # Force HTTPS and non-www in one redirect to avoid multiple redirects
+    RewriteCond %{HTTP_HOST} ^www\.quantumtools\.me [NC,OR]
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]    # Force non-www version
-    RewriteCond %{HTTP_HOST} ^www\.quantumtools\.me [NC]
     RewriteRule ^(.*)$ https://quantumtools.me/$1 [L,R=301]
+    
+    # Redirect /index.html to root domain to avoid duplicate content
+    RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
+    RewriteRule ^index\.html$ https://quantumtools.me/ [R=301,L]
+    
+    # Redirect any /directory/index.html to /directory/ to avoid duplicates
+    RewriteCond %{THE_REQUEST} \s/(.+/)?index\.html[\s?] [NC]
+    RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
     
     # Redirect ads.txt to AdsTxtManager
     RewriteRule ^ads\.txt$ https://srv.adstxtmanager.com/75633/quantumtools.me [R=301,L]
     
-    # Make index.html the default document (without redirect)
-    RewriteCond %{REQUEST_URI} ^/$
-    RewriteRule ^$ index.html [L]
+    # Block problematic dynamically generated URLs that shouldn't be indexed
+    RewriteCond %{REQUEST_URI} ^/tardisrocinante/.*$ [OR]
+    RewriteCond %{REQUEST_URI} ^/parsonsmalze/.*$ [OR]
+    RewriteCond %{REQUEST_URI} ^/detroitchicago/.*$ [OR]
+    RewriteCond %{QUERY_STRING} gcb=.*$ [OR]
+    RewriteCond %{QUERY_STRING} cb=.*$
+    RewriteRule .* - [F,L]
     
-    # Remove trailing slashes
+    # Block JS files with problematic query parameters
+    RewriteCond %{REQUEST_URI} .*\.js$ [AND]
+    RewriteCond %{QUERY_STRING} (gcb=|cb=)
+    RewriteRule .* - [F,L]
+    
+    # Remove trailing slashes from URLs (except for directories)
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{THE_REQUEST} /+([^?\s]*?)/?(\?[^\s]*)?(\s|\?[^\s]*?\s)
-    RewriteRule ^ /%1 [R=301,L]
-      # Remove .html extensions for cleaner URLs
-    RewriteCond %{THE_REQUEST} /+([^?\s]*?)\.html[\s?] [NC]
-    RewriteRule ^ /%1 [R=301,L]
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
     
     # Serve .html files when accessed without extension
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.*)$ $1.html [L]
+    
+    # Set index.html as DirectoryIndex without internal redirect
+    DirectoryIndex index.html
     
     # Custom Error Pages
     ErrorDocument 404 /404.html

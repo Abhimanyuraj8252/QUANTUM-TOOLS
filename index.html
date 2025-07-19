@@ -44,6 +44,15 @@
     <meta name="theme-color" content="#00f0ff"> <!-- Canonical URL -->
     <link rel="canonical" href="https://quantumtools.me/">
 
+    <!-- Canonical Redirect Script - Prevent /index.html duplicate content -->
+    <script>
+        (function () {
+            if (window.location.pathname === '/index.html') {
+                window.history.replaceState(null, '', '/');
+            }
+        })();
+    </script>
+
     <!-- Google AdSense Account Verification -->
     <meta name="google-adsense-account" content="ca-pub-4013378095829502">
 
@@ -160,6 +169,8 @@
     <!-- Enhanced UX Styles -->
     <link rel="stylesheet" href="ux-enhancements.css"> <!-- Content Marketing Styles -->
     <link rel="stylesheet" href="content-marketing.css">
+    <!-- Content Enhancement Styles -->
+    <link rel="stylesheet" href="content-enhancement.css">
     <link rel="stylesheet" href="style.css">
 
     <!-- Mobile Optimizations -->
@@ -396,7 +407,26 @@
 
             <!-- Second Line: Navigation Links -->
             <div class="bottom-nav-row">
-
+                <nav class="main-nav">
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                        <a href="how-to-guide.html" class="nav-link">
+                            <i class="fas fa-book"></i>
+                            <span>How-To Guide</span>
+                        </a>
+                        <a href="tools-comparison.html" class="nav-link">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Comparison</span>
+                        </a>
+                        <a href="privacy-policy.html" class="nav-link">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Privacy</span>
+                        </a>
+                    </div>
+                </nav>
             </div>
         </div>
     </header>
@@ -1068,7 +1098,8 @@
                     <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
-            </div>            <div class="footer-bottom">
+            </div>
+            <div class="footer-bottom">
                 <div class="copyright">
                     <p>&copy; 2025 QUANTUM TOOLS. All rights reserved.</p>
                     <p class="footer-legal-links">
@@ -1169,6 +1200,8 @@
 
     <!-- Content and Marketing -->
     <script src="content-marketing.js" defer></script>
+    <!-- Content Enhancement -->
+    <script src="content-enhancement.js" defer></script>
     <!-- SEO Content Strategy -->
     <script src="seo-content-strategy.js" defer></script>
 

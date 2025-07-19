@@ -1,3 +1,0 @@
-@echo off
-echo Starting QUANTUM TOOLS development server with clean URLs...
-npx serve --listen 3000 --single

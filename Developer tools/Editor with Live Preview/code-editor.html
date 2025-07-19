@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
     <!-- End Google Tag Manager -->
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Code Editor & Live Preview | QUANTUM TOOLS</title>
-    <meta name="description" content="Real-time HTML, CSS, and JavaScript editor with instant live preview for web development">
-    
+    <meta name="description"
+        content="Real-time HTML, CSS, and JavaScript editor with instant live preview for web development">
+    <meta name="keywords"
+        content="code editor, online code editor, HTML editor, CSS editor, JavaScript editor, live preview, web development, real-time editor, quantum tools">
+    <meta name="author" content="QUANTUM TOOLS">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical"
+        href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-0E17RL1H32');
+        gtag('config', 'G-0E17RL1H32');
     </script>
-      <!-- Google AdSense -->
+    <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-4013378095829502">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
-     crossorigin="anonymous"></script>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../../Home page/preloader.css">
     <link rel="stylesheet" href="../../Home page/animations.css">
@@ -38,12 +52,13 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="code-editor-styles.css">
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <!-- Preloader -->
     <div class="preloader">
         <div class="loader"></div>
@@ -64,9 +79,12 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="../../Home page/index.html" class="nav-link">Home</a></li>
-                    <li><a href="../../utility tools/unit converter/unit-converter.html" class="nav-link">Unit Converter</a></li>
-                    <li><a href="../../Image tools/Image resizer/image-optimizer.html" class="nav-link">Image Optimizer</a></li>
-                    <li><a href="../../text based tools/word-counter/word-counter.html" class="nav-link">Word Counter</a></li>
+                    <li><a href="../../utility tools/unit converter/unit-converter.html" class="nav-link">Unit
+                            Converter</a></li>
+                    <li><a href="../../Image tools/Image resizer/image-optimizer.html" class="nav-link">Image
+                            Optimizer</a></li>
+                    <li><a href="../../text based tools/word-counter/word-counter.html" class="nav-link">Word
+                            Counter</a></li>
                     <li><a href="#" class="nav-link active">Code Editor</a></li>
                 </ul>
                 <div class="theme-toggle" aria-label="Toggle light/dark theme" role="button" tabindex="0">
@@ -88,7 +106,8 @@
                         <span class="subtitle">& Live Preview</span>
                     </h1>
                     <p class="hero-description">
-                        Write HTML, CSS, and JavaScript code with real-time preview. Perfect for prototyping, learning, and testing web components.
+                        Write HTML, CSS, and JavaScript code with real-time preview. Perfect for prototyping, learning,
+                        and testing web components.
                     </p>
                 </div>
             </section>
@@ -141,12 +160,8 @@
                                         </button>
                                     </div>
                                 </div>
-                                <textarea 
-                                    id="htmlEditor" 
-                                    class="code-editor" 
-                                    placeholder="Write your HTML here..."
-                                    spellcheck="false"
-                                ><!DOCTYPE html>
+                                <textarea id="htmlEditor" class="code-editor" placeholder="Write your HTML here..."
+                                    spellcheck="false"><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -175,12 +190,8 @@
                                         </button>
                                     </div>
                                 </div>
-                                <textarea 
-                                    id="cssEditor" 
-                                    class="code-editor" 
-                                    placeholder="Write your CSS here..."
-                                    spellcheck="false"
-                                >body {
+                                <textarea id="cssEditor" class="code-editor" placeholder="Write your CSS here..."
+                                    spellcheck="false">body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 20px;
@@ -238,12 +249,8 @@ button:hover {
                                         </button>
                                     </div>
                                 </div>
-                                <textarea 
-                                    id="jsEditor" 
-                                    class="code-editor" 
-                                    placeholder="Write your JavaScript here..."
-                                    spellcheck="false"
-                                >function changeColor() {
+                                <textarea id="jsEditor" class="code-editor" placeholder="Write your JavaScript here..."
+                                    spellcheck="false">function changeColor() {
     const colors = [
         'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
@@ -326,7 +333,8 @@ document.head.appendChild(style);</textarea>
                             </div>
                         </div>
                         <div class="preview-container">
-                            <iframe id="preview" title="Live Preview" sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
+                            <iframe id="preview" title="Live Preview"
+                                sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
                         </div>
                     </div>
                 </div>
@@ -348,7 +356,8 @@ document.head.appendChild(style);</textarea>
                             <i class="fas fa-code"></i>
                         </div>
                         <h3>Syntax Highlighting</h3>
-                        <p>Clean, readable code with proper indentation and monospace font for better development experience.</p>
+                        <p>Clean, readable code with proper indentation and monospace font for better development
+                            experience.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -385,4 +394,5 @@ document.head.appendChild(style);</textarea>
     <script src="../../Home page/enhanced-script.js"></script>
     <script src="code-editor-script.js"></script>
 </body>
+
 </html>

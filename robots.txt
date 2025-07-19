@@ -1,14 +1,38 @@
 # Robots.txt for QUANTUM TOOLS
-# Updated on June 17, 2025
+# Updated on July 19, 2025
 
 # Default rules for all bots
 User-agent: *
 Allow: /
 Crawl-delay: 1
 
-# Allow CSS and JS files for proper rendering
+# Block dynamically generated ad/analytics files that shouldn't be indexed
+Disallow: /tardisrocinante/
+Disallow: /parsonsmalze/
+Disallow: /detroitchicago/
+Disallow: /*?gcb=*
+Disallow: /*?cb=*
+Disallow: /*.js?gcb=*
+Disallow: /*.js?cb=*
+
+# Block other common dynamic/temporary content
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+Disallow: /*?campaign=*
+Disallow: /temp/
+Disallow: /cache/
+Disallow: /logs/
+Disallow: /url-removal-guide.md
+Disallow: /indexing-request-guide.md
+
+# Discourage indexing of index.html files (prefer directory URLs)
+Disallow: /index.html
+Disallow: */index.html
+
+# Allow CSS and JS files for proper rendering (except blocked patterns above)
 Allow: *.css
-Allow: *.js
+Allow: *.js$
 Allow: *.png
 Allow: *.jpg
 Allow: *.jpeg
@@ -67,11 +91,9 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-# Disallow low-value pages or admin areas (if any)
-# User-agent: *
+# Disallow low-value pages or admin areas
 # Disallow: /admin/
 # Disallow: /private/
-# Disallow: /temp/
 
 # Sitemap location
 Sitemap: https://quantumtools.me/sitemap.xml
@@ -79,4 +101,4 @@ Sitemap: https://quantumtools.me/sitemap-images.xml
 
 # Additional instructions
 # Cache: public, max-age=86400
-# Last-Modified: June 17, 2025
+# Last-Modified: July 19, 2025
