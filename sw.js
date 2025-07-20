@@ -1,11 +1,13 @@
-// Service Worker for QUANTUM TOOLS - Mobile Optimized
-// Enhanced for better mobile device compatibility and performance
+// Enhanced Service Worker for QUANTUM TOOLS - Advanced Performance & SEO Optimized
+// Updated: July 20, 2025 - Includes Core Web Vitals optimization
 
-const CACHE_NAME = 'quantum-tools-v2.0';
-const STATIC_CACHE = 'quantum-tools-static-v2.0';
-const DYNAMIC_CACHE = 'quantum-tools-dynamic-v2.0';
+const CACHE_NAME = 'quantum-tools-v2.5';
+const STATIC_CACHE = 'quantum-tools-static-v2.5';
+const DYNAMIC_CACHE = 'quantum-tools-dynamic-v2.5';
+const IMAGE_CACHE = 'quantum-tools-images-v2.5';
+const API_CACHE = 'quantum-tools-api-v2.5';
 
-// Core files for offline functionality (optimized for mobile)
+// Core files for offline functionality (optimized for performance)
 const CORE_FILES = [
     './',
     './index.html',
@@ -13,40 +15,81 @@ const CORE_FILES = [
     './script.js',
     './dropdown-styles.css',
     './navigation-config.js',
+    './advanced-performance-optimizer.js',
+    './advanced-seo-optimizer.js',
     './offline.html',
     './404.html',
-    './manifest.json'
+    './manifest.json',
+    './robots.txt',
+    './sitemap.xml'
 ];
 
-// Enhanced scripts and styles (mobile-optimized paths)
+// Enhanced scripts and styles (performance-optimized)
 const ENHANCED_FILES = [
     './Home%20page/enhanced-script.js',
     './Home%20page/animations.css',
     './Home%20page/enhancements.css',
     './Home%20page/universal-nav.css',
     './Home%20page/preloader.css',
-    './mobile-optimizations.css'
+    './mobile-optimizations.css',
+    './ux-enhancements.css',
+    './content-marketing.css',
+    './content-enhancement.css'
 ];
 
-// Critical tool pages for mobile users
+// Critical tool pages for quick access
 const CRITICAL_TOOLS = [
     './Image%20tools/bg%20remover/bg-remover.html',
     './PDF%20tools/pdf-toolkit.html',
     './Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html',
     './utility%20tools/QR%20code%20generator/qr-generator.html',
-    './text%20based%20tools/word-counter/index.html'
+    './text%20based%20tools/word-counter/index.html',
+    './tools-comparison.html',
+    './how-to-guide.html',
+    './privacy-policy.html',
+    './contact.html'
 ];
 
-// Mobile device detection
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        self.navigator.userAgent || ''
-    );
+// Critical images for LCP optimization
+const CRITICAL_IMAGES = [
+    './assets/images/quantum-tools-logo.svg',
+    './assets/images/quantum-tools-og-image.png',
+    './assets/images/favicon.svg',
+    './assets/images/favicon-32x32.png',
+    './assets/images/favicon-192x192.png'
+];
+
+// Third-party resources to cache
+const EXTERNAL_RESOURCES = [
+    'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap',
+    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+];
+
+// Performance monitoring
+let performanceMetrics = {
+    cacheHits: 0,
+    cacheMisses: 0,
+    networkRequests: 0,
+    offlineRequests: 0
+};
+
+// Advanced device detection
+function getDeviceInfo() {
+    const userAgent = self.navigator.userAgent || '';
+    return {
+        isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent),
+        isLowEnd: /Android.*Chrome\/[0-4][0-9]/i.test(userAgent) || /iPhone.*OS [5-9]_/i.test(userAgent),
+        connection: self.navigator.connection?.effectiveType || 'unknown'
+    };
 }
 
-// Install event - cache essential files
+// Install event - cache essential files with priorities
 self.addEventListener('install', event => {
-    console.log('[ServiceWorker] Installing v2.0...');
+    console.log('[ServiceWorker] Installing v2.5 with advanced optimizations...');
+
+    const deviceInfo = getDeviceInfo();
+    console.log('[ServiceWorker] Device info:', deviceInfo);
 
     event.waitUntil(
         Promise.all([

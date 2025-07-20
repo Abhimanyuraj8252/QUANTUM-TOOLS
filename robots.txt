@@ -1,10 +1,17 @@
-# Robots.txt for QUANTUM TOOLS
-# Updated on July 19, 2025
+# Robots.txt for QUANTUM TOOLS - Advanced SEO Optimized
+# Updated on July 20, 2025
+# Website: https://quantumtools.me
 
-# Default rules for all bots
+# Default rules for all bots with enhanced crawling permissions
 User-agent: *
 Allow: /
 Crawl-delay: 1
+Request-rate: 1/1s
+Visit-time: 0300-2100
+
+# Enhanced sitemap declarations
+Sitemap: https://quantumtools.me/sitemap.xml
+Sitemap: https://quantumtools.me/sitemap-images.xml
 
 # Block dynamically generated ad/analytics files that shouldn't be indexed
 Disallow: /tardisrocinante/
@@ -15,22 +22,43 @@ Disallow: /*?cb=*
 Disallow: /*.js?gcb=*
 Disallow: /*.js?cb=*
 
-# Block other common dynamic/temporary content
+# Block tracking and analytics parameters
 Disallow: /*?utm_*
 Disallow: /*?ref=*
 Disallow: /*?source=*
 Disallow: /*?campaign=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+Disallow: /*?msclkid=*
+Disallow: /*?dclid=*
+
+# Block temporary and system files
 Disallow: /temp/
 Disallow: /cache/
 Disallow: /logs/
+Disallow: /backup/
+Disallow: /test/
+Disallow: /staging/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /*.tmp
+Disallow: /*.log
+Disallow: /*.bak
+
+# Block private documentation and guides
 Disallow: /url-removal-guide.md
 Disallow: /indexing-request-guide.md
+Disallow: /domain-hosting-setup-guide.md
+Disallow: /google-analytics-setup-guide.md
+Disallow: /tag-manager-documentation.md
+Disallow: /backlink-strategy-2025.md
 
 # Discourage indexing of index.html files (prefer directory URLs)
 Disallow: /index.html
 Disallow: */index.html
 
-# Allow CSS and JS files for proper rendering (except blocked patterns above)
+# Allow important static assets for proper rendering
 Allow: *.css
 Allow: *.js$
 Allow: *.png
@@ -40,14 +68,173 @@ Allow: *.gif
 Allow: *.webp
 Allow: *.svg
 Allow: *.ico
+Allow: *.woff
+Allow: *.woff2
+Allow: *.ttf
+Allow: *.eot
+Allow: *.mp4
+Allow: *.webm
+Allow: *.pdf
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /browserconfig.xml
 
-# Allow all major search engine bots with specific directives
+# Major Search Engine Specific Rules
+
+# Google Bot - Fastest crawling for primary search engine
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0.5
+Request-rate: 2/1s
 
+# Google Image Bot - For image indexing
 User-agent: Googlebot-Image
 Allow: /
+Crawl-delay: 0.5
+Allow: /assets/images/
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+
+# Google News Bot
+User-agent: Googlebot-News
+Allow: /
+Crawl-delay: 0.5
+
+# Bing Bot - Microsoft's search engine
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Request-rate: 1/1s
+
+# Yahoo Slurp
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# DuckDuckGo Bot
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Yandex Bot - Russian search engine
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Baidu Bot - Chinese search engine
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Social Media Bots
+
+# Facebook Bot
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 1
+
+# Twitter Bot
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+# LinkedIn Bot
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
+
+# Pinterest Bot
+User-agent: PinterestBot
+Allow: /
+Crawl-delay: 1
+
+# WhatsApp Bot
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 1
+
+# Telegram Bot
+User-agent: TelegramBot
+Allow: /
+Crawl-delay: 1
+
+# SEO and Monitoring Bots
+
+# Ahref Bot
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+# SemRush Bot
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
+
+# Moz Bot
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 2
+
+# Majestic Bot
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 2
+
+# Screaming Frog SEO Spider
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Crawl-delay: 1
+
+# Block harmful or unwanted bots
+User-agent: SemrushBot-SA
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: seokicks
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+User-agent: TurnitinBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# AI Training Bots (Optional - uncomment to block)
+# User-agent: ChatGPT-User
+# Disallow: /
+# 
+# User-agent: Google-Extended
+# Disallow: /
+# 
+# User-agent: OpenAI-Bot
+# Disallow: /
+# 
+# User-agent: ClaudeBot
+# Disallow: /
+
+# Additional sitemap locations for comprehensive indexing
+Sitemap: https://quantumtools.me/sitemap.xml
+Sitemap: https://quantumtools.me/sitemap-images.xml
+
+# Host declaration (helps with canonical URL)
+Host: quantumtools.me
 Crawl-delay: 1
 
 User-agent: Googlebot-Mobile
