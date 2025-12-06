@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One PDF Toolkit - QUANTUM TOOLS</title>
+    <meta name="description"
+        content="Comprehensive browser-based PDF toolkit for merging, splitting, compressing, converting and managing PDF files">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0E17RL1H32');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-4013378095829502">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="pdf-toolkit-styles.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <div class="pdf-toolkit-logo">
+                <div class="pdf-toolkit-icon">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="privacy-badge">
+                        <span class="privacy-text">100% <i class="fas fa-lock"></i> PRIVATE</span>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="nav-right">
+                    <a href="../index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Home</span>
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-file-pdf"></i>
+                        All-in-One PDF Toolkit
+                    </h1>
+                    <p class="hero-description">
+                        Comprehensive browser-based PDF tools. No server uploads, complete privacy, instant processing.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client-Side</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12+</span>
+                            <span class="stat-label">PDF Tools</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">File Uploads to Servers</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tools Grid -->
+            <section class="tools-section">
+                <h2 class="section-title">Choose Your PDF Tool</h2>
+
+                <!-- Conversion Tools -->
+                <div class="tool-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-exchange-alt"></i>
+                        File Conversion
+                    </h3>
+                    <div class="tools-grid">
+                        <div class="tool-card" data-tool="image-to-pdf">
+                            <div class="tool-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h4 class="tool-title">Image to PDF</h4>
+                            <p class="tool-description">Convert JPG, PNG, and other images to PDF format</p>
+                            <div class="tool-tags">
+                                <span class="tag">JPG</span>
+                                <span class="tag">PNG</span>
+                                <span class="tag">Multiple Images</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="text-to-pdf">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h4 class="tool-title">Text to PDF</h4>
+                            <p class="tool-description">Convert text files or direct text input to PDF</p>
+                            <div class="tool-tags">
+                                <span class="tag">TXT Files</span>
+                                <span class="tag">Direct Input</span>
+                                <span class="tag">Formatting</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="pdf-to-image">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-image"></i>
+                            </div>
+                            <h4 class="tool-title">PDF to Image</h4>
+                            <p class="tool-description">Extract pages from PDF as JPG or PNG images</p>
+                            <div class="tool-tags">
+                                <span class="tag">High Quality</span>
+                                <span class="tag">Multiple Pages</span>
+                                <span class="tag">Custom DPI</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="pdf-to-text">
+                            <div class="tool-icon">
+                                <i class="fas fa-file-text"></i>
+                            </div>
+                            <h4 class="tool-title">PDF to Text</h4>
+                            <p class="tool-description">Extract text content from PDF documents</p>
+                            <div class="tool-tags">
+                                <span class="tag">OCR Ready</span>
+                                <span class="tag">Preserve Layout</span>
+                                <span class="tag">Bulk Export</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manipulation Tools -->
+                <div class="tool-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-edit"></i>
+                        PDF Manipulation
+                    </h3>
+                    <div class="tools-grid">
+                        <div class="tool-card" data-tool="pdf-merger">
+                            <div class="tool-icon">
+                                <i class="fas fa-object-group"></i>
+                            </div>
+                            <h4 class="tool-title">PDF Merger</h4>
+                            <p class="tool-description">Combine multiple PDF files into a single document</p>
+                            <div class="tool-tags">
+                                <span class="tag">Drag & Drop</span>
+                                <span class="tag">Reorder Pages</span>
+                                <span class="tag">Batch Merge</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="pdf-splitter">
+                            <div class="tool-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h4 class="tool-title">PDF Splitter</h4>
+                            <p class="tool-description">Split PDF into multiple documents or extract specific pages</p>
+                            <div class="tool-tags">
+                                <span class="tag">Page Ranges</span>
+                                <span class="tag">Single Pages</span>
+                                <span class="tag">Bulk Split</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="page-manager">
+                            <div class="tool-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4 class="tool-title">Page Manager</h4>
+                            <p class="tool-description">Rotate, reorder, and delete pages within PDF documents</p>
+                            <div class="tool-tags">
+                                <span class="tag">Rotate Pages</span>
+                                <span class="tag">Reorder</span>
+                                <span class="tag">Delete Pages</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="pdf-compressor">
+                            <div class="tool-icon">
+                                <i class="fas fa-compress"></i>
+                            </div>
+                            <h4 class="tool-title">PDF Compressor</h4>
+                            <p class="tool-description">Reduce PDF file size while maintaining quality</p>
+                            <div class="tool-tags">
+                                <span class="tag">Smart Compression</span>
+                                <span class="tag">Quality Control</span>
+                                <span class="tag">Batch Process</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Enhancement Tools -->
+                <div class="tool-category">
+                    <h3 class="category-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Security & Enhancement
+                    </h3>
+                    <div class="tools-grid">
+                        <div class="tool-card" data-tool="watermark-tool">
+                            <div class="tool-icon">
+                                <i class="fas fa-stamp"></i>
+                            </div>
+                            <h4 class="tool-title">Add Watermark</h4>
+                            <p class="tool-description">Add text or image watermarks to PDF documents using PDF Power
+                                Suite</p>
+                            <div class="tool-tags">
+                                <span class="tag">Text Watermark</span>
+                                <span class="tag">Image Watermark</span>
+                                <span class="tag">Position Control</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="password-protection">
+                            <div class="tool-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h4 class="tool-title">Password Protection</h4>
+                            <p class="tool-description">Apply metadata-based protection to your PDF files using PDF
+                                Power Suite</p>
+                            <div class="tool-tags">
+                                <span class="tag">Metadata Protection</span>
+                                <span class="tag">User Password</span>
+                                <span class="tag">Owner Password</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="pdf-unlock">
+                            <div class="tool-icon">
+                                <i class="fas fa-unlock"></i>
+                            </div>
+                            <h4 class="tool-title">Remove Password</h4>
+                            <p class="tool-description">Remove password protection from PDF files using PDF Power Suite
+                            </p>
+                            <div class="tool-tags">
+                                <span class="tag">Unlock PDFs</span>
+                                <span class="tag">Security Removal</span>
+                                <span class="tag">Access Restore</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-card" data-tool="pdf-info">
+                            <div class="tool-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <h4 class="tool-title">PDF Info & Metadata</h4>
+                            <p class="tool-description">View and edit detailed PDF metadata information using PDF Power
+                                Suite</p>
+                            <div class="tool-tags">
+                                <span class="tag">View Metadata</span>
+                                <span class="tag">Edit Properties</span>
+                                <span class="tag">File Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <h2 class="section-title">Why Choose Our PDF Toolkit?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h3>100% Private</h3>
+                        <p>All processing happens in your browser. No files are uploaded to our servers.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Instant processing with modern web technologies. No waiting for server responses.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Works Everywhere</h3>
+                        <p>Fully responsive design that works perfectly on desktop, tablet, and mobile devices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>Advanced Features</h3>
+                        <p>Professional-grade PDF manipulation tools with intuitive drag-and-drop interfaces.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <!-- ... existing hero content ... -->
+            </section>
+
+            <!-- ... existing sections ... -->
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <!-- ... existing features ... -->
+            </section>
+
+            <!-- SEO Content Block -->
+            <section class="seo-content-static" style="padding: 2rem 0;">
+                <div class="container">
+                    <div class="seo-section">
+                        <h2>Comprehensive PDF Management Solution</h2>
+                        <p>QUANTUM TOOLS provides a complete, browser-based solution for all your PDF manipulation
+                            needs. Whether you need to merge multiple documents into a single file, split a large report
+                            into separate chapters, or convert images to professional PDF documents, our toolkit handles
+                            it all instantly. Best of all, our client-side technology ensures your sensitive documents
+                            never leave your device—what happens in your browser, stays in your browser.</p>
+                    </div>
+                    <div class="seo-section">
+                        <h2>Key Features for Power Users</h2>
+                        <ul>
+                            <li><strong>Instant Merging:</strong> Combine unlimited PDF files with drag-and-drop
+                                simplicity. Reorder pages on the fly before finalizing.</li>
+                            <li><strong>Smart Compression:</strong> Reduce file sizes by up to 80% without visible
+                                quality loss, perfect for email attachments and web uploads.</li>
+                            <li><strong>Format Conversion:</strong> Seamlessly convert between PDF, JPG, PNG, and text
+                                formats while preserving layout integrity.</li>
+                            <li><strong>Security First:</strong> protect your documents with enterprise-grade encryption
+                                or remove restrictions from files you legally own.</li>
+                        </ul>
+                    </div>
+                    <div class="seo-section">
+                        <h2>How to Merge PDF Files Online</h2>
+                        <ol>
+                            <li>Click the "PDF Merger" tool from the grid above.</li>
+                            <li>Drag and drop your PDF files into the upload zone or select them from your device.</li>
+                            <li>Arrange the files in your desired order using the visual sorter.</li>
+                            <li>Click "Merge PDF" to instantly process and download your combined document.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="pdf-toolkit-script.js"></script>
+</body>
+
+</html>

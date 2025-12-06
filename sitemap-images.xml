@@ -16,7 +16,7 @@
     </url>
     
     <url>
-        <loc>https://quantumtools.me/Image%20tools/bg%20remover/bg-remover.html</loc>
+        <loc>https://quantumtools.me/image-tools/bg-remover/bg-remover.html</loc>
         <image:image>
             <image:loc>https://quantumtools.me/assets/bg-remover-preview.png</image:loc>
             <image:title>AI Background Remover Tool</image:title>
@@ -24,7 +24,7 @@
         </image:image>
     </url>
       <url>
-        <loc>https://quantumtools.me/Image%20tools/image%20converter/image-converter.html</loc>
+        <loc>https://quantumtools.me/image-tools/image-converter/image-converter.html</loc>
         <image:image>
             <image:loc>https://quantumtools.me/assets/image-converter-preview.png</image:loc>
             <image:title>Image Format Converter</image:title>
@@ -32,7 +32,7 @@
         </image:image>
     </url>
       <url>
-        <loc>https://quantumtools.me/PDF%20tools/pdf-toolkit.html</loc>
+        <loc>https://quantumtools.me/pdf-tools/pdf-toolkit.html</loc>
         <image:image>
             <image:loc>https://quantumtools.me/assets/pdf-toolkit-preview.png</image:loc>
             <image:title>PDF Toolkit Interface</image:title>
@@ -40,7 +40,7 @@
         </image:image>
     </url>
       <url>
-        <loc>https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html</loc>
+        <loc>https://quantumtools.me/developer-tools/editor-with-live-preview/code-editor.html</loc>
         <image:image>
             <image:loc>https://quantumtools.me/assets/code-editor-preview.png</image:loc>
             <image:title>Live Code Editor</image:title>

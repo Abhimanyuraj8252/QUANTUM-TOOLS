@@ -20,11 +20,11 @@ class SEOContentStrategy {
     setupToolSpecificContent() {
         // Get current page type
         const currentPath = window.location.pathname;
-        
+
         // Only run on tool pages
         if (this.isToolPage(currentPath)) {
             const toolType = this.getToolType(currentPath);
-            
+
             // Add relevant content blocks
             this.addToolDescription(toolType);
             this.addUseCases(toolType);
@@ -32,26 +32,29 @@ class SEOContentStrategy {
             this.addTutorialSection(toolType);
         }
     }
-    
+
     isToolPage(path) {
         // Check if path contains tool directories
         const toolDirectories = [
-            'PDF tools',
-            'Image tools',
-            'text based tools',
-            'utility tools',
-            'Developer tools'
+            'pdf-tools',
+            'image-tools',
+            'text-based-tools',
+            'utility-tools',
+            'developer-tools',
+            'media-toolkit',
+            'devtools-suite',
+            'devkit-utilities'
         ];
-        
+
         return toolDirectories.some(dir => path.includes(dir));
     }
-    
+
     getToolType(path) {
         // Extract tool type from path
         const pathParts = path.split('/');
         return pathParts[pathParts.length - 1].replace('.html', '');
     }
-    
+
     addToolDescription(toolType) {
         // Content mapping for different tool types
         const toolContent = {
@@ -67,14 +70,14 @@ class SEOContentStrategy {
             },
             // Add more tools as needed
         };
-        
+
         // Get content for current tool or use generic content
         const content = toolContent[toolType] || {
             title: 'Free Online ' + this.formatToolName(toolType) + ' | QUANTUM TOOLS',
             description: 'Use our free online ' + this.formatToolName(toolType) + ' to efficiently process your files. No registration required, 100% free with client-side processing for maximum security.',
             keywords: [toolType + ' online', 'free ' + toolType, 'online ' + toolType, 'best ' + toolType]
         };
-        
+
         // Create and insert description section
         const descriptionSection = document.createElement('section');
         descriptionSection.className = 'tool-description seo-content';
@@ -85,14 +88,14 @@ class SEOContentStrategy {
                 ${content.keywords.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join('')}
             </div>
         `;
-        
+
         // Insert at the beginning of the main content
         const mainContent = document.querySelector('main') || document.querySelector('.content');
         if (mainContent && !document.querySelector('.tool-description')) {
             mainContent.insertBefore(descriptionSection, mainContent.firstChild);
         }
     }
-    
+
     formatToolName(toolType) {
         return toolType
             .replace(/-/g, ' ')
@@ -100,7 +103,7 @@ class SEOContentStrategy {
             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
             .join(' ');
     }
-    
+
     addUseCases(toolType) {
         const useCaseContainer = document.createElement('section');
         useCaseContainer.className = 'use-cases seo-content';
@@ -110,32 +113,32 @@ class SEOContentStrategy {
                 <!-- Use cases will be dynamically inserted here -->
             </div>
         `;
-        
+
         // Insert after tool description
         const toolDescription = document.querySelector('.tool-description');
         if (toolDescription) {
             toolDescription.after(useCaseContainer);
-            
+
             // Generate use cases based on tool type
             this.generateUseCases(toolType);
         }
     }
-    
+
     generateUseCases(toolType) {
         // This would be implemented based on the specific tool
         // For demonstration, we'll just log a message
         console.log(`Generating use cases for ${toolType}`);
-        
+
         // In a real implementation, this would populate the .use-cases-grid element
         // with relevant use cases for the specific tool
     }
-    
+
     addAlternativeOptions(toolType) {
         // This would add a section comparing this tool to alternatives
         // Helps capture comparative search queries like "X vs Y" or "alternatives to X"
         console.log(`Adding alternative options for ${toolType}`);
     }
-    
+
     addTutorialSection(toolType) {
         // This would add a how-to tutorial section for the tool
         // Great for capturing "how to" search queries
@@ -145,11 +148,11 @@ class SEOContentStrategy {
     // Create related tools section for cross-linking
     createRelatedToolsSection() {
         const currentPath = window.location.pathname;
-        
+
         if (this.isToolPage(currentPath)) {
             const toolType = this.getToolType(currentPath);
             const category = this.getToolCategory(currentPath);
-            
+
             // Create related tools container
             const relatedToolsSection = document.createElement('section');
             relatedToolsSection.className = 'related-tools';
@@ -159,18 +162,18 @@ class SEOContentStrategy {
                     <!-- Related tools will be dynamically inserted here -->
                 </div>
             `;
-            
+
             // Insert at the end of main content
             const mainContent = document.querySelector('main') || document.querySelector('.content');
             if (mainContent) {
                 mainContent.appendChild(relatedToolsSection);
-                
+
                 // Populate related tools based on current tool category
                 this.populateRelatedTools(category, toolType);
             }
         }
     }
-    
+
     getToolCategory(path) {
         const categories = [
             'PDF tools',
@@ -179,16 +182,16 @@ class SEOContentStrategy {
             'utility tools',
             'Developer tools'
         ];
-        
+
         for (const category of categories) {
             if (path.includes(category)) {
                 return category;
             }
         }
-        
+
         return 'Other';
     }
-    
+
     populateRelatedTools(category, excludeToolType) {
         // This would fetch related tools from the same category
         // and display them in the related-tools-grid
@@ -198,13 +201,13 @@ class SEOContentStrategy {
     // Implement FAQ schema for better search results
     implementFAQSchemas() {
         const currentPath = window.location.pathname;
-        
+
         if (this.isToolPage(currentPath)) {
             const toolType = this.getToolType(currentPath);
-            
+
             // Get FAQs for this tool type
             const faqs = this.getFAQsForTool(toolType);
-            
+
             if (faqs && faqs.length > 0) {
                 // Create FAQ section
                 const faqSection = document.createElement('section');
@@ -220,19 +223,19 @@ class SEOContentStrategy {
                         `).join('')}
                     </div>
                 `;
-                
+
                 // Add to page
                 const mainContent = document.querySelector('main') || document.querySelector('.content');
                 if (mainContent) {
                     mainContent.appendChild(faqSection);
                 }
-                
+
                 // Add FAQ schema
                 this.addFAQSchema(faqs);
             }
         }
     }
-    
+
     getFAQsForTool(toolType) {
         // This would return FAQ data for specific tools
         // For demonstration, return sample data
@@ -254,10 +257,10 @@ class SEOContentStrategy {
                 answer: 'Yes, QUANTUM TOOLS is fully responsive and works on all modern mobile devices and tablets.'
             }
         ];
-        
+
         return genericFAQs;
     }
-    
+
     addFAQSchema(faqs) {
         // Create FAQ schema
         const faqSchema = {
@@ -272,7 +275,7 @@ class SEOContentStrategy {
                 }
             }))
         };
-        
+
         // Add schema to page
         const schemaScript = document.createElement('script');
         schemaScript.type = 'application/ld+json';
@@ -290,56 +293,61 @@ class SEOContentStrategy {
     createBreadcrumbNavigation() {
         const currentPath = window.location.pathname;
         const pathParts = currentPath.split('/').filter(part => part !== '');
-        
+
         if (pathParts.length > 0) {
+            // Skip breadcrumbs on homepage
+            if (currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/index.html')) {
+                return;
+            }
+
             // Create breadcrumb container
             const breadcrumbNav = document.createElement('nav');
             breadcrumbNav.setAttribute('aria-label', 'Breadcrumb');
             breadcrumbNav.className = 'breadcrumb-navigation';
-            
+
             const breadcrumbList = document.createElement('ol');
-            
+
             // Always add home
             breadcrumbList.innerHTML = '<li><a href="/">Home</a></li>';
-            
+
             // Build breadcrumb path
             let currentPath = '';
             for (let i = 0; i < pathParts.length; i++) {
                 const part = pathParts[i];
                 currentPath += '/' + part;
-                
+
                 const partName = part.replace(/\.html$/, '').replace(/-/g, ' ');
                 const formattedName = partName
                     .split(' ')
                     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(' ');
-                
+
                 const isLast = i === pathParts.length - 1;
-                
+
                 if (isLast) {
                     breadcrumbList.innerHTML += `<li aria-current="page">${formattedName}</li>`;
                 } else {
                     breadcrumbList.innerHTML += `<li><a href="${currentPath}">${formattedName}</a></li>`;
                 }
             }
-            
+
             breadcrumbNav.appendChild(breadcrumbList);
-            
+
             // Add to page at the top of main content
             const mainContent = document.querySelector('main') || document.querySelector('.content');
             if (mainContent) {
                 mainContent.insertBefore(breadcrumbNav, mainContent.firstChild);
             }
-            
+
             // Add breadcrumb schema
             this.addBreadcrumbSchema(pathParts);
         }
     }
-    
+
     addBreadcrumbSchema(pathParts) {
         // Create breadcrumb schema
         const breadcrumbItems = [];
-        
+
         // Always add home
         breadcrumbItems.push({
             '@type': 'ListItem',
@@ -347,19 +355,19 @@ class SEOContentStrategy {
             'name': 'Home',
             'item': 'https://quantumtools.example.com/'
         });
-        
+
         // Add path parts
         let currentPath = '';
         for (let i = 0; i < pathParts.length; i++) {
             const part = pathParts[i];
             currentPath += '/' + part;
-            
+
             const partName = part.replace(/\.html$/, '').replace(/-/g, ' ');
             const formattedName = partName
                 .split(' ')
                 .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(' ');
-            
+
             breadcrumbItems.push({
                 '@type': 'ListItem',
                 'position': i + 2,
@@ -367,13 +375,13 @@ class SEOContentStrategy {
                 'item': 'https://quantumtools.example.com' + currentPath
             });
         }
-        
+
         const breadcrumbSchema = {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             'itemListElement': breadcrumbItems
         };
-        
+
         // Add schema to page
         const schemaScript = document.createElement('script');
         schemaScript.type = 'application/ld+json';

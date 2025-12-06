@@ -30,11 +30,11 @@ const ENHANCED_FILES = [
 
 // Critical tool pages for mobile users
 const CRITICAL_TOOLS = [
-    './Image%20tools/bg%20remover/bg-remover.html',
-    './PDF%20tools/pdf-toolkit.html',
-    './Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html',
-    './utility%20tools/QR%20code%20generator/qr-generator.html',
-    './text%20based%20tools/word-counter/index.html'
+    './image-tools/bg%20remover/bg-remover.html',
+    './pdf-tools/pdf-toolkit.html',
+    './developer-tools/Editor%20with%20Live%20Preview/code-editor.html',
+    './utility-tools/QR%20code%20generator/qr-generator.html',
+    './text-based-tools/word-counter/index.html'
 ];
 
 // Mobile device detection

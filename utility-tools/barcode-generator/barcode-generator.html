@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Barcode Generator - QUANTUM TOOLS</title>
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4013378095829502">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="barcode-generator-styles.css">
+    <link rel="stylesheet" href="../../home-page/universal-nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- JsBarcode Library for barcode generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+</head>
+
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    <!-- Enhanced Navigation Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <div class="logo-gradient">⚡</div>
+                        <div class="logo-pulse"></div>
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-main">OMNI</span><span class="logo-accent">FORMA</span>
+                    </span>
+                </div>
+                <div class="nav-divider"></div>
+                <div class="nav-breadcrumb">
+                    <a href="../../index.html" class="breadcrumb-link">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-current">Barcode Generator</span>
+                </div>
+            </div>
+            <div class="nav-center">
+                <div class="tool-info">
+                    <div class="tool-status">
+                        <div class="status-indicator"></div>
+                        <span class="status-text">Ready</span>
+                    </div>
+                    <div class="tool-title-wrapper">
+                        <h1 class="tool-title">
+                            <i class="fas fa-barcode title-icon"></i>
+                            Barcode Generator
+                        </h1>
+                        <span class="tool-category">
+                            <i class="fas fa-tools"></i>
+                            Utility Tools
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-actions">
+                    <button class="action-btn" id="settingsBtn" title="Settings">
+                        <i class="fas fa-cog"></i>
+                        <span class="btn-text">Settings</span>
+                    </button>
+                    <button class="action-btn" id="fullscreenBtn" title="Toggle Fullscreen">
+                        <i class="fas fa-expand"></i>
+                        <span class="btn-text">Fullscreen</span>
+                    </button>
+                    <button class="action-btn" id="themeBtn" title="Change Theme">
+                        <i class="fas fa-palette"></i>
+                        <span class="btn-text">Theme</span>
+                    </button>
+                    <button class="action-btn" id="helpBtn" title="Help & Shortcuts">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="btn-text">Help</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-progress">
+            <div class="progress-line" id="progressLine"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container"> <!-- Page Header -->
+            <div class="page-header">
+                <div class="header-background">
+                    <div class="header-pattern"></div>
+                    <div class="header-glow"></div>
+                </div>
+                <div class="header-content">
+                    <div class="icon-wrapper">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-barcode"></i>
+                        <div class="icon-particles">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="header-text">
+                        <h1 class="page-title">
+                            <span class="title-main">Universal</span>
+                            <span class="title-accent">Barcode Generator</span>
+                        </h1>
+                        <p class="page-description">Generate professional barcodes instantly with customizable options
+                            and multiple export formats</p>
+                        <div class="header-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-barcode"></i>
+                                <span>15+ Formats</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-download"></i>
+                                <span>Multiple Exports</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-bolt"></i>
+                                <span>Instant Generation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool Interface -->
+            <div class="tool-interface">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-cog"></i>
+                            Configuration
+                        </h2>
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="barcodeData" class="input-label">
+                                <i class="fas fa-edit"></i>
+                                Barcode Data
+                                <span class="label-badge">Required</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="text" id="barcodeData" class="input-field"
+                                    placeholder="Enter text or numbers..." value="1234567890128">
+                                <div class="input-actions">
+                                    <button class="input-action" id="pasteDataBtn" title="Paste">
+                                        <i class="fas fa-paste"></i>
+                                    </button>
+                                    <button class="input-action" id="clearDataBtn" title="Clear">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                    <button class="input-action" id="randomDataBtn" title="Generate Random">
+                                        <i class="fas fa-random"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="input-hint">Enter the data you want to encode</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="barcodeType" class="input-label">
+                                <i class="fas fa-list"></i>
+                                Barcode Type
+                                <span class="label-info" title="Format information">
+                                    <i class="fas fa-info-circle"></i>
+                                </span>
+                            </label>
+                            <select id="barcodeType" class="input-field select-field">
+                                <optgroup label="Popular Formats">
+                                    <option value="CODE128">Code 128 - Universal ASCII</option>
+                                    <option value="EAN13">EAN-13 - Retail Products</option>
+                                    <option value="UPC">UPC-A - North America</option>
+                                    <option value="CODE39">Code 39 - Industrial</option>
+                                </optgroup>
+                                <optgroup label="Retail & Commerce">
+                                    <option value="EAN8">EAN-8 - Small Products</option>
+                                    <option value="ITF14">ITF-14 - Shipping</option>
+                                </optgroup>
+                                <optgroup label="Specialized">
+                                    <option value="MSI">MSI - Inventory</option>
+                                    <option value="pharmacode">Pharmacode - Medical</option>
+                                    <option value="codabar">Codabar - Libraries</option>
+                                </optgroup>
+                            </select>
+                            <div class="input-hint">Select the barcode format</div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="barcodeWidth" class="input-label">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                    Width
+                                </label>
+                                <div class="range-wrapper">
+                                    <input type="range" id="widthRange" class="range-slider" min="100" max="800"
+                                        value="300">
+                                    <input type="number" id="barcodeWidth" class="input-field range-input" value="300"
+                                        min="100" max="800">
+                                    <span class="range-unit">px</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="barcodeHeight" class="input-label">
+                                    <i class="fas fa-arrows-alt-v"></i>
+                                    Height
+                                </label>
+                                <div class="range-wrapper">
+                                    <input type="range" id="heightRange" class="range-slider" min="50" max="300"
+                                        value="100">
+                                    <input type="number" id="barcodeHeight" class="input-field range-input" value="100"
+                                        min="50" max="300">
+                                    <span class="range-unit">px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Options -->
+                        <div class="advanced-options">
+                            <h4 class="options-title">
+                                <i class="fas fa-sliders-h"></i>
+                                Advanced Options
+                                <button class="options-toggle" id="advancedToggle">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </h4>
+                            <div class="options-content" id="advancedContent">
+                                <div class="option-row">
+                                    <div class="input-group checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="displayText" checked>
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">
+                                                <i class="fas fa-font"></i>
+                                                Display Text Below Barcode
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="input-group checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="addMargin" checked>
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">
+                                                <i class="fas fa-expand-arrows-alt"></i>
+                                                Add Margin
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="option-row">
+                                    <div class="input-group">
+                                        <label for="backgroundColor" class="input-label">
+                                            <i class="fas fa-fill"></i>
+                                            Background Color
+                                        </label>
+                                        <div class="color-wrapper">
+                                            <input type="color" id="backgroundColor" value="#ffffff"
+                                                class="color-input">
+                                            <input type="text" id="bgColorText" value="#ffffff"
+                                                class="input-field color-text">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="foregroundColor" class="input-label">
+                                            <i class="fas fa-tint"></i>
+                                            Barcode Color
+                                        </label>
+                                        <div class="color-wrapper">
+                                            <input type="color" id="foregroundColor" value="#000000"
+                                                class="color-input">
+                                            <input type="text" id="fgColorText" value="#000000"
+                                                class="input-field color-text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="generateBtn" class="action-btn primary-btn">
+                            <div class="btn-content">
+                                <i class="fas fa-magic"></i>
+                                <span>Generate Barcode</span>
+                            </div>
+                            <div class="btn-ripple"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output Section -->
+                <div class="output-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-barcode"></i>
+                            Generated Barcode
+                        </h2>
+                    </div>
+
+                    <div class="barcode-container">
+                        <div class="barcode-preview">
+                            <canvas id="barcodeCanvas" class="barcode-canvas"></canvas>
+                            <div id="placeholderText" class="placeholder-text">
+                                <i class="fas fa-barcode"></i>
+                                <p>Your barcode will appear here</p>
+                                <span>Click "Generate Barcode" to create your barcode</span>
+                            </div>
+                        </div>
+                        <div class="barcode-actions">
+                            <div class="download-section">
+                                <h4 class="download-title">
+                                    <i class="fas fa-download"></i>
+                                    Export Options
+                                </h4>
+                                <div class="download-grid">
+                                    <button id="downloadPngBtn" class="download-btn png-btn" disabled>
+                                        <i class="fas fa-image"></i>
+                                        <div class="btn-info">
+                                            <span class="btn-label">PNG</span>
+                                            <span class="btn-desc">High Quality</span>
+                                        </div>
+                                    </button>
+                                    <button id="downloadJpgBtn" class="download-btn jpg-btn" disabled>
+                                        <i class="fas fa-file-image"></i>
+                                        <div class="btn-info">
+                                            <span class="btn-label">JPG</span>
+                                            <span class="btn-desc">Compressed</span>
+                                        </div>
+                                    </button>
+                                    <button id="downloadSvgBtn" class="download-btn svg-btn" disabled>
+                                        <i class="fas fa-vector-square"></i>
+                                        <div class="btn-info">
+                                            <span class="btn-label">SVG</span>
+                                            <span class="btn-desc">Vector</span>
+                                        </div>
+                                    </button>
+                                    <button id="downloadPdfBtn" class="download-btn pdf-btn" disabled>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <div class="btn-info">
+                                            <span class="btn-label">PDF</span>
+                                            <span class="btn-desc">Document</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button id="copyBtn" class="action-btn secondary-btn" disabled>
+                                    <i class="fas fa-copy"></i>
+                                    <span>Copy to Clipboard</span>
+                                </button>
+                                <button id="shareBtn" class="action-btn secondary-btn" disabled>
+                                    <i class="fas fa-share-alt"></i>
+                                    <span>Share</span>
+                                </button>
+                                <button id="printBtn" class="action-btn secondary-btn" disabled>
+                                    <i class="fas fa-print"></i>
+                                    <span>Print</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="errorMessage" class="error-message" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span id="errorText"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <h3 class="features-title">Supported Barcode Types</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-barcode"></i>
+                        <h4>Code 128</h4>
+                        <p>High-density linear barcode, supports all ASCII characters</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>EAN-13 / EAN-8</h4>
+                        <p>International Article Number for retail products</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tag"></i>
+                        <h4>UPC-A</h4>
+                        <p>Universal Product Code for North American retail</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-industry"></i>
+                        <h4>Code 39</h4>
+                        <p>Alphanumeric barcode widely used in industry</p>
+                    </div>
+                </div>
+            </div>
+            <!-- SEO Content Block -->
+            <section class="seo-content-static"
+                style="padding: 2rem 0; text-align: left; margin-top: 2rem; border-top: 1px solid rgba(0, 240, 255, 0.1);">
+                <div class="seo-section">
+                    <h2 style="color: #00f0ff; margin-bottom: 1rem;">Professional Online Barcode Generator</h2>
+                    <p style="color: #a0a0a0; margin-bottom: 1.5rem;">Create high-quality, scannable barcodes for
+                        retail, inventory, and logistics. Supports all major formats including UPC, EAN, Code 128, and
+                        more. Customizable dimensions, colors, and output options for professional printing.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 QUANTUM TOOLS. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <span>•</span>
+                <a href="#">Privacy</a>
+                <span>•</span>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer> <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content settings-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <button class="modal-close" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="modal-tab active" data-tab="general">
+                        <i class="fas fa-cog"></i>
+                        General
+                    </button>
+                    <button class="modal-tab" data-tab="theme">
+                        <i class="fas fa-palette"></i>
+                        Theme
+                    </button>
+                    <button class="modal-tab" data-tab="advanced">
+                        <i class="fas fa-sliders-h"></i>
+                        Advanced
+                    </button>
+                </div>
+
+                <div class="modal-tab-content active" id="general-tab">
+                    <div class="settings-group">
+                        <h4><i class="fas fa-cogs"></i> General Settings</h4>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Export Quality</div>
+                                <div class="setting-description">Default quality for exported images</div>
+                            </div>
+                            <div class="setting-control">
+                                <select id="qualitySelect">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high" selected>High</option>
+                                    <option value="ultra">Ultra</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Default Format</div>
+                                <div class="setting-description">Default barcode format for new generations</div>
+                            </div>
+                            <div class="setting-control">
+                                <select id="defaultFormatSelect">
+                                    <option value="CODE128" selected>Code 128</option>
+                                    <option value="EAN13">EAN-13</option>
+                                    <option value="UPC">UPC-A</option>
+                                    <option value="CODE39">Code 39</option>
+                                    <option value="EAN8">EAN-8</option>
+                                    <option value="UPC">UPC-E</option>
+                                    <option value="CODE93">Code 93</option>
+                                    <option value="CODABAR">Codabar</option>
+                                    <option value="ITF14">ITF-14</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Auto Generate</div>
+                                <div class="setting-description">Generate barcode automatically when typing</div>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-switch" id="autoGenerateToggle">
+                                    <input type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Show Text by Default</div>
+                                <div class="setting-description">Display text below barcode by default</div>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-switch active" id="showTextToggle">
+                                    <input type="checkbox" checked>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-tab-content" id="theme-tab">
+                    <div class="settings-group">
+                        <h4><i class="fas fa-palette"></i> Theme Settings</h4>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Color Theme</div>
+                                <div class="setting-description">Choose your preferred color scheme</div>
+                            </div>
+                            <div class="setting-control">
+                                <select id="themeSelect">
+                                    <option value="dark" selected>Dark Theme</option>
+                                    <option value="light">Light Theme</option>
+                                    <option value="blue">Blue Theme</option>
+                                    <option value="purple">Purple Theme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="theme-preview-grid">
+                            <div class="theme-card" data-theme="dark">
+                                <div class="theme-preview dark-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-box"></div>
+                                        <div class="preview-box"></div>
+                                    </div>
+                                </div>
+                                <span class="theme-name">Dark</span>
+                            </div>
+
+                            <div class="theme-card" data-theme="light">
+                                <div class="theme-preview light-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-box"></div>
+                                        <div class="preview-box"></div>
+                                    </div>
+                                </div>
+                                <span class="theme-name">Light</span>
+                            </div>
+
+                            <div class="theme-card" data-theme="blue">
+                                <div class="theme-preview blue-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-box"></div>
+                                        <div class="preview-box"></div>
+                                    </div>
+                                </div>
+                                <span class="theme-name">Blue</span>
+                            </div>
+
+                            <div class="theme-card" data-theme="purple">
+                                <div class="theme-preview purple-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-box"></div>
+                                        <div class="preview-box"></div>
+                                    </div>
+                                </div>
+                                <span class="theme-name">Purple</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-tab-content" id="advanced-tab">
+                    <div class="settings-group">
+                        <h4><i class="fas fa-sliders-h"></i> Advanced Options</h4>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Canvas Rendering</div>
+                                <div class="setting-description">High DPI rendering for better quality</div>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-switch active">
+                                    <input type="checkbox" checked>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Error Correction</div>
+                                <div class="setting-description">Enable error correction for supported formats</div>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-switch active">
+                                    <input type="checkbox" checked>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Batch Processing</div>
+                                <div class="setting-description">Enable batch generation features</div>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-switch">
+                                    <input type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Keyboard Shortcuts</div>
+                                <div class="setting-description">Enable keyboard shortcuts for faster workflow</div>
+                            </div>
+                            <div class="setting-control">
+                                <div class="toggle-switch active">
+                                    <input type="checkbox" checked>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h4><i class="fas fa-database"></i> Data Management</h4>
+
+                        <div class="setting-item">
+                            <div>
+                                <div class="setting-label">Clear All Data</div>
+                                <div class="setting-description">Reset all settings and clear history</div>
+                            </div>
+                            <div class="setting-control">
+                                <button class="btn-secondary btn-danger"
+                                    onclick="if(confirm('Clear all data?')) localStorage.clear(); location.reload();">
+                                    <i class="fas fa-trash"></i>
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content help-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-question-circle"></i> Barcode Generator Help</h3>
+                <button class="modal-close" id="closeHelp">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="help-tabs">
+                    <button class="help-tab active" data-tab="usage">
+                        <i class="fas fa-play"></i>
+                        Usage
+                    </button>
+                    <button class="help-tab" data-tab="formats">
+                        <i class="fas fa-barcode"></i>
+                        Formats
+                    </button>
+                    <button class="help-tab" data-tab="shortcuts">
+                        <i class="fas fa-keyboard"></i>
+                        Shortcuts
+                    </button>
+                </div>
+
+                <div class="help-content">
+                    <div class="help-panel active" id="usage-panel">
+                        <h4><i class="fas fa-info-circle"></i> How to Use</h4>
+                        <ol>
+                            <li>Enter your data in the "Barcode Data" field</li>
+                            <li>Select the appropriate barcode type</li>
+                            <li>Adjust width and height using sliders or input fields</li>
+                            <li>Configure advanced options if needed</li>
+                            <li>Click "Generate Barcode"</li>
+                            <li>Choose your preferred export format</li>
+                        </ol>
+                    </div>
+
+                    <div class="help-panel" id="formats-panel">
+                        <h4><i class="fas fa-list"></i> Supported Formats</h4>
+                        <div class="format-list">
+                            <div class="format-item">
+                                <strong>EAN-13:</strong> Exactly 12 or 13 digits
+                            </div>
+                            <div class="format-item">
+                                <strong>EAN-8:</strong> Exactly 7 or 8 digits
+                            </div>
+                            <div class="format-item">
+                                <strong>UPC-A:</strong> Exactly 11 or 12 digits
+                            </div>
+                            <div class="format-item">
+                                <strong>Code 39:</strong> Letters, numbers, and some symbols
+                            </div>
+                            <div class="format-item">
+                                <strong>Code 128:</strong> All ASCII characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="help-panel" id="shortcuts-panel">
+                        <h4><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h4>
+                        <div class="shortcut-list">
+                            <div class="shortcut-item">
+                                <kbd>Ctrl</kbd> + <kbd>Enter</kbd> - Generate barcode
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>Ctrl</kbd> + <kbd>C</kbd> - Copy to clipboard
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>Ctrl</kbd> + <kbd>S</kbd> - Download PNG
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>F11</kbd> - Toggle fullscreen
+                            </div>
+                            <div class="shortcut-item">
+                                <kbd>Esc</kbd> - Close modals
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="barcode-generator-script.js"></script>
+</body>
+
+</html>

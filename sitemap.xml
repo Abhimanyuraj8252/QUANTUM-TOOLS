@@ -1,308 +1,252 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-          <!-- Main Homepage -->
-    <url>
-        <loc>https://quantumtools.me/</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/?lang=hi"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/"/>
-    </url>
-    <!-- Content and Guide Pages -->
-    <url>
-        <loc>https://quantumtools.me/how-to-guide.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/how-to-guide.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/how-to-guide.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/how-to-guide.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/how-to-guide.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/how-to-guide.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/how-to-guide.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/how-to-guide.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/how-to-guide.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/how-to-guide.html?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/tools-comparison.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/tools-comparison.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/tools-comparison.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/tools-comparison.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/tools-comparison.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/tools-comparison.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/tools-comparison.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/tools-comparison.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/tools-comparison.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/tools-comparison.html?lang=hi"/>
-    </url>
-    <!-- Legal Pages -->
-    <url>
-        <loc>https://quantumtools.me/privacy-policy.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/privacy-policy.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/privacy-policy.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/privacy-policy.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/privacy-policy.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/privacy-policy.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/privacy-policy.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/privacy-policy.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/privacy-policy.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/privacy-policy.html?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/contact.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/contact.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/contact.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/contact.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/contact.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/contact.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/contact.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/contact.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/contact.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/contact.html?lang=hi"/>
-    </url>
-    <!-- Developer Tools -->
-    <url>
-        <loc>https://quantumtools.me/Developer%20tools/</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/Developer%20tools/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/Developer%20tools/?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/Developer%20tools/?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/Developer%20tools/?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/Developer%20tools/?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/Developer%20tools/?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/Developer%20tools/?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/Developer%20tools/?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/Developer%20tools/?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/Developer%20tools/Encoder%20Decoder/universal-encoder-decoder.html?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/Developer%20tools/JSON%20formatter%20validator/json-tool.html?lang=hi"/>
-    </url>
-      <url>
-        <loc>https://quantumtools.me/DevTools%20Suite/index.html</loc>
-        <lastmod>2025-06-12</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/DevKit%20Utilities/index.html</loc>
-        <lastmod>2025-06-12</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Image Tools -->
-    <url>
-        <loc>https://quantumtools.me/Image%20tools/</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/Image%20tools/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/Image%20tools/?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/Image%20tools/?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/Image%20tools/?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/Image%20tools/?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/Image%20tools/?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/Image%20tools/?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/Image%20tools/?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/Image%20tools/?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Image%20tools/bg%20remover/bg-remover.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-      <url>
-        <loc>https://quantumtools.me/Image%20tools/image%20converter/image-converter.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Image%20tools/Image%20resizer/image-optimizer.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Media%20Toolkit/index.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- PDF Tools -->
-    <url>
-        <loc>https://quantumtools.me/PDF%20tools/</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="en" href="https://quantumtools.me/PDF%20tools/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://quantumtools.me/PDF%20tools/?lang=de"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://quantumtools.me/PDF%20tools/?lang=zh"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://quantumtools.me/PDF%20tools/?lang=es"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://quantumtools.me/PDF%20tools/?lang=ar"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://quantumtools.me/PDF%20tools/?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://quantumtools.me/PDF%20tools/?lang=ru"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://quantumtools.me/PDF%20tools/?lang=fr"/>
-        <xhtml:link rel="alternate" hreflang="hi" href="https://quantumtools.me/PDF%20tools/?lang=hi"/>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/PDF%20tools/pdf-toolkit.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-      <url>
-        <loc>https://quantumtools.me/PDF%20tools/PDF%20Power%20Suite/index.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Text Tools -->
-    <url>
-        <loc>https://quantumtools.me/text%20based%20tools/case%20converter/case-converter.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/text%20based%20tools/Random%20Data%20Generator/data-generator.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-      <url>
-        <loc>https://quantumtools.me/text%20based%20tools/word-counter/index.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Text-Toolbox-Pro/index.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Utility Tools -->
-    <url>
-        <loc>https://quantumtools.me/utility%20tools/age%20calculator/age-calculator.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-      <url>
-        <loc>https://quantumtools.me/utility%20tools/barcode%20generator/barcode-generator.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/utility%20tools/QR%20code%20generator/qr-generator.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/utility%20tools/unit%20converter/unit-converter.html</loc>
-        <lastmod>2025-06-17</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Search Results Page -->
-    <url>
-        <loc>https://quantumtools.me/search.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <url>
-        <loc>https://quantumtools.me/Home%20page/search-results.html</loc>
-        <lastmod>2025-07-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://quantumtools.me/contact.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/how-to-guide.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/privacy-policy.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/search.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/terms-of-service.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/tools-comparison.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/developer-tools/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/developer-tools/editor-with-live-preview/code-editor.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/developer-tools/encoder-decoder/universal-encoder-decoder.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/developer-tools/json-formatter-validator/json-tool.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/devkit-utilities/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/devtools-suite/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/home-page/search-results.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/image-tools/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/image-tools/bg-remover/bg-remover.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/image-tools/image-converter/image-converter.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/image-tools/image-resizer/image-optimizer.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/media-toolkit/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/pdf-toolkit.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/file-conversion/doc-to-pdf/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/file-conversion/Image%20to%20PDF/image-to-pdf.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/file-conversion/PDF%20to%20Image/pdf-to-image.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/file-conversion/PDF%20to%20Text/pdf-to-text.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/file-conversion/Text%20to%20PDF/text-to-pdf.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/pdf-manipulation/Page%20Manager/pdf-page-manager.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/pdf-manipulation/PDF%20Compressor/pdf-compressor.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/pdf-manipulation/PDF%20Merger/pdf-merger.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/pdf-manipulation/PDF%20Splitter/pdf-splitter.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/pdf-power-suite/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/security-and-enhancement/password-protection/protect-pdf.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/pdf-tools/security-and-enhancement/remove-password/unlock-pdf.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/text-based-tools/case-converter/case-converter.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/text-based-tools/random-data-generator/data-generator.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/text-based-tools/word-counter/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/text-toolbox-pro/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/utility-tools/age-calculator/age-calculator.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/utility-tools/barcode-generator/barcode-generator.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/utility-tools/qr-code-generator/qr-generator.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://quantumtools.me/utility-tools/unit-converter/unit-converter.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

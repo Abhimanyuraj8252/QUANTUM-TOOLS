@@ -161,10 +161,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="Home page/preloader.css">
-    <link rel="stylesheet" href="Home page/animations.css">
-    <link rel="stylesheet" href="Home page/enhancements.css">
-    <link rel="stylesheet" href="Home page/universal-nav.css">
+    <link rel="stylesheet" href="home-page/preloader.css">
+    <link rel="stylesheet" href="home-page/animations.css">
+    <link rel="stylesheet" href="home-page/enhancements.css">
+    <link rel="stylesheet" href="home-page/universal-nav.css">
 
     <!-- Enhanced UX Styles -->
     <link rel="stylesheet" href="ux-enhancements.css"> <!-- Content Marketing Styles -->
@@ -273,19 +273,19 @@
           "@type": "ListItem",
           "position": 3,
           "name": "PDF Tools",
-          "item": "https://quantumtools.me/PDF%20tools/"
+          "item": "https://quantumtools.me/pdf-tools/"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "Image Tools",
-          "item": "https://quantumtools.me/Image%20tools/"
+          "item": "https://quantumtools.me/image-tools/"
         },
         {
           "@type": "ListItem",
           "position": 5,
           "name": "Developer Tools",
-          "item": "https://quantumtools.me/Developer%20tools/"
+          "item": "https://quantumtools.me/developer-tools/"
         }
       ]
     }
@@ -379,7 +379,10 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="/">
-                        <img src="/assets/images/quantum-tools-logo.svg" alt="QUANTUM TOOLS" width="60" height="60">
+                        <div class="logo-icon-wrapper">
+                            <i class="fas fa-atom fa-2x"
+                                style="color: var(--accent-color-1); filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));"></i>
+                        </div>
                         <h1>QUANTUM TOOLS</h1>
                     </a>
                 </div>
@@ -435,7 +438,7 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content reveal">
-                    <h1 class="glowing-text">Quantum Tools</h1>
+                    <h1 class="glowing-text">Quantum Tools - Free Online Web Utilities</h1>
                     <p>Advanced web utilities for everyday tasks</p>
                     <a href="#tools" class="cta-button pulse-glow">Explore Tools</a>
                 </div>
@@ -489,7 +492,7 @@
                                 <span class="feature"><i class="fas fa-layers"></i> Edge Refinement</span>
                                 <span class="feature"><i class="fas fa-palette"></i> Color Analysis</span>
                             </div>
-                            <a href="Image tools/bg remover/bg-remover.html" class="tool-action-btn">
+                            <a href="image-tools/bg-remover/bg-remover.html" class="tool-action-btn">
                                 <span>Launch Tool</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -515,7 +518,7 @@
                                 <span class="feature"><i class="fas fa-compress"></i> Smart Compression</span>
                                 <span class="feature"><i class="fas fa-clock"></i> Batch Processing</span>
                             </div>
-                            <a href="Image tools/image converter/image-converter.html" class="tool-action-btn">
+                            <a href="image-tools/image-converter/image-converter.html" class="tool-action-btn">
                                 <span>Launch Tool</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -542,7 +545,7 @@
                                 <span class="feature"><i class="fas fa-crop"></i> Smart Resize</span>
                                 <span class="feature"><i class="fas fa-stamp"></i> Watermarking</span>
                             </div>
-                            <a href="Image tools/Image resizer/image-optimizer.html" class="tool-action-btn">
+                            <a href="image-tools/image-resizer/image-optimizer.html" class="tool-action-btn">
                                 <span>Launch Tool</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -562,63 +565,63 @@
                     </h3>
                     <div class="tools-grid reveal-stagger">
                         <!-- DevKit Utilities -->
-                        <a href="Developer tools/Editor with Live Preview/code-editor.html" class="tool-card">
+                        <a href="developer-tools/editor-with-live-preview/code-editor.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-code"></i>
                             </div>
                             <h3>Live Code Editor</h3>
                             <p>Write and preview HTML, CSS, and JavaScript in real-time</p>
                         </a>
-                        <a href="Developer tools/Encoder Decoder/universal-encoder-decoder.html" class="tool-card">
+                        <a href="developer-tools/encoder-decoder/universal-encoder-decoder.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-lock"></i>
                             </div>
                             <h3>Encoder/Decoder</h3>
                             <p>Encode and decode text with various algorithms</p>
                         </a>
-                        <a href="Developer tools/JSON formatter validator/json-tool.html" class="tool-card">
+                        <a href="developer-tools/json-formatter-validator/json-tool.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-code"></i>
                             </div>
                             <h3>JSON Formatter</h3>
                             <p>Format, validate, and minify JSON data</p>
                         </a> <!-- DevTools Suite -->
-                        <a href="DevTools Suite/index.html#box-shadow-tool" class="tool-card">
+                        <a href="devtools-suite/index.html#box-shadow-tool" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-cube"></i>
                             </div>
                             <h3>CSS Box Shadow Generator</h3>
                             <p>Create beautiful box shadows with real-time preview</p>
                         </a>
-                        <a href="DevTools Suite/index.html#gradient-tool" class="tool-card">
+                        <a href="devtools-suite/index.html#gradient-tool" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-palette"></i>
                             </div>
                             <h3>CSS Gradient Generator</h3>
                             <p>Generate linear and radial gradients with live preview</p>
                         </a>
-                        <a href="DevTools Suite/index.html#flexbox-tool" class="tool-card">
+                        <a href="devtools-suite/index.html#flexbox-tool" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-th-large"></i>
                             </div>
                             <h3>Flexbox Playground</h3>
                             <p>Visual flexbox layout designer with code generation</p>
                         </a>
-                        <a href="DevTools Suite/index.html#clip-path-tool" class="tool-card">
+                        <a href="devtools-suite/index.html#clip-path-tool" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-cut"></i>
                             </div>
                             <h3>CSS Clip Path Generator</h3>
                             <p>Create complex CSS clip-path shapes visually</p>
                         </a>
-                        <a href="DevTools Suite/index.html#regex-tool" class="tool-card">
+                        <a href="devtools-suite/index.html#regex-tool" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-search"></i>
                             </div>
                             <h3>RegEx Tester</h3>
                             <p>Test and debug regular expressions with real-time feedback</p>
                         </a>
-                        <a href="DevTools Suite/index.html#contrast-tool" class="tool-card">
+                        <a href="devtools-suite/index.html#contrast-tool" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-eye"></i>
                             </div>
@@ -626,7 +629,7 @@
                             <p>Check color accessibility and WCAG compliance</p>
                         </a>
 
-                        <!-- DevKit Utilities --> <a href="DevKit Utilities/index.html#timezone-converter"
+                        <!-- DevKit Utilities --> <a href="devkit-utilities/index.html#timezone-converter"
                             class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-clock"></i>
@@ -634,69 +637,69 @@
                             <h3>Time Zone Converter</h3>
                             <p>Convert time between different time zones instantly</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#date-calculator" class="tool-card">
+                        <a href="devkit-utilities/index.html#date-calculator" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <h3>Date Calculator</h3>
                             <p>Calculate date differences and add/subtract dates</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#stopwatch" class="tool-card">
+                        <a href="devkit-utilities/index.html#stopwatch" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-stopwatch"></i>
                             </div>
                             <h3>Stopwatch</h3>
                             <p>Professional stopwatch with lap timing</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#countdown-timer" class="tool-card">
+                        <a href="devkit-utilities/index.html#countdown-timer" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-hourglass-half"></i>
                             </div>
                             <h3>Countdown Timer</h3>
                             <p>Set countdown timers for events and deadlines</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#random-number" class="tool-card">
+                        <a href="devkit-utilities/index.html#random-number" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-random"></i>
                             </div>
                             <h3>Random Number Generator</h3>
                             <p>Generate random numbers with customizable ranges</p>
-                        </a> <a href="DevKit Utilities/index.html#hash-generator" class="tool-card">
+                        </a> <a href="devkit-utilities/index.html#hash-generator" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-lock"></i>
                             </div>
                             <h3>Hash Generator</h3>
                             <p>Generate secure hashes from text or files</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#color-palette" class="tool-card">
+                        <a href="devkit-utilities/index.html#color-palette" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-palette"></i>
                             </div>
                             <h3>Color Palette Generator</h3>
                             <p>Generate beautiful color palettes for your projects</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#color-converter" class="tool-card">
+                        <a href="devkit-utilities/index.html#color-converter" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-fill-drip"></i>
                             </div>
                             <h3>Color Converter</h3>
                             <p>Convert colors between different formats</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#csv-to-json" class="tool-card">
+                        <a href="devkit-utilities/index.html#csv-to-json" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-csv"></i>
                             </div>
                             <h3>CSV to JSON Converter</h3>
                             <p>Convert CSV data to JSON format</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#json-to-csv" class="tool-card">
+                        <a href="devkit-utilities/index.html#json-to-csv" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-code"></i>
                             </div>
                             <h3>JSON to CSV Converter</h3>
                             <p>Convert JSON array to CSV format</p>
                         </a>
-                        <a href="DevKit Utilities/index.html#qr-reader" class="tool-card">
+                        <a href="devkit-utilities/index.html#qr-reader" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-qrcode"></i>
                             </div>
@@ -712,21 +715,21 @@
                         <i class="fas fa-photo-video"></i> Media Toolkit
                     </h3>
                     <div class="tools-grid reveal-stagger"> <!-- Image Tools -->
-                        <a href="Image tools/bg remover/bg-remover.html" class="tool-card">
+                        <a href="image-tools/bg-remover/bg-remover.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-magic"></i>
                             </div>
                             <h3>Background Remover</h3>
                             <p>Remove backgrounds from images using AI technology</p>
                         </a>
-                        <a href="Image tools/image converter/image-converter.html" class="tool-card">
+                        <a href="image-tools/image-converter/image-converter.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-exchange-alt"></i>
                             </div>
                             <h3>Image Converter</h3>
                             <p>Convert images between different formats</p>
                         </a>
-                        <a href="Image tools/Image resizer/image-optimizer.html" class="tool-card">
+                        <a href="image-tools/image-resizer/image-optimizer.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-image"></i>
                             </div>
@@ -735,49 +738,49 @@
                         </a>
 
                         <!-- Media Toolkit Tools -->
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-compress"></i>
                             </div>
                             <h3>Image Compressor</h3>
                             <p>Compress images with adjustable quality settings</p>
                         </a>
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-crop"></i>
                             </div>
                             <h3>Image Cropper</h3>
                             <p>Crop and resize images with precision</p>
                         </a>
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-code"></i>
                             </div>
                             <h3>Base64 Encoder/Decoder</h3>
                             <p>Convert images to Base64 and vice versa</p>
                         </a>
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-star"></i>
                             </div>
                             <h3>Favicon Generator</h3>
                             <p>Create favicons in multiple sizes from images</p>
                         </a>
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-filter"></i>
                             </div>
                             <h3>Image Filters</h3>
                             <p>Apply various filters and effects to images</p>
                         </a>
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-eyedropper"></i>
                             </div>
                             <h3>Color Picker</h3>
                             <p>Pick colors from images and get color codes</p>
                         </a>
-                        <a href="Media Toolkit/index.html" class="tool-card">
+                        <a href="media-toolkit/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-play"></i>
                             </div>
@@ -794,35 +797,35 @@
                     </h3>
                     <div class="tools-grid reveal-stagger">
                         <!-- PDF Main Tools -->
-                        <a href="PDF tools/pdf-toolkit.html" class="tool-card">
+                        <a href="pdf-tools/pdf-toolkit.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-pdf"></i>
                             </div>
                             <h3>PDF Toolkit</h3>
                             <p>Comprehensive PDF manipulation and conversion tools</p>
                         </a> <!-- PDF Power Suite Tools -->
-                        <a href="PDF tools/PDF Power Suite/index.html?tab=watermark" class="tool-card">
+                        <a href="pdf-tools/pdf-power-suite/index.html?tab=watermark" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-stamp"></i>
                             </div>
                             <h3>PDF Watermark</h3>
                             <p>Add text or image watermarks to PDF documents</p>
                         </a>
-                        <a href="PDF tools/PDF Power Suite/index.html?tab=protect" class="tool-card">
+                        <a href="pdf-tools/pdf-power-suite/index.html?tab=protect" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <h3>PDF Protection</h3>
                             <p>Apply metadata-based protection to PDF files</p>
                         </a>
-                        <a href="PDF tools/PDF Power Suite/index.html?tab=remove" class="tool-card">
+                        <a href="pdf-tools/pdf-power-suite/index.html?tab=remove" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-unlock"></i>
                             </div>
                             <h3>Remove PDF Protection</h3>
                             <p>Remove password protection from PDF files</p>
                         </a>
-                        <a href="PDF tools/PDF Power Suite/index.html?tab=metadata" class="tool-card">
+                        <a href="pdf-tools/pdf-power-suite/index.html?tab=metadata" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-info-circle"></i>
                             </div>
@@ -831,28 +834,28 @@
                         </a>
 
                         <!-- PDF Conversion Tools -->
-                        <a href="PDF tools/File Conversion/Image to PDF/image-to-pdf.html" class="tool-card">
+                        <a href="pdf-tools/file-conversion/Image to PDF/image-to-pdf.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-export"></i>
                             </div>
                             <h3>Image to PDF</h3>
                             <p>Convert images to PDF documents</p>
                         </a>
-                        <a href="PDF tools/File Conversion/PDF to Image/pdf-to-image.html" class="tool-card">
+                        <a href="pdf-tools/file-conversion/PDF to Image/pdf-to-image.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-image"></i>
                             </div>
                             <h3>PDF to Image</h3>
                             <p>Extract pages from PDF as high-quality images</p>
                         </a>
-                        <a href="PDF tools/File Conversion/PDF to Text/pdf-to-text.html" class="tool-card">
+                        <a href="pdf-tools/file-conversion/PDF to Text/pdf-to-text.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-text"></i>
                             </div>
                             <h3>PDF to Text</h3>
                             <p>Extract text content from PDF documents</p>
                         </a>
-                        <a href="PDF tools/File Conversion/Text to PDF/text-to-pdf.html" class="tool-card">
+                        <a href="pdf-tools/file-conversion/Text to PDF/text-to-pdf.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-file-alt"></i>
                             </div>
@@ -861,28 +864,28 @@
                         </a>
 
                         <!-- PDF Manipulation Tools -->
-                        <a href="PDF tools/PDF Manipulation/PDF Merger/pdf-merger.html" class="tool-card">
+                        <a href="pdf-tools/pdf-manipulation/PDF Merger/pdf-merger.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-object-group"></i>
                             </div>
                             <h3>PDF Merger</h3>
                             <p>Merge multiple PDF files into one document</p>
                         </a>
-                        <a href="PDF tools/PDF Manipulation/PDF Splitter/pdf-splitter.html" class="tool-card">
+                        <a href="pdf-tools/pdf-manipulation/PDF Splitter/pdf-splitter.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-object-ungroup"></i>
                             </div>
                             <h3>PDF Splitter</h3>
                             <p>Split PDF into multiple documents or pages</p>
                         </a>
-                        <a href="PDF tools/PDF Manipulation/PDF Compressor/pdf-compressor.html" class="tool-card">
+                        <a href="pdf-tools/pdf-manipulation/PDF Compressor/pdf-compressor.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-compress"></i>
                             </div>
                             <h3>PDF Compressor</h3>
                             <p>Reduce PDF file size while maintaining quality</p>
                         </a>
-                        <a href="PDF tools/PDF Manipulation/Page Manager/pdf-page-manager.html" class="tool-card">
+                        <a href="pdf-tools/pdf-manipulation/Page Manager/pdf-page-manager.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-cogs"></i>
                             </div>
@@ -899,108 +902,108 @@
                     </h3>
                     <div class="tools-grid reveal-stagger">
                         <!-- Basic Text Tools -->
-                        <a href="text based tools/case converter/case-converter.html" class="tool-card">
+                        <a href="text-based-tools/case-converter/case-converter.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-text-height"></i>
                             </div>
                             <h3>Case Converter</h3>
                             <p>Convert text between different case formats</p>
                         </a>
-                        <a href="text based tools/Random Data Generator/data-generator.html" class="tool-card">
+                        <a href="text-based-tools/random-data-generator/data-generator.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-random"></i>
                             </div>
                             <h3>Data Generator</h3>
                             <p>Generate random data for testing and development</p>
                         </a>
-                        <a href="text based tools/word-counter/index.html" class="tool-card">
+                        <a href="text-based-tools/word-counter/index.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-font"></i>
                             </div>
                             <h3>Word Counter</h3>
                             <p>Count words, characters, and analyze text in real-time</p>
                         </a> <!-- Text-Toolbox-Pro Tools -->
-                        <a href="Text-Toolbox-Pro/index.html#sorter" class="tool-card">
+                        <a href="text-toolbox-pro/index.html#sorter" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-sort-alpha-down"></i>
                             </div>
                             <h3>Advanced Line Sorter</h3>
                             <p>Sort text content by lines or paragraphs in various ways</p>
                         </a>
-                        <a href="Text-Toolbox-Pro/index.html#find-replace" class="tool-card">
+                        <a href="text-toolbox-pro/index.html#find-replace" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-search"></i>
                             </div>
                             <h3>Find & Replace Tool</h3>
                             <p>Search and replace text with various options</p>
                         </a>
-                        <a href="Text-Toolbox-Pro/index.html#duplicate-remover" class="tool-card">
+                        <a href="text-toolbox-pro/index.html#duplicate-remover" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-clone"></i>
                             </div>
                             <h3>Duplicate Remover</h3>
                             <p>Remove duplicate lines from your text</p>
-                        </a> <a href="Text-Toolbox-Pro/index.html#whitespace-remover" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-eraser"></i>
-                            </div>
-                            <h3>Whitespace Remover</h3>
-                            <p>Clean up excess whitespace in your text</p>
-                        </a>
-                        <a href="Text-Toolbox-Pro/index.html#text-reverser" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                            <h3>Text Reverser</h3>
-                            <p>Reverse text in different ways</p>
-                        </a>
-                        <a href="Text-Toolbox-Pro/index.html#lorem-ipsum" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-align-left"></i>
-                            </div>
-                            <h3>Lorem Ipsum Generator</h3>
-                            <p>Generate placeholder text for design mockups</p>
-                        </a> <a href="Text-Toolbox-Pro/index.html#uuid-generator" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-fingerprint"></i>
-                            </div>
-                            <h3>UUID Generator</h3>
-                            <p>Generate random UUIDs for development use</p>
-                        </a>
-                        <a href="Text-Toolbox-Pro/index.html#base64" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3>Base64 Encoder/Decoder</h3>
-                            <p>Encode and decode Base64 text</p>
-                        </a>
-                        <a href="Text-Toolbox-Pro/index.html#url-encoder" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-link"></i>
-                            </div>
-                            <h3>URL Encoder/Decoder</h3>
-                            <p>Encode and decode URLs and query parameters</p>
-                        </a> <a href="Text-Toolbox-Pro/index.html#minifier" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-compress-alt"></i>
-                            </div>
-                            <h3>Code Minifier</h3>
-                            <p>Minify CSS, JavaScript, and HTML code</p>
-                        </a>
-                        <a href="Text-Toolbox-Pro/index.html#diff-checker" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fas fa-code-branch"></i>
-                            </div>
-                            <h3>Diff Checker</h3>
-                            <p>Compare two texts and highlight differences</p>
-                        </a>
-                        <a href="Text-Toolbox-Pro/index.html#markdown" class="tool-card">
-                            <div class="tool-icon">
-                                <i class="fab fa-markdown"></i>
-                            </div>
-                            <h3>Markdown Converter</h3>
-                            <p>Convert Markdown to HTML and vice versa</p>
-                        </a>
+                            <a href="text-toolbox-pro/index.html#whitespace-remover" class="tool-card">
+                                <div class="tool-icon">
+                                    <i class="fas fa-eraser"></i>
+                                </div>
+                                <h3>Whitespace Remover</h3>
+                                <p>Clean up excess whitespace in your text</p>
+                            </a>
+                            <a href="text-toolbox-pro/index.html#text-reverser" class="tool-card">
+                                <div class="tool-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <h3>Text Reverser</h3>
+                                <p>Reverse text in different ways</p>
+                            </a>
+                            <a href="text-toolbox-pro/index.html#lorem-ipsum" class="tool-card">
+                                <div class="tool-icon">
+                                    <i class="fas fa-align-left"></i>
+                                </div>
+                                <h3>Lorem Ipsum Generator</h3>
+                                <p>Generate placeholder text for design mockups</p>
+                                <a href="text-toolbox-pro/index.html#uuid-generator" class="tool-card">
+                                    <div class="tool-icon">
+                                        <i class="fas fa-fingerprint"></i>
+                                    </div>
+                                    <h3>UUID Generator</h3>
+                                    <p>Generate random UUIDs for development use</p>
+                                </a>
+                                <a href="text-toolbox-pro/index.html#base64" class="tool-card">
+                                    <div class="tool-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h3>Base64 Encoder/Decoder</h3>
+                                    <p>Encode and decode Base64 text</p>
+                                </a>
+                                <a href="text-toolbox-pro/index.html#url-encoder" class="tool-card">
+                                    <div class="tool-icon">
+                                        <i class="fas fa-link"></i>
+                                    </div>
+                                    <h3>URL Encoder/Decoder</h3>
+                                    <p>Encode and decode URLs and query parameters</p>
+                                    <a href="text-toolbox-pro/index.html#minifier" class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-compress-alt"></i>
+                                        </div>
+                                        <h3>Code Minifier</h3>
+                                        <p>Minify CSS, JavaScript, and HTML code</p>
+                                    </a>
+                                    <a href="text-toolbox-pro/index.html#diff-checker" class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-code-branch"></i>
+                                        </div>
+                                        <h3>Diff Checker</h3>
+                                        <p>Compare two texts and highlight differences</p>
+                                    </a>
+                                    <a href="text-toolbox-pro/index.html#markdown" class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fab fa-markdown"></i>
+                                        </div>
+                                        <h3>Markdown Converter</h3>
+                                        <p>Convert Markdown to HTML and vice versa</p>
+                                    </a>
                     </div>
                 </div>
 
@@ -1010,28 +1013,28 @@
                         <i class="fas fa-tools"></i> Utility Tools
                     </h3>
                     <div class="tools-grid reveal-stagger">
-                        <a href="utility tools/age calculator/age-calculator.html" class="tool-card">
+                        <a href="utility-tools/age-calculator/age-calculator.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <h3>Age Calculator</h3>
                             <p>Calculate age and time differences with precision</p>
                         </a>
-                        <a href="utility tools/barcode generator/barcode-generator.html" class="tool-card">
+                        <a href="utility-tools/barcode-generator/barcode-generator.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-barcode"></i>
                             </div>
                             <h3>Barcode Generator</h3>
                             <p>Generate various types of barcodes</p>
                         </a>
-                        <a href="utility tools/QR code generator/qr-generator.html" class="tool-card">
+                        <a href="utility-tools/qr-code-generator/qr-generator.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-qrcode"></i>
                             </div>
                             <h3>QR Code Generator</h3>
                             <p>Create QR codes with custom content and styling</p>
                         </a>
-                        <a href="utility tools/unit converter/unit-converter.html" class="tool-card">
+                        <a href="utility-tools/unit-converter/unit-converter.html" class="tool-card">
                             <div class="tool-icon">
                                 <i class="fas fa-exchange-alt"></i>
                             </div>
@@ -1063,6 +1066,28 @@
                 </div>
             </div>
         </section>
+        <section class="seo-content-static" style="padding: 2rem 0;">
+            <div class="container">
+                <div class="seo-section">
+                    <h2>How to Use This Tool</h2>
+                    <p>Explore our how to use this tool section to learn more about how QUANTUM TOOLS can help you.</p>
+                </div>
+                <div class="seo-section">
+                    <h2>Features and Benefits</h2>
+                    <p>Explore our features and benefits section to learn more about how QUANTUM TOOLS can help you.</p>
+                </div>
+                <div class="seo-section">
+                    <h2>Why Choose QUANTUM TOOLS</h2>
+                    <p>Explore our why choose quantum tools section to learn more about how QUANTUM TOOLS can help you.
+                    </p>
+                </div>
+                <div class="seo-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Explore our frequently asked questions section to learn more about how QUANTUM TOOLS can help
+                        you.</p>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="container">
@@ -1075,14 +1100,14 @@
                 <div class="footer-links">
                     <h3>Popular Tools</h3>
                     <ul>
-                        <li><a href="PDF tools/pdf-toolkit.html">PDF Toolkit</a></li>
-                        <li><a href="PDF tools/File Conversion/PDF to Text/pdf-to-text.html">PDF to Text</a></li>
-                        <li><a href="Image tools/bg remover/bg-remover.html">Background Remover</a></li>
-                        <li><a href="Media Toolkit/index.html">Color Picker</a></li>
-                        <li><a href="utility tools/unit converter/unit-converter.html">Unit Converter</a></li>
-                        <li><a href="text based tools/word-counter/index.html">Word Counter</a></li>
-                        <li><a href="Developer tools/Editor with Live Preview/code-editor.html">Code Editor</a></li>
-                        <li><a href="utility tools/QR code generator/qr-generator.html">QR Generator</a></li>
+                        <li><a href="pdf-tools/pdf-toolkit.html">PDF Toolkit</a></li>
+                        <li><a href="pdf-tools/file-conversion/PDF to Text/pdf-to-text.html">PDF to Text</a></li>
+                        <li><a href="image-tools/bg-remover/bg-remover.html">Background Remover</a></li>
+                        <li><a href="media-toolkit/index.html">Color Picker</a></li>
+                        <li><a href="utility-tools/unit-converter/unit-converter.html">Unit Converter</a></li>
+                        <li><a href="text-based-tools/word-counter/index.html">Word Counter</a></li>
+                        <li><a href="developer-tools/editor-with-live-preview/code-editor.html">Code Editor</a></li>
+                        <li><a href="utility-tools/qr-code-generator/qr-generator.html">QR Generator</a></li>
                     </ul>
                 </div>
                 <div class="support-links">
@@ -1103,7 +1128,8 @@
                 <div class="copyright">
                     <p>&copy; 2025 QUANTUM TOOLS. All rights reserved.</p>
                     <p class="footer-legal-links">
-                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="privacy-policy.html">Privacy Policy</a> |
+                        <a href="terms-of-service.html">Terms of Service</a>
                     </p>
                 </div>
                 <div class="powered-by">
@@ -1113,7 +1139,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="Home page/enhanced-script.js"></script>
+    <script src="home-page/enhanced-script.js"></script>
     <script src="mobile-navigation.js"></script> <!-- Mobile navigation handlers -->
     <script>
         // Add support for older browsers
@@ -1196,6 +1222,7 @@
             }, 10000);
         });
     </script> <!-- UX Enhancements -->
+    <!-- UX Enhancements -->
     <script src="ux-enhancements.js" defer></script>
 
     <!-- Content and Marketing -->

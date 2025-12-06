@@ -13,7 +13,7 @@ class SEOAnalyticsManager {
         this.setupPageSpeedTracking();
         this.enhanceKeywordRelevance();
     }
-    
+
     // Google Tag Manager Setup
     setupGoogleTagManager() {
         // Create and inject the GTM script
@@ -26,7 +26,7 @@ class SEOAnalyticsManager {
             })(window,document,'script','dataLayer','GTM-T5WCC5DD');
         `;
         document.head.insertBefore(gtmScript, document.head.firstChild);
-          // Add GTM noscript element to body for iframe fallback
+        // Add GTM noscript element to body for iframe fallback
         // Create a DOM element to hold the HTML
         const container = document.createElement('div');
         container.innerHTML = `
@@ -35,7 +35,7 @@ class SEOAnalyticsManager {
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         `;
-        
+
         // Insert the noscript element at the beginning of the body
         document.addEventListener('DOMContentLoaded', () => {
             const noscriptElement = container.querySelector('noscript');
@@ -48,7 +48,7 @@ class SEOAnalyticsManager {
             console.log('Google Analytics script already exists, using existing implementation');
             return;
         }
-        
+
         // Create Google Analytics script
         const gtagScript = document.createElement('script');
         gtagScript.async = true;
@@ -57,10 +57,10 @@ class SEOAnalyticsManager {
 
         // Initialize gtag
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-0E17RL1H32'); // Production GA4 ID
-        
+
         // Enable enhanced measurement features
         gtag('set', {
             'cookie_flags': 'SameSite=None;Secure'
@@ -68,10 +68,10 @@ class SEOAnalyticsManager {
 
         // Track tool usage
         this.trackToolUsage();
-        
+
         // Track search queries
         this.trackSearchQueries();
-        
+
         // Track downloads/exports
         this.trackDownloads();
     }
@@ -111,7 +111,7 @@ class SEOAnalyticsManager {
                     "description": "Comprehensive PDF manipulation and conversion tools"
                 },
                 {
-                    "@type": "SoftwareApplication", 
+                    "@type": "SoftwareApplication",
                     "name": "Image Tools",
                     "applicationCategory": "MultimediaApplication",
                     "description": "Background remover, image converter, and optimization tools"
@@ -119,7 +119,7 @@ class SEOAnalyticsManager {
                 {
                     "@type": "SoftwareApplication",
                     "name": "Developer Tools",
-                    "applicationCategory": "DeveloperApplication", 
+                    "applicationCategory": "DeveloperApplication",
                     "description": "Code editor, JSON formatter, and development utilities"
                 }
             ]
@@ -135,16 +135,16 @@ class SEOAnalyticsManager {
     setupSEOOptimizations() {
         // Dynamic meta descriptions based on current page
         this.updateMetaDescription();
-        
+
         // Add breadcrumb schema
         this.setupBreadcrumbs();
-        
+
         // Setup canonical URLs
         this.setupCanonicalUrls();
-        
+
         // Add social media meta tags
         this.setupSocialMetaTags();
-        
+
         // Track page performance metrics
         this.trackCoreWebVitals();
     }
@@ -153,11 +153,11 @@ class SEOAnalyticsManager {
         const currentPage = window.location.pathname;
         const descriptions = {
             '/': 'Free comprehensive suite of 50+ advanced web utilities including PDF tools, image converters, developer tools, text processors, and more.',
-            '/PDF-tools/': 'Professional PDF tools for merging, splitting, converting, and manipulating PDF files online for free.',
-            '/Image-tools/': 'AI-powered image tools including background remover, format converter, and optimization utilities.',
-            '/Developer-tools/': 'Essential developer tools including live code editor, JSON formatter, and encoding utilities.',
-            '/Text-tools/': 'Advanced text processing tools for case conversion, word counting, and content analysis.',
-            '/Utility-tools/': 'Handy utility tools including QR generator, barcode creator, and unit converter.'
+            '/pdf-tools/': 'Professional PDF tools for merging, splitting, converting, and manipulating PDF files online for free.',
+            '/image-tools/': 'AI-powered image tools including background remover, format converter, and optimization utilities.',
+            '/developer-tools/': 'Essential developer tools including live code editor, JSON formatter, and encoding utilities.',
+            '/text-based-tools/': 'Advanced text processing tools for case conversion, word counting, and content analysis.',
+            '/utility-tools/': 'Handy utility tools including QR generator, barcode creator, and unit converter.'
         };
 
         const description = descriptions[currentPage] || descriptions['/'];
@@ -234,7 +234,7 @@ class SEOAnalyticsManager {
 
     trackDownloads() {
         document.addEventListener('click', (e) => {
-            if (e.target.textContent.toLowerCase().includes('download') || 
+            if (e.target.textContent.toLowerCase().includes('download') ||
                 e.target.textContent.toLowerCase().includes('export')) {
                 gtag('event', 'file_download', {
                     'file_type': this.getFileType(e.target),
@@ -254,7 +254,7 @@ class SEOAnalyticsManager {
                     custom_parameter: 'core_web_vitals'
                 });
             }
-        }).observe({entryTypes: ['largest-contentful-paint']});
+        }).observe({ entryTypes: ['largest-contentful-paint'] });
 
         // Track First Input Delay (FID)
         new PerformanceObserver((entryList) => {
@@ -264,7 +264,7 @@ class SEOAnalyticsManager {
                     custom_parameter: 'core_web_vitals'
                 });
             }
-        }).observe({entryTypes: ['first-input']});
+        }).observe({ entryTypes: ['first-input'] });
 
         // Track Cumulative Layout Shift (CLS)
         let cumulativeLayoutShift = 0;
@@ -278,14 +278,14 @@ class SEOAnalyticsManager {
                 value: Math.round(cumulativeLayoutShift * 1000),
                 custom_parameter: 'core_web_vitals'
             });
-        }).observe({entryTypes: ['layout-shift']});
+        }).observe({ entryTypes: ['layout-shift'] });
     }
 
     // Track user engagement
     trackUserEngagement() {
         let startTime = Date.now();
         let engaged = false;
-        
+
         // Track scroll depth
         let maxScroll = 0;
         window.addEventListener('scroll', debounce(() => {
@@ -364,13 +364,13 @@ class SEOAnalyticsManager {
                 "image tools"
             ]
         };
-        
+
         // Inject the JSON-LD structured data
         const script = document.createElement('script');
         script.type = 'application/ld+json';
         script.innerHTML = JSON.stringify(brandStructuredData);
         document.head.appendChild(script);
-        
+
         // Add additional meta tags if they don't exist
         if (!document.querySelector('meta[name="brand"]')) {
             const brandMeta = document.createElement('meta');

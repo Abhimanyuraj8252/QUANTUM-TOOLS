@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versatile Case Converter - QUANTUM TOOLS</title>
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4013378095829502">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../home-page/preloader.css">
+    <link rel="stylesheet" href="../../home-page/animations.css">
+    <link rel="stylesheet" href="../../home-page/enhancements.css">
+    <link rel="stylesheet" href="../../home-page/universal-nav.css">
+    <link rel="stylesheet" href="../../dropdown-styles.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="case-converter-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    <!-- Enhanced Navigation Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <div class="logo-icon">⚡</div>
+                    <span class="logo-text">QUANTUM TOOLS</span>
+                </div>
+                <div class="nav-divider"></div>
+                <a href="../../index.html" class="back-link">
+                    <div class="back-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <span class="back-text">Home</span>
+                </a>
+            </div>
+            <div class="nav-center">
+                <div class="tool-info">
+                    <h1 class="tool-title">Case Converter</h1>
+                    <span class="tool-category">Text Tools</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-actions">
+                    <button class="action-icon" id="fullscreenBtn" title="Toggle Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button class="action-icon" id="themeBtn" title="Toggle Theme">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <button class="action-icon" id="helpBtn" title="Help & Shortcuts">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="nav-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container"> <!-- Advanced Tool Header -->
+            <div class="tool-header">
+                <div class="header-glow"></div>
+                <div class="header-content">
+                    <div class="title-section">
+                        <div class="tool-icon">
+                            <div class="icon-wrapper">
+                                <i class="fas fa-text-height"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                        </div>
+                        <div class="title-info">
+                            <h2 class="main-title">Advanced Case Converter</h2>
+                            <p class="subtitle">Transform text with professional-grade conversion algorithms</p>
+                        </div>
+                    </div>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>15 Case Types</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-eye"></i>
+                            <span>Live Preview</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-history"></i>
+                            <span>History</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-download"></i>
+                            <span>Export</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Advanced Converter Tool -->
+            <div class="converter-layout">
+                <!-- Left Panel - Input & Controls -->
+                <div class="left-panel">
+                    <!-- Input Section -->
+                    <div class="input-section glass-card">
+                        <div class="section-header">
+                            <h3 class="section-title">
+                                <i class="fas fa-edit"></i>
+                                Input Text
+                            </h3>
+                            <div class="text-stats">
+                                <span id="charCount">0 characters</span>
+                                <span id="wordCount">0 words</span>
+                                <span id="lineCount">0 lines</span>
+                            </div>
+                        </div>
+                        <div class="textarea-container">
+                            <textarea id="inputText" class="input-textarea"
+                                placeholder="Enter or paste your text here..." rows="12"></textarea>
+                            <div class="textarea-actions">
+                                <button class="text-action" id="pasteBtn" title="Paste from clipboard">
+                                    <i class="fas fa-paste"></i>
+                                </button>
+                                <button class="text-action" id="clearInputBtn" title="Clear input">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="text-action" id="uploadBtn" title="Upload text file">
+                                    <i class="fas fa-upload"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Options -->
+                    <div class="options-section glass-card">
+                        <div class="section-header">
+                            <h3 class="section-title">
+                                <i class="fas fa-cogs"></i>
+                                Advanced Options
+                            </h3>
+                        </div>
+                        <div class="options-grid">
+                            <div class="option-group">
+                                <label class="option-label">Processing Mode</label>
+                                <select id="processingMode" class="option-select">
+                                    <option value="instant">Instant</option>
+                                    <option value="line-by-line">Line by Line</option>
+                                    <option value="word-by-word">Word by Word</option>
+                                </select>
+                            </div>
+                            <div class="option-group">
+                                <label class="option-label">Preserve</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="preserveNumbers" checked>
+                                        <span class="checkmark"></span>
+                                        Numbers
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="preserveSpecialChars">
+                                        <span class="checkmark"></span>
+                                        Special Characters
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - Conversion & Output -->
+                <div class="right-panel">
+                    <!-- Conversion Buttons -->
+                    <div class="conversion-section glass-card">
+                        <div class="section-header">
+                            <h3 class="section-title">
+                                <i class="fas fa-magic"></i>
+                                Conversion Types
+                            </h3>
+                            <div class="conversion-search">
+                                <input type="text" id="conversionSearch" placeholder="Search conversions..."
+                                    class="search-input">
+                                <i class="fas fa-search search-icon"></i>
+                            </div>
+                        </div>
+                        <div class="conversion-categories">
+                            <!-- Basic Conversions -->
+                            <div class="category-group">
+                                <h4 class="category-title">Basic Conversions</h4>
+                                <div class="conversion-buttons">
+                                    <button class="conversion-btn basic" data-type="uppercase">
+                                        <i class="fas fa-font"></i>
+                                        <span>UPPERCASE</span>
+                                        <div class="btn-example">HELLO WORLD</div>
+                                    </button>
+                                    <button class="conversion-btn basic" data-type="lowercase">
+                                        <i class="fas fa-font"></i>
+                                        <span>lowercase</span>
+                                        <div class="btn-example">hello world</div>
+                                    </button>
+                                    <button class="conversion-btn basic" data-type="titlecase">
+                                        <i class="fas fa-font"></i>
+                                        <span>Title Case</span>
+                                        <div class="btn-example">Hello World</div>
+                                    </button>
+                                    <button class="conversion-btn basic" data-type="sentencecase">
+                                        <i class="fas fa-font"></i>
+                                        <span>Sentence case</span>
+                                        <div class="btn-example">Hello world</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Programming Conventions -->
+                            <div class="category-group">
+                                <h4 class="category-title">Programming Conventions</h4>
+                                <div class="conversion-buttons">
+                                    <button class="conversion-btn programming" data-type="camelcase">
+                                        <i class="fab fa-js"></i>
+                                        <span>camelCase</span>
+                                        <div class="btn-example">helloWorld</div>
+                                    </button>
+                                    <button class="conversion-btn programming" data-type="pascalcase">
+                                        <i class="fas fa-code"></i>
+                                        <span>PascalCase</span>
+                                        <div class="btn-example">HelloWorld</div>
+                                    </button>
+                                    <button class="conversion-btn programming" data-type="snakecase">
+                                        <i class="fab fa-python"></i>
+                                        <span>snake_case</span>
+                                        <div class="btn-example">hello_world</div>
+                                    </button>
+                                    <button class="conversion-btn programming" data-type="kebabcase">
+                                        <i class="fab fa-css3"></i>
+                                        <span>kebab-case</span>
+                                        <div class="btn-example">hello-world</div>
+                                    </button>
+                                    <button class="conversion-btn programming" data-type="constantcase">
+                                        <i class="fas fa-code"></i>
+                                        <span>CONSTANT_CASE</span>
+                                        <div class="btn-example">HELLO_WORLD</div>
+                                    </button>
+                                    <button class="conversion-btn programming" data-type="dotcase">
+                                        <i class="fas fa-circle"></i>
+                                        <span>dot.case</span>
+                                        <div class="btn-example">hello.world</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Special Conversions -->
+                            <div class="category-group">
+                                <h4 class="category-title">Special Conversions</h4>
+                                <div class="conversion-buttons">
+                                    <button class="conversion-btn special" data-type="inversecase">
+                                        <i class="fas fa-exchange-alt"></i>
+                                        <span>InVeRsE CaSe</span>
+                                        <div class="btn-example">hELLo WoRLd</div>
+                                    </button>
+                                    <button class="conversion-btn special" data-type="randomcase">
+                                        <i class="fas fa-random"></i>
+                                        <span>rAnDoM cAsE</span>
+                                        <div class="btn-example">HeLLo WoRlD</div>
+                                    </button>
+                                    <button class="conversion-btn special" data-type="alternatecase">
+                                        <i class="fas fa-wave-square"></i>
+                                        <span>aLtErNaTe CaSe</span>
+                                        <div class="btn-example">hElLo WoRlD</div>
+                                    </button>
+                                    <button class="conversion-btn special" data-type="studlycase">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>StudlyCaps</span>
+                                        <div class="btn-example">HeLLo WoRLD</div>
+                                    </button>
+                                    <button class="conversion-btn special" data-type="leetspeak">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>1337 5p34k</span>
+                                        <div class="btn-example">h3110 w0r1d</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="output-section glass-card">
+                        <div class="section-header">
+                            <h3 class="section-title">
+                                <i class="fas fa-file-text"></i>
+                                Converted Text
+                            </h3>
+                            <div class="output-actions">
+                                <button id="copyBtn" class="action-btn copy-btn">
+                                    <i class="fas fa-copy"></i>
+                                    Copy
+                                </button>
+                                <button id="downloadBtn" class="action-btn download-btn">
+                                    <i class="fas fa-download"></i>
+                                    Download
+                                </button>
+                                <button id="shareBtn" class="action-btn share-btn">
+                                    <i class="fas fa-share"></i>
+                                    Share
+                                </button>
+                            </div>
+                        </div>
+                        <div class="textarea-container">
+                            <textarea id="outputText" class="output-textarea"
+                                placeholder="Converted text will appear here..." rows="12" readonly></textarea>
+                            <div class="output-stats">
+                                <span id="outputCharCount">0 characters</span>
+                                <span id="outputWordCount">0 words</span>
+                                <span id="conversionType">No conversion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div class="history-panel glass-card">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-history"></i>
+                        Conversion History
+                    </h3>
+                    <div class="history-actions">
+                        <button id="exportHistoryBtn" class="action-btn">
+                            <i class="fas fa-file-export"></i>
+                            Export
+                        </button>
+                        <button id="clearHistoryBtn" class="action-btn danger">
+                            <i class="fas fa-trash"></i>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+                <div id="historyList" class="history-list">
+                    <div class="history-empty">
+                        <i class="fas fa-history"></i>
+                        <p>No conversions yet. Start converting text to see your history here.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- SEO Content Block -->
+            <section class="seo-content-static"
+                style="padding: 2rem 0; text-align: left; margin-top: 2rem; border-top: 1px solid rgba(0, 240, 255, 0.1);">
+                <div class="seo-section">
+                    <h2 style="color: #00f0ff; margin-bottom: 1rem;">Advanced Text Case Converter</h2>
+                    <p style="color: #a0a0a0; margin-bottom: 1.5rem;">Instantly convert text between different cases:
+                        UPPERCASE, lowercase, Title Case, camelCase, snake_case, and more. Ideal for programmers,
+                        writers, and social media managers looking to format their text perfectly.</p>
+                </div>
+                <div class="seo-section">
+                    <h2 style="color: #00f0ff; margin-bottom: 1rem;">Why Use This Tool?</h2>
+                    <ul style="color: #a0a0a0; padding-left: 1.5rem;">
+                        <li><strong>Developer Friendly:</strong> Quickly generate variable names in camelCase,
+                            snake_case, or kebab-case.</li>
+                        <li><strong>Content Optimization:</strong> Fix accidental CAPS LOCK usage or standardize
+                            headlines.</li>
+                        <li><strong>Instant Preview:</strong> See changes immediately as you type or paste text.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main> <!-- Enhanced Toast Notifications -->
+    <div id="toastContainer" class="toast-container">
+        <div id="toast" class="toast">
+            <div class="toast-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title">Success!</div>
+                <div class="toast-message">Text copied to clipboard</div>
+            </div>
+            <button class="toast-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Help & Keyboard Shortcuts</h3>
+                <button class="modal-close" id="closeHelpModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4>Keyboard Shortcuts</h4>
+                    <div class="shortcut-list">
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+                            <span>Copy output to clipboard</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>Delete</kbd>
+                            <span>Clear all text</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl</kbd> + <kbd>V</kbd>
+                            <span>Paste into input</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>F11</kbd>
+                            <span>Toggle fullscreen</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Escape</kbd>
+                            <span>Clear active conversion</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="help-section">
+                    <h4>Conversion Types</h4>
+                    <div class="conversion-help">
+                        <div class="help-item">
+                            <strong>camelCase:</strong> First word lowercase, subsequent words capitalized
+                        </div>
+                        <div class="help-item">
+                            <strong>PascalCase:</strong> All words capitalized, no separators
+                        </div>
+                        <div class="help-item">
+                            <strong>snake_case:</strong> All lowercase, words separated by underscores
+                        </div>
+                        <div class="help-item">
+                            <strong>kebab-case:</strong> All lowercase, words separated by hyphens
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Upload Input -->
+    <input type="file" id="fileInput" accept=".txt,.md,.csv" style="display: none;">
+
+    <!-- Scripts -->
+    <script src="case-converter-script.js"></script>
+    <script>
+        // Initialize particles background
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#00f0ff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: "#00f0ff", opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                    modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+                },
+                retina_detect: true
+            });
+        }
+    </script>
+</body>
+
+</html>

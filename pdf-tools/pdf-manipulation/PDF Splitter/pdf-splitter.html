@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Splitter - Split PDF into Pages</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0E17RL1H32');
+    </script>
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4013378095829502">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="pdf-splitter-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        .navigation-header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            padding: 1rem 0;
+            border-bottom: 2px solid #00d4ff;
+            margin-bottom: 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            border: 1px solid #00d4ff;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .nav-btn:hover {
+            background: #00d4ff;
+            color: #1a1a2e;
+            transform: translateY(-2px);
+        }
+
+        .quick-tools {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .quick-tools h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .tool-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tool-link {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="navigation-header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../../index.html">QUANTUM TOOLS</a>
+            </div>
+            <div class="nav-links">
+                <a href="../../pdf-toolkit.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> PDF Toolkit
+                </a>
+                <a href="../../../index.html" class="nav-btn">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+
+        <div class="header">
+            <h1>PDF Splitter</h1>
+            <p>Split PDF files into individual pages or custom ranges</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <h2>Select PDF File</h2>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <div class="upload-text">
+                    <h3>Drag & Drop PDF file here</h3>
+                    <p>or click to browse</p>
+                </div>
+                <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                <button type="button" id="browseButton" class="browse-button">Browse File</button>
+            </div>
+            <div class="file-info">
+                <small>Support for PDF files up to 100MB</small>
+            </div>
+        </div>
+
+        <!-- File Info Section -->
+        <div class="file-info-section" id="fileInfoSection" style="display: none;">
+            <h2>PDF Information</h2>
+            <div class="pdf-details">
+                <div class="detail-row">
+                    <span class="label">File Name:</span>
+                    <span class="value" id="fileName">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">File Size:</span>
+                    <span class="value" id="fileSize">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="label">Total Pages:</span>
+                    <span class="value" id="totalPages">-</span>
+                </div>
+            </div>
+            <div class="file-actions">
+                <button type="button" id="changeFileButton" class="btn btn-secondary">Change File</button>
+                <button type="button" id="previewPagesButton" class="btn btn-secondary">Preview Pages</button>
+            </div>
+        </div>
+
+        <!-- Split Options Section -->
+        <div class="split-options-section" id="splitOptionsSection" style="display: none;">
+            <h2>Split Options</h2>
+            <div class="options-container">
+                <div class="split-mode-selector">
+                    <h3>Split Mode</h3>
+                    <div class="mode-options">
+                        <label class="mode-option">
+                            <input type="radio" name="splitMode" value="individual" checked>
+                            <span class="mode-card">
+                                <div class="mode-icon">📄</div>
+                                <div class="mode-title">Individual Pages</div>
+                                <div class="mode-desc">Split into separate files for each page</div>
+                            </span>
+                        </label>
+                        <label class="mode-option">
+                            <input type="radio" name="splitMode" value="ranges">
+                            <span class="mode-card">
+                                <div class="mode-icon">📚</div>
+                                <div class="mode-title">Page Ranges</div>
+                                <div class="mode-desc">Split into custom page ranges</div>
+                            </span>
+                        </label>
+                        <label class="mode-option">
+                            <input type="radio" name="splitMode" value="intervals">
+                            <span class="mode-card">
+                                <div class="mode-icon">⚡</div>
+                                <div class="mode-title">Equal Intervals</div>
+                                <div class="mode-desc">Split into equal-sized chunks</div>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Range Options -->
+                <div class="range-options" id="rangeOptions" style="display: none;">
+                    <h3>Page Ranges</h3>
+                    <div class="range-input-container">
+                        <div class="range-inputs" id="rangeInputs">
+                            <div class="range-input-group">
+                                <label>Range 1:</label>
+                                <input type="text" placeholder="e.g., 1-5" class="range-input">
+                                <button type="button" class="remove-range">×</button>
+                            </div>
+                        </div>
+                        <button type="button" id="addRangeButton" class="btn btn-secondary">Add Range</button>
+                    </div>
+                    <div class="range-help">
+                        <small>Examples: "1-5", "7", "10-15", "20-" (from page 20 to end)</small>
+                    </div>
+                </div>
+
+                <!-- Interval Options -->
+                <div class="interval-options" id="intervalOptions" style="display: none;">
+                    <h3>Split Intervals</h3>
+                    <div class="interval-controls">
+                        <label for="pagesPerFile">Pages per file:</label>
+                        <input type="number" id="pagesPerFile" min="1" max="50" value="5">
+                    </div>
+                </div>
+
+                <!-- Output Options -->
+                <div class="output-options">
+                    <h3>Output Options</h3>
+                    <div class="output-controls">
+                        <label for="fileNamePrefix">File name prefix:</label>
+                        <input type="text" id="fileNamePrefix" placeholder="page" value="page">
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="includePageNumbers" checked>
+                            Include page numbers in filename
+                        </label>
+
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="downloadAsZip">
+                            Download all files as ZIP archive
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-controls">
+                <button type="button" id="validateRangesButton" class="btn btn-secondary">Validate Ranges</button>
+                <button type="button" id="splitButton" class="btn btn-primary">Split PDF</button>
+            </div>
+        </div>
+
+        <!-- Page Preview Section -->
+        <div class="page-preview-section" id="pagePreviewSection" style="display: none;">
+            <h2>Page Preview</h2>
+            <div class="preview-controls">
+                <div class="page-navigation">
+                    <button type="button" id="firstPageButton" class="nav-btn">⏮</button>
+                    <button type="button" id="prevPageButton" class="nav-btn">‹</button>
+                    <span class="page-info" id="pageInfo">Page 1 of 1</span>
+                    <button type="button" id="nextPageButton" class="nav-btn">›</button>
+                    <button type="button" id="lastPageButton" class="nav-btn">⏭</button>
+                </div>
+                <div class="zoom-controls">
+                    <button type="button" id="zoomOutButton" class="nav-btn">-</button>
+                    <span class="zoom-info" id="zoomInfo">100%</span>
+                    <button type="button" id="zoomInButton" class="nav-btn">+</button>
+                </div>
+                <button type="button" id="fullscreenButton" class="btn btn-secondary">⛶ Fullscreen</button>
+                <button type="button" id="closePreviewButton" class="btn btn-secondary">Close Preview</button>
+            </div>
+            <div class="preview-container">
+                <canvas id="previewCanvas"></canvas>
+            </div>
+        </div>
+
+        <!-- Processing Section -->
+        <div class="processing-section" id="processingSection" style="display: none;">
+            <div class="processing-content">
+                <div class="spinner"></div>
+                <h3 id="processingTitle">Splitting PDF...</h3>
+                <p id="processingDescription">Please wait while we split your PDF</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">0%</div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-content">
+                <div class="success-icon">✅</div>
+                <h3>PDF Split Successfully!</h3>
+                <div class="split-summary">
+                    <div class="summary-item">
+                        <span class="label">Files Created:</span>
+                        <span class="value" id="filesCreated">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Total Pages:</span>
+                        <span class="value" id="totalPagesProcessed">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Total Size:</span>
+                        <span class="value" id="totalSize">0 KB</span>
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <h3>Download Files</h3>
+                    <div class="download-options">
+                        <button type="button" id="downloadAllButton" class="btn btn-primary">
+                            <span class="download-icon">📦</span>
+                            Download All as ZIP
+                        </button>
+                        <button type="button" id="downloadIndividualButton" class="btn btn-secondary">
+                            Download Individual Files
+                        </button>
+                    </div>
+
+                    <div class="file-list-container" id="fileListContainer" style="display: none;">
+                        <div class="file-list" id="splitFileList"></div>
+                    </div>
+                </div>
+
+                <div class="additional-actions">
+                    <button type="button" id="splitAnotherButton" class="btn btn-secondary">Split Another PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Section -->
+        <div class="error-section" id="errorSection" style="display: none;">
+            <div class="error-content">
+                <div class="error-icon">❌</div>
+                <h3>Split Failed</h3>
+                <p id="errorMessage">An error occurred while splitting the PDF file.</p>
+                <div class="error-actions">
+                    <button type="button" id="retryButton" class="btn btn-primary">Try Again</button>
+                    <button type="button" id="backToStartButton" class="btn btn-secondary">Start Over</button>
+                </div>
+            </div>
+        </div>
+        <!-- SEO Content Block -->
+        <section class="seo-content-static" style="padding: 2rem 0; text-align: left;">
+            <div class="seo-section">
+                <h2 style="color: #00d4ff; margin-bottom: 1rem;">Split PDF Documents</h2>
+                <p style="color: #a0a0a0; margin-bottom: 1.5rem;">Extract specific pages or split a large PDF into
+                    smaller, manageable files. Perfect for separating chapters from a book, removing unwanted pages, or
+                    breaking down large reports for email distribution.</p>
+            </div>
+        </section>
+    </div>
+    <script src="pdf-splitter-script.js"></script>
+</body>
+
+</html>

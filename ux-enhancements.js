@@ -87,14 +87,20 @@ class UXEnhancementManager {
     }
 
     addDashboardButton() {
-        const navRight = document.querySelector('.nav-right') || document.querySelector('nav');
-        if (navRight) {
+        const targetContainer = document.querySelector('.top-right-elements');
+        if (targetContainer) {
             const dashboardBtn = document.createElement('button');
-            dashboardBtn.className = 'dashboard-btn';
+            dashboardBtn.className = 'dashboard-btn theme-toggle'; // Reusing theme-toggle class for consistent sizing/style if applicable, or just dashboard-btn
             dashboardBtn.innerHTML = '<i class="fas fa-tachometer-alt"></i>';
             dashboardBtn.title = 'Open Dashboard';
+            dashboardBtn.style.marginRight = '10px'; // Add some spacing
+            dashboardBtn.style.width = '40px'; // Ensure consistent width
+            dashboardBtn.style.justifyContent = 'center';
+
             dashboardBtn.addEventListener('click', () => this.openDashboard());
-            navRight.insertBefore(dashboardBtn, navRight.firstChild);
+
+            // Insert before the theme toggle (last element usually)
+            targetContainer.insertBefore(dashboardBtn, targetContainer.firstChild);
         }
     }
 
@@ -131,7 +137,7 @@ class UXEnhancementManager {
     setupRecentlyUsedSection() {
         // Add to homepage
         this.addRecentlyUsedToHomepage();
-        
+
         // Track tool usage
         this.trackToolUsage();
     }
@@ -185,13 +191,13 @@ class UXEnhancementManager {
     addToRecentlyUsed(toolData) {
         // Remove if already exists
         this.recentlyUsedTools = this.recentlyUsedTools.filter(tool => tool.url !== toolData.url);
-        
+
         // Add to beginning
         this.recentlyUsedTools.unshift(toolData);
-        
+
         // Keep only last 20
         this.recentlyUsedTools = this.recentlyUsedTools.slice(0, 20);
-        
+
         this.saveRecentlyUsedTools();
         this.updateDashboardContent();
     }
@@ -213,18 +219,18 @@ class UXEnhancementManager {
     addFavoriteButton(toolCard) {
         const toolUrl = toolCard.href;
         const isFavorite = this.favoriteTools.some(tool => tool.url === toolUrl);
-        
+
         const favoriteBtn = document.createElement('button');
         favoriteBtn.className = `favorite-btn ${isFavorite ? 'favorited' : ''}`;
         favoriteBtn.innerHTML = `<i class="fas fa-heart"></i>`;
         favoriteBtn.title = isFavorite ? 'Remove from favorites' : 'Add to favorites';
-        
+
         favoriteBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             this.toggleFavorite(toolCard);
         });
-        
+
         toolCard.style.position = 'relative';
         toolCard.appendChild(favoriteBtn);
     }
@@ -295,7 +301,7 @@ class UXEnhancementManager {
         if (searchInput) {
             // Add search suggestions
             this.addSearchSuggestions(searchInput);
-            
+
             // Add search filters
             this.addSearchFilters();
         }
@@ -318,13 +324,13 @@ class UXEnhancementManager {
                     e.preventDefault();
                     document.getElementById('search-input')?.focus();
                 }
-                
+
                 // Ctrl/Cmd + D for dashboard
                 if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
                     e.preventDefault();
                     this.openDashboard();
                 }
-                
+
                 // Escape to close modals
                 if (e.key === 'Escape') {
                     this.closeDashboard();
@@ -397,7 +403,7 @@ class UXEnhancementManager {
         if (this.favoriteTools.length === 0) {
             return '<p class="empty-state">No favorite tools yet. Click the heart icon on any tool to add it here!</p>';
         }
-        
+
         return this.favoriteTools.map(tool => `
             <a href="${tool.url}" class="favorite-tool-card">
                 <div class="tool-icon">
@@ -449,13 +455,13 @@ class UXEnhancementManager {
             <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
             <span>${message}</span>
         `;
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.classList.add('show');
         }, 100);
-        
+
         setTimeout(() => {
             notification.classList.remove('show');
             setTimeout(() => notification.remove(), 300);
@@ -475,7 +481,7 @@ class UXEnhancementManager {
     updatePreference(key, value) {
         this.userPreferences[key] = value;
         this.saveUserPreferences();
-        
+
         // Apply preference immediately if needed
         if (key === 'enable-shortcuts') {
             this.setupKeyboardShortcuts();
@@ -529,20 +535,22 @@ class UXEnhancementManager {
             const category = this.getCategoryFromUrl(tool.url);
             categories[category] = (categories[category] || 0) + 1;
         });
-        
+
         const categoryKeys = Object.keys(categories);
         if (categoryKeys.length === 0) return 'N/A';
-        
-        return categoryKeys.reduce((a, b) => 
+
+        return categoryKeys.reduce((a, b) =>
             categories[a] > categories[b] ? a : b
         );
     }
 
     getCategoryFromUrl(url) {
-        if (url.includes('PDF')) return 'PDF Tools';
-        if (url.includes('Image')) return 'Image Tools';
-        if (url.includes('text')) return 'Text Tools';
-        if (url.includes('Developer')) return 'Developer Tools';
+        const u = url.toLowerCase();
+        if (u.includes('pdf')) return 'PDF Tools';
+        if (u.includes('image')) return 'Image Tools';
+        if (u.includes('text')) return 'Text Tools';
+        if (u.includes('developer')) return 'Developer Tools';
+        if (u.includes('media')) return 'Media Toolkit';
         return 'Utility Tools';
     }
 
@@ -581,6 +589,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!sessionStorage.getItem('qtools_session_start')) {
         sessionStorage.setItem('qtools_session_start', Date.now().toString());
     }
-    
+
     new UXEnhancementManager();
 });

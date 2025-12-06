@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Editor & Live Preview | QUANTUM TOOLS</title>
+    <meta name="description"
+        content="Real-time HTML, CSS, and JavaScript editor with instant live preview for web development">
+    <meta name="keywords"
+        content="code editor, online code editor, HTML editor, CSS editor, JavaScript editor, live preview, web development, real-time editor, quantum tools">
+    <meta name="author" content="QUANTUM TOOLS">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical"
+        href="https://quantumtools.me/developer-tools/Editor%20with%20Live%20Preview/code-editor.html">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0E17RL1H32');
+    </script>
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4013378095829502">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../home-page/preloader.css">
+    <link rel="stylesheet" href="../../home-page/animations.css">
+    <link rel="stylesheet" href="../../home-page/enhancements.css">
+    <link rel="stylesheet" href="../../home-page/universal-nav.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="code-editor-styles.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+        <div class="loader-text">Loading</div>
+    </div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../../utility-tools/unit-converter/unit-converter.html" class="nav-link">Unit
+                            Converter</a></li>
+                    <li><a href="../../image-tools/image-resizer/image-optimizer.html" class="nav-link">Image
+                            Optimizer</a></li>
+                    <li><a href="../../text-based-tools/word-counter/index.html" class="nav-link">Word
+                            Counter</a></li>
+                    <li><a href="#" class="nav-link active">Code Editor</a></li>
+                </ul>
+                <div class="theme-toggle" aria-label="Toggle light/dark theme" role="button" tabindex="0">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <span class="theme-toggle-track"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Online Code Editor</span>
+                        <span class="subtitle">& Live Preview</span>
+                    </h1>
+                    <p class="hero-description">
+                        Write HTML, CSS, and JavaScript code with real-time preview. Perfect for prototyping, learning,
+                        and testing web components.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Main Editor Section -->
+            <section class="editor-section">
+                <div class="editor-controls">
+                    <button class="control-btn run-btn" id="runBtn" title="Run Code (Ctrl+Enter)">
+                        <i class="fas fa-play"></i>
+                        <span>Run Code</span>
+                    </button>
+                    <button class="control-btn clear-btn" id="clearBtn" title="Clear All">
+                        <i class="fas fa-trash"></i>
+                        <span>Clear All</span>
+                    </button>
+                    <button class="control-btn fullscreen-btn" id="fullscreenBtn" title="Toggle Fullscreen">
+                        <i class="fas fa-expand"></i>
+                        <span>Fullscreen</span>
+                    </button>
+                </div>
+
+                <div class="editor-container">
+                    <!-- Code Editors Panel -->
+                    <div class="editors-panel">
+                        <div class="editor-tabs">
+                            <button class="tab-btn active" data-tab="html">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML</span>
+                            </button>
+                            <button class="tab-btn" data-tab="css">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS</span>
+                            </button>
+                            <button class="tab-btn" data-tab="js">
+                                <i class="fab fa-js-square"></i>
+                                <span>JavaScript</span>
+                            </button>
+                        </div>
+
+                        <div class="editors">
+                            <div class="editor-wrapper active" data-editor="html">
+                                <div class="editor-header">
+                                    <span class="editor-title">
+                                        <i class="fab fa-html5"></i>
+                                        HTML
+                                    </span>
+                                    <div class="editor-actions">
+                                        <button class="action-btn copy-btn" data-editor="html" title="Copy HTML">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea id="htmlEditor" class="code-editor" placeholder="Write your HTML here..."
+                                    spellcheck="false"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Preview</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello World!</h1>
+        <p>Start coding to see live preview</p>
+        <button onclick="changeColor()">Click me!</button>
+    </div>
+</body>
+</html></textarea>
+                            </div>
+
+                            <div class="editor-wrapper" data-editor="css">
+                                <div class="editor-header">
+                                    <span class="editor-title">
+                                        <i class="fab fa-css3-alt"></i>
+                                        CSS
+                                    </span>
+                                    <div class="editor-actions">
+                                        <button class="action-btn copy-btn" data-editor="css" title="Copy CSS">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea id="cssEditor" class="code-editor" placeholder="Write your CSS here..."
+                                    spellcheck="false">body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+button {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-2px);
+}</textarea>
+                            </div>
+
+                            <div class="editor-wrapper" data-editor="js">
+                                <div class="editor-header">
+                                    <span class="editor-title">
+                                        <i class="fab fa-js-square"></i>
+                                        JavaScript
+                                    </span>
+                                    <div class="editor-actions">
+                                        <button class="action-btn copy-btn" data-editor="js" title="Copy JavaScript">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea id="jsEditor" class="code-editor" placeholder="Write your JavaScript here..."
+                                    spellcheck="false">function changeColor() {
+    const colors = [
+        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+    ];
+    
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.background = randomColor;
+    
+    // Add a fun animation
+    document.querySelector('.container').style.transform = 'scale(1.05)';
+    setTimeout(() => {
+        document.querySelector('.container').style.transform = 'scale(1)';
+    }, 200);
+}
+
+// Add some interactivity
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Live preview is ready!');
+    
+    // Add click effect to the page
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName !== 'BUTTON') {
+            const ripple = document.createElement('div');
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.3);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+                z-index: 1000;
+            `;
+            
+            const size = 60;
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - size / 2) + 'px';
+            ripple.style.top = (e.clientY - size / 2) + 'px';
+            
+            document.body.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+    });
+});
+
+// Add CSS for ripple animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview Panel -->
+                    <div class="preview-panel">
+                        <div class="preview-header">
+                            <span class="preview-title">
+                                <i class="fas fa-eye"></i>
+                                Live Preview
+                            </span>
+                            <div class="preview-actions">
+                                <button class="action-btn refresh-btn" id="refreshBtn" title="Refresh Preview">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="action-btn external-btn" id="externalBtn" title="Open in New Tab">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="preview-container">
+                            <iframe id="preview" title="Live Preview"
+                                sandbox="allow-scripts allow-same-origin allow-forms allow-modals"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <!-- ... existing features ... -->
+            </section>
+
+            <!-- SEO Content Block -->
+            <section class="seo-content-static" style="padding: 2rem 0;">
+                <div class="container">
+                    <div class="seo-section">
+                        <h2>Real-time HTML/CSS/JS Editor</h2>
+                        <p>Our online code editor provides an instant, zero-setup environment for web development.
+                            Unlike traditional IDEs that require bulky installations, QUANTUM TOOLS runs entirely in
+                            your browser. Type code in the HTML, CSS, and JavaScript panes and watch the output render
+                            instantly in the live preview window. It's the perfect sandbox for testing snippets,
+                            debugging layout issues, or learning web technologies.</p>
+                    </div>
+                    <div class="seo-section">
+                        <h2>Who is this tool for?</h2>
+                        <ul>
+                            <li><strong>Students & Learners:</strong> Experiment with code safely without breaking a
+                                live site. Understanding the relationship between HTML structure and CSS styling is
+                                immediate.</li>
+                            <li><strong>Professional Developers:</strong> Quickly prototype components or test CSS
+                                storage properties in an isolated environment before implementing them in production.
+                            </li>
+                            <li><strong>Designers:</strong> Tweak colors, spacing, and animations in real-time to
+                                perfect your UI designs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 QUANTUM TOOLS. Empowering developers worldwide.</p>
+                <div class="footer-links">
+                    <a href="../../index.html">Home</a>
+                    <a href="#main-content">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include JavaScript -->
+    <script src="../../home-page/enhanced-script.js"></script>
+    <script src="code-editor-script.js"></script>
+</body>
+
+</html>

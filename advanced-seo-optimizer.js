@@ -13,11 +13,11 @@ class AdvancedSEOOptimizer {
 
     init() {
         document.addEventListener('DOMContentLoaded', () => {
-            this.optimizePageHeadings();
+            // this.optimizePageHeadings(); // Handled via static HTML
             this.implementLazyLoading();
             this.enhanceInternalLinking();
             this.optimizeImagesForSEO();
-            this.implementLocalSEO();
+            // this.implementLocalSEO(); // Handled via static HTML
             this.setupCanonicalURLs();
             this.implementHreflangTags();
             this.setupMobileFriendlyIndicators();
@@ -110,23 +110,23 @@ class AdvancedSEOOptimizer {
         // Add relevant internal links to improve site structure
         const toolLinks = {
             'pdf': [
-                { name: 'PDF Merger', url: '/PDF tools/PDF Manipulation/pdf-merger.html' },
-                { name: 'PDF Splitter', url: '/PDF tools/PDF Manipulation/pdf-splitter.html' },
-                { name: 'PDF Compressor', url: '/PDF tools/PDF Manipulation/pdf-compressor.html' }
+                { name: 'PDF Merger', url: '/pdf-tools/pdf-manipulation/PDF Merger/pdf-merger.html' },
+                { name: 'PDF Splitter', url: '/pdf-tools/pdf-manipulation/PDF Splitter/pdf-splitter.html' },
+                { name: 'PDF Compressor', url: '/pdf-tools/pdf-manipulation/PDF Compressor/pdf-compressor.html' }
             ],
             'image': [
-                { name: 'Background Remover', url: '/Image tools/bg remover/bg-remover.html' },
-                { name: 'Image Resizer', url: '/Image tools/Image resizer/image-resizer.html' },
-                { name: 'Image Converter', url: '/Image tools/image converter/image-converter.html' }
+                { name: 'Background Remover', url: '/image-tools/bg-remover/bg-remover.html' },
+                { name: 'Image Resizer', url: '/image-tools/image-resizer/image-optimizer.html' },
+                { name: 'Image Converter', url: '/image-tools/image-converter/image-converter.html' }
             ],
             'text': [
-                { name: 'Case Converter', url: '/text based tools/case converter/case-converter.html' },
-                { name: 'Word Counter', url: '/text based tools/word-counter/index.html' }
+                { name: 'Case Converter', url: '/text-based-tools/case-converter/case-converter.html' },
+                { name: 'Word Counter', url: '/text-based-tools/word-counter/index.html' }
             ],
             'dev': [
-                { name: 'JSON Formatter', url: '/Developer tools/JSON formatter validator/json-tool.html' },
-                { name: 'Code Editor', url: '/Developer tools/Editor with Live Preview/code-editor.html' },
-                { name: 'Encoder Decoder', url: '/Developer tools/Encoder Decoder/universal-encoder-decoder.html' }
+                { name: 'JSON Formatter', url: '/developer-tools/json-formatter-validator/json-tool.html' },
+                { name: 'Code Editor', url: '/developer-tools/editor-with-live-preview/code-editor.html' },
+                { name: 'Encoder Decoder', url: '/developer-tools/encoder-decoder/universal-encoder-decoder.html' }
             ]
         };
 

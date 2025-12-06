@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0d14">
+    <title>JSON Formatter & Validator | QUANTUM TOOLS</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0E17RL1H32');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="../../style.css">
+
+    <!-- Tool-specific Styles -->
+    <link rel="stylesheet" href="json-tool-styles.css">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body> <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Advanced Header Section -->
+    <header class="advanced-header">
+        <div class="header-bg-pattern"></div>
+        <nav class="advanced-navbar">
+            <div class="container">
+                <div class="nav-wrapper"> <!-- Logo Section -->
+                    <div class="logo-section">
+                        <a href="../../index.html" class="advanced-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div class="logo-content">
+                                <span class="logo-text">Quantum</span>
+                                <span class="logo-accent">Tools</span>
+                                <div class="logo-subtitle">JSON Editor</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Navigation Menu -->
+                    <div class="nav-menu">
+                        <div class="nav-links">
+                            <a href="../../index.html" class="nav-link">
+                                <i class="fas fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                            <div class="nav-dropdown">
+                                <a href="#" class="nav-link dropdown-toggle">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Tools</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="../editor-with-live-preview/code-editor.html" class="dropdown-item">
+                                        <i class="fas fa-code"></i>
+                                        Code Editor
+                                    </a>
+                                    <a href="../encoder-decoder/universal-encoder-decoder.html" class="dropdown-item">
+                                        <i class="fas fa-lock"></i>
+                                        Encoder/Decoder
+                                    </a>
+                                    <a href="../../image-tools/bg-remover/bg-remover.html" class="dropdown-item">
+                                        <i class="fas fa-cut"></i>
+                                        Background Remover
+                                    </a>
+                                    <a href="../../pdf-tools/pdf-toolkit.html" class="dropdown-item">
+                                        <i class="fas fa-file-pdf"></i>
+                                        PDF Toolkit
+                                    </a>
+                                    <a href="../../text-based-tools/case-converter/case-converter.html"
+                                        class="dropdown-item">
+                                        <i class="fas fa-font"></i>
+                                        Case Converter
+                                    </a>
+                                    <a href="../../utility-tools/qr-code-generator/qr-generator.html"
+                                        class="dropdown-item">
+                                        <i class="fas fa-qrcode"></i>
+                                        QR Generator
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#features" class="nav-link">
+                                <i class="fas fa-star"></i>
+                                <span>Features</span>
+                            </a>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="nav-actions">
+                            <button class="theme-toggle" title="Toggle Theme">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                            <button class="fullscreen-btn" title="Toggle Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            <a href="../../index.html" class="btn-modern btn-primary">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Back to Home</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="../../index.html" class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                    <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                    <a href="#" class="breadcrumb-item">Developer Tools</a>
+                    <i class="fas fa-chevron-right breadcrumb-separator"></i>
+                    <span class="breadcrumb-item active">JSON Formatter</span>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Tool Header -->
+            <div class="tool-header">
+                <div class="tool-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1 class="tool-title">JSON Formatter & Validator</h1>
+                <p class="tool-description">
+                    Format, validate, and minify JSON data with instant feedback and error detection
+                </p>
+            </div>
+
+            <!-- Tool Interface -->
+            <div class="tool-interface">
+                <!-- Editor Container -->
+                <div class="editor-container">
+                    <!-- Input Panel -->
+                    <div class="editor-panel input-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <i class="fas fa-edit"></i>
+                                JSON Input
+                            </h3>
+                            <div class="panel-actions">
+                                <button class="action-btn paste-btn" title="Paste from clipboard">
+                                    <i class="fas fa-paste"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <textarea id="jsonInput" class="json-textarea" placeholder="Paste your JSON here...
+Example:
+{
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;age&quot;: 30,
+  &quot;city&quot;: &quot;New York&quot;
+}"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="editor-panel output-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <i class="fas fa-file-code"></i>
+                                Formatted Output
+                            </h3>
+                            <div class="panel-actions">
+                                <button class="action-btn copy-btn" title="Copy to clipboard">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="action-btn download-btn" title="Download as file">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <textarea id="jsonOutput" class="json-textarea" readonly
+                                placeholder="Formatted JSON will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary format-btn">
+                        <i class="fas fa-magic"></i>
+                        Format JSON
+                    </button>
+                    <button class="btn btn-success validate-btn">
+                        <i class="fas fa-check-circle"></i>
+                        Validate JSON
+                    </button>
+                    <button class="btn btn-warning minify-btn">
+                        <i class="fas fa-compress-alt"></i>
+                        Minify JSON
+                    </button>
+                    <button class="btn btn-info copy-output-btn">
+                        <i class="fas fa-clipboard"></i>
+                        Copy Output
+                    </button>
+                    <button class="btn btn-danger clear-btn">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+
+                <!-- Status Area -->
+                <div class="status-area">
+                    <div id="statusMessage" class="status-message"></div>
+                </div>
+
+                <!-- JSON Statistics -->
+                <div class="json-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Characters:</span>
+                        <span id="charCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Lines:</span>
+                        <span id="lineCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Size:</span>
+                        <span id="sizeCount" class="stat-value">0 B</span>
+                    </div>
+                </div>
+            </div>
+            <!-- SEO Content Block -->
+            <section class="seo-content-static"
+                style="padding: 2rem 0; text-align: left; margin-top: 2rem; border-top: 1px solid rgba(0, 212, 255, 0.1);">
+                <div class="seo-section">
+                    <h2 style="color: #00d4ff; margin-bottom: 1rem;">Online JSON Formatter & Validator</h2>
+                    <p style="color: #a0a0a0; margin-bottom: 1.5rem;">Debug, format, and validate your JSON data
+                        effortlessly. Our tool helps developers verify JSON structure, fix syntax errors, and minify
+                        code for production environments. Essential for API testing and data configuration</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Quantum Tools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="json-tool-script.js"></script>
+</body>
+
+</html>

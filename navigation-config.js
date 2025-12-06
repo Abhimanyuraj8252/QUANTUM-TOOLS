@@ -15,14 +15,14 @@ const navigationTemplates = {
         ],
         logoLink: 'index.html',
         navLinks: {
-            developerTools: 'Developer tools/',
-            imageTools: 'Image tools/',
-            pdfTools: 'PDF tools/',
-            textTools: 'text based tools/',
-            utilityTools: 'utility tools/'
+            developerTools: 'developer-tools/',
+            imageTools: 'image-tools/',
+            pdfTools: 'pdf-tools/',
+            textTools: 'text-based-tools/',
+            utilityTools: 'utility-tools/'
         }
     },
-    // For files one level deep (Developer tools/, Image tools/, etc.)
+    // For files one level deep (developer-tools/, image-tools/, etc.)
     level1: {
         cssLinks: [
             '../Home page/preloader.css',
@@ -35,11 +35,11 @@ const navigationTemplates = {
         ],
         logoLink: '../index.html',
         navLinks: {
-            developerTools: '../Developer tools/',
-            imageTools: '../Image tools/',
-            pdfTools: '../PDF tools/',
-            textTools: '../text based tools/',
-            utilityTools: '../utility tools/'
+            developerTools: '../developer-tools/',
+            imageTools: '../image-tools/',
+            pdfTools: '../pdf-tools/',
+            textTools: '../text-based-tools/',
+            utilityTools: '../utility-tools/'
         }
     },
     // For files two levels deep (most tool files)
@@ -55,11 +55,11 @@ const navigationTemplates = {
         ],
         logoLink: '../../index.html',
         navLinks: {
-            developerTools: '../../Developer tools/',
-            imageTools: '../../Image tools/',
-            pdfTools: '../../PDF tools/',
-            textTools: '../../text based tools/',
-            utilityTools: '../../utility tools/'
+            developerTools: '../../developer-tools/',
+            imageTools: '../../image-tools/',
+            pdfTools: '../../pdf-tools/',
+            textTools: '../../text-based-tools/',
+            utilityTools: '../../utility-tools/'
         }
     },
     // For files three levels deep (PDF conversion tools, etc.)
@@ -75,11 +75,11 @@ const navigationTemplates = {
         ],
         logoLink: '../../../index.html',
         navLinks: {
-            developerTools: '../../../Developer tools/',
-            imageTools: '../../../Image tools/',
-            pdfTools: '../../../PDF tools/',
-            textTools: '../../../text based tools/',
-            utilityTools: '../../../utility tools/'
+            developerTools: '../../../developer-tools/',
+            imageTools: '../../../image-tools/',
+            pdfTools: '../../../pdf-tools/',
+            textTools: '../../../text-based-tools/',
+            utilityTools: '../../../utility-tools/'
         }
     }
 };
@@ -115,17 +115,17 @@ const getNavigationHTML = (level) => {
                     <li class="dropdown">
                         <a href="#">Developer Tools <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="${config.navLinks.developerTools}Editor with Live Preview/code-editor.html">Live Code Editor</a></li>
-                            <li><a href="${config.navLinks.developerTools}Encoder Decoder/universal-encoder-decoder.html">Encoder/Decoder</a></li>
-                            <li><a href="${config.navLinks.developerTools}JSON formatter validator/json-tool.html">JSON Formatter</a></li>
+                            <li><a href="${config.navLinks.developerTools}editor-with-live-preview/code-editor.html">Live Code Editor</a></li>
+                            <li><a href="${config.navLinks.developerTools}encoder-decoder/universal-encoder-decoder.html">Encoder/Decoder</a></li>
+                            <li><a href="${config.navLinks.developerTools}json-formatter-validator/json-tool.html">JSON Formatter</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#">Image Tools <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="${config.navLinks.imageTools}bg remover/bg-remover.html">Background Remover</a></li>
-                            <li><a href="${config.navLinks.imageTools}image converter/image-converter.html">Image Converter</a></li>
-                            <li><a href="${config.navLinks.imageTools}Image resizer/image-optimizer.html">Image Resizer</a></li>
+                            <li><a href="${config.navLinks.imageTools}bg-remover/bg-remover.html">Background Remover</a></li>
+                            <li><a href="${config.navLinks.imageTools}image-converter/image-converter.html">Image Converter</a></li>
+                            <li><a href="${config.navLinks.imageTools}image-resizer/image-optimizer.html">Image Resizer</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -135,28 +135,28 @@ const getNavigationHTML = (level) => {
                             <li class="dropdown-submenu">
                                 <a href="#">File Conversion <i class="fas fa-chevron-right"></i></a>
                                 <ul class="dropdown-submenu-content">
-                                    <li><a href="${config.navLinks.pdfTools}File Conversion/Image to PDF/image-to-pdf.html">Image to PDF</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}File Conversion/PDF to Image/pdf-to-image.html">PDF to Image</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}File Conversion/PDF to Text/pdf-to-text.html">PDF to Text</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}File Conversion/Text to PDF/text-to-pdf.html">Text to PDF</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}file-conversion/Image to PDF/image-to-pdf.html">Image to PDF</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}file-conversion/PDF to Image/pdf-to-image.html">PDF to Image</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}file-conversion/PDF to Text/pdf-to-text.html">PDF to Text</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}file-conversion/Text to PDF/text-to-pdf.html">Text to PDF</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
                                 <a href="#">PDF Manipulation <i class="fas fa-chevron-right"></i></a>
                                 <ul class="dropdown-submenu-content">
-                                    <li><a href="${config.navLinks.pdfTools}PDF Manipulation/PDF Merger/pdf-merger.html">PDF Merger</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}PDF Manipulation/PDF Splitter/pdf-splitter.html">PDF Splitter</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}PDF Manipulation/PDF Compressor/pdf-compressor.html">PDF Compressor</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}PDF Manipulation/Page Manager/page-manager.html">Page Manager</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}pdf-manipulation/PDF Merger/pdf-merger.html">PDF Merger</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}pdf-manipulation/PDF Splitter/pdf-splitter.html">PDF Splitter</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}pdf-manipulation/PDF Compressor/pdf-compressor.html">PDF Compressor</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}pdf-manipulation/Page Manager/page-manager.html">Page Manager</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
                                 <a href="#">Security & Enhancement <i class="fas fa-chevron-right"></i></a>
                                 <ul class="dropdown-submenu-content">
-                                    <li><a href="${config.navLinks.pdfTools}Security & Enhancement/Password Protection/password-protection.html">Password Protection</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}Security & Enhancement/Remove  Password/remove-password.html">Remove Password</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}Security & Enhancement/Add Watermark/add-watermark.html">Add Watermark</a></li>
-                                    <li><a href="${config.navLinks.pdfTools}Security & Enhancement/PDF Info/pdf-info.html">PDF Info</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}security-and-enhancement/password-protection/protect-pdf.html">Protect PDF</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}security-and-enhancement/remove-password/unlock-pdf.html">Unlock PDF</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}security-and-enhancement/add-watermark/add-watermark.html">Add Watermark</a></li>
+                                    <li><a href="${config.navLinks.pdfTools}security-and-enhancement/pdf-info/pdf-info.html">PDF Info</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -164,18 +164,18 @@ const getNavigationHTML = (level) => {
                     <li class="dropdown">
                         <a href="#">Text Tools <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="${config.navLinks.textTools}case converter/case-converter.html">Case Converter</a></li>
-                            <li><a href="${config.navLinks.textTools}Random Data Generator/data-generator.html">Data Generator</a></li>
+                            <li><a href="${config.navLinks.textTools}case-converter/case-converter.html">Case Converter</a></li>
+                            <li><a href="${config.navLinks.textTools}random-data-generator/data-generator.html">Data Generator</a></li>
                             <li><a href="${config.navLinks.textTools}word-counter/index.html">Word Counter</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#">Utility Tools <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="${config.navLinks.utilityTools}age calculator/age-calculator.html">Age Calculator</a></li>
-                            <li><a href="${config.navLinks.utilityTools}barcode generator/barcode-generator.html">Barcode Generator</a></li>
-                            <li><a href="${config.navLinks.utilityTools}QR code generator/qr-generator.html">QR Code Generator</a></li>
-                            <li><a href="${config.navLinks.utilityTools}unit converter/unit-converter.html">Unit Converter</a></li>
+                            <li><a href="${config.navLinks.utilityTools}age-calculator/age-calculator.html">Age Calculator</a></li>
+                            <li><a href="${config.navLinks.utilityTools}barcode-generator/barcode-generator.html">Barcode Generator</a></li>
+                            <li><a href="${config.navLinks.utilityTools}qr-code-generator/qr-generator.html">QR Code Generator</a></li>
+                            <li><a href="${config.navLinks.utilityTools}unit-converter/unit-converter.html">Unit Converter</a></li>
                         </ul>
                     </li>
                 </ul>

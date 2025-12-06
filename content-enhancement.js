@@ -91,7 +91,7 @@ class ContentEnhancer {
                                 <li>Password protect and remove restrictions</li>
                                 <li>Compress without quality loss using AI optimization</li>
                             </ul>
-                            <a href="PDF tools/" class="category-link">Explore PDF Tools →</a>
+                            <a href="pdf-tools/" class="category-link">Explore PDF Tools →</a>
                         </div>
 
                         <div class="category-detail">
@@ -107,7 +107,7 @@ class ContentEnhancer {
                                 <li>Batch processing for multiple images</li>
                                 <li>Advanced filters and effects</li>
                             </ul>
-                            <a href="Image tools/" class="category-link">Explore Image Tools →</a>
+                            <a href="image-tools/" class="category-link">Explore Image Tools →</a>
                         </div>
 
                         <div class="category-detail">
@@ -123,7 +123,7 @@ class ContentEnhancer {
                                 <li>RegEx tester with explanation</li>
                                 <li>Color palette generator and analyzer</li>
                             </ul>
-                            <a href="Developer tools/" class="category-link">Explore Developer Tools →</a>
+                            <a href="developer-tools/" class="category-link">Explore Developer Tools →</a>
                         </div>
 
                         <div class="category-detail">
@@ -139,7 +139,7 @@ class ContentEnhancer {
                                 <li>Keyword density and SEO optimization</li>
                                 <li>Plagiarism detection and originality scoring</li>
                             </ul>
-                            <a href="text based tools/" class="category-link">Explore Text Tools →</a>
+                            <a href="text-based-tools/" class="category-link">Explore Text Tools →</a>
                         </div>
 
                         <div class="category-detail">
@@ -155,7 +155,7 @@ class ContentEnhancer {
                                 <li>Age calculator with detailed analytics</li>
                                 <li>Color picker with accessibility analysis</li>
                             </ul>
-                            <a href="utility tools/" class="category-link">Explore Utilities →</a>
+                            <a href="utility-tools/" class="category-link">Explore Utilities →</a>
                         </div>
                     </div>
                 </div>

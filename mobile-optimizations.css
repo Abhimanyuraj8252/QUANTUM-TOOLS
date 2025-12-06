@@ -23,6 +23,9 @@ header .container {
     background-color: rgba(10, 13, 20, 0.6);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+    flex-wrap: wrap;
+    /* Allow wrapping on very small screens */
+    gap: 10px;
 }
 
 .light-theme .top-nav-row {
@@ -153,7 +156,8 @@ header .container {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    z-index: 99;
+    z-index: 9999;
+    /* Increased to ensure visibility */
     padding: 1rem 0;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
@@ -179,7 +183,7 @@ header .container {
     .logo h1 {
         font-size: 1.2rem;
     }
-    
+
     .top-nav-row .search-container {
         width: 40%;
     }
@@ -195,43 +199,56 @@ header .container {
     display: none;
 }
 
-.dropdown.active > .dropdown-menu {
+.dropdown.active>.dropdown-menu {
     display: block;
 }
 
 /* Mobile specific styles */
 @media (max-width: 768px) {
     .top-right-elements .search-bar input {
-        width: 150px;
+        width: 100%;
+        /* Flexible width */
+        min-width: 100px;
     }
-    
+
+    .top-right-elements {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
     .logo h1 {
         font-size: 1.2rem;
+        flex-shrink: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-    
-    /* Fix for explore tools section */
+
+    /* Fix for explore tools section - allow 2 columns */
     .featured-tools-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 0 15px;
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+        gap: 15px;
+        padding: 0 10px;
     }
-    
+
     .featured-tool-card {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
     }
-    
+
     .tools-section .tools-grid {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+        padding: 0 10px;
+        gap: 15px;
     }
-    
+
     .tool-card {
         width: 100%;
         max-width: 100%;
     }
-    
+
     /* Ensure proper container padding */
     .container {
         padding-left: 15px;
@@ -239,7 +256,7 @@ header .container {
         width: 100%;
         box-sizing: border-box;
     }
-    
+
     /* Fix for overlapping elements */
     .tool-content {
         padding: 20px;
@@ -249,11 +266,12 @@ header .container {
 
 /* Ensure proper section and container spacing for all screens */
 @media (max-width: 768px) {
+
     /* Section padding adjustments */
     section {
         padding: 50px 0;
     }
-    
+
     /* Container width and padding */
     .container {
         max-width: 100%;
@@ -261,77 +279,95 @@ header .container {
         padding-right: 15px;
         box-sizing: border-box;
     }
-    
+
     /* Fix for the hero section */
     .hero .container {
         padding: 0 15px;
     }
-    
+
     /* Adjust featured tool cards layout */
     .featured-tool-card {
         display: flex;
         flex-direction: column;
     }
-    
+
     .tool-preview {
         height: 120px;
     }
-    
+
     /* Fix for category sections */
     .category-section {
         margin-bottom: 40px;
     }
-    
+
     /* Prevent horizontal scrolling */
     body {
         overflow-x: hidden;
         width: 100%;
     }
-    
+
     main {
         overflow-x: hidden;
         width: 100%;
     }
 }
 
+/* Tablet/Mobile Fix for Explore Button */
+@media (max-width: 768px) {
+    .cta-button {
+        padding: 14px 32px;
+        font-size: 1rem;
+        display: inline-block;
+        max-width: 80%;
+        margin-top: 15px;
+        /* Ensure it behaves */
+        box-sizing: border-box;
+    }
+}
+
 /* Small mobile screens */
 @media (max-width: 480px) {
     .top-right-elements .search-bar input {
-        width: 120px;
+        width: 100%;
+        min-width: 80px;
     }
-    
+
     .logo h1 {
         font-size: 1rem;
     }
-    
+
     /* Further adjustments for very small screens */
     .featured-tools-grid,
     .tools-grid {
-        gap: 20px;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     }
-    
+
     .tool-card,
     .featured-tool-card {
         padding: 15px;
     }
-    
+
     .tool-icon {
         font-size: 1.5rem;
         margin-bottom: 10px;
     }
-    
+
     .tool-card h3 {
         font-size: 1rem;
     }
-    
+
     .tool-card p {
         font-size: 0.8rem;
     }
-    
+
     /* Fix for "Explore Tools" button */
     .cta-button {
-        padding: 10px 15px;
+        padding: 12px 24px;
         font-size: 0.9rem;
+        width: auto;
+        max-width: 90%;
+        display: inline-block;
     }
 }
 
@@ -340,7 +376,7 @@ header .container {
     .logo h1 {
         font-size: 1.4rem;
     }
-    
+
     /* Medium screen adjustments for tools grid */
     .featured-tools-grid {
         grid-template-columns: repeat(2, 1fr);

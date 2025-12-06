@@ -27,8 +27,9 @@ Disallow: /url-removal-guide.md
 Disallow: /indexing-request-guide.md
 
 # Discourage indexing of index.html files (prefer directory URLs)
-Disallow: /index.html
-Disallow: */index.html
+# Discourage indexing of index.html files (prefer directory URLs)
+# Disallow: /index.html
+# Disallow: */index.html
 
 # Allow CSS and JS files for proper rendering (except blocked patterns above)
 Allow: *.css

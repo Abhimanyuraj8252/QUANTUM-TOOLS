@@ -21,15 +21,15 @@ function updateDomainReferences() {
         '404.html',
         'offline.html',
         // Developer tools
-        'Developer tools/Editor with Live Preview/code-editor.html',
-        'Developer tools/Encoder Decoder/universal-encoder-decoder.html',
-        'Developer tools/JSON formatter validator/json-tool.html',
+        'developer-tools/editor-with-live-preview/code-editor.html',
+        'developer-tools/encoder-decoder/universal-encoder-decoder.html',
+        'developer-tools/json-formatter-validator/json-tool.html',
         // Image tools
-        'Image tools/bg remover/bg-remover.html',
-        'Image tools/image converter/image-converter.html',
-        'Image tools/Image resizer/image-optimizer.html',
+        'image-tools/bg-remover/bg-remover.html',
+        'image-tools/image-converter/image-converter.html',
+        'image-tools/image-resizer/image-optimizer.html',
         // PDF tools
-        'PDF tools/pdf-toolkit.html',
+        'pdf-tools/pdf-toolkit.html',
         // Config files
         'sitemap.xml',
         'sitemap-images.xml',
