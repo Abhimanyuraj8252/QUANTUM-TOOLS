@@ -4,43 +4,57 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://quantumtools.me/contact.html</loc>
+    <loc>https://quantumtools.netlify.app/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/contact.html"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://quantumtools.me/how-to-guide.html</loc>
+    <loc>https://quantumtools.netlify.app/how-to-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/how-to-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/how-to-guide.html"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://quantumtools.me/</loc>
+    <loc>https://quantumtools.netlify.app/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://quantumtools.me/privacy-policy.html</loc>
+    <loc>https://quantumtools.netlify.app/privacy-policy.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/privacy-policy.html"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://quantumtools.me/search.html</loc>
+    <loc>https://quantumtools.netlify.app/search.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/search.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/search.html"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://quantumtools.me/terms-of-service.html</loc>
+    <loc>https://quantumtools.netlify.app/terms-of-service.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/terms-of-service.html"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://quantumtools.me/tools-comparison.html</loc>
+    <loc>https://quantumtools.netlify.app/tools-comparison.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quantumtools.me/tools-comparison.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/tools-comparison.html"/>
     <lastmod>2025-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

@@ -93,8 +93,12 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location
+Sitemap: https://quantumtools.netlify.app/sitemap.xml
+Sitemap: https://quantumtools.netlify.app/sitemap-images.xml
 Sitemap: https://quantumtools.me/sitemap.xml
 Sitemap: https://quantumtools.me/sitemap-images.xml
+Sitemap: https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/sitemap.xml
+Sitemap: https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/sitemap-images.xml
 
 # Additional instructions
 # Cache: public, max-age=86400
