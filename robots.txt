@@ -4,7 +4,6 @@
 # Default rules for all bots
 User-agent: *
 Allow: /
-Crawl-delay: 1
 
 # Block dynamically generated ad/analytics files that shouldn't be indexed
 Disallow: /tardisrocinante/
@@ -45,15 +44,12 @@ Allow: *.ico
 # Allow all major search engine bots with specific directives
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0.5
 
 User-agent: Googlebot-Image
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Mobile
 Allow: /
-Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
