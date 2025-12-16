@@ -225,11 +225,11 @@ header .container {
         text-overflow: ellipsis;
     }
 
-    /* Fix for explore tools section - allow 2 columns */
+    /* Featured tool cards - SINGLE COLUMN on mobile */
     .featured-tools-grid {
-        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-        gap: 15px;
-        padding: 0 10px;
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        padding: 0 15px;
     }
 
     .featured-tool-card {
@@ -238,15 +238,41 @@ header .container {
         margin: 0 auto;
     }
 
+    /* Tool content should not truncate */
+    .featured-tool-card .tool-content h3 {
+        font-size: 1.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .featured-tool-card .tool-content p {
+        font-size: 0.95rem;
+        word-wrap: break-word;
+    }
+
+    /* Tool cards - better mobile layout to prevent text cutoff */
     .tools-section .tools-grid {
-        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-        padding: 0 10px;
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        padding: 0 15px;
+        gap: 20px;
     }
 
     .tool-card {
         width: 100%;
         max-width: 100%;
+    }
+
+    .tool-card h3 {
+        font-size: 1.1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .tool-card p {
+        font-size: 0.9rem;
+        word-wrap: break-word;
     }
 
     /* Ensure proper container padding */
@@ -260,16 +286,94 @@ header .container {
     /* Fix for overlapping elements */
     .tool-content {
         padding: 20px;
-        overflow: hidden;
+        overflow: visible;
+    }
+
+    /* Category grid fixes */
+    .category-section .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+    }
+
+    /* Tags wrap properly */
+    .tool-tags {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .tag {
+        font-size: 0.7rem;
+        padding: 4px 10px;
     }
 }
 
 /* Ensure proper section and container spacing for all screens */
 @media (max-width: 768px) {
 
-    /* Section padding adjustments */
+    /* Section padding adjustments - reduced */
     section {
-        padding: 50px 0;
+        padding: 20px 0;
+    }
+
+    /* Hide particles on mobile - causes extra space and hides content */
+    #particles-js,
+    #particles-js canvas,
+    .floating-shape {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        position: absolute !important;
+        z-index: -1 !important;
+    }
+
+    /* Hero section - proper spacing below fixed header */
+    .hero {
+        min-height: auto !important;
+        max-height: fit-content !important;
+        height: auto !important;
+        margin-top: 70px !important;
+        padding: 20px 15px !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+
+    /* CRITICAL: Make hero content visible */
+    .hero-content {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 100 !important;
+        padding: 15px !important;
+        text-align: center !important;
+    }
+
+    .hero-content h1,
+    .hero-content .glowing-text {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 1.4rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 10px !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        padding: 0 5px !important;
+        max-width: 100% !important;
+    }
+
+    .hero-content p {
+        display: block !important;
+        visibility: visible !important;
+        font-size: 0.95rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-content .cta-button {
+        display: inline-block !important;
+        visibility: visible !important;
     }
 
     /* Container width and padding */
@@ -336,16 +440,24 @@ header .container {
         font-size: 1rem;
     }
 
-    /* Further adjustments for very small screens */
-    .featured-tools-grid,
-    .tools-grid {
-        gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    /* Ensure single column on very small screens */
+    .featured-tools-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .tools-grid,
+    .category-section .tools-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+        padding: 0 10px;
     }
 
     .tool-card,
     .featured-tool-card {
         padding: 15px;
+        width: 100%;
     }
 
     .tool-icon {
@@ -355,10 +467,16 @@ header .container {
 
     .tool-card h3 {
         font-size: 1rem;
+        word-wrap: break-word;
     }
 
     .tool-card p {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        word-wrap: break-word;
+    }
+
+    .featured-tool-card .tool-content h3 {
+        font-size: 1.3rem;
     }
 
     /* Fix for "Explore Tools" button */
@@ -368,6 +486,24 @@ header .container {
         width: auto;
         max-width: 90%;
         display: inline-block;
+    }
+
+    /* Hero section adjustments */
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Section title adjustments */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.3rem;
     }
 }
 

@@ -3,56 +3,7 @@
  * Modular JavaScript for improved maintainability and performance
  */
 
-// Add function to remove Home and Index navigation items
-document.addEventListener('DOMContentLoaded', function() {
-    // Remove Home and Index links from any navigation
-    const removeHomeAndIndexLinks = () => {
-        // Get all links in the document
-        const allLinks = document.querySelectorAll('a');
-        
-        allLinks.forEach(link => {
-            // Check for links with text content of exactly "Home" or "Index"
-            const linkText = link.textContent.trim();
-            const href = link.getAttribute('href');
-            
-            if (linkText === 'Home' || linkText === 'Index' || 
-                linkText.includes('Home') || linkText.includes('Index') ||
-                href === 'index.html' || href === '/index.html') {
-                
-                // If the link is in a list item, remove the whole list item
-                const parentLi = link.closest('li');
-                if (parentLi) {
-                    parentLi.style.display = 'none';
-                } else {
-                    // Otherwise just hide the link
-                    link.style.display = 'none';
-                }
-                
-                // Also hide any parent breadcrumb items containing this link
-                const breadcrumbItem = link.closest('.breadcrumb-item');
-                if (breadcrumbItem) {
-                    breadcrumbItem.style.display = 'none';
-                }
-            }
-        });
-        
-        // Also hide any breadcrumb items with "Home" or "Index" text
-        const breadcrumbItems = document.querySelectorAll('.breadcrumb-item');
-        breadcrumbItems.forEach(item => {
-            if (item.textContent.includes('Home') || item.textContent.includes('Index')) {
-                item.style.display = 'none';
-            }
-        });
-    };
-    
-    // Call the function immediately
-    removeHomeAndIndexLinks();
-    
-    // Also call it after a short delay to catch any dynamically added elements
-    setTimeout(removeHomeAndIndexLinks, 500);
-    // And call again after page is fully loaded
-    window.addEventListener('load', removeHomeAndIndexLinks);
-});
+// Modular JavaScript for improved maintainability and performance
 
 class QuantumToolsWebsite {
     constructor() {
@@ -167,8 +118,8 @@ class QuantumToolsWebsite {
 
         // Close menu when clicking outside navigation area
         document.addEventListener('click', (e) => {
-            if (this.elements.navLinks.classList.contains('active') && 
-                !this.elements.navLinks.contains(e.target) && 
+            if (this.elements.navLinks.classList.contains('active') &&
+                !this.elements.navLinks.contains(e.target) &&
                 !this.elements.hamburger.contains(e.target)) {
                 this.closeMobileMenu();
             }
@@ -187,10 +138,10 @@ class QuantumToolsWebsite {
      */
     toggleMobileMenu() {
         const isActive = this.elements.navLinks.classList.contains('active');
-        
+
         this.elements.hamburger.classList.toggle('active');
         this.elements.navLinks.classList.toggle('active');
-        
+
         // Use centralized body scroll management
         this.toggleBodyScroll(!isActive);
     }
@@ -270,7 +221,7 @@ class QuantumToolsWebsite {
         const { heroContent } = this.elements;
         const { parallax } = this.config;
         const scrollPosition = window.scrollY;
-        
+
         if (heroContent && scrollPosition < window.innerHeight) {
             const tiltAmount = scrollPosition * parallax.scrollFactor;
             const scaleAmount = 1 - scrollPosition * parallax.scaleFactor;
@@ -282,6 +233,12 @@ class QuantumToolsWebsite {
      * Initialize particles.js background animation with error handling
      */
     setupParticleEffects() {
+        // Skip on mobile devices to prevent stack overflow and save performance
+        if (window.innerWidth < 768) {
+            console.info('Particles.js skipped on mobile for performance');
+            return;
+        }
+
         // Check if particles.js library is loaded and container exists
         if (typeof particlesJS === 'undefined' || !this.elements.particlesContainer) {
             console.warn('Particles.js not loaded or container not found');
@@ -292,6 +249,10 @@ class QuantumToolsWebsite {
             particlesJS('particles-js', this.getParticleConfig());
         } catch (error) {
             console.error('Failed to initialize particles.js:', error);
+            // Hide particles container on error
+            if (this.elements.particlesContainer) {
+                this.elements.particlesContainer.style.display = 'none';
+            }
         }
     }
 
@@ -303,64 +264,53 @@ class QuantumToolsWebsite {
         return {
             particles: {
                 number: {
-                    value: 50,
+                    value: 30,
                     density: {
                         enable: true,
-                        value_area: 1000
+                        value_area: 1200
                     }
                 },
                 color: {
                     value: ['#FF2E63', '#66FCF1', '#45A29E']
                 },
                 shape: {
-                    type: ['circle', 'triangle', 'polygon'],
+                    type: 'circle',
                     stroke: {
                         width: 0,
                         color: '#000000'
-                    },
-                    polygon: {
-                        nb_sides: 6
                     }
                 },
                 opacity: {
                     value: 0.4,
                     random: true,
                     anim: {
-                        enable: true,
-                        speed: 0.8,
-                        opacity_min: 0.1,
-                        sync: false
+                        enable: false
                     }
                 },
                 size: {
-                    value: 5,
+                    value: 4,
                     random: true,
                     anim: {
-                        enable: true,
-                        speed: 3,
-                        size_min: 0.5,
-                        sync: false
+                        enable: false
                     }
                 },
                 line_linked: {
                     enable: true,
-                    distance: 180,
+                    distance: 150,
                     color: '#66FCF1',
-                    opacity: 0.3,
+                    opacity: 0.2,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 1.5,
+                    speed: 1,
                     direction: 'none',
                     random: true,
                     straight: false,
-                    out_mode: 'bounce',
-                    bounce: true,
+                    out_mode: 'out',
+                    bounce: false,
                     attract: {
-                        enable: true,
-                        rotateX: 1000,
-                        rotateY: 1200
+                        enable: false
                     }
                 }
             },
@@ -368,39 +318,15 @@ class QuantumToolsWebsite {
                 detect_on: 'canvas',
                 events: {
                     onhover: {
-                        enable: true,
-                        mode: 'bubble'
+                        enable: false
                     },
                     onclick: {
-                        enable: true,
-                        mode: 'repulse'
+                        enable: false
                     },
                     resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 200,
-                        line_linked: {
-                            opacity: 0.8
-                        }
-                    },
-                    bubble: {
-                        distance: 200,
-                        size: 8,
-                        duration: 2,
-                        opacity: 0.8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 1
-                    },
-                    push: {
-                        particles_nb: 6
-                    }
                 }
             },
-            retina_detect: true
+            retina_detect: false
         };
     }
 
@@ -418,10 +344,10 @@ class QuantumToolsWebsite {
             // Calculate movement based on mouse position relative to viewport center
             const moveX = (e.clientX - window.innerWidth / 2) * parallax.intensity;
             const moveY = (e.clientY - window.innerHeight / 2) * parallax.intensity;
-            
+
             // Apply subtle movement to hero content
             heroContent.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            
+
             // Apply layered movement to floating shapes for depth effect
             shapes.forEach((shape, index) => {
                 const depthMultiplier = (index + 2);
@@ -441,7 +367,7 @@ class QuantumToolsWebsite {
                 card.style.transform = 'translateY(-5px)';
                 card.style.transition = 'all 0.3s ease';
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.boxShadow = 'none';
                 card.style.transform = 'translateY(0)';
@@ -456,16 +382,16 @@ class QuantumToolsWebsite {
         // Check for backdrop-filter support and provide fallbacks
         if (!CSS.supports('backdrop-filter', 'blur(10px)')) {
             console.info('Backdrop-filter not supported, applying opacity fallbacks');
-            
+
             // Apply higher opacity backgrounds for better readability
             if (this.elements.header) {
                 this.elements.header.style.background = 'rgba(26, 26, 46, 0.95)';
             }
-            
+
             if (this.elements.navLinks) {
                 this.elements.navLinks.style.background = 'rgba(22, 33, 62, 0.95)';
             }
-            
+
             this.elements.toolCards.forEach(card => {
                 card.style.background = 'rgba(15, 52, 96, 0.8)';
             });
@@ -505,7 +431,7 @@ class QuantumToolsWebsite {
             toolsSection: '.tools',
             particlesContainer: '#particles-js'
         };
-        
+
         return selectors[key] || null;
     }
 }
@@ -513,7 +439,7 @@ class QuantumToolsWebsite {
 // Initialize the website when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     try {
-        window.quantumToolsWebsite = new QuantumToolsWebsite();        console.info('QUANTUM TOOLS website initialized successfully');
+        window.quantumToolsWebsite = new QuantumToolsWebsite(); console.info('QUANTUM TOOLS website initialized successfully');
     } catch (error) {
         console.error('Failed to initialize QUANTUM TOOLS website:', error);
     }
@@ -527,7 +453,7 @@ window.QuantumToolsUtils = {
             window.quantumToolsWebsite.smoothScrollToElement(element);
         }
     },
-      toggleMobileMenu: () => {
+    toggleMobileMenu: () => {
         if (window.quantumToolsWebsite) {
             window.quantumToolsWebsite.toggleMobileMenu();
         }
@@ -535,7 +461,7 @@ window.QuantumToolsUtils = {
 };
 
 // Handle notifications properly
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Check for any notifications that need to be displayed
     const showNotification = (message, action = 'OK') => {
         // Remove any existing notifications
@@ -543,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (existingNotification) {
             existingNotification.remove();
         }
-        
+
         // Create the notification
         const notification = document.createElement('div');
         notification.className = 'notification-bar';
@@ -551,21 +477,21 @@ document.addEventListener('DOMContentLoaded', function() {
             ${message}
             <button class="notification-dismiss">${action}</button>
         `;
-        
+
         // Add to body
         document.body.appendChild(notification);
-        
+
         // Add dismiss functionality
         const dismissBtn = notification.querySelector('.notification-dismiss');
         if (dismissBtn) {
-            dismissBtn.addEventListener('click', function() {
+            dismissBtn.addEventListener('click', function () {
                 notification.style.opacity = '0';
                 setTimeout(() => {
                     notification.remove();
                 }, 300);
             });
         }
-        
+
         // Auto hide after 10 seconds
         setTimeout(() => {
             if (document.body.contains(notification)) {
@@ -576,7 +502,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 10000);
     };
-    
+
     // Example: Display notification if needed
     // Uncomment this to show the notification
     // showNotification('Please reopen the preview to see latest changes.');

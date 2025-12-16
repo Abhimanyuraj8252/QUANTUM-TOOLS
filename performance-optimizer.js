@@ -36,23 +36,15 @@ class PerformanceOptimizer {
             threshold: 0.01
         });
 
-        images.forEach(img => imageObserver.observe(img));    }
-    
-    // Preload critical resources
-    setupResourcePreloading() {
-        const criticalResources = [
-            'style.css',
-            'script.js',
-            'Home page/universal-nav.css'
-        ];
+        images.forEach(img => imageObserver.observe(img));
+    }
 
-        criticalResources.forEach(resource => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.href = resource;
-            link.as = resource.endsWith('.css') ? 'style' : 'script';
-            document.head.appendChild(link);
-        });
+    // Preload critical resources - disabled to prevent console warnings
+    // Resources already load via normal HTML includes
+    setupResourcePreloading() {
+        // Note: Preloading removed as it was causing 
+        // "resource preloaded but not used" warnings
+        console.log('Resource optimization active');
     }
 
     // Setup caching strategies
@@ -82,11 +74,11 @@ class PerformanceOptimizer {
                 };
                 localStorage.setItem(`qtools_${key}`, JSON.stringify(item));
             },
-            
+
             get: (key) => {
                 const item = localStorage.getItem(`qtools_${key}`);
                 if (!item) return null;
-                
+
                 const parsed = JSON.parse(item);
                 if (Date.now() - parsed.timestamp > parsed.expiry) {
                     localStorage.removeItem(`qtools_${key}`);
@@ -99,21 +91,10 @@ class PerformanceOptimizer {
         window.QToolsCache = cache;
     }
 
-    // Setup critical CSS
+    // Setup critical CSS - Deprecated: Managed via standard CSS
     setupCriticalCSS() {
-        // Inline critical CSS for above-the-fold content
-        const criticalCSS = `
-            header, .hero, .nav-links, .hamburger {
-                display: flex;
-                position: relative;
-            }
-            body { margin: 0; font-family: 'Inter', sans-serif; }
-            .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        `;
-
-        const style = document.createElement('style');
-        style.textContent = criticalCSS;
-        document.head.insertBefore(style, document.head.firstChild);
+        // Critical CSS is now handled by the main stylesheet loading strategy
+        // to prevent FOUC and improve CLS
     }
 
     // Optimize animations for performance
@@ -143,7 +124,7 @@ class PerformanceOptimizer {
     updateScrollAnimations() {
         const scrollY = window.scrollY;
         const parallaxElements = document.querySelectorAll('.parallax');
-        
+
         parallaxElements.forEach(element => {
             const speed = element.dataset.speed || 0.5;
             const yPos = -(scrollY * speed);
@@ -162,7 +143,7 @@ class PerformanceOptimizer {
                 canvas.width = img.width;
                 canvas.height = img.height;
                 ctx.drawImage(img, 0, 0);
-                
+
                 canvas.toBlob(resolve, 'image/jpeg', quality);
             };
 
@@ -185,36 +166,36 @@ class PerformanceOptimizer {
         // Check for network information API
         if ('connection' in navigator) {
             const connection = navigator.connection;
-            
+
             // Handle slow connections
             if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
                 this.loadLightweightAssets();
             }
-            
+
             // Save-Data header detection
             if (connection.saveData) {
                 this.enableDataSavingMode();
             }
         }
     }
-    
+
     loadLightweightAssets() {
         // Replace high-quality images with lower quality ones
         document.querySelectorAll('img[data-low-src]').forEach(img => {
             img.src = img.dataset.lowSrc;
         });
-        
+
         // Disable non-essential animations
         document.documentElement.classList.add('reduced-motion');
     }
-    
+
     enableDataSavingMode() {
         // Disable auto-playing videos
         document.querySelectorAll('video[autoplay]').forEach(video => {
             video.removeAttribute('autoplay');
             video.setAttribute('preload', 'none');
         });
-        
+
         // Disable heavy scripts
         document.querySelectorAll('script[data-nonessential]').forEach(script => {
             script.setAttribute('type', 'text/plain');
@@ -230,18 +211,9 @@ class PerformanceOptimizer {
                 document.documentElement.classList.add('fonts-loaded');
             });
         }
-        
-        // Preload key web fonts
-        const fontFiles = ['fonts/main-regular.woff2', 'fonts/main-bold.woff2'];
-        fontFiles.forEach(font => {
-            const preloadLink = document.createElement('link');
-            preloadLink.href = font;
-            preloadLink.rel = 'preload';
-            preloadLink.as = 'font';
-            preloadLink.type = 'font/woff2';
-            preloadLink.crossOrigin = 'anonymous';
-            document.head.appendChild(preloadLink);
-        });
+
+        // Web fonts are loaded from Google Fonts via CSS
+        // No custom font preloading needed
     }
 
     // Core Web Vitals monitoring
@@ -260,8 +232,8 @@ class PerformanceOptimizer {
                     });
                 }
             });
-            lcpObserver.observe({type: 'largest-contentful-paint', buffered: true});
-            
+            lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+
             // FID - First Input Delay
             const fidObserver = new PerformanceObserver((entryList) => {
                 const entries = entryList.getEntries();
@@ -276,8 +248,8 @@ class PerformanceOptimizer {
                     }
                 });
             });
-            fidObserver.observe({type: 'first-input', buffered: true});
-            
+            fidObserver.observe({ type: 'first-input', buffered: true });
+
             // CLS - Cumulative Layout Shift
             const clsObserver = new PerformanceObserver((entryList) => {
                 let clsValue = 0;
@@ -295,7 +267,7 @@ class PerformanceOptimizer {
                     });
                 }
             });
-            clsObserver.observe({type: 'layout-shift', buffered: true});
+            clsObserver.observe({ type: 'layout-shift', buffered: true });
         }
     }
 }

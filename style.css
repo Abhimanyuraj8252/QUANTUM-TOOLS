@@ -3,24 +3,38 @@
 /* === GLOBAL STYLES === */
 :root {
     /* Core Color Palette - Dark Theme (Default) */
-    --primary-bg: #0a0d14;
-    --secondary-bg: #111827;
-    --tertiary-bg: #1e293b;
+    --primary-bg: #050510;
+    --secondary-bg: #0a0f25;
+    --tertiary-bg: #151b3b;
     --accent-color-1: #00f0ff;
-    --accent-color-2: #e100ff;
-    --accent-color-3: #5061ff;
-    --text-primary: #f5f7fa;
-    --text-secondary: #94a3b8;
+    --accent-color-2: #7000ff;
+    --accent-color-3: #ff0055;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0c0;
 
     /* Functional Colors */
-    --glass-bg: rgba(18, 24, 38, 0.7);
-    --card-border: rgba(0, 240, 255, 0.2);
-    --glass-highlight: rgba(255, 255, 255, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-highlight: rgba(255, 255, 255, 0.15);
+    --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--accent-color-1), var(--accent-color-2));
+    --gradient-glow: radial-gradient(circle at center, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
 
     /* Animation Timing */
     --transition-fast: 0.3s;
     --transition-medium: 0.5s;
+    --transition-medium: 0.5s;
     --transition-slow: 0.8s;
+
+    /* Dynamic Theme Variables (Default Dark) */
+    --glass-hover-bg: rgba(255, 255, 255, 0.07);
+    --glass-hover-border: var(--accent-color-1);
+    --glass-hover-shadow: 0 0 25px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.05);
+    --body-gradient-1: rgba(112, 0, 255, 0.08);
+    --body-gradient-2: rgba(0, 240, 255, 0.08);
+    --cta-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
 }
 
 /* Hide Home and Index in navigation */
@@ -42,10 +56,24 @@ body.light-theme {
     --accent-color-3: #2b48ff;
     --text-primary: #111827;
     --text-secondary: #4b5563;
-    --glass-bg: rgba(255, 255, 255, 0.9);
-    --card-border: rgba(0, 121, 255, 0.3);
-    --glass-highlight: rgba(255, 255, 255, 0.4);
-    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --header-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+    /* Light Theme Specifics - Premium Feel */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --cta-shadow: 0 10px 25px rgba(0, 121, 255, 0.4);
+    /* More transparency for glass feel */
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-hover-bg: rgba(255, 255, 255, 0.95);
+    --glass-hover-border: var(--accent-color-1);
+    --glass-hover-shadow: 0 20px 40px rgba(0, 121, 255, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.5);
+    --body-gradient-1: rgba(0, 121, 255, 0.06);
+    --body-gradient-2: rgba(149, 0, 255, 0.06);
+    --text-primary: #1a1f36;
+    /* Softer than stark black */
+    --text-secondary: #4f566b;
+    --primary-bg: #f7f9fc;
+    /* Premium Off-white */
+    --secondary-bg: #ffffff;
 }
 
 /* Reduced Motion Preference */
@@ -86,8 +114,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background-image:
-        radial-gradient(circle at 15% 15%, rgba(229, 0, 255, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 85% 85%, rgba(0, 240, 255, 0.1) 0%, transparent 25%);
+        radial-gradient(circle at 10% 10%, var(--body-gradient-1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, var(--body-gradient-2) 0%, transparent 40%);
     background-attachment: fixed;
     position: relative;
 }
@@ -169,14 +197,22 @@ ul {
     border-radius: 2px;
 }
 
-/* Glassmorphism */
-.glass {
+/* Improved Glassmorphism */
+.glass,
+.glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--glass-highlight);
-    border-left: 1px solid var(--glass-highlight);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-medium) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    background: var(--glass-hover-bg);
+    border-color: var(--glass-hover-border);
+    box-shadow: var(--glass-hover-shadow);
+    transform: translateY(-5px);
 }
 
 /* === HEADER === */
@@ -411,7 +447,10 @@ nav {
 /* === HERO SECTION === */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: auto;
+    margin-top: 0;
+    padding: 120px 0 30px;
+    /* Included header height in padding */
     background: linear-gradient(135deg, var(--primary-bg) 0%, #1a1d29 50%, var(--secondary-bg) 100%);
     overflow: hidden;
 }
@@ -434,7 +473,7 @@ nav {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 120px 0 60px;
+    padding: 30px 15px 20px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -495,12 +534,13 @@ nav {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+    box-shadow: var(--cta-shadow);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 240, 255, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 121, 255, 0.4);
+    /* Generic hardcoded backup, relying on main shadow usually */
     background: linear-gradient(45deg, var(--accent-color-2), var(--accent-color-1));
 }
 
@@ -935,7 +975,7 @@ nav {
 
 .section-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
     position: relative;
     z-index: 1;
 }
@@ -2114,5 +2154,69 @@ footer::before {
 
     .seo-section h2 {
         font-size: 1.5rem;
+    }
+}
+
+/* === Mobile Layout Fixes === */
+@media (max-width: 768px) {
+
+    /* Hero Spacing Fix */
+    .hero {
+        margin-top: 0;
+        /* Remove gap */
+        padding-top: 100px;
+        /* Internal spacing instead */
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        /* Reduced size */
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    /* Adjust Header for Mobile */
+    header {
+        padding: 0.5rem 0;
+        /* Reduced padding */
+        background: rgba(5, 5, 16, 0.2) !important;
+        /* Semi-transparent on mobile */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo img {
+        height: 35px;
+        /* Smaller logo */
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
+    }
+
+    /* CTA Button Adjustment */
+    .cta-button {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 260px;
+        margin-bottom: 20px;
+    }
+
+    /* Ensure glass cards have margin */
+    .glass-card {
+        margin-bottom: 15px;
     }
 }

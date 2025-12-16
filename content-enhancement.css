@@ -2,22 +2,24 @@
 /* High-quality, valuable content presentation */
 
 .content-enhancement {
-    margin: 3rem 0;
-    padding: 2rem 0;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    overflow: hidden;
 }
 
 .about-quantum-tools {
     background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(0, 128, 255, 0.05));
-    border-radius: 20px;
-    padding: 3rem;
-    margin: 3rem 0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
     border: 1px solid rgba(0, 240, 255, 0.2);
+    overflow: hidden;
 }
 
 .about-quantum-tools h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     background: linear-gradient(135deg, #00f0ff, #0080ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -71,20 +73,20 @@
 }
 
 .tool-categories-detailed {
-    margin: 4rem 0;
+    margin: 1.5rem 0;
 }
 
 .tool-categories-detailed h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--heading-color);
 }
 
 .category-detailed-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
 }
 
 .category-detail {
@@ -167,16 +169,16 @@
 }
 
 .use-cases-section {
-    margin: 4rem 0;
+    margin: 1.5rem 0;
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    padding: 3rem;
+    border-radius: 15px;
+    padding: 1.5rem;
 }
 
 .use-cases-section h2 {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--heading-color);
 }
 
@@ -211,13 +213,13 @@
 }
 
 .why-choose-section {
-    margin: 4rem 0;
+    margin: 1.5rem 0;
 }
 
 .why-choose-section h2 {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--heading-color);
 }
 
@@ -281,16 +283,16 @@
 }
 
 .tutorial-section {
-    margin: 4rem 0;
+    margin: 1.5rem 0;
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding: 3rem;
+    border-radius: 15px;
+    padding: 1.5rem;
 }
 
 .tutorial-section h2 {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--heading-color);
 }
 
@@ -332,13 +334,13 @@
 }
 
 .enhanced-faq {
-    margin: 4rem 0;
+    margin: 1.5rem 0;
 }
 
 .enhanced-faq h2 {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: var(--heading-color);
 }
 

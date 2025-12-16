@@ -1,7 +1,8 @@
 // PDF to Image Converter JavaScript
 // Convert PDF pages to high-quality images
 
-class PDFToImageConverter {    constructor() {
+class PDFToImageConverter {
+    constructor() {
         this.currentPDF = null;
         this.pdfDoc = null;
         this.images = [];
@@ -155,28 +156,28 @@ class PDFToImageConverter {    constructor() {
     async loadPDF(file) {
         try {
             this.showLoading('Loading PDF...');
-            
+
             const arrayBuffer = await file.arrayBuffer();
-            
+
             // Load PDF with PDF.js
             const loadingTask = pdfjsLib.getDocument(arrayBuffer);
             this.pdfDoc = await loadingTask.promise;
-            
+
             this.currentPDF = file;
-            
+
             // Update file info
             this.updateFileInfo(file, this.pdfDoc.numPages);
-            
+
             // Show settings section
             const settingsSection = document.getElementById('settings-section');
             if (settingsSection) {
                 settingsSection.style.display = 'block';
             }
-            
+
             this.hideLoading();
             this.updateUI();
             this.showNotification('PDF loaded successfully!', 'success');
-            
+
         } catch (error) {
             console.error('Error loading PDF:', error);
             this.hideLoading();
@@ -189,7 +190,7 @@ class PDFToImageConverter {    constructor() {
         const fileName = document.getElementById('file-name');
         const fileSize = document.getElementById('file-size');
         const pageCountElement = document.getElementById('page-count');
-        
+
         if (fileInfo) fileInfo.style.display = 'block';
         if (fileName) fileName.textContent = file.name;
         if (fileSize) fileSize.textContent = this.formatFileSize(file.size);
@@ -212,18 +213,18 @@ class PDFToImageConverter {    constructor() {
 
     updateEstimatedSize() {
         if (!this.pdfDoc) return;
-        
+
         // Simple estimation based on resolution and format
         const pagesCount = this.pdfDoc.numPages;
-        const baseSize = this.settings.resolution === 72 ? 50 : 
-                        this.settings.resolution === 150 ? 200 : 
-                        this.settings.resolution === 300 ? 800 : 3200; // KB per page
-        
+        const baseSize = this.settings.resolution === 72 ? 50 :
+            this.settings.resolution === 150 ? 200 :
+                this.settings.resolution === 300 ? 800 : 3200; // KB per page
+
         const formatMultiplier = this.settings.format === 'jpeg' ? 0.7 : 1;
         const qualityMultiplier = this.settings.format === 'jpeg' ? (this.settings.quality / 100) : 1;
-        
+
         const estimatedTotalSize = pagesCount * baseSize * formatMultiplier * qualityMultiplier;
-        
+
         const estimatedSizeElement = document.getElementById('estimated-size');
         if (estimatedSizeElement) {
             estimatedSizeElement.textContent = this.formatFileSize(estimatedTotalSize * 1024);
@@ -239,43 +240,43 @@ class PDFToImageConverter {    constructor() {
         try {
             this.showProcessing();
             this.images = [];
-            
+
             const totalPages = this.pdfDoc.numPages;
-            
+
             for (let i = 1; i <= totalPages; i++) {
                 this.updateProgress((i - 1) / totalPages * 100, `Converting page ${i} of ${totalPages}...`);
-                
+
                 const page = await this.pdfDoc.getPage(i);
                 const scale = this.settings.resolution / 72; // 72 is default DPI
-                
+
                 const viewport = page.getViewport({ scale });
-                
+
                 // Create canvas
                 const canvas = document.createElement('canvas');
                 const context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
-                
+
                 // Render page to canvas
                 await page.render({
                     canvasContext: context,
                     viewport: viewport
                 }).promise;
-                
+
                 // Convert to blob
                 const quality = this.settings.format === 'jpeg' ? this.settings.quality / 100 : undefined;
                 const blob = await this.canvasToBlob(canvas, this.settings.format, quality);
-                
+
                 this.images.push({
                     blob,
                     filename: `page_${i}.${this.settings.format}`,
                     pageNumber: i
                 });
             }
-            
+
             this.updateProgress(100, 'Conversion complete!');
             this.showResults();
-            
+
         } catch (error) {
             console.error('Error converting PDF:', error);
             this.hideProcessing();
@@ -295,7 +296,7 @@ class PDFToImageConverter {    constructor() {
         if (processingSection) {
             processingSection.style.display = 'block';
         }
-        
+
         // Hide other sections
         const settingsSection = document.getElementById('settings-section');
         if (settingsSection) {
@@ -314,30 +315,30 @@ class PDFToImageConverter {    constructor() {
         const progressFill = document.getElementById('progress-fill');
         const progressText = document.getElementById('progress-text');
         const processingStatus = document.getElementById('processing-status');
-        
+
         if (progressFill) {
             progressFill.style.width = `${percentage}%`;
         }
-        
+
         if (progressText) {
             progressText.textContent = `${Math.round(percentage)}% complete`;
         }
-        
+
         if (processingStatus) {
             processingStatus.textContent = status;
         }
-    }    showResults() {
+    } showResults() {
         const resultsSection = document.getElementById('results-section');
         if (resultsSection) {
             resultsSection.style.display = 'none'; // Hide results section
         }
-        
+
         this.hideProcessing();
         this.updateResultsDisplay();
-        
+
         // Show download section
         this.showDownloadSection();
-        
+
         // Show notification about conversion completion
         this.showNotification('PDF converted successfully! Files are ready for download.', 'success');
     }
@@ -367,7 +368,7 @@ class PDFToImageConverter {    constructor() {
                     </div>
                 </div>
             `;
-            
+
             // Add styles
             downloadSection.style.cssText = `
                 background: var(--card-bg);
@@ -387,19 +388,19 @@ class PDFToImageConverter {    constructor() {
 
         // Show the download section
         downloadSection.style.display = 'block';
-        
+
         // Bind events
         const downloadAllBtn = document.getElementById('download-all-images');
         const showResultsBtn = document.getElementById('show-results-btn');
-        
+
         if (downloadAllBtn) {
             downloadAllBtn.addEventListener('click', () => this.downloadAllImages());
         }
-        
+
         if (showResultsBtn) {
             showResultsBtn.addEventListener('click', () => this.toggleResultsSection());
         }
-        
+
         // Scroll to download section
         downloadSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -407,14 +408,14 @@ class PDFToImageConverter {    constructor() {
     toggleResultsSection() {
         const resultsSection = document.getElementById('results-section');
         const showResultsBtn = document.getElementById('show-results-btn');
-        
+
         if (resultsSection) {
             const isHidden = resultsSection.style.display === 'none';
             resultsSection.style.display = isHidden ? 'block' : 'none';
-            
+
             if (showResultsBtn) {
-                showResultsBtn.innerHTML = isHidden ? 
-                    '<i class="fas fa-eye-slash"></i> Hide Results' : 
+                showResultsBtn.innerHTML = isHidden ?
+                    '<i class="fas fa-eye-slash"></i> Hide Results' :
                     '<i class="fas fa-eye"></i> View Results';
             }
         }
@@ -424,16 +425,16 @@ class PDFToImageConverter {    constructor() {
         const imageGrid = document.getElementById('image-grid');
         const totalImages = document.getElementById('total-images');
         const totalSize = document.getElementById('total-size');
-        
+
         if (totalImages) {
             totalImages.textContent = this.images.length;
         }
-        
+
         if (totalSize) {
             const totalSizeBytes = this.images.reduce((sum, img) => sum + img.blob.size, 0);
             totalSize.textContent = this.formatFileSize(totalSizeBytes);
         }
-          if (imageGrid) {
+        if (imageGrid) {
             imageGrid.innerHTML = this.images.map(image => `
                 <div class="image-result">
                     <div class="image-preview">
@@ -449,7 +450,7 @@ class PDFToImageConverter {    constructor() {
                     </div>
                 </div>
             `).join('');
-            
+
             // Add download event listeners
             imageGrid.querySelectorAll('.download-single').forEach(btn => {
                 btn.addEventListener('click', (e) => {
@@ -476,7 +477,7 @@ class PDFToImageConverter {    constructor() {
 
     async downloadAllImages() {
         if (this.images.length === 0) return;
-        
+
         try {
             // Create ZIP file using JSZip if available, otherwise download individually
             if (window.JSZip) {
@@ -496,31 +497,72 @@ class PDFToImageConverter {    constructor() {
                 this.downloadSingleImage(image.pageNumber);
             }, index * 100); // Small delay between downloads
         });
-        
+
         this.showNotification('Download started for all images!', 'success');
-    }    removeFile() {
+    }
+
+    async downloadAsZip() {
+        if (this.images.length === 0) {
+            this.showNotification('No images to download', 'error');
+            return;
+        }
+
+        try {
+            const zip = new JSZip();
+
+            // Add each image to the ZIP
+            this.images.forEach((image) => {
+                zip.file(image.filename, image.blob);
+            });
+
+            // Generate ZIP file
+            const zipBlob = await zip.generateAsync({
+                type: 'blob',
+                compression: 'DEFLATE',
+                compressionOptions: { level: 6 }
+            });
+
+            // Create download link
+            const pdfName = this.currentPDF.name.replace(/\.pdf$/i, '');
+            const url = URL.createObjectURL(zipBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${pdfName}_images.zip`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            this.showNotification('Images downloaded as ZIP successfully!', 'success');
+        } catch (error) {
+            console.error('Error creating ZIP:', error);
+            this.showNotification('Error creating ZIP file', 'error');
+        }
+    }
+
+    removeFile() {
         this.currentPDF = null;
         this.pdfDoc = null;
         this.images = [];
         this.currentPreviewPage = 1;
-        
+
         // Reset file input
         const fileInput = document.getElementById('pdf-file-input');
         if (fileInput) fileInput.value = '';
-        
+
         // Hide sections
         const fileInfo = document.getElementById('file-info');
         const settingsSection = document.getElementById('settings-section');
         const resultsSection = document.getElementById('results-section');
         const previewSection = document.getElementById('preview-section');
         const downloadSection = document.getElementById('download-section');
-        
+
         if (fileInfo) fileInfo.style.display = 'none';
         if (settingsSection) settingsSection.style.display = 'none';
         if (resultsSection) resultsSection.style.display = 'none';
         if (previewSection) previewSection.style.display = 'none';
         if (downloadSection) downloadSection.style.display = 'none';
-        
+
         this.updateUI();
     }
 
@@ -569,7 +611,7 @@ class PDFToImageConverter {    constructor() {
             const scale = Math.min(scaleX, scaleY);
 
             const scaledViewport = page.getViewport({ scale });
-            
+
             canvas.width = scaledViewport.width;
             canvas.height = scaledViewport.height;
 
@@ -618,7 +660,7 @@ class PDFToImageConverter {    constructor() {
             await this.renderPreviewPage();
             this.updatePreviewControls();
         }
-    }    async showNextPage() {
+    } async showNextPage() {
         if (this.pdfDoc && this.currentPreviewPage < this.pdfDoc.numPages) {
             this.currentPreviewPage++;
             await this.renderPreviewPage();
@@ -629,15 +671,15 @@ class PDFToImageConverter {    constructor() {
     updateUI() {
         const hasFile = !!this.currentPDF;
         const hasImages = this.images.length > 0;
-        
+
         const convertBtn = document.getElementById('convert-btn');
         const downloadAllBtn = document.getElementById('download-all-btn');
         const previewBtn = document.getElementById('preview-btn');
-        
+
         if (convertBtn) {
             convertBtn.disabled = !hasFile;
         }
-        
+
         if (downloadAllBtn) {
             downloadAllBtn.disabled = !hasImages;
         }
@@ -658,7 +700,7 @@ class PDFToImageConverter {    constructor() {
     showLoading(message) {
         const loader = document.getElementById('loading-overlay');
         const loadingMessage = document.getElementById('loading-message');
-        
+
         if (loadingMessage) loadingMessage.textContent = message;
         if (loader) loader.style.display = 'flex';
     }
@@ -675,7 +717,7 @@ class PDFToImageConverter {    constructor() {
             <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
             <span>${message}</span>
         `;
-        
+
         Object.assign(notification.style, {
             position: 'fixed',
             top: '20px',
@@ -689,14 +731,14 @@ class PDFToImageConverter {    constructor() {
             transform: 'translateX(100%)',
             transition: 'all 0.3s ease'
         });
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.style.opacity = '1';
             notification.style.transform = 'translateX(0)';
         }, 100);
-        
+
         setTimeout(() => {
             notification.style.opacity = '0';
             notification.style.transform = 'translateX(100%)';
@@ -714,30 +756,30 @@ class ThemeManager {
     constructor() {
         this.init();
     }
-    
+
     init() {
         const themeToggle = document.getElementById('theme-toggle');
         const savedTheme = localStorage.getItem('pdf-toolkit-theme') || 'dark';
-        
+
         document.body.classList.add(`${savedTheme}-theme`);
         this.updateThemeIcon(savedTheme);
-        
+
         if (themeToggle) {
             themeToggle.addEventListener('click', () => this.toggleTheme());
         }
     }
-    
+
     toggleTheme() {
         const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
+
         document.body.classList.remove(`${currentTheme}-theme`);
         document.body.classList.add(`${newTheme}-theme`);
-        
+
         localStorage.setItem('pdf-toolkit-theme', newTheme);
         this.updateThemeIcon(newTheme);
     }
-    
+
     updateThemeIcon(theme) {
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {

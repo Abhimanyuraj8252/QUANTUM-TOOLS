@@ -175,6 +175,9 @@ class UXEnhancementManager {
 
     trackToolUsage() {
         document.addEventListener('click', (e) => {
+            // Ensure target is an Element before calling closest()
+            if (!e.target || typeof e.target.closest !== 'function') return;
+
             const toolCard = e.target.closest('.tool-card, a[href*=".html"]');
             if (toolCard && toolCard.href) {
                 const toolData = {
@@ -208,12 +211,15 @@ class UXEnhancementManager {
     }
 
     addFavoriteButtons() {
-        document.addEventListener('mouseenter', (e) => {
+        document.addEventListener('mouseover', (e) => {
+            // Ensure target is an Element before calling closest()
+            if (!e.target || typeof e.target.closest !== 'function') return;
+
             const toolCard = e.target.closest('.tool-card');
             if (toolCard && !toolCard.querySelector('.favorite-btn')) {
                 this.addFavoriteButton(toolCard);
             }
-        });
+        }, true);
     }
 
     addFavoriteButton(toolCard) {
@@ -313,6 +319,51 @@ class UXEnhancementManager {
         this.enhanceKeyboardNavigation();
         this.addARIALabels();
         this.setupFocusManagement();
+    }
+
+    // Skip links for keyboard navigation
+    addSkipLinks() {
+        // Skip link already exists or add one
+        if (!document.querySelector('.skip-link')) {
+            const skipLink = document.createElement('a');
+            skipLink.href = '#main-content';
+            skipLink.className = 'skip-link';
+            skipLink.textContent = 'Skip to main content';
+            document.body.insertBefore(skipLink, document.body.firstChild);
+        }
+    }
+
+    // Enhance keyboard navigation
+    enhanceKeyboardNavigation() {
+        // Add focus styles and keyboard handlers
+        document.querySelectorAll('.tool-card, .nav-link, button').forEach(el => {
+            el.setAttribute('tabindex', '0');
+        });
+    }
+
+    // Add ARIA labels
+    addARIALabels() {
+        // Add aria-labels to interactive elements without them
+        document.querySelectorAll('button:not([aria-label])').forEach(btn => {
+            const text = btn.textContent?.trim();
+            if (text) {
+                btn.setAttribute('aria-label', text);
+            }
+        });
+    }
+
+    // Setup focus management
+    setupFocusManagement() {
+        // Track focus for modals and dropdowns
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-user');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-user');
+        });
     }
 
     // Keyboard Shortcuts

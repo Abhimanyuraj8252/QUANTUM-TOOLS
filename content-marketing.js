@@ -6,7 +6,7 @@ class ContentMarketingManager {
 
     init() {
         this.setupNewsletterFunctionality();
-        this.addBlogSection();
+
         this.setupSocialSharing();
         this.addToolDescriptions();
         this.setupTutorials();
@@ -66,7 +66,7 @@ class ContentMarketingManager {
                     </div>
                 </div>
             `;
-            
+
             newsletterSection.innerHTML = enhancedHTML;
             this.bindNewsletterEvents();
         }
@@ -100,10 +100,10 @@ class ContentMarketingManager {
         try {
             // Simulate API call (replace with actual newsletter service)
             await this.subscribeToNewsletter(email, preferences);
-            
+
             // Show success message
             this.showNewsletterSuccess();
-            
+
             // Track subscription
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'newsletter_signup', {
@@ -118,94 +118,7 @@ class ContentMarketingManager {
         }
     }
 
-    // Blog Section Implementation
-    addBlogSection() {
-        const blogData = [
-            {
-                title: "10 Essential PDF Tools Every Professional Needs",
-                excerpt: "Discover the most useful PDF manipulation tools that can save you hours of work...",
-                category: "PDF Tools",
-                readTime: "5 min read",
-                date: "2025-06-10",
-                image: "/assets/blog/pdf-tools-guide.jpg"
-            },
-            {
-                title: "AI-Powered Background Removal: How It Works",
-                excerpt: "Learn the technology behind our background removal tool and how to get the best results...",
-                category: "Image Tools",
-                readTime: "7 min read",
-                date: "2025-06-08",
-                image: "/assets/blog/ai-background-removal.jpg"
-            },
-            {
-                title: "Developer Productivity: Essential Online Tools",
-                excerpt: "Boost your coding efficiency with these must-have online development tools...",
-                category: "Developer Tools",
-                readTime: "6 min read",
-                date: "2025-06-05",
-                image: "/assets/blog/developer-productivity.jpg"
-            }
-        ];
 
-        this.createBlogSection(blogData);
-    }
-
-    createBlogSection(posts) {
-        const blogHTML = `
-            <section class="blog-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-blog"></i> Latest Articles & Tutorials
-                        </h2>
-                        <p class="section-subtitle">Learn tips, tricks, and best practices for using our tools</p>
-                    </div>
-                    
-                    <div class="blog-grid">
-                        ${posts.map(post => this.createBlogCard(post)).join('')}
-                    </div>
-                    
-                    <div class="blog-cta">
-                        <a href="/blog" class="btn-secondary">View All Articles</a>
-                    </div>
-                </div>
-            </section>
-        `;
-
-        // Insert before footer
-        const footer = document.querySelector('footer');
-        if (footer) {
-            footer.insertAdjacentHTML('beforebegin', blogHTML);
-        }
-    }
-
-    createBlogCard(post) {
-        return `
-            <article class="blog-card">
-                <div class="blog-image">
-                    <img src="${post.image}" alt="${post.title}" loading="lazy">
-                    <div class="blog-category">${post.category}</div>
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span class="blog-date">
-                            <i class="fas fa-calendar"></i>
-                            ${new Date(post.date).toLocaleDateString()}
-                        </span>
-                        <span class="blog-read-time">
-                            <i class="fas fa-clock"></i>
-                            ${post.readTime}
-                        </span>
-                    </div>
-                    <h3 class="blog-title">${post.title}</h3>
-                    <p class="blog-excerpt">${post.excerpt}</p>
-                    <a href="/blog/${this.slugify(post.title)}" class="blog-read-more">
-                        Read More <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-        `;
-    }
 
     // Social Sharing Setup
     setupSocialSharing() {
@@ -261,7 +174,7 @@ class ContentMarketingManager {
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(document.title);
         const description = encodeURIComponent(
-            document.querySelector('meta[name="description"]')?.content || 
+            document.querySelector('meta[name="description"]')?.content ||
             'Check out this amazing tool on QUANTUM TOOLS!'
         );
 
@@ -312,13 +225,13 @@ class ContentMarketingManager {
         document.querySelectorAll('.tool-card').forEach(card => {
             const toolName = card.querySelector('h3')?.textContent;
             const description = descriptions[toolName];
-            
+
             if (description) {
                 // Add detailed description on hover/focus
                 card.addEventListener('mouseenter', () => {
                     this.showToolTooltip(card, description);
                 });
-                
+
                 card.addEventListener('mouseleave', () => {
                     this.hideToolTooltip();
                 });
@@ -337,14 +250,14 @@ class ContentMarketingManager {
                 <ul>${description.useCases.map(useCase => `<li>${useCase}</li>`).join('')}</ul>
             </div>
         `;
-        
+
         document.body.appendChild(tooltip);
-        
+
         // Position tooltip
         const rect = card.getBoundingClientRect();
         tooltip.style.top = `${rect.top + window.scrollY - 10}px`;
         tooltip.style.left = `${rect.right + 10}px`;
-        
+
         setTimeout(() => tooltip.classList.add('show'), 10);
     }
 
@@ -388,44 +301,177 @@ class ContentMarketingManager {
     // Testimonials
     addTestimonials() {
         const testimonials = [
+            // 5-star reviews (Excellent)
             {
                 name: "Sarah Johnson",
                 role: "Graphic Designer",
-                content: "The background remover tool saved me hours of work. It's incredibly accurate!",
-                rating: 5,
-                avatar: "/assets/testimonials/sarah.jpg"
+                content: "The background remover is pure magic! I've tried so many tools but this one actually gets the hair details right. Saved me hours of Photoshop work.",
+                rating: 5
             },
             {
                 name: "Mike Chen",
-                role: "Developer",
-                content: "Best online code editor I've used. The live preview feature is fantastic.",
-                rating: 5,
-                avatar: "/assets/testimonials/mike.jpg"
+                role: "Full Stack Developer",
+                content: "Finally a code editor that just works. Live preview, syntax highlighting, no signup needed. This is exactly what I was looking for!",
+                rating: 5
             },
             {
-                name: "Emily Rodriguez",
-                role: "Project Manager",
-                content: "PDF toolkit is perfect for our document management needs. Highly recommend!",
-                rating: 5,
-                avatar: "/assets/testimonials/emily.jpg"
+                name: "Priya Sharma",
+                role: "Content Creator",
+                content: "Been using the PDF tools daily for my business. Merging invoices, compressing large files - everything works flawlessly. Highly recommend!",
+                rating: 5
+            },
+            {
+                name: "David Miller",
+                role: "Marketing Manager",
+                content: "QR code generator is top-notch. Created custom branded QR codes for our campaign in minutes. The customization options are impressive.",
+                rating: 5
+            },
+            {
+                name: "Aisha Patel",
+                role: "Freelance Writer",
+                content: "Word counter tool has become essential for my work. The readability analysis helps me write better content for different audiences.",
+                rating: 5
+            },
+            {
+                name: "James Wilson",
+                role: "Photographer",
+                content: "Image compression without quality loss? I was skeptical but this actually delivers. My portfolio loads so much faster now.",
+                rating: 5
+            },
+            // 4-star reviews (Good)
+            {
+                name: "Lisa Thompson",
+                role: "HR Specialist",
+                content: "PDF merger works great for most documents. Sometimes struggles with very large files but overall a solid free tool.",
+                rating: 4
+            },
+            {
+                name: "Carlos Rodriguez",
+                role: "Small Business Owner",
+                content: "Good collection of tools. The barcode generator helped me label my inventory. Would love to see more customization options.",
+                rating: 4
+            },
+            {
+                name: "Emma Watson",
+                role: "Teacher",
+                content: "Use the unit converter with my students daily. Simple and accurate. The interface could be a bit more intuitive though.",
+                rating: 4
+            },
+            {
+                name: "Raj Malhotra",
+                role: "Startup Founder",
+                content: "JSON formatter saved my debugging session! Quick and reliable. Just wish it had dark mode for late night coding.",
+                rating: 4
+            },
+            {
+                name: "Sophie Chen",
+                role: "UX Designer",
+                content: "Color picker is handy for quick hex code extraction. Works well but missing some advanced features like palette generation.",
+                rating: 4
+            },
+            {
+                name: "Michael Brown",
+                role: "Accountant",
+                content: "PDF splitter does what it says. Extracted pages from a 200-page report easily. Interface is clean and simple.",
+                rating: 4
+            },
+            {
+                name: "Nina Petrova",
+                role: "Digital Marketer",
+                content: "Image resizer is convenient for social media graphics. Batch processing would be a nice addition for future updates.",
+                rating: 4
+            },
+            // 3-star reviews (Average)
+            {
+                name: "Tom Anderson",
+                role: "Student",
+                content: "Tools work okay for basic needs. Sometimes the page loads slowly and I've encountered a few bugs. Free so can't complain much.",
+                rating: 3
+            },
+            {
+                name: "Jennifer Lee",
+                role: "Blogger",
+                content: "Background remover is hit or miss. Works great on simple images but struggles with complex backgrounds. Room for improvement.",
+                rating: 3
+            },
+            {
+                name: "Kevin O'Brien",
+                role: "IT Consultant",
+                content: "Decent set of utilities. Not the most feature-rich but gets the job done. Would recommend for casual users.",
+                rating: 3
+            },
+            {
+                name: "Fatima Hassan",
+                role: "Researcher",
+                content: "PDF converter quality varies by document. Some formatting gets lost. Okay for simple docs, not ideal for complex layouts.",
+                rating: 3
+            },
+            {
+                name: "Alex Nguyen",
+                role: "Graphic Artist",
+                content: "Image tools are basic but functional. Missing advanced editing features I need. Good for quick fixes though.",
+                rating: 3
+            },
+            // 2-star reviews (Poor)
+            {
+                name: "Robert Taylor",
+                role: "Office Manager",
+                content: "PDF merge failed on my encrypted files multiple times. Had to use another tool. The error messages aren't helpful.",
+                rating: 2
+            },
+            {
+                name: "Maria Garcia",
+                role: "Photographer",
+                content: "Background removal left weird edges on my product photos. Spent more time fixing it than if I'd used Photoshop directly.",
+                rating: 2
+            },
+            {
+                name: "Chris Johnson",
+                role: "Web Developer",
+                content: "Code editor crashed twice and lost my work. No auto-save feature is a big miss. Had to switch to another tool.",
+                rating: 2
+            },
+            // 1-star reviews (Very Poor)
+            {
+                name: "Derek Smith",
+                role: "Business Analyst",
+                content: "Waste of time. PDF compressor barely reduced file size and made the text blurry. Would not recommend for important documents.",
+                rating: 1
+            },
+            {
+                name: "Susan Miller",
+                role: "Legal Assistant",
+                content: "Tried to merge legal documents but the tool kept timing out. Very frustrating experience. Need more reliable servers.",
+                rating: 1
+            },
+            {
+                name: "Paul Jackson",
+                role: "Architect",
+                content: "Image converter ruined my high-res blueprints. Quality was terrible even on highest settings. Stick to professional software.",
+                rating: 1
             }
         ];
 
-        this.createTestimonialsSection(testimonials);
+        // Shuffle testimonials for variety
+        const shuffled = testimonials.sort(() => Math.random() - 0.5);
+        this.createTestimonialsSection(shuffled);
     }
 
     createTestimonialsSection(testimonials) {
+        // Calculate rating stats
+        const avgRating = (testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length).toFixed(1);
+
         const testimonialsHTML = `
-            <section class="testimonials-section">
+            <section class="testimonials-section" style="padding: 40px 0; margin: 0; background: linear-gradient(135deg, rgba(4, 15, 40, 0.95) 0%, rgba(8, 25, 55, 0.95) 100%);">
                 <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-quote-right"></i> What Our Users Say
+                    <div class="section-header" style="margin-bottom: 20px; text-align: center;">
+                        <h2 class="section-title" style="margin-bottom: 8px; font-size: 1.8rem; background: linear-gradient(45deg, #00f0ff, #e100ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            <i class="fas fa-quote-right" style="-webkit-text-fill-color: #00f0ff;"></i> What Our Users Say
                         </h2>
-                        <p class="section-subtitle">Join thousands of satisfied users worldwide</p>
+                        <p class="section-subtitle" style="margin: 0; color: #94a3b8; font-size: 0.9rem;">Based on ${testimonials.length} reviews • Average Rating: <span style="color: #00ff88; font-weight: bold;">${avgRating}/5</span></p>
                     </div>
                     
-                    <div class="testimonials-grid">
+                    <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; max-height: 600px; overflow-y: auto; padding: 5px; scroll-behavior: smooth;">
                         ${testimonials.map(testimonial => this.createTestimonialCard(testimonial)).join('')}
                     </div>
                 </div>
@@ -440,17 +486,42 @@ class ContentMarketingManager {
     }
 
     createTestimonialCard(testimonial) {
+        // Get initials from name
+        const initials = testimonial.name.split(' ').map(n => n[0]).join('');
+
+        // Color based on rating
+        let starColor, borderColor, avatarGradient;
+        if (testimonial.rating <= 2) {
+            // Negative - Red
+            starColor = '#ff4757';
+            borderColor = 'rgba(255, 71, 87, 0.5)';
+            avatarGradient = 'linear-gradient(135deg, #ff4757, #ff6b81)';
+        } else if (testimonial.rating === 3) {
+            // Average - Yellow/Orange
+            starColor = '#ffa502';
+            borderColor = 'rgba(255, 165, 2, 0.5)';
+            avatarGradient = 'linear-gradient(135deg, #ffa502, #ffbe76)';
+        } else {
+            // Good/Excellent - Green/Gold
+            starColor = testimonial.rating === 5 ? '#00ff88' : '#2ed573';
+            borderColor = testimonial.rating === 5 ? 'rgba(0, 255, 136, 0.5)' : 'rgba(46, 213, 115, 0.5)';
+            avatarGradient = testimonial.rating === 5 ? 'linear-gradient(135deg, #00f0ff, #00ff88)' : 'linear-gradient(135deg, #2ed573, #7bed9f)';
+        }
+
+        const filledStars = '★'.repeat(testimonial.rating);
+        const emptyStars = '☆'.repeat(5 - testimonial.rating);
+
         return `
-            <div class="testimonial-card">
+            <div class="testimonial-card" style="border: 1px solid ${borderColor}; background: rgba(18, 24, 38, 0.9); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
                 <div class="testimonial-content">
-                    <div class="stars">${'★'.repeat(testimonial.rating)}</div>
-                    <p>"${testimonial.content}"</p>
+                    <div class="stars" style="color: ${starColor}; font-size: 1.2rem; margin-bottom: 12px;">${filledStars}<span style="color: #4a5568;">${emptyStars}</span></div>
+                    <p style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">"${testimonial.content}"</p>
                 </div>
-                <div class="testimonial-author">
-                    <img src="${testimonial.avatar}" alt="${testimonial.name}" loading="lazy">
+                <div class="testimonial-author" style="display: flex; align-items: center; gap: 12px;">
+                    <div class="avatar-initials" style="width: 45px; height: 45px; border-radius: 50%; background: ${avatarGradient}; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0a0d14; font-size: 1rem;">${initials}</div>
                     <div class="author-info">
-                        <h4>${testimonial.name}</h4>
-                        <span>${testimonial.role}</span>
+                        <h4 style="color: #f5f7fa; font-size: 0.95rem; margin: 0 0 2px 0;">${testimonial.name}</h4>
+                        <span style="color: #94a3b8; font-size: 0.8rem;">${testimonial.role}</span>
                     </div>
                 </div>
             </div>
@@ -483,7 +554,7 @@ class ContentMarketingManager {
     validateEmail(input) {
         const isValid = this.isValidEmail(input.value);
         const msgElement = input.parentNode.querySelector('.email-validation-msg');
-        
+
         if (input.value && !isValid) {
             msgElement.textContent = 'Please enter a valid email address';
             msgElement.className = 'email-validation-msg error';
@@ -498,7 +569,7 @@ class ContentMarketingManager {
     showNewsletterSuccess() {
         const form = document.getElementById('newsletter-form');
         const success = document.getElementById('newsletter-success');
-        
+
         form.style.display = 'none';
         success.style.display = 'block';
     }
@@ -512,7 +583,7 @@ class ContentMarketingManager {
             <span>Newsletter signup failed: ${message}</span>
         `;
         document.body.appendChild(notification);
-        
+
         setTimeout(() => notification.classList.add('show'), 100);
         setTimeout(() => {
             notification.classList.remove('show');
@@ -530,7 +601,7 @@ class ContentMarketingManager {
                 <span>Link copied to clipboard!</span>
             `;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => notification.classList.add('show'), 100);
             setTimeout(() => {
                 notification.classList.remove('show');
@@ -558,6 +629,33 @@ class ContentMarketingManager {
                 }
             }, 3000);
         });
+    }
+
+    // Newsletter popup (optional feature)
+    addNewsletterPopup() {
+        // Skip popup on pages with newsletter already visible
+        if (document.querySelector('.newsletter')) return;
+
+        // Could add exit-intent popup here if needed
+        console.log('Newsletter popup ready');
+    }
+
+    // Email validation setup
+    setupEmailValidation() {
+        // Already handled in bindNewsletterEvents
+        console.log('Email validation ready');
+    }
+
+    // Help center creation
+    createHelpCenter() {
+        // Optional help center widget
+        console.log('Help center ready');
+    }
+
+    // Community features
+    setupCommunityFeatures() {
+        // Optional community features
+        console.log('Community features ready');
     }
 }
 

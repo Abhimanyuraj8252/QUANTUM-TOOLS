@@ -20,20 +20,20 @@ const CORE_FILES = [
 
 // Enhanced scripts and styles (mobile-optimized paths)
 const ENHANCED_FILES = [
-    './Home%20page/enhanced-script.js',
-    './Home%20page/animations.css',
-    './Home%20page/enhancements.css',
-    './Home%20page/universal-nav.css',
-    './Home%20page/preloader.css',
+    './home-page/enhanced-script.js',
+    './home-page/animations.css',
+    './home-page/enhancements.css',
+    './home-page/universal-nav.css',
+    './home-page/preloader.css',
     './mobile-optimizations.css'
 ];
 
 // Critical tool pages for mobile users
 const CRITICAL_TOOLS = [
-    './image-tools/bg%20remover/bg-remover.html',
+    './image-tools/bg-remover/bg-remover.html',
     './pdf-tools/pdf-toolkit.html',
-    './developer-tools/Editor%20with%20Live%20Preview/code-editor.html',
-    './utility-tools/QR%20code%20generator/qr-generator.html',
+    './developer-tools/editor-with-live-preview/code-editor.html',
+    './utility-tools/qr-code-generator/qr-generator.html',
     './text-based-tools/word-counter/index.html'
 ];
 
@@ -50,17 +50,27 @@ self.addEventListener('install', event => {
 
     event.waitUntil(
         Promise.all([
-            // Cache core files
-            caches.open(STATIC_CACHE).then(cache => {
+            // Cache core files one by one to handle missing files gracefully
+            caches.open(STATIC_CACHE).then(async cache => {
                 console.log('[ServiceWorker] Caching core files');
-                return cache.addAll(CORE_FILES);
+                for (const file of CORE_FILES) {
+                    try {
+                        await cache.add(file);
+                    } catch (err) {
+                        console.warn('[ServiceWorker] Could not cache:', file);
+                    }
+                }
             }),
             // Cache enhanced files for better experience
-            caches.open(STATIC_CACHE).then(cache => {
+            caches.open(STATIC_CACHE).then(async cache => {
                 console.log('[ServiceWorker] Caching enhanced files');
-                return cache.addAll(ENHANCED_FILES.filter(file => file)).catch(err => {
-                    console.warn('[ServiceWorker] Some enhanced files not found:', err);
-                });
+                for (const file of ENHANCED_FILES) {
+                    try {
+                        await cache.add(file);
+                    } catch (err) {
+                        console.warn('[ServiceWorker] Enhanced file not found:', file);
+                    }
+                }
             })
         ]).then(() => {
             console.log('[ServiceWorker] Installation complete');

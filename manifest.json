@@ -30,31 +30,25 @@
             "purpose": "maskable any"
         },
         {
-            "src": "./assets/icon-144x144.png",
+            "src": "./assets/images/favicon-192x192.png",
             "sizes": "144x144",
             "type": "image/png",
             "purpose": "maskable any"
         },
         {
-            "src": "./assets/icon-152x152.png",
+            "src": "./assets/images/favicon-192x192.png",
             "sizes": "152x152",
             "type": "image/png",
             "purpose": "maskable any"
         },
         {
-            "src": "./assets/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable any"
-        },
-        {
-            "src": "./assets/icon-384x384.png",
+            "src": "./assets/images/favicon-192x192.png",
             "sizes": "384x384",
             "type": "image/png",
             "purpose": "maskable any"
         },
         {
-            "src": "/assets/icon-512x512.png",
+            "src": "./assets/images/favicon-192x192.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable any"
@@ -62,14 +56,14 @@
     ],
     "screenshots": [
         {
-            "src": "/assets/screenshot-wide.png",
+            "src": "./assets/images/favicon-192x192.png",
             "sizes": "1280x720",
             "type": "image/png",
             "form_factor": "wide",
             "label": "QUANTUM TOOLS Desktop View"
         },
         {
-            "src": "/assets/screenshot-narrow.png",
+            "src": "./assets/images/favicon-192x192.png",
             "sizes": "375x812",
             "type": "image/png",
             "form_factor": "narrow",
@@ -81,10 +75,10 @@
             "name": "PDF Tools",
             "short_name": "PDF",
             "description": "Access PDF manipulation tools",
-            "url": "/PDF%20tools/pdf-toolkit.html",
+            "url": "/pdf-tools/pdf-toolkit.html",
             "icons": [
                 {
-                    "src": "/assets/shortcut-pdf.png",
+                    "src": "./assets/images/favicon-192x192.png",
                     "sizes": "192x192"
                 }
             ]
@@ -93,10 +87,10 @@
             "name": "Image Tools",
             "short_name": "Images",
             "description": "Access image processing tools",
-            "url": "/Image%20tools/bg%20remover/bg-remover.html",
+            "url": "/image-tools/bg-remover/bg-remover.html",
             "icons": [
                 {
-                    "src": "/assets/shortcut-image.png",
+                    "src": "./assets/images/favicon-192x192.png",
                     "sizes": "192x192"
                 }
             ]
@@ -105,10 +99,10 @@
             "name": "Developer Tools",
             "short_name": "Dev",
             "description": "Access developer utilities",
-            "url": "/Developer%20tools/Editor%20with%20Live%20Preview/code-editor.html",
+            "url": "/developer-tools/editor-with-live-preview/code-editor.html",
             "icons": [
                 {
-                    "src": "/assets/shortcut-dev.png",
+                    "src": "./assets/images/favicon-192x192.png",
                     "sizes": "192x192"
                 }
             ]
@@ -117,10 +111,10 @@
             "name": "Text Tools",
             "short_name": "Text",
             "description": "Access text processing tools",
-            "url": "/text%20based%20tools/word-counter/word-counter.html",
+            "url": "/text-based-tools/word-counter/index.html",
             "icons": [
                 {
-                    "src": "/assets/shortcut-text.png",
+                    "src": "./assets/images/favicon-192x192.png",
                     "sizes": "192x192"
                 }
             ]
