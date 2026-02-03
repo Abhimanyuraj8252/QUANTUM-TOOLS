@@ -6,7 +6,7 @@
 
 <!-- Typing SVG Animation -->
 <a href="https://quantumtools.me">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=900&size=35&duration=3000&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&lines=The+Future+of+Web+Utilities;50%2B+Premium+Online+Tools;100%25+Client-Side+%26+Secure;AI-Powered+Image+Processing;Zero+Server+Latency" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=900&size=35&duration=3000&pause=1000&color=00F0FF&center=true&vCenter=true&width=600&lines=The+Future+of+Web+Utilities;50%2B+Premium+Online+Tools;100%25+Client-Side+%26+Secure;AI-Powered+Image+Processing;Zero+Server+Latency" alt="Typing SVG" />
 </a>
 
 <p align="center">
@@ -56,7 +56,7 @@ We have reimagined the developer utility toolbelt. **Quantum Tools** features a 
   <tr>
     <td align="center" width="33%">
       <h3>👨‍💻 Developer Tools</h3>
-      <img src="https://media.giphy.com/media/26n7b7PjSOZJwVcJf/giphy.gif" width="50" height="50" alt="Code" />
+      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzN0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0JmN0PWc/26n7b7PjSOZJwVcJf/giphy.gif" width="50" height="50" alt="Code" />
       <br><br>
       • <b>Live Code Editor</b><br>
       • <b>JSON Formatter</b><br>
@@ -66,7 +66,7 @@ We have reimagined the developer utility toolbelt. **Quantum Tools** features a 
     </td>
     <td align="center" width="33%">
       <h3>🎨 Media Studio</h3>
-      <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="50" height="50" alt="Art" />
+      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzN0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0JmN0PWc/3o7aD2saalBwwftBIY/giphy.gif" width="50" height="50" alt="Art" />
       <br><br>
       • <b>AI Background Remover</b><br>
       • <b>Image Converter</b><br>
@@ -76,7 +76,7 @@ We have reimagined the developer utility toolbelt. **Quantum Tools** features a 
     </td>
     <td align="center" width="33%">
       <h3>📄 PDF & Convert</h3>
-      <img src="https://media.giphy.com/media/l41lFj8af0n6qX8zK/giphy.gif" width="50" height="50" alt="Docs" />
+      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzN0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0Ynd0JmN0PWc/l41lFj8af0n6qX8zK/giphy.gif" width="50" height="50" alt="Docs" />
       <br><br>
       • <b>PDF Merge/Split</b><br>
       • <b>PDF Compressor</b><br>
@@ -120,7 +120,7 @@ We have reimagined the developer utility toolbelt. **Quantum Tools** features a 
 
 <!-- Replace 'Abhimanyuraj8252' with your actual username if different, though it's pulled from context -->
 <a href="https://github.com/Abhimanyuraj8252/QUANTUM-TOOLS">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Abhimanyuraj8252&repo=QUANTUM-TOOLS&theme=tokyonight&show_owner=true" />
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=Abhimanyuraj8252&repo=QUANTUM-TOOLS&theme=tokyonight&show_owner=true" width="400" />
 </a>
 
 <br><br>
