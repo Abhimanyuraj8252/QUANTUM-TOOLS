@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Quantum Tools</title>
+    <meta name="description" content="Search through Quantum Tools collection">
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Redirect search queries to the proper search results page
+        window.addEventListener('load', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchTerm = urlParams.get('search_term_string') || urlParams.get('q') || '';
+
+            if (searchTerm) {
+                // Redirect to the actual search results page with the search term
+                window.location.href = '/Home%20page/search-results.html?q=' + encodeURIComponent(searchTerm);
+            } else {
+                // Redirect to home if no search term
+                window.location.href = '/';
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Redirecting to search results...</h1>
+        <p>If you are not redirected automatically, <a href="/">click here to go home</a>.</p>
+    </div>
+</body>
+
+</html>

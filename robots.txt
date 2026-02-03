@@ -1,0 +1,105 @@
+# Robots.txt for QUANTUM TOOLS
+# Updated on July 19, 2025
+
+# Default rules for all bots
+User-agent: *
+Allow: /
+
+# Block dynamically generated ad/analytics files that shouldn't be indexed
+Disallow: /tardisrocinante/
+Disallow: /parsonsmalze/
+Disallow: /detroitchicago/
+Disallow: /*?gcb=*
+Disallow: /*?cb=*
+Disallow: /*.js?gcb=*
+Disallow: /*.js?cb=*
+
+# Block other common dynamic/temporary content
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+Disallow: /*?campaign=*
+Disallow: /temp/
+Disallow: /cache/
+Disallow: /logs/
+Disallow: /url-removal-guide.md
+Disallow: /indexing-request-guide.md
+
+# Discourage indexing of index.html files (prefer directory URLs)
+# Discourage indexing of index.html files (prefer directory URLs)
+# Disallow: /index.html
+# Disallow: */index.html
+
+# Allow CSS and JS files for proper rendering (except blocked patterns above)
+Allow: *.css
+Allow: *.js$
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+Allow: *.ico
+
+# Allow all major search engine bots with specific directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 3
+
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 5
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Disallow low-value pages or admin areas
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://quantumtools.netlify.app/sitemap.xml
+Sitemap: https://quantumtools.netlify.app/sitemap-images.xml
+Sitemap: https://quantumtools.me/sitemap.xml
+Sitemap: https://quantumtools.me/sitemap-images.xml
+Sitemap: https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/sitemap.xml
+Sitemap: https://abhimanyuraj8252.github.io/QUANTUM-TOOLS/sitemap-images.xml
+
+# Additional instructions
+# Cache: public, max-age=86400
+# Last-Modified: July 19, 2025

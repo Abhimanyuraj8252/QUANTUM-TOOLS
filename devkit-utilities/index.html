@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T5WCC5DD');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevKit Utilities - Professional Developer Tools</title>
+    <meta name="description" content="A comprehensive suite of utility and conversion tools for developers. All tools run client-side for privacy and speed.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0E17RL1H32');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+     crossorigin="anonymous"></script>
+     
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5WCC5DD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-tools"></i> DevKit Utilities</h1>
+                <p>Professional Developer Tools</p>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-section">
+                    <h3>Time & Date</h3>
+                    <button class="nav-item active" data-tool="timezone-converter">
+                        <i class="fas fa-clock"></i> Time Zone Converter
+                    </button>
+                    <button class="nav-item" data-tool="date-calculator">
+                        <i class="fas fa-calendar-alt"></i> Date Calculator
+                    </button>
+                    <button class="nav-item" data-tool="stopwatch">
+                        <i class="fas fa-stopwatch"></i> Stopwatch
+                    </button>
+                    <button class="nav-item" data-tool="countdown-timer">
+                        <i class="fas fa-hourglass-half"></i> Countdown Timer
+                    </button>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Generators</h3>
+                    <button class="nav-item" data-tool="random-number">
+                        <i class="fas fa-random"></i> Random Number
+                    </button>
+                    <button class="nav-item" data-tool="hash-generator">
+                        <i class="fas fa-lock"></i> Hash Generator
+                    </button>
+                    <button class="nav-item" data-tool="color-palette">
+                        <i class="fas fa-palette"></i> Color Palette
+                    </button>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Converters</h3>
+                    <button class="nav-item" data-tool="color-converter">
+                        <i class="fas fa-fill-drip"></i> Color Converter
+                    </button>
+                    <button class="nav-item" data-tool="csv-to-json">
+                        <i class="fas fa-file-csv"></i> CSV to JSON
+                    </button>
+                    <button class="nav-item" data-tool="json-to-csv">
+                        <i class="fas fa-file-code"></i> JSON to CSV
+                    </button>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Scanner</h3>
+                    <button class="nav-item" data-tool="qr-reader">
+                        <i class="fas fa-qrcode"></i> QR Code Reader
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Time Zone Converter -->
+            <section id="timezone-converter" class="tool-section active">
+                <header class="tool-header">
+                    <h2><i class="fas fa-clock"></i> Time Zone Converter</h2>
+                    <p>Convert time between different time zones instantly</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="converter-grid">
+                        <div class="timezone-input-group">
+                            <label for="from-timezone">From Time Zone:</label>
+                            <select id="from-timezone" class="timezone-select">
+                                <option value="America/New_York">America/New_York (EST)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="timezone-input-group">
+                            <label for="to-timezone">To Time Zone:</label>
+                            <select id="to-timezone" class="timezone-select">
+                                <option value="Europe/London">Europe/London (GMT)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="datetime-input-group">
+                            <label for="source-datetime">Date & Time:</label>
+                            <input type="datetime-local" id="source-datetime" class="datetime-input">
+                        </div>
+                        
+                        <div class="result-group">
+                            <label>Converted Time:</label>
+                            <div id="converted-time" class="converted-time-display">
+                                Select a time to convert
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Date Calculator -->
+            <section id="date-calculator" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-calendar-alt"></i> Date Calculator</h2>
+                    <p>Calculate differences between dates or add/subtract days</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="tab-container">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="difference">Date Difference</button>
+                            <button class="tab-btn" data-tab="add-subtract">Add/Subtract Days</button>
+                        </div>
+                        
+                        <div id="difference-tab" class="tab-content active">
+                            <div class="date-calc-grid">
+                                <div class="input-group">
+                                    <label for="start-date">Start Date:</label>
+                                    <input type="date" id="start-date">
+                                </div>
+                                <div class="input-group">
+                                    <label for="end-date">End Date:</label>
+                                    <input type="date" id="end-date">
+                                </div>
+                                <div class="result-display" id="date-difference-result">
+                                    <div class="result-item">
+                                        <span class="result-label">Days:</span>
+                                        <span class="result-value" id="days-diff">0</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Weeks:</span>
+                                        <span class="result-value" id="weeks-diff">0</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Months:</span>
+                                        <span class="result-value" id="months-diff">0</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Years:</span>
+                                        <span class="result-value" id="years-diff">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="add-subtract-tab" class="tab-content">
+                            <div class="date-calc-grid">
+                                <div class="input-group">
+                                    <label for="base-date">Base Date:</label>
+                                    <input type="date" id="base-date">
+                                </div>
+                                <div class="input-group">
+                                    <label for="operation">Operation:</label>
+                                    <select id="operation">
+                                        <option value="add">Add</option>
+                                        <option value="subtract">Subtract</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="amount">Amount:</label>
+                                    <input type="number" id="amount" min="0" value="1">
+                                </div>
+                                <div class="input-group">
+                                    <label for="unit">Unit:</label>
+                                    <select id="unit">
+                                        <option value="days">Days</option>
+                                        <option value="weeks">Weeks</option>
+                                        <option value="months">Months</option>
+                                        <option value="years">Years</option>
+                                    </select>
+                                </div>
+                                <div class="result-display">
+                                    <div class="result-item full-width">
+                                        <span class="result-label">Result:</span>
+                                        <span class="result-value" id="calculated-date">Select a date</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stopwatch -->
+            <section id="stopwatch" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-stopwatch"></i> Stopwatch</h2>
+                    <p>Precise timing with lap functionality</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="stopwatch-container">
+                        <div class="stopwatch-display" id="stopwatch-time">00:00:00.000</div>
+                        
+                        <div class="stopwatch-controls">
+                            <button id="start-stop-btn" class="control-btn primary">
+                                <i class="fas fa-play"></i> Start
+                            </button>
+                            <button id="lap-btn" class="control-btn secondary" disabled>
+                                <i class="fas fa-flag"></i> Lap
+                            </button>
+                            <button id="reset-btn" class="control-btn tertiary">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                        
+                        <div class="lap-times" id="lap-times">
+                            <h3>Lap Times</h3>
+                            <div class="lap-list" id="lap-list">
+                                <!-- Lap times will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Countdown Timer -->
+            <section id="countdown-timer" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-hourglass-half"></i> Countdown Timer</h2>
+                    <p>Count down to any future date and time</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="countdown-container">
+                        <div class="countdown-input">
+                            <label for="target-datetime">Target Date & Time:</label>
+                            <input type="datetime-local" id="target-datetime">
+                        </div>
+                        
+                        <div class="countdown-display" id="countdown-display">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="countdown-days">00</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="countdown-hours">00</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="countdown-minutes">00</span>
+                                <span class="countdown-label">Minutes</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="countdown-seconds">00</span>
+                                <span class="countdown-label">Seconds</span>
+                            </div>
+                        </div>
+                        
+                        <div class="countdown-status" id="countdown-status">
+                            Set a target date to start countdown
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Random Number Generator -->
+            <section id="random-number" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-random"></i> Random Number Generator</h2>
+                    <p>Generate random numbers within specified ranges</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="random-number-container">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="min-value">Minimum:</label>
+                                <input type="number" id="min-value" value="1">
+                            </div>
+                            <div class="input-group">
+                                <label for="max-value">Maximum:</label>
+                                <input type="number" id="max-value" value="100">
+                            </div>
+                        </div>
+                        
+                        <button id="generate-btn" class="generate-btn">
+                            <i class="fas fa-dice"></i> Generate Random Number
+                        </button>
+                        
+                        <div class="random-result" id="random-result">
+                            <div class="result-number" id="generated-number">?</div>
+                            <button id="copy-number-btn" class="copy-btn" style="display: none;">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hash Generator -->
+            <section id="hash-generator" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-lock"></i> Hash Generator</h2>
+                    <p>Generate secure hashes from text or files (client-side only)</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="hash-container">
+                        <div class="input-section">
+                            <div class="input-tabs">
+                                <button class="input-tab active" data-input="text">Text Input</button>
+                                <button class="input-tab" data-input="file">File Upload</button>
+                            </div>
+                            
+                            <div id="text-input-section" class="input-content active">
+                                <textarea id="hash-text-input" placeholder="Enter text to hash..."></textarea>
+                            </div>
+                            
+                            <div id="file-input-section" class="input-content">
+                                <div class="file-upload-area" id="file-upload-area">
+                                    <i class="fas fa-upload"></i>
+                                    <p>Drop a file here or click to upload</p>
+                                    <input type="file" id="hash-file-input" hidden>
+                                </div>
+                                <div id="file-info" class="file-info" style="display: none;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="hash-results" id="hash-results">
+                            <div class="hash-item">
+                                <label>MD5:</label>
+                                <div class="hash-output">
+                                    <span id="md5-hash" class="hash-value">-</span>
+                                    <button class="copy-hash-btn" data-hash="md5">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="hash-item">
+                                <label>SHA-1:</label>
+                                <div class="hash-output">
+                                    <span id="sha1-hash" class="hash-value">-</span>
+                                    <button class="copy-hash-btn" data-hash="sha1">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="hash-item">
+                                <label>SHA-256:</label>
+                                <div class="hash-output">
+                                    <span id="sha256-hash" class="hash-value">-</span>
+                                    <button class="copy-hash-btn" data-hash="sha256">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="hash-item">
+                                <label>SHA-512:</label>
+                                <div class="hash-output">
+                                    <span id="sha512-hash" class="hash-value">-</span>
+                                    <button class="copy-hash-btn" data-hash="sha512">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="privacy-notice">
+                            <i class="fas fa-shield-alt"></i>
+                            All hashing is performed locally in your browser. No data is sent to any server.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Color Palette Generator -->
+            <section id="color-palette" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-palette"></i> Color Palette Generator</h2>
+                    <p>Generate beautiful color palettes for your projects</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="color-palette-container">
+                        <div class="palette-controls">
+                            <div class="control-group">
+                                <label for="base-color">Base Color:</label>
+                                <input type="color" id="base-color" value="#3498db">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Palette Type:</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="palette-type" value="monochromatic" checked>
+                                        Monochromatic
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="palette-type" value="analogous">
+                                        Analogous
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="palette-type" value="complementary">
+                                        Complementary
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="palette-type" value="triadic">
+                                        Triadic
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button id="generate-random-palette" class="generate-btn">
+                                <i class="fas fa-random"></i> Generate Random Palette
+                            </button>
+                        </div>
+                        
+                        <div class="palette-display" id="palette-display">
+                            <!-- Color swatches will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Color Converter -->
+            <section id="color-converter" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-fill-drip"></i> Color Converter</h2>
+                    <p>Convert between different color formats instantly</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="color-converter-container">
+                        <div class="color-input-section">
+                            <label for="color-input">Enter Color (HEX, RGB, HSL):</label>
+                            <input type="text" id="color-input" placeholder="e.g., #3498db, rgb(52, 152, 219), hsl(204, 70%, 53%)">
+                        </div>
+                        
+                        <div class="color-preview" id="color-preview">
+                            <div class="preview-swatch" id="preview-swatch"></div>
+                            <span id="preview-label">Enter a valid color</span>
+                        </div>
+                        
+                        <div class="color-formats" id="color-formats">
+                            <div class="format-item">
+                                <label>HEX:</label>
+                                <div class="format-output">
+                                    <span id="hex-output" class="format-value">-</span>
+                                    <button class="copy-format-btn" data-format="hex">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="format-item">
+                                <label>RGB:</label>
+                                <div class="format-output">
+                                    <span id="rgb-output" class="format-value">-</span>
+                                    <button class="copy-format-btn" data-format="rgb">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="format-item">
+                                <label>HSL:</label>
+                                <div class="format-output">
+                                    <span id="hsl-output" class="format-value">-</span>
+                                    <button class="copy-format-btn" data-format="hsl">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="format-item">
+                                <label>CMYK:</label>
+                                <div class="format-output">
+                                    <span id="cmyk-output" class="format-value">-</span>
+                                    <button class="copy-format-btn" data-format="cmyk">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>            <!-- CSV to JSON Converter -->
+            <section id="csv-to-json" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-file-csv"></i> CSV to JSON Converter</h2>
+                    <p>Convert CSV data to JSON format</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="converter-container">
+                        <div class="input-section">
+                            <div class="input-header">
+                                <label for="csv-input">CSV Data:</label>
+                                <div class="file-controls">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="has-header" checked>
+                                        First row is header
+                                    </label>
+                                    <button type="button" class="file-select-btn" id="csv-file-select">
+                                        <i class="fas fa-file-upload"></i> Select CSV File
+                                    </button>
+                                    <input type="file" id="csv-file-input" accept=".csv" hidden>
+                                </div>
+                            </div>
+                            <textarea id="csv-input" placeholder="Paste your CSV data here or select a file..."></textarea>
+                        </div>
+                        
+                        <div class="converter-actions">
+                            <button id="csv-to-json-btn" class="convert-btn">
+                                <i class="fas fa-exchange-alt"></i> Convert to JSON
+                            </button>
+                        </div>
+                        
+                        <div class="output-section">
+                            <div class="output-header">
+                                <label>JSON Output:</label>
+                                <button id="copy-json-btn" class="copy-btn" disabled>
+                                    <i class="fas fa-copy"></i> Copy JSON
+                                </button>
+                            </div>
+                            <textarea id="json-output" readonly placeholder="JSON output will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>            <!-- JSON to CSV Converter -->
+            <section id="json-to-csv" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-file-code"></i> JSON to CSV Converter</h2>
+                    <p>Convert JSON array to CSV format</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="converter-container">
+                        <div class="input-section">
+                            <div class="input-header">
+                                <label for="json-input">JSON Data (Array of Objects):</label>
+                                <button type="button" class="file-select-btn" id="json-file-select">
+                                    <i class="fas fa-file-upload"></i> Select JSON File
+                                </button>
+                                <input type="file" id="json-file-input" accept=".json" hidden>
+                            </div>
+                            <textarea id="json-input" placeholder="Paste your JSON array here or select a file..."></textarea>
+                        </div>
+                        
+                        <div class="converter-actions">
+                            <button id="json-to-csv-btn" class="convert-btn">
+                                <i class="fas fa-exchange-alt"></i> Convert to CSV
+                            </button>
+                        </div>
+                        
+                        <div class="output-section">
+                            <div class="output-header">
+                                <label>CSV Output:</label>
+                                <button id="copy-csv-btn" class="copy-btn" disabled>
+                                    <i class="fas fa-copy"></i> Copy CSV
+                                </button>
+                            </div>
+                            <textarea id="csv-output" readonly placeholder="CSV output will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QR Code Reader -->
+            <section id="qr-reader" class="tool-section">
+                <header class="tool-header">
+                    <h2><i class="fas fa-qrcode"></i> QR Code Reader</h2>
+                    <p>Scan QR codes using your camera or upload an image</p>
+                </header>
+                
+                <div class="tool-content">
+                    <div class="qr-reader-container">
+                        <div class="qr-input-methods">
+                            <button id="camera-scan-btn" class="method-btn active">
+                                <i class="fas fa-camera"></i> Scan with Camera
+                            </button>
+                            <button id="file-upload-btn" class="method-btn">
+                                <i class="fas fa-upload"></i> Upload QR Image
+                            </button>
+                        </div>
+                        
+                        <div id="camera-section" class="qr-input-section active">
+                            <div class="camera-container">
+                                <video id="qr-video" autoplay playsinline></video>
+                                <canvas id="qr-canvas" style="display: none;"></canvas>
+                                <div id="camera-status" class="camera-status">
+                                    Click "Start Camera" to begin scanning
+                                </div>
+                            </div>
+                            <button id="start-camera-btn" class="control-btn primary">
+                                <i class="fas fa-play"></i> Start Camera
+                            </button>
+                        </div>
+                        
+                        <div id="upload-section" class="qr-input-section">
+                            <div class="upload-area" id="qr-upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drop QR code image here or click to upload</p>
+                                <input type="file" id="qr-file-input" accept="image/*" hidden>
+                            </div>
+                            <canvas id="upload-canvas" style="display: none;"></canvas>
+                        </div>
+                        
+                        <div class="qr-result" id="qr-result" style="display: none;">
+                            <h3>QR Code Content:</h3>
+                            <div class="result-content">
+                                <div id="qr-content" class="qr-content"></div>
+                                <button id="copy-qr-content" class="copy-btn">
+                                    <i class="fas fa-copy"></i> Copy Content
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+/* Tag Manager Styles */
+.tag-status-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100000;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    max-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.tag-status-overlay.show {
+    display: block;
+}
+
+.tag-status-title {
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tag-status-info {
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.tag-status-list {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.tag-status-list li {
+    margin: 3px 0;
+    padding: 3px 0;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.tag-status-list .status {
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.tag-status-list .status-tagged {
+    background-color: #4caf50;
+    color: white;
+}
+
+.tag-status-list .status-not-tagged {
+    background-color: #f44336;
+    color: white;
+}
+
+.tag-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tag-toggle-btn:hover {
+    background-color: #0b7dda;
+    transform: scale(1.1);
+}
+
+.tag-status-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+}
+
+.tag-status-actions button {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.tag-status-actions button:hover {
+    background-color: #777;
+}
+
+.tag-status-actions .refresh-btn {
+    background-color: #2196F3;
+}
+
+.tag-status-actions .refresh-btn:hover {
+    background-color: #0b7dda;
+}
+
+.tag-status-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .tag-status-overlay {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+}

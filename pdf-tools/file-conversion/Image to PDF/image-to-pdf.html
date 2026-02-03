@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF Converter - QUANTUM TOOLS</title>
+    <meta name="description" content="Convert JPG, PNG, and other images to PDF format with advanced options">
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4013378095829502">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4013378095829502"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PDF.js and jsPDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfjs-dist/3.4.120/pdf.min.js"></script>
+    <link rel="stylesheet" href="image-to-pdf-styles.css">
+</head>
+
+<body class="dark-theme">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../../../index.html">
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <div class="nav-right">
+                    <a href="../../pdf-toolkit.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to PDF Tools</span>
+                    </a>
+                    <div class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Tool Header -->
+            <section class="tool-header">
+                <div class="tool-info">
+                    <div class="tool-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="tool-details">
+                        <h1 class="tool-title">Image to PDF Converter</h1>
+                        <p class="tool-description">
+                            Convert multiple images to a single PDF document with customizable layout and quality
+                            settings.
+                        </p>
+                        <div class="tool-features">
+                            <span class="feature-tag">
+                                <i class="fas fa-images"></i>
+                                Multiple Images
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-cog"></i>
+                                Custom Layout
+                            </span>
+                            <span class="feature-tag">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                                Auto Resize
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Tool Interface -->
+            <div class="tool-interface">
+                <!-- Step 1: Upload Images -->
+                <section class="step-section active" id="upload-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h2>Upload Images</h2>
+                            <p>Select or drag & drop your images (JPG, PNG, GIF, WebP)</p>
+                        </div>
+                    </div>
+
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h3>Drop images here or click to browse</h3>
+                            <p>Supports JPG, PNG, GIF, WebP formats</p>
+                            <p class="upload-limit">Maximum file size: 10MB per image</p>
+                            <input type="file" id="file-input" multiple accept="image/*" hidden>
+                            <button class="upload-btn" id="browse-btn">
+                                <i class="fas fa-folder-open"></i>
+                                Browse Files
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="uploaded-images" id="uploaded-images" style="display: none;">
+                        <h3>Selected Images (<span id="image-count">0</span>)</h3>
+                        <div class="image-list" id="image-list"></div>
+                        <div class="upload-actions">
+                            <button class="btn secondary" id="add-more-btn">
+                                <i class="fas fa-plus"></i>
+                                Add More Images
+                            </button>
+                            <button class="btn primary" id="proceed-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Configure Settings
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 2: Configure Settings -->
+                <section class="step-section" id="settings-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h2>Configure PDF Settings</h2>
+                            <p>Customize your PDF layout and quality options</p>
+                        </div>
+                    </div>
+
+                    <div class="settings-grid">
+                        <div class="setting-group">
+                            <label for="page-size">Page Size</label>
+                            <select id="page-size" class="setting-input">
+                                <option value="a4">A4 (210 × 297 mm)</option>
+                                <option value="letter">Letter (216 × 279 mm)</option>
+                                <option value="legal">Legal (216 × 356 mm)</option>
+                                <option value="a3">A3 (297 × 420 mm)</option>
+                                <option value="auto">Auto (fit to image)</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="orientation">Orientation</label>
+                            <select id="orientation" class="setting-input">
+                                <option value="auto">Auto</option>
+                                <option value="portrait">Portrait</option>
+                                <option value="landscape">Landscape</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="layout">Layout</label>
+                            <select id="layout" class="setting-input">
+                                <option value="one-per-page">One image per page</option>
+                                <option value="fit-to-page">Fit to page</option>
+                                <option value="original-size">Original size</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="quality">Image Quality</label>
+                            <select id="quality" class="setting-input">
+                                <option value="high">High (best quality)</option>
+                                <option value="medium" selected>Medium (balanced)</option>
+                                <option value="low">Low (smaller file)</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="margin">Page Margins</label>
+                            <input type="range" id="margin" class="setting-range" min="0" max="50" value="20">
+                            <span class="range-value" id="margin-value">20mm</span>
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="compression">Compression</label>
+                            <input type="range" id="compression" class="setting-range" min="0.1" max="1" step="0.1"
+                                value="0.8">
+                            <span class="range-value" id="compression-value">80%</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button class="btn secondary" id="back-to-upload">
+                            <i class="fas fa-arrow-left"></i>
+                            Back to Upload
+                        </button>
+                        <button class="btn primary" id="generate-pdf">
+                            <i class="fas fa-file-pdf"></i>
+                            Generate PDF
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Step 3: Processing -->
+                <section class="step-section" id="processing-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h2>Generating PDF</h2>
+                            <p>Please wait while we create your PDF document</p>
+                        </div>
+                    </div>
+
+                    <div class="processing-content">
+                        <div class="processing-animation">
+                            <div class="spinner"></div>
+                        </div>
+                        <h3 id="processing-status">Initializing...</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p class="progress-text" id="progress-text">0% complete</p>
+                    </div>
+                </section>
+
+                <!-- Step 4: Download -->
+                <section class="step-section" id="complete-step">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h2>PDF Ready!</h2>
+                            <p>Your PDF has been successfully created</p>
+                        </div>
+                    </div>
+
+                    <div class="complete-content">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>PDF Generated Successfully!</h3>
+                        <div class="pdf-info" id="pdf-info">
+                            <div class="info-item">
+                                <span class="info-label">Pages:</span>
+                                <span class="info-value" id="pdf-pages">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">File Size:</span>
+                                <span class="info-value" id="pdf-size">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Images:</span>
+                                <span class="info-value" id="pdf-images">-</span>
+                            </div>
+                        </div>
+                        <div class="complete-actions">
+                            <button class="btn primary" id="download-pdf">
+                                <i class="fas fa-download"></i>
+                                Download PDF
+                            </button>
+                            <button class="btn secondary" id="start-over">
+                                <i class="fas fa-redo"></i>
+                                Convert More Images
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- SEO Content Block -->
+            <section class="seo-content-static" style="padding: 2rem 0;">
+                <div class="container">
+                    <div class="seo-section">
+                        <h2>Convert Images to PDF Online</h2>
+                        <p>Transform your JPG, PNG, and WebP images into professional PDF documents instantly. Our Image
+                            to PDF converter preserves the original quality of your photos while organizing them into a
+                            single, shareable file. Perfect for creating digital photo albums, compiling receipts for
+                            expense reports, or preparing design portfolios.</p>
+                    </div>
+                    <div class="seo-section">
+                        <h2>Key Features</h2>
+                        <ul>
+                            <li><strong>Bulk Conversion:</strong> Upload multiple images at once and merge them into a
+                                single PDF or keep them as separate files.</li>
+                            <li><strong>Drag & Drop Reordering:</strong> Easily arrange your images in the exact order
+                                you want them to appear in the final document.</li>
+                            <li><strong>No Uploads Required:</strong> All conversion happens in your browser, ensuring
+                                your personal photos and documents remain 100% private.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QUANTUM TOOLS. All rights reserved. | Built with ❤️ for productivity</p>
+        </div>
+    </footer>
+    <script src="image-to-pdf-script.js"></script>
+</body>
+
+</html>

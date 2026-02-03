@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect PDF - QUANTUM TOOLS</title>
+    <meta name="description"
+        content="Secure your PDF files with passwords instantly. 100% client-side encryption. No files needed to be uploaded to any server.">
+
+    <!-- Google Tag Manager & Analytics (Preserved from template) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0E17RL1H32"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-0E17RL1H32');
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../../pdf-tools/pdf-toolkit-styles.css">
+
+    <!-- PDF Lib -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+
+    <style>
+        .tool-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            text-align: center;
+        }
+
+        .upload-zone {
+            border: 2px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: #00f0ff;
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: #00f0ff;
+            margin-bottom: 1rem;
+        }
+
+        .password-section {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #00f0ff;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #00f0ff, #00afff);
+            color: #000;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+
+        .action-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #fileInfo {
+            display: none;
+            margin-top: 1rem;
+            color: #00f0ff;
+        }
+
+        .loading-spinner {
+            display: none;
+            margin: 1rem auto;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 240, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #00f0ff;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .success-message {
+            display: none;
+            color: #00ff88;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../../../index.html">
+                    <i class="fas fa-atom fa-2x" style="color: var(--accent-color-1);"></i>
+                    <h1>QUANTUM TOOLS</h1>
+                </a>
+            </div>
+            <nav>
+                <a href="../../../index.html" class="nav-link">Home</a>
+                <a href="../../../pdf-tools/pdf-toolkit.html" class="nav-link">PDF Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="tool-container">
+            <h1 class="glowing-text">Protect PDF</h1>
+            <p>Encrypt your PDF with a password. Secure and Client-Side.</p>
+
+            <div class="upload-zone" id="dropZone">
+                <i class="fas fa-file-pdf upload-icon"></i>
+                <h3>Drag & Drop PDF here</h3>
+                <p>or click to select file</p>
+                <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                <div id="fileInfo">No file selected</div>
+            </div>
+
+            <div class="password-section">
+                <div class="form-group">
+                    <label for="userPassword">Open Password (Required)</label>
+                    <input type="password" id="userPassword" placeholder="Enter password to open the PDF">
+                </div>
+                <!-- 
+                <div class="form-group">
+                    <label for="ownerPassword">Owner Password (Optional)</label>
+                    <input type="password" id="ownerPassword" placeholder="Enter password to edit/print (Defaults to Open Password)">
+                </div>
+                -->
+            </div>
+
+            <button id="protectBtn" class="action-btn" disabled>Protect PDF <i class="fas fa-lock"></i></button>
+            <div class="loading-spinner" id="spinner"></div>
+            <div class="success-message" id="successMsg">PDF Protected Successfully!</div>
+        </div>
+
+        <!-- SEO Content Block -->
+        <section class="seo-content-static"
+            style="padding: 2rem 0; text-align: left; margin-top: 2rem; border-top: 1px solid rgba(0, 240, 255, 0.1); max-width: 800px; margin: 2rem auto;">
+            <div class="seo-section">
+                <h2 style="color: #00f0ff; margin-bottom: 1rem;">Secure PDF Password Protection</h2>
+                <p style="color: #a0a0a0; margin-bottom: 1.5rem;">Protect your sensitive PDF documents with
+                    military-grade encryption directly in your browser. Our tool ensures your data never leaves your
+                    device, providing maximum security for your confidential files.</p>
+            </div>
+            <div class="seo-section">
+                <h2 style="color: #00f0ff; margin-bottom: 1rem;">How it Works</h2>
+                <ul style="color: #a0a0a0; padding-left: 1.5rem;">
+                    <li><strong>Client-Side Encryption:</strong> The encryption process happens entirely using
+                        JavaScript on your computer.</li>
+                    <li><strong>No Server Upload:</strong> Your files are never uploaded to any cloud server,
+                        eliminating interception risks.</li>
+                    <li><strong>Instant Processing:</strong> Lock your PDF files in seconds with a custom password.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QUANTUM TOOLS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const protectBtn = document.getElementById('protectBtn');
+        const userPasswordInput = document.getElementById('userPassword');
+        // const ownerPasswordInput = document.getElementById('ownerPassword');
+        const spinner = document.getElementById('spinner');
+        const successMsg = document.getElementById('successMsg');
+
+        let currentFile = null;
+
+        // Drag and Drop
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+        function handleFiles(files) {
+            if (files.length > 0 && files[0].type === 'application/pdf') {
+                currentFile = files[0];
+                fileInfo.style.display = 'block';
+                fileInfo.textContent = `Selected: ${currentFile.name}`;
+                updateButtonState();
+            } else {
+                alert('Please select a valid PDF file.');
+            }
+        }
+
+        userPasswordInput.addEventListener('input', updateButtonState);
+
+        function updateButtonState() {
+            if (currentFile && userPasswordInput.value.length > 0) {
+                protectBtn.disabled = false;
+            } else {
+                protectBtn.disabled = true;
+            }
+        }
+
+        protectBtn.addEventListener('click', async () => {
+            if (!currentFile || !userPasswordInput.value) return;
+
+            try {
+                protectBtn.disabled = true;
+                protectBtn.innerHTML = 'Processing...';
+                spinner.style.display = 'block';
+                successMsg.style.display = 'none';
+
+                const arrayBuffer = await currentFile.arrayBuffer();
+                const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+
+                const password = userPasswordInput.value;
+
+                // Encrypt the PDF
+                // Use standard encryption (128-bit or 256-bit depending on browser support usually defaults nicely in pdf-lib)
+                pdfDoc.encrypt({
+                    userPassword: password,
+                    ownerPassword: password, // Setting owner password same as user for simple locking
+                    permissions: {
+                        printing: 'highResolution',
+                        modifying: false,
+                        copying: false,
+                        annotating: false,
+                        fillingForms: false,
+                        contentAccessibility: false,
+                        documentAssembly: false,
+                    },
+                });
+
+                const pdfBytes = await pdfDoc.save();
+
+                // Trigger download
+                download(pdfBytes, `protected-${currentFile.name}`, "application/pdf");
+
+                spinner.style.display = 'none';
+                successMsg.style.display = 'block';
+                protectBtn.innerHTML = 'Protect Another <i class="fas fa-lock"></i>';
+                protectBtn.disabled = false;
+
+                // Reset basic fields if needed, or keep for re-download
+            } catch (error) {
+                console.error(error);
+                alert('An error occurred while protecting the PDF. The file might be corrupted or already encrypted.');
+                protectBtn.disabled = false;
+                protectBtn.innerHTML = 'Protect PDF <i class="fas fa-lock"></i>';
+                spinner.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

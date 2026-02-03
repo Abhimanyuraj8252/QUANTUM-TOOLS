@@ -1,0 +1,157 @@
+# .htaccess for QUANTUM TOOLS - Advanced SEO Configuration
+# Updated on July 19, 2025
+
+# Enable Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Images
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS and JS
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 week"
+    ExpiresByType application/xhtml+xml "access plus 1 week"
+    
+    # Fonts
+    ExpiresByType font/truetype "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/x-font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Security Headers
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # HSTS (if using HTTPS)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Cache Control
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+    
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+    
+    # Add Last-Modified headers for better caching
+    <FilesMatch "\.(html|htm|css|js)$">
+        Header set Last-Modified "Sat, 19 Jul 2025 16:00:00 GMT"
+    </FilesMatch>
+</IfModule>
+
+# URL Rewriting for SEO
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Force HTTPS and non-www in one redirect to avoid multiple redirects
+    RewriteCond %{HTTP_HOST} ^www\.quantumtools\.me [NC,OR]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://quantumtools.me/$1 [L,R=301]
+    
+    # Redirect /index.html to root domain to avoid duplicate content
+    RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
+    RewriteRule ^index\.html$ https://quantumtools.me/ [R=301,L]
+    
+    # Redirect old bg-remover URLs to new background-remover URL
+    RewriteRule ^image-tools/bg[-\s]?remover(/.*)?$ /image-tools/background-remover/ [R=301,L,NC]
+    
+    # Redirect any /directory/index.html to /directory/ to avoid duplicates
+    RewriteCond %{THE_REQUEST} \s/(.+/)?index\.html[\s?] [NC]
+    RewriteRule ^(.*)index\.html$ /$1 [R=301,L]
+    
+    # Redirect ads.txt to AdsTxtManager
+    RewriteRule ^ads\.txt$ https://srv.adstxtmanager.com/75633/quantumtools.me [R=301,L]
+    
+    # Block problematic dynamically generated URLs that shouldn't be indexed
+    RewriteCond %{REQUEST_URI} ^/tardisrocinante/.*$ [OR]
+    RewriteCond %{REQUEST_URI} ^/parsonsmalze/.*$ [OR]
+    RewriteCond %{REQUEST_URI} ^/detroitchicago/.*$ [OR]
+    RewriteCond %{QUERY_STRING} gcb=.*$ [OR]
+    RewriteCond %{QUERY_STRING} cb=.*$
+    RewriteRule .* - [F,L]
+    
+    # Block JS files with problematic query parameters
+    RewriteCond %{REQUEST_URI} .*\.js$ [AND]
+    RewriteCond %{QUERY_STRING} (gcb=|cb=)
+    RewriteRule .* - [F,L]
+    
+    # Remove trailing slashes from URLs (except for directories)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+    
+    # Serve .html files when accessed without extension
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+    
+    # Set index.html as DirectoryIndex without internal redirect
+    DirectoryIndex index.html
+    
+    # Custom Error Pages
+    ErrorDocument 404 /404.html
+    ErrorDocument 500 /500.html
+</IfModule>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# MIME Types
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType image/webp .webp
+    AddType application/manifest+json .webmanifest
+    AddType application/x-web-app-manifest+json .webapp
+    AddType text/cache-manifest .appcache
+</IfModule>
+
+# Performance Optimizations
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+    SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+</IfModule>
