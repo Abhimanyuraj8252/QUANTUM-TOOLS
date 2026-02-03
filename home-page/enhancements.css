@@ -26,9 +26,20 @@
 }
 
 @keyframes success-pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Tooltip for better UI feedback */
@@ -96,8 +107,13 @@
 }
 
 @keyframes loading-shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* Focus Visible for Better Keyboard Navigation */
@@ -108,7 +124,8 @@
 
 /* Color Contrast for Accessibility */
 .light-theme .accent-text {
-    color: #0051cc; /* Darker blue for better contrast in light mode */
+    color: #0051cc;
+    /* Darker blue for better contrast in light mode */
 }
 
 /* Add smooth transitions for theme changes */
@@ -128,4 +145,293 @@ input[type="text"]:focus,
 textarea:focus {
     transform: translateY(-2px);
 }
-    
+
+
+/* === WARM & BOLD FEATURED TOOLS === */
+.featured-tools-section {
+    padding: 120px 0;
+    background: #050505;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dynamic warm background glow */
+.featured-tools-section::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 87, 34, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.featured-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Base Style - Bold & Dark */
+.featured-tool-card {
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Category Specific Styles - WARM PALETTE with COLORED BACKGROUNDS */
+
+/* AI Powered - GOLD/YELLOW */
+.featured-tool-card[data-category="ai-powered"] {
+    background: linear-gradient(145deg, rgba(50, 40, 0, 0.6), rgba(10, 10, 0, 0.9));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-top: 4px solid #FFD700;
+}
+
+.featured-tool-card[data-category="ai-powered"]:hover {
+    background: linear-gradient(145deg, rgba(70, 56, 0, 0.8), rgba(20, 20, 0, 0.95));
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.15), inset 0 0 30px rgba(255, 215, 0, 0.1);
+    border-color: #FFD700;
+}
+
+.featured-tool-card[data-category="ai-powered"] .tool-preview {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.featured-tool-card[data-category="ai-powered"] .tool-icon-large {
+    color: #FFD700;
+}
+
+.featured-tool-card[data-category="ai-powered"] .tool-action-btn:hover {
+    background: #FFD700;
+    color: #000;
+    border-color: #FFD700;
+}
+
+/* Conversion - ORANGE */
+.featured-tool-card[data-category="conversion"] {
+    background: linear-gradient(145deg, rgba(60, 20, 0, 0.6), rgba(15, 5, 0, 0.9));
+    border: 1px solid rgba(255, 87, 34, 0.3);
+    border-top: 4px solid #FF5722;
+}
+
+.featured-tool-card[data-category="conversion"]:hover {
+    background: linear-gradient(145deg, rgba(80, 26, 0, 0.8), rgba(25, 8, 0, 0.95));
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 87, 34, 0.15), inset 0 0 30px rgba(255, 87, 34, 0.1);
+    border-color: #FF5722;
+}
+
+.featured-tool-card[data-category="conversion"] .tool-preview {
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.2), rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(255, 87, 34, 0.2);
+}
+
+.featured-tool-card[data-category="conversion"] .tool-icon-large {
+    color: #FF5722;
+}
+
+.featured-tool-card[data-category="conversion"] .tool-action-btn:hover {
+    background: #FF5722;
+    color: #fff;
+    border-color: #FF5722;
+}
+
+/* Optimization - RED */
+.featured-tool-card[data-category="optimization"] {
+    background: linear-gradient(145deg, rgba(60, 0, 10, 0.6), rgba(15, 0, 5, 0.9));
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    border-top: 4px solid #F44336;
+}
+
+.featured-tool-card[data-category="optimization"]:hover {
+    background: linear-gradient(145deg, rgba(80, 0, 14, 0.8), rgba(25, 0, 8, 0.95));
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(244, 67, 54, 0.15), inset 0 0 30px rgba(244, 67, 54, 0.1);
+    border-color: #F44336;
+}
+
+.featured-tool-card[data-category="optimization"] .tool-preview {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+.featured-tool-card[data-category="optimization"] .tool-icon-large {
+    color: #F44336;
+}
+
+.featured-tool-card[data-category="optimization"] .tool-action-btn:hover {
+    background: #F44336;
+    color: #fff;
+    border-color: #F44336;
+}
+
+
+/* Preview Area - Clean & Dark */
+.tool-preview {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    background: #1e1e1e;
+    border-radius: 12px;
+}
+
+.tool-icon-large {
+    font-size: 3.5rem;
+    transition: transform 0.4s ease;
+}
+
+.featured-tool-card:hover .tool-icon-large {
+    transform: scale(1.1);
+}
+
+.preview-gradient {
+    display: none;
+}
+
+/* Removing complex gradients for cleaner look */
+
+/* Content */
+.tool-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tags - Solid Colors */
+.tool-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    /* Squarer, more modern/tech look */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ai-tag {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.premium-tag {
+    background: #FFD700;
+    color: #000;
+    border: 1px solid #FFD700;
+}
+
+.conversion-tag {
+    background: rgba(255, 87, 34, 0.1);
+    color: #FF5722;
+    border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
+.fast-tag {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.optimize-tag {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.advanced-tag {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+    border: 1px solid rgba(33, 150, 243, 0.3);
+}
+
+/* Typography - Clean & Standard */
+.featured-tool-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    /* Removed gradients/shadows for better legibility */
+}
+
+.featured-tool-card p {
+    color: #cccccc;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Features List */
+.tool-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 0;
+    background: none;
+}
+
+.feature {
+    font-size: 0.9rem;
+    color: #bbb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature i {
+    color: #888;
+    /* Neutral icon color */
+}
+
+/* Action Button - Outline Style */
+.tool-action-btn {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid #555;
+    color: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    /* Slightly rounded */
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tool-action-btn i {
+    transition: transform 0.3s ease;
+}
+
+.tool-action-btn:hover i {
+    transform: translateX(5px);
+}

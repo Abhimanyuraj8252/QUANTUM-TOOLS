@@ -850,8 +850,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             title: 'Background Remover',
             description: 'Remove backgrounds from images using AI technology',
-            url: 'image-tools/background-remover/',
-            keywords: 'background, remove, ai, image, transparent, cutout, photo editing, png',
+            url: 'image-tools/background-remover/index.html',
+            keywords: 'background, remove, ai, image, transparent, cutout, photo editing, png, bg, bg remover, bakground remover, edge refinement',
             icon: 'fas fa-magic'
         },
         {
