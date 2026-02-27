@@ -5,8 +5,8 @@ class SEOAnalyticsManager {
     }
 
     init() {
-        this.setupGoogleTagManager(); // Add GTM initialization first
-        this.setupGoogleAnalytics();
+        // this.setupGoogleTagManager(); // Disabled: Handled by delayed-scripts.js correctly
+        // this.setupGoogleAnalytics(); // Disabled: Handled by delayed-scripts.js correctly
         this.setupStructuredData();
         this.setupSEOOptimizations();
         this.trackUserEngagement();
