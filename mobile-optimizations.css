@@ -332,20 +332,21 @@ header .container {
         min-height: auto !important;
         max-height: fit-content !important;
         height: auto !important;
-        margin-top: 70px !important;
-        padding: 20px 15px !important;
+        margin-top: 110px !important;
+        /* Increased to account for two-line header */
+        padding: 40px 15px !important;
         overflow: visible !important;
         position: relative !important;
     }
 
-    /* CRITICAL: Make hero content visible */
+    /* CRITICAL: Make hero content visible and better spaced */
     .hero-content {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         position: relative !important;
         z-index: 100 !important;
-        padding: 15px !important;
+        padding: 20px 15px !important;
         text-align: center !important;
     }
 
@@ -419,11 +420,11 @@ header .container {
 /* Tablet/Mobile Fix for Explore Button */
 @media (max-width: 768px) {
     .cta-button {
-        padding: 14px 32px;
-        font-size: 1rem;
+        padding: 16px 36px;
+        font-size: 1.1rem;
         display: inline-block;
-        max-width: 80%;
-        margin-top: 15px;
+        max-width: 90%;
+        margin-top: 25px;
         /* Ensure it behaves */
         box-sizing: border-box;
     }
@@ -490,11 +491,14 @@ header .container {
 
     /* Hero section adjustments */
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        /* Increased size for mobile impact */
+        margin-bottom: 20px !important;
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 25px !important;
     }
 
     /* Section title adjustments */
